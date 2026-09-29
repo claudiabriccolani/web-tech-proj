@@ -1,0 +1,68 @@
+{
+  "title": "LMML – Live Museum of Movie Locations",
+  "shortTitle": "LMML",
+  "subtitle": "TODO: subtitle",
+  "author": "TODO: your name",
+  "baseUrl": "",
+  "defaultTheme": "victorian",
+  "defaultNarrative": "historical-timeline",
+
+  "themes": [
+    { "id": "victorian", "label": "Victorian", "href": "css/themes/victorian.css" },
+    { "id": "sixties",   "label": "Sixties",   "href": "css/themes/sixties.css" }
+  ],
+
+  "cover": {
+    "intro": "<p><strong>TODO</strong>: introductory text of the visit. Explain what LMML is, how the day is organised and how to use the text switches on each location page.</p>",
+    "narrativesHeading": "Choose a narrative"
+  },
+
+  "about": {
+    "title": "About the author",
+    "text": "<p><strong>TODO</strong>: text about the author.</p>"
+  },
+
+  "disclaimer": {
+    "title": "Disclaimer",
+    "template": "<p>The purpose of this web site is to explore various types of typographic and layout style for specialized tourist visits, as an end-of-course project for the 'Information Modeling and Web technologies' course of the Master's Degree in Digital Humanities and Digital Knowledge of the University of Bologna, under the supervision of prof. Fabio Vitali.</p><p>The documents contained in this web site have been selected for their length and complexity from {{sourceNames}}. Their publication here is not intended to be an alternative to or a replacement for their original locations:</p>{{sourceList}}<p>Copyright and related rights on the content remain with their original owners.</p><p>Copyright on the typographic and layout choices are 2026 © {{author}}.</p>"
+  },
+
+  "docs": [
+    {
+      "title": "Design choices",
+      "text": "<p>TODO</p>",
+      "sections": [
+        { "title": "Viewport-sized canvas and scroll containers", "text": "<p>TODO</p>" },
+        { "title": "HTML vocabulary and style hooks", "text": "<p>TODO</p>" },
+        { "title": "Portrait and landscape layouts", "text": "<p>TODO</p>" }
+      ]
+    },
+    {
+      "title": "Metadata model",
+      "text": "<p>TODO</p>",
+      "sections": [
+        { "title": "schema.org terms", "text": "<p>TODO</p>" },
+        { "title": "The lmml: namespace", "text": "<p>TODO</p>" },
+        { "title": "The text grid (length × level × tone)", "text": "<p>TODO</p>" }
+      ]
+    },
+    {
+      "title": "Themes",
+      "text": "<p>TODO</p>",
+      "sections": [
+        { "title": "Victorian", "text": "<p>TODO</p>" },
+        { "title": "Sixties", "text": "<p>TODO</p>" },
+        { "title": "How a theme overrides the layout", "text": "<p>TODO</p>" }
+      ]
+    },
+    {
+      "title": "Narratives",
+      "text": "<p>TODO</p>",
+      "sections": [
+        { "title": "Historical timeline", "text": "<p>TODO</p>" },
+        { "title": "Recreate the shot", "text": "<p>TODO</p>" },
+        { "title": "Text selection algorithm", "text": "<p>TODO</p>" }
+      ]
+    }
+  ]
+}

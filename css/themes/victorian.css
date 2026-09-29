@@ -1,0 +1,37 @@
+/* ==========================================================================
+   victorian.css — PLACEHOLDER THEME
+
+   It only exists to prove that a theme can switch typography, colours and
+   layout. Replace it with the real design.
+
+   All rules are scoped with :root[data-theme="victorian"], so they never
+   apply to another theme even while stylesheets are being swapped.
+   ========================================================================== */
+
+:root[data-theme="victorian"] {
+  /* Typography (placeholder: generic system serif) */
+  --font-body: Georgia, "Times New Roman", serif;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-ui: Georgia, "Times New Roman", serif;
+  --line-height: 1.6;
+
+  /* Colours (placeholder) */
+  --color-bg: #f6f1e7;
+  --color-fg: #2a2118;
+  --color-muted: #6d5f4f;
+  --color-surface: #ece3d2;
+  --color-border: #c9b99c;
+  --color-accent: #5a3b1c;
+  --color-accent-contrast: #f6f1e7;
+
+  --map-marker: #7a5a3a;
+  --map-marker-route: #5a3b1c;
+  --map-route: #5a3b1c;
+  --map-cone: #a07850;
+
+  /* Layout: keeps base.css (images left, text right) */
+}
+
+:root[data-theme="victorian"] [data-role="location-title"] {
+  font-style: italic;
+}

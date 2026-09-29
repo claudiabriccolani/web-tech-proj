@@ -1,0 +1,174 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "lmml": "https://example.org/lmml#"
+  },
+  "locations": [
+    {
+      "@type": "Place",
+      "identifier": "st-lukes-mews",
+      "name": "27 St Luke's Mews",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "27 St Luke's Mews",
+        "addressLocality": "London",
+        "postalCode": "TODO"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 51.5176, "longitude": -0.2028 },
+      "lmml:cameraPosition": { "@type": "GeoCoordinates", "latitude": 51.51765, "longitude": -0.20310 },
+      "lmml:cameraBearing": 90,
+      "lmml:shotDescription": "TODO: describe where to stand and where to point the camera (placeholder position and bearing).",
+      "lmml:verified": false,
+      "lmml:appearsIn": {
+        "@type": "Movie",
+        "name": "Love Actually",
+        "datePublished": "2003",
+        "director": { "@type": "Person", "name": "TODO" }
+      },
+      "lmml:sceneDescription": "TODO: scene description.",
+      "lmml:representsPlace": null,
+      "image": [
+        {
+          "@type": "ImageObject",
+          "contentUrl": "img/placeholder-landscape.svg",
+          "caption": "TODO: caption of image 1",
+          "creditText": "TODO",
+          "license": "",
+          "url": ""
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "img/placeholder-portrait.svg",
+          "caption": "TODO: caption of image 2",
+          "creditText": "TODO",
+          "license": "",
+          "url": ""
+        }
+      ],
+      "citation": [
+        { "@type": "CreativeWork", "url": "https://example.org/TODO-source-st-lukes-mews", "description": "TODO: describe this source" }
+      ],
+      "lmml:texts": [
+        {
+          "lmml:length": "short", "lmml:level": "intro", "lmml:tone": "adult", "inLanguage": "en",
+          "text": "<p><strong>TODO</strong>: placeholder text for 27 St Luke's Mews. Cell: short · intro · adult.</p>"
+        },
+        {
+          "lmml:length": "medium", "lmml:level": "average", "lmml:tone": "adult", "inLanguage": "en",
+          "text": "<p><strong>TODO</strong>: placeholder text for 27 St Luke's Mews. Cell: medium · average · adult.</p><p>TODO: second paragraph of the medium text.</p>"
+        },
+        {
+          "lmml:length": "long", "lmml:level": "advanced", "lmml:tone": "scholar", "inLanguage": "en",
+          "text": "<p><strong>TODO</strong>: placeholder text for 27 St Luke's Mews. Cell: long · advanced · scholar.</p><p>TODO placeholder paragraph 2. This block only exists to check that long texts scroll inside their own container while the page itself never scrolls.</p><p>TODO placeholder paragraph 3. This block only exists to check that long texts scroll inside their own container while the page itself never scrolls.</p><p>TODO placeholder paragraph 4. This block only exists to check that long texts scroll inside their own container while the page itself never scrolls.</p><p>TODO placeholder paragraph 5. This block only exists to check that long texts scroll inside their own container while the page itself never scrolls.</p><h3>References</h3><ul><li>TODO: reference 1</li><li>TODO: reference 2</li></ul>"
+        }
+      ]
+    },
+
+    {
+      "@type": "Place",
+      "identifier": "north-gower-street",
+      "name": "187 North Gower Street",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "187 North Gower Street",
+        "addressLocality": "London",
+        "postalCode": "TODO"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 51.5248, "longitude": -0.1364 },
+      "lmml:cameraPosition": { "@type": "GeoCoordinates", "latitude": 51.52505, "longitude": -0.13625 },
+      "lmml:cameraBearing": 200,
+      "lmml:shotDescription": "TODO: describe where to stand and where to point the camera (placeholder position and bearing).",
+      "lmml:verified": false,
+      "lmml:appearsIn": {
+        "@type": "TVEpisode",
+        "name": "TODO: episode title",
+        "datePublished": "2010",
+        "director": { "@type": "Person", "name": "TODO" },
+        "episodeNumber": null,
+        "partOfSeason": { "@type": "TVSeason", "seasonNumber": null },
+        "partOfSeries": { "@type": "TVSeries", "name": "Sherlock" }
+      },
+      "lmml:sceneDescription": "TODO: scene description.",
+      "lmml:representsPlace": null,
+      "image": [
+        {
+          "@type": "ImageObject",
+          "contentUrl": "img/placeholder-landscape.svg",
+          "caption": "TODO: caption",
+          "creditText": "TODO",
+          "license": "",
+          "url": ""
+        }
+      ],
+      "citation": [
+        { "@type": "CreativeWork", "url": "https://example.org/TODO-source-north-gower-street", "description": "TODO: describe this source" }
+      ],
+      "lmml:texts": [
+        {
+          "lmml:length": "short", "lmml:level": "intro", "lmml:tone": "young", "inLanguage": "en",
+          "text": "<p><strong>TODO</strong>: placeholder text for 187 North Gower Street. Cell: short · intro · young.</p>"
+        },
+        {
+          "lmml:length": "medium", "lmml:level": "average", "lmml:tone": "adult", "inLanguage": "en",
+          "text": "<p><strong>TODO</strong>: placeholder text for 187 North Gower Street. Cell: medium · average · adult.</p><p>TODO: second paragraph of the medium text.</p>"
+        },
+        {
+          "lmml:length": "long", "lmml:level": "average", "lmml:tone": "scholar", "inLanguage": "en",
+          "text": "<p><strong>TODO</strong>: placeholder text for 187 North Gower Street. Cell: long · average · scholar.</p><p>TODO placeholder paragraph 2. This block only exists to check that long texts scroll inside their own container while the page itself never scrolls.</p><p>TODO placeholder paragraph 3. This block only exists to check that long texts scroll inside their own container while the page itself never scrolls.</p><p>TODO placeholder paragraph 4. This block only exists to check that long texts scroll inside their own container while the page itself never scrolls.</p><h3>References</h3><ul><li>TODO: reference 1</li></ul>"
+        }
+      ]
+    },
+
+    {
+      "@type": "Place",
+      "identifier": "marylebone-station",
+      "name": "Marylebone Station",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "TODO",
+        "addressLocality": "London",
+        "postalCode": "TODO"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 51.5225, "longitude": -0.1631 },
+      "lmml:cameraPosition": { "@type": "GeoCoordinates", "latitude": 51.52215, "longitude": -0.16310 },
+      "lmml:cameraBearing": 0,
+      "lmml:shotDescription": "TODO: describe where to stand and where to point the camera (placeholder position and bearing).",
+      "lmml:verified": false,
+      "lmml:appearsIn": {
+        "@type": "Movie",
+        "name": "A Hard Day's Night",
+        "datePublished": "1964",
+        "director": { "@type": "Person", "name": "TODO" }
+      },
+      "lmml:sceneDescription": "TODO: scene description.",
+      "lmml:representsPlace": { "@type": "Place", "name": "Liverpool Lime Street (TODO: verify)" },
+      "image": [
+        {
+          "@type": "ImageObject",
+          "contentUrl": "img/placeholder-landscape.svg",
+          "caption": "TODO: caption",
+          "creditText": "TODO",
+          "license": "",
+          "url": ""
+        }
+      ],
+      "citation": [
+        { "@type": "CreativeWork", "url": "https://example.org/TODO-source-marylebone-station", "description": "TODO: describe this source" }
+      ],
+      "lmml:texts": [
+        {
+          "lmml:length": "short", "lmml:level": "average", "lmml:tone": "adult", "inLanguage": "en",
+          "text": "<p><strong>TODO</strong>: placeholder text for Marylebone Station. Cell: short · average · adult.</p>"
+        },
+        {
+          "lmml:length": "medium", "lmml:level": "intro", "lmml:tone": "young", "inLanguage": "en",
+          "text": "<p><strong>TODO</strong>: placeholder text for Marylebone Station. Cell: medium · intro · young.</p><p>TODO: second paragraph of the medium text.</p>"
+        },
+        {
+          "lmml:length": "long", "lmml:level": "advanced", "lmml:tone": "adult", "inLanguage": "en",
+          "text": "<p><strong>TODO</strong>: placeholder text for Marylebone Station. Cell: long · advanced · adult.</p><p>TODO placeholder paragraph 2. This block only exists to check that long texts scroll inside their own container while the page itself never scrolls.</p><p>TODO placeholder paragraph 3. This block only exists to check that long texts scroll inside their own container while the page itself never scrolls.</p><p>TODO placeholder paragraph 4. This block only exists to check that long texts scroll inside their own container while the page itself never scrolls.</p><p>TODO placeholder paragraph 5. This block only exists to check that long texts scroll inside their own container while the page itself never scrolls.</p>"
+        }
+      ]
+    }
+  ]
+}

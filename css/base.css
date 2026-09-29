@@ -1,0 +1,470 @@
+/* ==========================================================================
+   base.css — STRUCTURE AND LAYOUT ONLY
+
+   This file decides WHERE things go, not how they look. Visual decisions are
+   neutral placeholders exposed as CSS custom properties (section 1): themes
+   override those variables and, where needed, add their own rules.
+
+   Key ideas:
+   - The page is exactly the viewport (100dvh) and never scrolls. Only
+     elements marked [data-scroll] scroll, inside their own box.
+   - Layouts use NAMED GRID AREAS whose templates are stored in custom
+     properties (--app-areas, --loc-landscape-areas, ...). A theme can move
+     blocks around just by redefining a variable, without touching the HTML.
+   - Two layout families: "landscape" (desktop) and "portrait" (phone),
+     each with its own variables, so a theme can change one without the other.
+   - Every hook is a data-role attribute (see README, "Style hooks").
+
+   Contents
+     1. Design tokens (custom properties)
+     2. Minimal reset
+     3. The canvas: app shell grid
+     4. Scroll containers
+     5. Generic elements (buttons, links, tables)
+     6. Header and footer
+     7. Text pages (cover, chapter, about, docs, disclaimer, qr)
+     8. Location page
+     9. Map
+    10. QR sheet
+    11. Portrait layout
+    12. Print
+   ========================================================================== */
+
+
+/* 1. DESIGN TOKENS ======================================================== */
+
+:root {
+  /* Typography: neutral system fonts. Final choices belong to the themes. */
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-heading: var(--font-body);
+  --font-ui: var(--font-body);
+  --line-height: 1.5;
+
+  /* Colours: neutral greys */
+  --color-bg: #ffffff;
+  --color-fg: #1f1f1f;
+  --color-muted: #6b6b6b;
+  --color-surface: #f2f2f2;
+  --color-border: #d0d0d0;
+  --color-accent: #3a3a3a;
+  --color-accent-contrast: #ffffff;
+
+  /* Map */
+  --map-marker: #555555;
+  --map-marker-route: #111111;
+  --map-route: #444444;
+  --map-cone: #888888;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-s: 0.5rem;
+  --space-m: 1rem;
+  --space-l: 1.5rem;
+  --gap: var(--space-m);
+
+  /* App shell: header / main / footer, as rows */
+  --app-areas: "header" "main" "footer";
+  --app-rows: auto minmax(0, 1fr) auto;
+
+  /* Location page, LANDSCAPE: images left, text right */
+  --loc-landscape-areas:
+    "header header"
+    "media  text"
+    "meta   text"
+    "qr     text";
+  --loc-landscape-columns: minmax(0, 2fr) minmax(0, 3fr);
+  --loc-landscape-rows: auto minmax(0, 1.4fr) minmax(0, 1fr) auto;
+
+  /* Location page, PORTRAIT: one column; text/info/qr share the "panel" area */
+  --loc-portrait-areas:
+    "header"
+    "media"
+    "tabs"
+    "panel";
+  --loc-portrait-columns: minmax(0, 1fr);
+  --loc-portrait-rows: auto minmax(0, 32%) auto minmax(0, 1fr);
+
+  /* Text pages */
+  --page-max-width: 70ch;
+}
+
+
+/* 2. MINIMAL RESET ======================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+img { max-width: 100%; }
+
+
+/* 3. THE CANVAS =========================================================== */
+
+/* Exactly the viewport: 100dvh follows the visible height on mobile
+   (address bar shown/hidden); 100vh is the fallback for old browsers. */
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-areas: var(--app-areas);
+  grid-template-rows: var(--app-rows);
+  grid-template-columns: minmax(0, 1fr);
+
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  line-height: var(--line-height);
+}
+
+[data-role="site-header"] { grid-area: header; }
+[data-role="site-footer"] { grid-area: footer; }
+
+/* <main>: fills the remaining space; its content decides what scrolls */
+[data-role="view"] {
+  grid-area: main;
+  min-height: 0;
+  overflow: hidden;
+}
+
+
+/* 4. SCROLL CONTAINERS ==================================================== */
+
+/* min-height: 0 is essential: grid/flex children otherwise grow to fit
+   their content instead of scrolling. */
+[data-scroll] {
+  overflow: auto;
+  min-height: 0;
+  overscroll-behavior: contain;
+}
+
+
+/* 5. GENERIC ELEMENTS ===================================================== */
+
+h1, h2, h3 { font-family: var(--font-heading); line-height: 1.2; }
+
+a { color: var(--color-accent); }
+
+button, select {
+  font: inherit;
+  font-family: var(--font-ui);
+  color: inherit;
+}
+
+button {
+  padding: 0.35em 0.75em;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  cursor: pointer;
+}
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+button[aria-pressed="true"] { background: var(--color-accent); color: var(--color-accent-contrast); }
+
+table { border-collapse: collapse; width: 100%; }
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: var(--space-xs) var(--space-s);
+  border-bottom: 1px solid var(--color-border);
+  overflow-wrap: anywhere;
+}
+caption { text-align: left; font-weight: bold; padding-bottom: var(--space-xs); }
+
+[data-role="error"] { padding: var(--space-m); }
+
+
+/* 6. HEADER AND FOOTER ==================================================== */
+
+[data-role="site-header"] {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s) var(--space-m);
+  padding: var(--space-s) var(--space-m);
+  padding-top: max(var(--space-s), env(safe-area-inset-top));
+  border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-ui);
+}
+
+[data-role="site-title"] {
+  margin-right: auto;
+  font-weight: bold;
+  color: inherit;
+  text-decoration: none;
+}
+
+[data-role="site-menu"] ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s) var(--space-m);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+[data-role="site-menu"] a[aria-current="page"] { font-weight: bold; }
+
+[data-role="switchers"] { display: flex; flex-wrap: wrap; gap: var(--space-s); }
+
+[data-role="menu-toggle"] { display: none; } /* shown in portrait, section 11 */
+
+[data-role="site-footer"] {
+  padding: var(--space-s) var(--space-m);
+  padding-bottom: max(var(--space-s), env(safe-area-inset-bottom));
+  border-top: 1px solid var(--color-border);
+  font-family: var(--font-ui);
+}
+
+[data-role="step-nav"] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+}
+
+[data-role="nav-prev"],
+[data-role="nav-next"],
+[data-role="nav-return"] {
+  padding: 0.35em 0.75em;
+  border: 1px solid var(--color-border);
+  text-decoration: none;
+}
+[data-role="nav-next"] { margin-left: auto; }
+a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
+
+
+/* 7. TEXT PAGES =========================================================== */
+
+/* header on top, body scrolls */
+[data-role="page"] {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+[data-role="page-header"] { padding: var(--space-m) var(--space-m) var(--space-s); }
+[data-role="page-header"] h1 { margin: 0; }
+[data-role="page-kicker"] { margin: 0 0 var(--space-xs); color: var(--color-muted); }
+
+[data-role="page-body"] { padding: 0 var(--space-m) var(--space-m); }
+[data-role="page-body"] > * { max-width: var(--page-max-width); }
+
+/* Cover: narrative cards */
+[data-role="narrative-list"] ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--gap);
+  padding: 0;
+  list-style: none;
+}
+[data-role="narrative-card"] { padding: var(--space-m); border: 1px solid var(--color-border); }
+[data-role="narrative-card"][data-current="true"] { border-color: var(--color-accent); }
+[data-role="narrative-actions"] { display: flex; gap: var(--space-s); }
+
+/* Docs: our own numbers replace the list numbers */
+[data-role="docs-toc"], [data-role="docs-toc"] ol { list-style: none; padding-left: var(--space-m); }
+[data-role="docs-toc"] { padding-left: 0; }
+[data-role="docs-section"][data-target] > [data-role="docs-heading"] { text-decoration: underline; }
+[data-role="section-number"] { color: var(--color-muted); }
+
+
+/* 8. LOCATION PAGE ======================================================== */
+
+[data-role="location"] {
+  height: 100%;
+  display: grid;
+  gap: var(--gap);
+  padding: var(--space-m);
+}
+
+/* Each block is assigned to its named area. Areas are ARRANGED by the
+   --loc-*-areas variables (landscape here, portrait in section 11). */
+[data-role="location-header"] { grid-area: header; }
+[data-role="location-media"]  { grid-area: media; }
+[data-role="panel-tabs"]      { grid-area: tabs; }
+[data-role="location-text"]   { grid-area: text; }
+[data-role="location-meta"]   { grid-area: meta; }
+[data-role="location-qr"]     { grid-area: qr; }
+
+@media (orientation: landscape) and (min-width: 601px) {
+  [data-role="location"] {
+    grid-template-areas: var(--loc-landscape-areas);
+    grid-template-columns: var(--loc-landscape-columns);
+    grid-template-rows: var(--loc-landscape-rows);
+  }
+  [data-role="panel-tabs"] { display: none; }
+}
+
+/* Header */
+[data-role="location-header"] h1 { margin: 0; }
+[data-role="location-header"] p { margin: 0; }
+[data-role="location-kicker"],
+[data-role="location-work"] { color: var(--color-muted); }
+[data-role="verified-flag"] { font-size: 0.85em; font-style: italic; }
+[data-role="transition"] {
+  margin-bottom: var(--space-s);
+  padding: var(--space-s);
+  background: var(--color-surface);
+}
+[data-role="transition"] p { margin: 0; }
+[data-role="transition-summary"] { font-weight: bold; }
+
+/* Media: one figure per "slide", horizontal scroll with snapping */
+[data-role="location-media"] {
+  min-height: 0;
+  display: flex;
+  gap: var(--space-s);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+}
+[data-role="location-figure"] {
+  flex: 0 0 100%;
+  min-height: 0;
+  margin: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  scroll-snap-align: start;
+}
+[data-role="location-figure"] img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--color-surface);
+}
+[data-role="figure-caption"] { font-size: 0.85em; }
+[data-role="caption-credit"] { display: block; color: var(--color-muted); }
+
+/* Text panel: switches, cell label, then the text which scrolls */
+[data-role="location-text"] {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  gap: var(--space-s);
+}
+[data-role="text-controls"] { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+[data-role="text-cell"] { margin: 0; font-size: 0.8em; color: var(--color-muted); }
+[data-role="text-body"] > :first-child { margin-top: 0; }
+
+/* Metadata table: scrolls in its own box */
+[data-role="location-meta"] { min-height: 0; }
+[data-role="metadata-table"] th { width: 40%; }
+[data-role="metadata-table"] tr[data-depth="1"] th,
+[data-role="metadata-table"] tr[data-depth="2"] th { font-weight: normal; }
+[data-role="metadata-list"] { margin: 0; padding-left: 1.2em; }
+
+/* QR */
+[data-role="location-qr"] {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s) var(--space-m);
+}
+[data-role="location-qr"] [data-role="qr-code"] img,
+[data-role="location-qr"] [data-role="qr-code"] canvas { width: 6rem; height: 6rem; }
+[data-role="qr-url"] { margin: 0; font-size: 0.75em; overflow-wrap: anywhere; }
+
+
+/* 9. MAP ================================================================== */
+
+[data-role="map"] {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+[data-role="map-legend"] { margin: var(--space-xs) 0 0; font-size: 0.85em; }
+[data-legend] { display: inline-block; width: 1em; height: 0.6em; vertical-align: middle; }
+[data-legend="route"]  { border-top: 3px dashed var(--map-route); height: 0; }
+[data-legend="marker"] { background: var(--map-marker); border-radius: 50%; height: 1em; }
+[data-legend="cone"]   { background: var(--map-cone); clip-path: polygon(0 50%, 100% 0, 100% 100%); }
+
+[data-role="map-canvas"] { min-height: 0; height: 100%; }
+
+/* Leaflet shapes are SVG paths: CSS properties override Leaflet's defaults */
+.lmml-marker { stroke: var(--map-marker); fill: var(--map-marker); fill-opacity: 0.35; stroke-width: 2; }
+.lmml-marker--in-route { stroke: var(--map-marker-route); fill: var(--map-marker-route); fill-opacity: 0.7; }
+.lmml-route { stroke: var(--map-route); stroke-width: 3; stroke-dasharray: 6 6; fill: none; }
+.lmml-camera-cone { stroke: var(--map-cone); stroke-width: 1; fill: var(--map-cone); fill-opacity: 0.35; }
+.lmml-camera { stroke: var(--map-cone); fill: var(--map-cone); fill-opacity: 1; }
+
+
+/* 10. QR SHEET ============================================================ */
+
+[data-page="qr"] [data-role="page-body"] > [data-role="qr-grid"] { max-width: none; }
+[data-role="qr-grid"] {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: var(--gap);
+  padding: 0;
+  list-style: none;
+}
+[data-role="qr-card"] {
+  padding: var(--space-m);
+  border: 1px solid var(--color-border);
+  text-align: center;
+  break-inside: avoid;
+}
+[data-role="qr-card"] [data-role="qr-code"] img,
+[data-role="qr-card"] [data-role="qr-code"] canvas { margin-inline: auto; }
+[data-role="qr-label"] { font-weight: bold; }
+
+
+/* 11. PORTRAIT LAYOUT ===================================================== */
+/* Phones (portrait) and narrow windows. */
+
+@media (orientation: portrait), (max-width: 600px) {
+
+  /* Header: the menu and switchers collapse behind the "Menu" button */
+  [data-role="menu-toggle"] { display: inline-block; }
+  [data-role="site-menu"],
+  [data-role="switchers"] { display: none; flex-basis: 100%; }
+  [data-role="site-header"][data-menu-open] [data-role="site-menu"],
+  [data-role="site-header"][data-menu-open] [data-role="switchers"] { display: flex; }
+
+  /* Location: one column; the three panels share the "panel" area and only
+     the active one (data-active-panel on the article) is shown */
+  [data-role="location"] {
+    grid-template-areas: var(--loc-portrait-areas);
+    grid-template-columns: var(--loc-portrait-columns);
+    grid-template-rows: var(--loc-portrait-rows);
+    padding: var(--space-s);
+    gap: var(--space-s);
+  }
+  [data-role="location"] [data-panel] { grid-area: panel; }
+
+  [data-role="location"][data-active-panel="text"] [data-panel]:not([data-panel="text"]),
+  [data-role="location"][data-active-panel="info"] [data-panel]:not([data-panel="info"]),
+  [data-role="location"][data-active-panel="qr"]   [data-panel]:not([data-panel="qr"]) {
+    display: none;
+  }
+
+  [data-role="panel-tabs"] { display: flex; gap: var(--space-xs); }
+  [data-role="panel-tabs"] button { flex: 1; }
+
+  [data-role="location-qr"] { flex-direction: column; justify-content: center; }
+  [data-role="location-qr"] [data-role="qr-code"] img,
+  [data-role="location-qr"] [data-role="qr-code"] canvas { width: 10rem; height: 10rem; }
+}
+
+
+/* 12. PRINT =============================================================== */
+/* Printing (mainly the QR sheet): let content flow over several pages. */
+
+@media print {
+  html, body, [data-role="view"], [data-role="page"], [data-scroll] {
+    height: auto;
+    overflow: visible;
+    display: block;
+  }
+  [data-role="site-header"],
+  [data-role="site-footer"],
+  [data-role="print-button"] { display: none; }
+
+  [data-role="qr-grid"] { display: grid; grid-template-columns: repeat(3, 1fr); }
+}

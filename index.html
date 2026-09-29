@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+  index.html — the application SHELL.
+
+  This file never changes from page to page: it contains only the parts that
+  are always visible (header with menu and switchers, footer with prev/next)
+  and an empty <main> into which the JavaScript views are rendered.
+
+  - data-theme on <html> is set by js/theme.js (default "victorian").
+  - #theme-css is the stylesheet that js/theme.js swaps when the theme changes.
+  - Every style hook is a data-role attribute, so themes can restyle
+    everything without touching this file.
+-->
+<html lang="en" data-theme="victorian">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>LMML – Live Museum of Movie Locations</title>
+
+  <!-- Leaflet (map) stylesheet, from CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+
+  <!-- Our CSS: structure first, then the theme (which overrides custom properties) -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" id="theme-css" href="css/themes/victorian.css">
+
+  <!--
+    Libraries from CDN. "defer" scripts and type="module" scripts all run
+    after the HTML is parsed, in document order: so Leaflet (window.L) and
+    qrcodejs (window.QRCode) exist before js/app.js starts.
+  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+
+  <!-- ===== Header: site title, menu, theme and narrative switchers ===== -->
+  <header data-role="site-header">
+    <a data-role="site-title" href="#/">LMML</a>
+
+    <!-- Only visible in portrait: opens/closes the menu (see js/render/chrome.js) -->
+    <button type="button" data-role="menu-toggle" aria-expanded="false"
+            aria-controls="site-menu site-switchers">Menu</button>
+
+    <nav data-role="site-menu" id="site-menu" aria-label="Site">
+      <ul>
+        <li><a href="#/" data-page="cover">Home</a></li>
+        <li><a href="#/map" data-page="map">Map</a></li>
+        <li><a href="#/about" data-page="about">About</a></li>
+        <li><a href="#/docs" data-page="docs">Docs</a></li>
+        <li><a href="#/disclaimer" data-page="disclaimer">Disclaimer</a></li>
+        <li><a href="#/qr" data-page="qr">QR codes</a></li>
+      </ul>
+    </nav>
+
+    <div data-role="switchers" id="site-switchers">
+      <!-- Options are filled in from data/site.json and data/narratives.json -->
+      <label data-role="switcher">Theme
+        <select data-role="theme-switch"></select>
+      </label>
+      <label data-role="switcher">Narrative
+        <select data-role="narrative-switch"></select>
+      </label>
+    </div>
+  </header>
+
+  <!-- ===== Main: the current view is rendered here by js/router.js ===== -->
+  <main data-role="view" data-view="">
+    <noscript><p>This site needs JavaScript.</p></noscript>
+  </main>
+
+  <!-- ===== Footer: previous / next navigation (js/navigation.js) ===== -->
+  <footer data-role="site-footer">
+    <nav data-role="step-nav" aria-label="Previous and next">
+      <a data-role="nav-prev" rel="prev">← Previous</a>
+      <span data-role="nav-position"></span>
+      <a data-role="nav-return" hidden>Return to the narrative</a>
+      <a data-role="nav-next" rel="next">Next →</a>
+    </nav>
+  </footer>
+
+</body>
+</html>

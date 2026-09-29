@@ -1,0 +1,65 @@
+/* ==========================================================================
+   sixties.css — PLACEHOLDER THEME
+
+   It only exists to prove that a theme can switch typography, colours and
+   LAYOUT. Replace it with the real design.
+
+   Layout changes compared with base.css, all done by redefining variables:
+     1. the prev/next bar moves from the bottom to the top (under the header)
+     2. landscape location page: text on the LEFT, images on the RIGHT
+     3. portrait location page: the Text/Info/QR tabs go ABOVE the images
+   ========================================================================== */
+
+:root[data-theme="sixties"] {
+  /* Typography (placeholder: generic system sans) */
+  --font-body: "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  --font-ui: "Helvetica Neue", Arial, sans-serif;
+  --line-height: 1.45;
+
+  /* Colours (placeholder) */
+  --color-bg: #fffbea;
+  --color-fg: #1b1b1b;
+  --color-muted: #5c5c5c;
+  --color-surface: #ffe8b3;
+  --color-border: #1b1b1b;
+  --color-accent: #c2410c;
+  --color-accent-contrast: #fffbea;
+
+  --map-marker: #c2410c;
+  --map-marker-route: #7c2d12;
+  --map-route: #1b1b1b;
+  --map-cone: #0e7490;
+
+  /* 1. App shell: navigation bar on top */
+  --app-areas: "header" "footer" "main";
+  --app-rows: auto auto minmax(0, 1fr);
+
+  /* 2. Location, landscape: text left, media right */
+  --loc-landscape-areas:
+    "header header"
+    "text   media"
+    "text   meta"
+    "text   qr";
+  --loc-landscape-columns: minmax(0, 3fr) minmax(0, 2fr);
+
+  /* 3. Location, portrait: tabs above the images */
+  --loc-portrait-areas:
+    "header"
+    "tabs"
+    "media"
+    "panel";
+  --loc-portrait-rows: auto auto minmax(0, 32%) minmax(0, 1fr);
+}
+
+:root[data-theme="sixties"] [data-role="location-title"],
+:root[data-theme="sixties"] [data-role="page-title"] {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* The nav bar is now on top: move its border accordingly */
+:root[data-theme="sixties"] [data-role="site-footer"] {
+  border-top: 0;
+  border-bottom: 1px solid var(--color-border);
+}

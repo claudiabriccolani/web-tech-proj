@@ -1,0 +1,94 @@
+{
+  "narratives": [
+    {
+      "identifier": "historical-timeline",
+      "name": "Historical timeline",
+      "lmml:orderedBy": "datePublished",
+      "description": "<p><strong>TODO</strong>: explain this narrative. Locations are visited in order of release date of the film or series.</p>",
+      "chapters": [
+        {
+          "name": "TODO: chapter 1 title",
+          "text": "<p><strong>TODO</strong>: introduction to chapter 1.</p>",
+          "steps": [
+            {
+              "locationId": "marylebone-station",
+              "lmml:transition": null
+            }
+          ]
+        },
+        {
+          "name": "TODO: chapter 2 title",
+          "text": "<p><strong>TODO</strong>: introduction to chapter 2.</p>",
+          "steps": [
+            {
+              "locationId": "st-lukes-mews",
+              "lmml:transition": {
+                "mode": "tube",
+                "minutes": null,
+                "text": "<p>TODO: directions from the previous location.</p>"
+              }
+            },
+            {
+              "locationId": "north-gower-street",
+              "lmml:transition": {
+                "mode": "tube",
+                "minutes": null,
+                "text": "<p>TODO: directions from the previous location.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "identifier": "recreate-the-shot",
+      "name": "Recreate the shot",
+      "description": "<p><strong>TODO</strong>: explain this narrative. The focus is on finding the exact camera position and angle at each location.</p>",
+      "chapters": [
+        {
+          "name": "TODO: chapter 1 title",
+          "text": "<p><strong>TODO</strong>: introduction to chapter 1.</p>",
+          "steps": [
+            {
+              "locationId": "north-gower-street",
+              "lmml:transition": null,
+              "lmml:texts": [
+                {
+                  "lmml:length": "short", "lmml:level": "intro", "lmml:tone": "adult", "inLanguage": "en",
+                  "text": "<p><strong>TODO</strong>: narrative-specific text (recreate-the-shot) for 187 North Gower Street. Cell: short · intro · adult.</p>"
+                },
+                {
+                  "lmml:length": "long", "lmml:level": "advanced", "lmml:tone": "scholar", "inLanguage": "en",
+                  "text": "<p><strong>TODO</strong>: narrative-specific text (recreate-the-shot) for 187 North Gower Street. Cell: long · advanced · scholar.</p><p>TODO placeholder paragraph 2.</p><p>TODO placeholder paragraph 3.</p>"
+                }
+              ]
+            },
+            {
+              "locationId": "marylebone-station",
+              "lmml:transition": {
+                "mode": "walk",
+                "minutes": null,
+                "text": "<p>TODO: directions from the previous location.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TODO: chapter 2 title",
+          "text": "<p><strong>TODO</strong>: introduction to chapter 2.</p>",
+          "steps": [
+            {
+              "locationId": "st-lukes-mews",
+              "lmml:transition": {
+                "mode": "tube",
+                "minutes": null,
+                "text": "<p>TODO: directions from the previous location.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
