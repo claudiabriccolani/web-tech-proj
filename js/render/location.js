@@ -114,7 +114,9 @@ function buildMedia(loc) {
   return el('section', { 'data-role': 'location-media', 'data-image-count': images.length },
     images.map((image, i) =>
       el('figure', { 'data-role': 'location-figure', 'data-index': i },
-        el('img', { src: image.contentUrl, alt: image.caption ?? '', loading: 'lazy' }),
+        // alt = what the picture shows (lmml:alt); the caption below says what it is.
+        // The caption is only a fallback for images that have no alt text yet.
+        el('img', { src: image.contentUrl, alt: image['lmml:alt'] ?? image.caption ?? '', loading: 'lazy' }),
         el('figcaption', { 'data-role': 'figure-caption' },
           el('span', { 'data-role': 'caption-text' }, image.caption),
           buildCredit(image),

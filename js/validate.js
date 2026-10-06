@@ -44,6 +44,7 @@ export function validateData(data) {
     });
     (loc.image ?? []).forEach((image, m) => {
       if (!image.license || !image.url) warn(`${where} image[${m}]: missing "license" or source "url"`);
+      if (!image['lmml:alt']) warn(`${where} image[${m}]: no "lmml:alt" text`);
     });
     checkTexts(loc['lmml:texts'], where, warn);
   });

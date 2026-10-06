@@ -48,6 +48,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/marylebone-station-1.jpg",
           "caption": "The concourse of Marylebone station in 2011.",
+          "lmml:alt": "Station concourse under a glass and iron roof: departure boards, red benches, a kiosk and travellers with luggage.",
           "creditText": "Ben Brooksbank, CC BY-SA 2.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -60,6 +61,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/marylebone-station-2.jpg",
           "caption": "Boston Place, the street along the east side of Marylebone station, where the Beatles were filmed running from their fans.",
+          "lmml:alt": "Quiet street with a long red-brick building on the left and a row of parked cars along the kerb.",
           "creditText": "Christopher Hilton, CC BY-SA 2.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -239,6 +241,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/charlotte-mews-1.jpg",
           "caption": "The entrance to Charlotte Mews seen from Tottenham Street, the side where the Scala Theatre stood.",
+          "lmml:alt": "Archway through a brick terrace with a 'Charlotte Mews W1' street sign, between a nail studio and a dry cleaner's.",
           "creditText": "Philafrenzy, CC BY-SA 4.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -410,6 +413,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/notting-hill-bookshop-1.jpg",
           "caption": "The gift shop at 142 Portobello Road, the front used for William Thacker's bookshop, in 2018.",
+          "lmml:alt": "Blue shop sign reading 'The Travel Book Shop' and 'Notting Hill' below two floors of brick wall with white windows.",
           "creditText": "Enrico Cabianca, CC0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -422,6 +426,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/notting-hill-bookshop-2.jpg",
           "caption": "The real Travel Bookshop at 13 Blenheim Crescent in February 2011, the year it closed.",
+          "lmml:alt": "Two shop fronts in orange and blue, both signed 'The Travel Bookshop', with books in the windows and two parked cars.",
           "creditText": "Ewan-M, CC BY-SA 2.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -579,6 +584,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/notting-hill-blue-door-1.jpg",
           "caption": "The blue door at 280 Westbourne Park Road in May 2023.",
+          "lmml:alt": "Dark blue front door between pairs of white columns in a white wall; a lighter blue door stands to its left.",
           "creditText": "Matt Brown, CC BY 2.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -722,6 +728,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/leadenhall-market-1.jpg",
           "caption": "The shop in Bull's Head Passage used as the entrance to the Leaky Cauldron, photographed in 2007.",
+          "lmml:alt": "Curved shop front painted bright blue with a hanging sign 'The Glass House'; the next door is numbered 42.",
           "creditText": "Dtobias, CC BY-SA 3.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -734,6 +741,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/leadenhall-market-2.jpg",
           "caption": "The west alley of Leadenhall Market, under the roof designed by Sir Horace Jones in 1881.",
+          "lmml:alt": "Covered market arcade with a glazed arched roof, hanging lanterns, and red and cream shop fronts along a cobbled street.",
           "creditText": "Doyle of London, CC BY-SA 4.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -794,7 +802,7 @@
         }
       ],
       "lmml:openQuestions": [
-        "Address of the door: Time Out gives The Glass House, 2-3 Bull's Head Passage; Free Tours by Foot gives 42 Bull's Head Passage.",
+        "Address of the door: Time Out gives The Glass House, 2-3 Bull's Head Passage; Free Tours by Foot gives 42 Bull's Head Passage. In the 2007 photo used here, the number 42 is on the door of the shop front next to The Glass House, not on the blue shop itself.",
         "State of the shop in 2000: The Magician says it was an empty shop that the filmmakers painted black; Time Out quotes the owner as if the optician was already there with an unrenovated door.",
         "Colour of the door: Free Tours by Foot calls it 'a blue door'; The Magician says the exterior was painted black for the film. Check the present colour on site."
       ],
@@ -902,6 +910,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/somerset-house-1.jpg",
           "caption": "The winter ice rink in the courtyard of Somerset House, December 2025.",
+          "lmml:alt": "People skating on an outdoor ice rink in front of a stone building, with a tall Christmas tree in the middle.",
           "creditText": "Matt Brown, CC BY 4.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -914,6 +923,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/somerset-house-2.jpg",
           "caption": "Skaters on the Somerset House rink in December 2016.",
+          "lmml:alt": "Empty ice rink in a stone courtyard; large white letters spelling SKATE stand on the roof below a green dome.",
           "creditText": "Peter S, CC BY-SA 2.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -1088,6 +1098,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/grosvenor-chapel-1.jpg",
           "caption": "Grosvenor Chapel from South Audley Street, May 2020.",
+          "lmml:alt": "Brick chapel front with a white portico of four columns, blue doors, a clock and a green spire against a blue sky.",
           "creditText": "GrindtXX, CC BY-SA 4.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -1100,6 +1111,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/grosvenor-chapel-2.jpg",
           "caption": "The front of Grosvenor Chapel in April 2022.",
+          "lmml:alt": "Brick chapel with a white portico and green spire seen from across the street; a black car is parked in front.",
           "creditText": "Anthony O'Neil, CC BY-SA 2.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -1267,6 +1279,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/selfridges-1.jpg",
           "caption": "Christmas decorations on Oxford Street outside Selfridges, November 2017.",
+          "lmml:alt": "Street at night: a long columned shop front lit pink, strings of glowing baubles overhead and trees covered in lights.",
           "creditText": "Simeon87, CC BY-SA 4.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -1279,6 +1292,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/selfridges-2.jpg",
           "caption": "Christmas decorations inside Selfridges, December 2016.",
+          "lmml:alt": "Garland of fir and coloured baubles on a glass balustrade beside an escalator, with shoppers on the floor below.",
           "creditText": "Simeon87, CC BY-SA 4.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -1450,6 +1464,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/st-lukes-mews-1.jpg",
           "caption": "St Luke's Mews: the pink house on the right, beyond the blue no. 31, is the one identified with the film.",
+          "lmml:alt": "Cobbled mews lined with small houses in white, pink, grey and blue; a blue house numbered 31 is on the right.",
           "creditText": "Chris Wood, CC BY-SA 4.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -1462,6 +1477,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/st-lukes-mews-2.jpg",
           "caption": "St Luke's Mews in June 2025.",
+          "lmml:alt": "Row of mews houses on a cobbled street: a pink house, a black one numbered 29 and a blue one with yellow windows.",
           "creditText": "Bex Walton, CC BY 4.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -1510,7 +1526,7 @@
         }
       ],
       "lmml:openQuestions": [
-        "House number: Movie-Locations and Tokyo Fox say no. 27; the caption of the Commons photo used here says 'the pink house is number 22'. In that photo the pink house stands on the same side as the blue house numbered 31, two doors further on, which fits 27 and OpenStreetMap's numbering; please confirm on site."
+        "House number: Movie-Locations and Tokyo Fox say no. 27; the caption of the Commons photo used here says 'the pink house is number 22'. In that photo the pink house stands on the same side as the blue house numbered 31, two doors further on, which fits 27 and OpenStreetMap's numbering; please confirm on site. In the second photo (June 2025) the black house between the pink one and the blue-and-yellow one shows the number 29, which again fits 27 for the pink house."
       ],
       "citation": [
         {
@@ -1661,6 +1677,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/millennium-bridge-1.jpg",
           "caption": "St Paul's Cathedral and the Millennium Bridge from the south bank.",
+          "lmml:alt": "Close view of the steel arms and cables of a footbridge, with the dome of St Paul's Cathedral behind them.",
           "creditText": "Alexandre Buisse (Nattfodd), CC BY-SA 3.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -1673,6 +1690,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/millennium-bridge-2.jpg",
           "caption": "The bridge and Tate Modern seen from the St Paul's side.",
+          "lmml:alt": "People walking away along a footbridge deck towards a wide brick building with a tall square chimney.",
           "creditText": "Anthony O'Neil, CC BY-SA 2.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -1902,6 +1920,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/north-gower-street-1.jpg",
           "caption": "Speedy's café at 187 North Gower Street, February 2020.",
+          "lmml:alt": "Café front with a red awning reading 'Speedy's Sandwich Bar & Cafe', tables outside and a black door on each side.",
           "creditText": "Matt Brown, CC BY 2.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -1914,6 +1933,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/north-gower-street-2.jpg",
           "caption": "Speedy's and the blue plaque to Giuseppe Mazzini in January 2011.",
+          "lmml:alt": "Terraced houses: a blue plaque beside a black arched door, the red awning of Speedy's to the right, cars parked in front.",
           "creditText": "Christopher Hilton, CC BY-SA 2.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -2090,6 +2110,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/russell-square-1.jpg",
           "caption": "The Imperial Hotel seen from Russell Square gardens, the backdrop of the bench scene.",
+          "lmml:alt": "Large modern hotel block seen through bare trees across the lawn and paths of a garden square.",
           "creditText": "Jim Osley, CC BY-SA 2.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -2102,6 +2123,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/russell-square-2.jpg",
           "caption": "The fountains of Russell Square.",
+          "lmml:alt": "Fountain with a tall central jet in a paved circle, surrounded by tall trees; people sit on a bench behind it.",
           "creditText": "mattbuck, CC BY-SA 3.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -2264,6 +2286,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/st-barts-1.jpg",
           "caption": "The Sherlock Holmes phone box 'shrine' outside the hospital on Giltspur Street, April 2018.",
+          "lmml:alt": "Red telephone box with a few stickers and notes on its glass, standing against a stone building next to parked bicycles.",
           "creditText": "Acabashi, CC BY-SA 4.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -2276,6 +2299,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/st-barts-2.jpg",
           "caption": "The Henry VIII gate, the West Smithfield entrance to the hospital, seen from inside the grounds.",
+          "lmml:alt": "Stone gateway with a balustrade above; people walk through its central arch towards trees beyond.",
           "creditText": "Robert Lamb, CC BY-SA 2.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -2443,6 +2467,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/york-rise-1.jpg",
           "caption": "Looking up York Rise from Chetwynd Road in January 2017.",
+          "lmml:alt": "Street corner with a brick building housing a 'Village Vet' shop; the road climbs past more shops to the right.",
           "creditText": "Christopher Hilton, CC BY-SA 2.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",
@@ -2645,6 +2670,7 @@
           "@type": "ImageObject",
           "contentUrl": "img/smith-wollensky-1.jpg",
           "caption": "The Adelphi building on John Adam Street, which houses the restaurant.",
+          "lmml:alt": "View up the corner of a tall pale stone building with rows of windows, a tree branch in the top left.",
           "creditText": "Fred Romero, CC BY 2.0, via Wikimedia Commons",
           "creator": {
             "@type": "Person",

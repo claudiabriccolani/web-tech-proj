@@ -16,16 +16,21 @@ import { pageShell } from './page.js';
 export function collectSources(locations) {
   const byUrl = new Map();
 
-  const add = (url, description, loc) => {
+  // The same page can be both a cited source and the source page of an image:
+  // then its entry keeps BOTH descriptions, so the image credit is never lost.
+  const add = (url, description, loc, license) => {
     if (!url || !/^https?:\/\//.test(url)) return; // skip empty/TODO values
-    if (!byUrl.has(url)) byUrl.set(url, { url, description, locations: new Set() });
-    byUrl.get(url).locations.add(loc.name);
+    if (!byUrl.has(url)) byUrl.set(url, { url, descriptions: [], license: null, locations: new Set() });
+    const source = byUrl.get(url);
+    if (description && !source.descriptions.includes(description)) source.descriptions.push(description);
+    if (license) source.license = license;
+    source.locations.add(loc.name);
   };
 
   for (const loc of locations) {
     for (const c of loc.citation ?? []) add(c.url, c.description, loc);
     for (const img of loc.image ?? []) {
-      add(img.url, ['Image', img.caption, img.creditText].filter(Boolean).join(' — '), loc);
+      add(img.url, ['Image', img.caption, img.creditText].filter(Boolean).join(' — '), loc, img.license);
     }
   }
   return [...byUrl.values()];
@@ -56,7 +61,8 @@ export function renderDisclaimer(outlet) {
     ? `<ul data-role="source-list">${sources.map((s) => `
         <li data-role="source">
           <a href="${escapeHtml(s.url)}" target="_blank" rel="noopener">${escapeHtml(s.url)}</a>
-          — ${escapeHtml(s.description ?? '')}
+          — ${escapeHtml(s.descriptions.join(' · '))}
+          ${/^https?:/.test(s.license ?? '') ? `<a data-role="source-license" href="${escapeHtml(s.license)}" target="_blank" rel="noopener">Licence</a>` : ''}
           <span data-role="source-locations">(${escapeHtml([...s.locations].join(', '))})</span>
         </li>`).join('')}</ul>`
     : '<p data-role="source-list">TODO: no sources in the data yet.</p>';

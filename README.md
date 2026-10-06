@@ -159,6 +159,8 @@ The JSON files are plain JSON shaped like JSON-LD:
 Some schema.org properties are used in a specific sense:
 
 - `ImageObject.contentUrl` is the image file.
+- `ImageObject["lmml:alt"]` is the `alt` text: what is visible in the picture, in
+  about 125 characters. The `caption` says what the picture is of.
 - `ImageObject.url` is its source page.
 - `citation` lists the sources that feed the disclaimer. Every `url` used in
   `lmml:facts` must also be in `citation` (the validator checks it).
@@ -302,5 +304,3 @@ can style by content:
   Change it if the site moves.
 - The about text and most documentation sections in `data/site.json` are
   still TODO.
-- Image `alt` text currently reuses the caption. Consider adding a separate
-  description field.
