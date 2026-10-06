@@ -4,87 +4,437 @@
       "identifier": "historical-timeline",
       "name": "Historical timeline",
       "lmml:orderedBy": "datePublished",
-      "description": "<p><strong>TODO</strong>: explain this narrative. Locations are visited in order of release date of the film or series.</p>",
+      "lmml:estimatedMinutes": {
+        "travel": 455,
+        "visits": 225,
+        "total": 680
+      },
+      "description": "<p>Fifty-five years of London on screen, in the order in which audiences first saw it: from the Beatles running through Marylebone in 1964 to the family dinner that opens the second series of <em>Fleabag</em> in 2019. The stops follow the release dates of the films and series, grouped by decade, so the route criss-crosses the city instead of following the map.</p><p>15 locations, 4 chapters. Allow a very full day: about 7½ hours of walking and Underground plus the time you spend at each stop (roughly 11 hours in all). Start at Marylebone station; the route ends near Charing Cross.</p>",
       "chapters": [
         {
-          "name": "TODO: chapter 1 title",
-          "text": "<p><strong>TODO</strong>: introduction to chapter 1.</p>",
+          "name": "The 1960s: the Beatles on the run",
+          "text": "<p>The visit begins in 1964 with <em>A Hard Day's Night</em>, directed by Richard Lester and shot in black-and-white in a cinéma vérité style. Its two London locations on this route mark the beginning and the end of the film: the station where the fans chase the band in the opening sequence, and the alleyway they run out of on their way to the final television concert.</p><p>Both places were chosen for practical reasons. Marylebone was one of the quietest stations in London and was closed to the public on Sundays; Charlotte Mews happened to be opposite the theatre where the concert was filmed.</p>",
           "steps": [
             {
               "locationId": "marylebone-station",
               "lmml:transition": null
+            },
+            {
+              "locationId": "charlotte-mews",
+              "lmml:transition": {
+                "mode": "tube",
+                "minutes": 28,
+                "text": "<p>From Marylebone station walk about 10 minutes to Baker Street station. Take the Metropolitan line (or Circle / Hammersmith &amp; City) one stop east to Great Portland Street, a 2-minute ride. From there it is about 16 minutes on foot south into Fitzrovia to Tottenham Street, where the archway of Charlotte Mews opens on the north side. You can also walk the whole way in about 37 minutes.</p>"
+              }
             }
           ]
         },
         {
-          "name": "TODO: chapter 2 title",
-          "text": "<p><strong>TODO</strong>: introduction to chapter 2.</p>",
+          "name": "The 1990s: Notting Hill becomes a film star",
+          "text": "<p>Thirty-five years later, a romantic comedy turned a west London neighbourhood into a destination. <em>Notting Hill</em> (1999), directed by Roger Michell and written by Richard Curtis, was filmed in the streets around Portobello Road for six weeks from April 1998, and on its release it was the highest-grossing British film of all time.</p><p>The two stops are four minutes apart: the shop front that played William Thacker's bookshop, and the blue door of his flat. Neither is quite what the film says it is.</p>",
           "steps": [
+            {
+              "locationId": "notting-hill-bookshop",
+              "lmml:transition": {
+                "mode": "tube",
+                "minutes": 40,
+                "text": "<p>Walk back north to Great Portland Street station (about 16 minutes). Take the Hammersmith &amp; City line westbound to Ladbroke Grove (about 12 minutes). From Ladbroke Grove station walk about 12 minutes to Portobello Road; no. 142 is on the stretch south of Westbourne Park Road.</p>"
+              }
+            },
+            {
+              "locationId": "notting-hill-blue-door",
+              "lmml:transition": {
+                "mode": "walk",
+                "minutes": 4,
+                "text": "<p>Walk north up Portobello Road to the junction with Westbourne Park Road and turn left: the blue door is at no. 280, a few yards from the corner. About 4 minutes.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "name": "The 2000s: wizards, Christmas and a collapsing bridge",
+          "text": "<p>In the 2000s London plays two very different parts. In the Harry Potter films it hides a second, magical city: Leadenhall Market leads to the Leaky Cauldron in <em>The Philosopher's Stone</em> (2001), and the Millennium Bridge is destroyed by Death Eaters at the start of <em>The Half-Blood Prince</em> (2009).</p><p>Between the two comes <em>Love Actually</em> (2003), the first film directed by Richard Curtis, mostly shot on location in London: a mews in Notting Hill, a department store on Oxford Street, a chapel in Mayfair and an ice rink in a Georgian courtyard. This is the longest chapter of the day and the one with the most travelling.</p>",
+          "steps": [
+            {
+              "locationId": "leadenhall-market",
+              "lmml:transition": {
+                "mode": "tube",
+                "minutes": 50,
+                "text": "<p>The longest transfer of the day. Walk about 9 minutes back to Ladbroke Grove station and take the Circle line eastbound all the way to Monument (about 32 minutes, no change). From Monument walk about 9 minutes north along Gracechurch Street to Leadenhall Market; Bull's Head Passage is on the edge of the market.</p>"
+              }
+            },
             {
               "locationId": "st-lukes-mews",
               "lmml:transition": {
                 "mode": "tube",
-                "minutes": null,
-                "text": "<p>TODO: directions from the previous location.</p>"
+                "minutes": 49,
+                "text": "<p>Back to the west. Walk about 17 minutes north to Liverpool Street station and take the Hammersmith &amp; City line westbound to Westbourne Park (about 21 minutes). From Westbourne Park station it is about 11 minutes on foot to St Luke's Mews, off All Saints Road.</p>"
               }
             },
+            {
+              "locationId": "selfridges",
+              "lmml:transition": {
+                "mode": "tube",
+                "minutes": 44,
+                "text": "<p>Walk about 26 minutes south through Notting Hill to Notting Hill Gate station. Take the Central line eastbound to Bond Street (about 6 minutes). Selfridges is about 12 minutes' walk west along Oxford Street, on the north side.</p>"
+              }
+            },
+            {
+              "locationId": "grosvenor-chapel",
+              "lmml:transition": {
+                "mode": "walk",
+                "minutes": 13,
+                "text": "<p>Cross Oxford Street and walk south through Mayfair to South Audley Street: about 13 minutes. The chapel is at no. 24, on the east side of the street.</p>"
+              }
+            },
+            {
+              "locationId": "somerset-house",
+              "lmml:transition": {
+                "mode": "tube",
+                "minutes": 38,
+                "text": "<p>Walk about 18 minutes east to Green Park station. Take the Piccadilly line eastbound to Covent Garden (about 4 minutes), then walk about 16 minutes down to the Strand. Enter Somerset House through the Strand gateway to reach the courtyard.</p>"
+              }
+            },
+            {
+              "locationId": "millennium-bridge",
+              "lmml:transition": {
+                "mode": "walk",
+                "minutes": 25,
+                "text": "<p>Walk east for about 25 minutes, along the Victoria Embankment beside the Thames, to the northern end of the Millennium Bridge below St Paul's Cathedral. Cross the bridge to Bankside and Tate Modern.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "name": "The 2010s: television moves in",
+          "text": "<p>The last chapter belongs to two BBC series. <em>Sherlock</em> (2010–2017), created by Steven Moffat and Mark Gatiss, was filmed mainly in Cardiff, but a few London exteriors carry the whole idea of the show: a front door in North Gower Street that plays 221B Baker Street, a bench in Russell Square, and the roof of St Bartholomew's Hospital.</p><p><em>Fleabag</em> (2016–2019), created and written by Phoebe Waller-Bridge, is at home in north London: its café was a real one in Dartmouth Park. The visit ends where its second series begins, at a restaurant just off the Strand.</p>",
+          "steps": [
             {
               "locationId": "north-gower-street",
               "lmml:transition": {
                 "mode": "tube",
-                "minutes": null,
-                "text": "<p>TODO: directions from the previous location.</p>"
+                "minutes": 38,
+                "text": "<p>Cross back over the Millennium Bridge and walk to St Paul's station (about 14 minutes from Bankside). Take the Central line westbound to Oxford Circus (about 6 minutes) and change to the Victoria line northbound for one stop to Warren Street. From Warren Street walk about 13 minutes: cross Euston Road and go up North Gower Street to no. 187.</p>"
+              }
+            },
+            {
+              "locationId": "russell-square",
+              "lmml:transition": {
+                "mode": "walk",
+                "minutes": 17,
+                "text": "<p>Walk about 17 minutes south-east through Bloomsbury to Russell Square and go into the gardens. The Imperial Hotel is on the east side of the square.</p>"
+              }
+            },
+            {
+              "locationId": "st-barts",
+              "lmml:transition": {
+                "mode": "tube",
+                "minutes": 32,
+                "text": "<p>Walk about 20 minutes to Tottenham Court Road station and take the Elizabeth line one stop east to Farringdon (about 3 minutes). From Farringdon walk about 9 minutes south to West Smithfield and the hospital. Walking all the way takes about 39 minutes.</p>"
+              }
+            },
+            {
+              "locationId": "york-rise",
+              "lmml:transition": {
+                "mode": "tube",
+                "minutes": 41,
+                "text": "<p>Walk about 9 minutes back to Farringdon and take the Elizabeth line one stop west to Tottenham Court Road. Change to the Northern line northbound (High Barnet or Mill Hill East branch) to Tufnell Park, about 12 minutes. From Tufnell Park station walk about 13 minutes to York Rise in Dartmouth Park.</p>"
+              }
+            },
+            {
+              "locationId": "smith-wollensky",
+              "lmml:transition": {
+                "mode": "tube",
+                "minutes": 36,
+                "text": "<p>Walk about 13 minutes back to Tufnell Park station and take the Northern line southbound (Charing Cross branch) to Charing Cross, about 14 minutes. From Charing Cross walk about 9 minutes east along the Strand and turn right towards John Adam Street.</p>"
               }
             }
           ]
         }
       ]
     },
-
     {
       "identifier": "recreate-the-shot",
       "name": "Recreate the shot",
-      "description": "<p><strong>TODO</strong>: explain this narrative. The focus is on finding the exact camera position and angle at each location.</p>",
+      "lmml:estimatedMinutes": {
+        "travel": 285,
+        "visits": 300,
+        "total": 585
+      },
+      "description": "<p>For visitors who want to come home with the same pictures as the films. The route ignores chronology and follows the map: from Dartmouth Park in the north, down through Bloomsbury to the City and the river, west along the Strand to Mayfair, and out to Notting Hill for the end of the afternoon.</p><p>At each stop the page tells you where the camera is thought to have stood, which way it pointed, how the light falls and what to look for in the frame. All camera positions are estimates still to be verified: treat them as a starting point and compare with the film on your phone.</p><p>15 locations, 4 chapters. About 4¾ hours of walking and Underground plus about 20 minutes at each stop: roughly 10 hours.</p>",
       "chapters": [
         {
-          "name": "TODO: chapter 1 title",
-          "text": "<p><strong>TODO</strong>: introduction to chapter 1.</p>",
+          "name": "North: a café and a famous front door",
+          "text": "<p>The morning starts in a residential street in Dartmouth Park and works its way down to Bloomsbury. Four stops, three of them within walking distance of each other: the café of <em>Fleabag</em>, the front door of <em>Sherlock</em>, the alleyway of <em>A Hard Day's Night</em> and the bench where Dr Watson meets an old classmate.</p><p>These are all street-level shots taken from the public pavement, so they are the easiest to reproduce. Two of them are homes or working businesses: be quick and considerate.</p>",
           "steps": [
             {
-              "locationId": "north-gower-street",
+              "locationId": "york-rise",
               "lmml:transition": null,
               "lmml:texts": [
                 {
-                  "lmml:length": "short", "lmml:level": "intro", "lmml:tone": "adult", "inLanguage": "en",
-                  "text": "<p><strong>TODO</strong>: narrative-specific text (recreate-the-shot) for 187 North Gower Street. Cell: short · intro · adult.</p>"
-                },
-                {
-                  "lmml:length": "long", "lmml:level": "advanced", "lmml:tone": "scholar", "inLanguage": "en",
-                  "text": "<p><strong>TODO</strong>: narrative-specific text (recreate-the-shot) for 187 North Gower Street. Cell: long · advanced · scholar.</p><p>TODO placeholder paragraph 2.</p><p>TODO placeholder paragraph 3.</p>"
+                  "lmml:length": "medium",
+                  "lmml:level": "average",
+                  "lmml:tone": "adult",
+                  "inLanguage": "en",
+                  "text": "<p><strong>Where to stand.</strong> On the pavement opposite no. 20 York Rise, facing the shop front square on. The estimated direction of view is east (about 90°).</p><p><strong>Light and time of day.</strong> A shop front that faces west is in shadow in the morning and lit from the front in the afternoon. This route brings you here first thing, so expect soft, even light rather than sunshine on the façade; expose for the shop front.</p><p><strong>What to look for.</strong> The premises have been refitted since filming and no longer look like the guinea-pig café, so match the shape of the shop front and the neighbouring buildings rather than the signs. A two-minute walk away is Laurier Road, where Claire's house is.</p>"
                 }
               ]
             },
             {
-              "locationId": "marylebone-station",
+              "locationId": "north-gower-street",
+              "lmml:transition": {
+                "mode": "tube",
+                "minutes": 35,
+                "text": "<p>Walk about 13 minutes to Tufnell Park station. Take the Northern line southbound to Euston (about 8 minutes). From Euston walk about 14 minutes: North Gower Street runs just west of the station, north of Euston Road.</p>"
+              },
+              "lmml:texts": [
+                {
+                  "lmml:length": "medium",
+                  "lmml:level": "average",
+                  "lmml:tone": "adult",
+                  "inLanguage": "en",
+                  "text": "<p><strong>Where to stand.</strong> On the east pavement of North Gower Street, opposite Speedy's and the door next to it, looking west-south-west (about 250°).</p><p><strong>Light and time of day.</strong> A façade that faces east is lit from the front in the morning, which is when this route brings you here.</p><p><strong>What to look for.</strong> Frame the door together with the café: Speedy's is in most exterior shots of the series. Look for the blue plaque to Giuseppe Mazzini beside the door; in the series it is hidden behind a prop lamp, so if you can see it your picture already differs from the show. Check the number on the door, since the sources disagree.</p>"
+                }
+              ]
+            },
+            {
+              "locationId": "charlotte-mews",
               "lmml:transition": {
                 "mode": "walk",
-                "minutes": null,
-                "text": "<p>TODO: directions from the previous location.</p>"
-              }
+                "minutes": 16,
+                "text": "<p>Walk about 16 minutes south: go down North Gower Street, cross Euston Road and continue south into Fitzrovia to Tottenham Street. The archway of Charlotte Mews is on the north side.</p>"
+              },
+              "lmml:texts": [
+                {
+                  "lmml:length": "medium",
+                  "lmml:level": "average",
+                  "lmml:tone": "adult",
+                  "inLanguage": "en",
+                  "text": "<p><strong>Where to stand.</strong> On the south pavement of Tottenham Street, where the Scala Theatre stood, looking north-west into the archway (about 327°).</p><p><strong>Light and time of day.</strong> Looking north-north-west, you have the sun behind you from late morning to midday. The archway itself stays dark, which is what gives the shot its depth: the Beatles run out of the shadow towards the camera.</p><p><strong>What to look for.</strong> The street sign 'Charlotte Mews W1' above the arch and the cobbled lane behind it. The mews is unchanged, but the theatre opposite is gone: turn round and you are looking at the site of the Scala, where Scala House now stands. Ask four friends to run out of the arch, about 70 minutes into the film.</p>"
+                }
+              ]
+            },
+            {
+              "locationId": "russell-square",
+              "lmml:transition": {
+                "mode": "walk",
+                "minutes": 15,
+                "text": "<p>Walk about 15 minutes east, across Tottenham Court Road and through Bloomsbury, to Russell Square. Enter the gardens.</p>"
+              },
+              "lmml:texts": [
+                {
+                  "lmml:length": "medium",
+                  "lmml:level": "average",
+                  "lmml:tone": "adult",
+                  "inLanguage": "en",
+                  "text": "<p><strong>Where to stand.</strong> Inside the gardens, in the eastern half, looking east (about 80°) so that the Imperial Hotel fills the background behind a bench.</p><p><strong>Light and time of day.</strong> Around midday the sun is to your right, giving side light on the bench; the hotel front, which faces west, is fully lit only later in the afternoon.</p><p><strong>What to look for.</strong> The sources identify only the backdrop, not the bench: walk along the paths until the hotel façade sits behind a bench as it does in the episode. Two people on the bench, as in the conversation between Dr Watson and Mike Stamford, complete the picture.</p>"
+                }
+              ]
             }
           ]
         },
         {
-          "name": "TODO: chapter 2 title",
-          "text": "<p><strong>TODO</strong>: introduction to chapter 2.</p>",
+          "name": "The City and the river",
+          "text": "<p>Three stops in the oldest part of London, all of them reached on foot once you have arrived: a hospital founded in 1123, a market that dates from the 14th century and a footbridge opened in 2000.</p><p>Here the films used height and architecture rather than a front door. You cannot stand on the roof of Barts or make a bridge collapse, so the task is to find the viewpoint of the person watching: John Watson in the street, or Harry following Hagrid through the market.</p>",
           "steps": [
+            {
+              "locationId": "st-barts",
+              "lmml:transition": {
+                "mode": "tube",
+                "minutes": 32,
+                "text": "<p>Walk about 20 minutes to Tottenham Court Road station and take the Elizabeth line one stop east to Farringdon (about 3 minutes). From Farringdon walk about 9 minutes south to West Smithfield. Walking all the way takes about 39 minutes.</p>"
+              },
+              "lmml:texts": [
+                {
+                  "lmml:length": "medium",
+                  "lmml:level": "average",
+                  "lmml:tone": "adult",
+                  "inLanguage": "en",
+                  "text": "<p><strong>Where to stand.</strong> Low-confidence estimate: across the road from the phone box outside the hospital on Giltspur Street, looking east (about 100°) and up at the hospital.</p><p><strong>Light and time of day.</strong> In the early afternoon the sun is high and to your right; the roofline will be bright against the sky. The shot is about looking up from the street, as John does, so a wide angle helps.</p><p><strong>What to look for.</strong> First find the phone box that has become a Sherlock 'shrine'. Then compare the rooflines around you with the episode to work out which one Sherlock jumps from: no source consulted says. The Henry VIII gate, with the statue of the king above it, is the main public entrance and is worth a picture of its own.</p>"
+                }
+              ]
+            },
+            {
+              "locationId": "leadenhall-market",
+              "lmml:transition": {
+                "mode": "walk",
+                "minutes": 25,
+                "text": "<p>Walk about 25 minutes east across the City to Gracechurch Street and Leadenhall Market. Bull's Head Passage is on the edge of the market.</p>"
+              },
+              "lmml:texts": [
+                {
+                  "lmml:length": "medium",
+                  "lmml:level": "average",
+                  "lmml:tone": "adult",
+                  "inLanguage": "en",
+                  "text": "<p><strong>Where to stand.</strong> In Bull's Head Passage, a few metres back from the rounded doorway of the optician, so that the door fills the frame (estimated direction about 300°).</p><p><strong>Light and time of day.</strong> The passage is narrow and the market is covered, so the light is even at any time of day and direct sun is not a concern.</p><p><strong>What to look for.</strong> The rounded doorway: it is the door Harry and Hagrid go through to enter the Leaky Cauldron. Then step into the main arcade and look up at the roof of 1881, painted green, maroon and cream, for the walk that precedes it ('Can you find all this in London?' 'If you know where to go.').</p>"
+                }
+              ]
+            },
+            {
+              "locationId": "millennium-bridge",
+              "lmml:transition": {
+                "mode": "walk",
+                "minutes": 20,
+                "text": "<p>Walk about 20 minutes west and south, past St Paul's Cathedral and down Peter's Hill to the northern end of the Millennium Bridge. Cross the river to Bankside.</p>"
+              },
+              "lmml:texts": [
+                {
+                  "lmml:length": "medium",
+                  "lmml:level": "average",
+                  "lmml:tone": "adult",
+                  "inLanguage": "en",
+                  "text": "<p><strong>Where to stand.</strong> At the southern end of the bridge, on Bankside in front of Tate Modern, on the axis of the deck, looking north (about 5°) towards St Paul's Cathedral.</p><p><strong>Light and time of day.</strong> Looking north you have the sun behind you around the middle of the day, which is when this route arrives. The Fleabag scene in Tate Modern was shot at sunset: if you want that light, come back in the evening.</p><p><strong>What to look for.</strong> The line of the deck leading to the dome of St Paul's. In the Harry Potter film the metal twists and buckles before the bridge falls into the Thames; Londoners already called it the 'Wobbly Bridge'. From Tate Modern's large windows you get the view over the Thames and St Paul's that closes the first series of Fleabag.</p>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Strand and Mayfair",
+          "text": "<p>The afternoon moves west along the river and into Mayfair. Three of the four stops are from <em>Love Actually</em>, and two of the four scenes were filmed indoors: the wrapping of the necklace in Selfridges and the family dinner of <em>Fleabag</em> at Smith &amp; Wollensky.</p><p>For interior scenes the camera position given is the outside of the building. If you want the real shot you will have to go in, and ask before taking pictures.</p>",
+          "steps": [
+            {
+              "locationId": "somerset-house",
+              "lmml:transition": {
+                "mode": "walk",
+                "minutes": 25,
+                "text": "<p>Cross back over the Millennium Bridge and walk west for about 25 minutes along the Victoria Embankment, then up to the Strand. Enter the courtyard of Somerset House through the Strand gateway.</p>"
+              },
+              "lmml:texts": [
+                {
+                  "lmml:length": "medium",
+                  "lmml:level": "average",
+                  "lmml:tone": "adult",
+                  "inLanguage": "en",
+                  "text": "<p><strong>Where to stand.</strong> Low-confidence estimate: on the south side of the courtyard, looking north (about 0°) across it towards the Strand block.</p><p><strong>Light and time of day.</strong> Looking north across an open courtyard, you have the sun behind you through the middle of the day and the early afternoon.</p><p><strong>What to look for.</strong> The shot can be matched only in winter, when the courtyard is an ice rink; at other times you will find the fountains. The courtyard measures 300 by 200 feet: use a wide angle and keep Chambers's façades level in the frame.</p>"
+                }
+              ]
+            },
+            {
+              "locationId": "smith-wollensky",
+              "lmml:transition": {
+                "mode": "walk",
+                "minutes": 9,
+                "text": "<p>Walk about 9 minutes west along the Strand and turn left down to John Adam Street. The Adelphi building is on the south side of the street.</p>"
+              },
+              "lmml:texts": [
+                {
+                  "lmml:length": "medium",
+                  "lmml:level": "average",
+                  "lmml:tone": "adult",
+                  "inLanguage": "en",
+                  "text": "<p><strong>Where to stand.</strong> On the north pavement of John Adam Street, facing the Adelphi building and looking south (about 180°). The dinner itself was filmed inside.</p><p><strong>Light and time of day.</strong> You are looking south, towards the sun, at a front that faces north and is therefore in shadow for most of the day. Expose for the building and let the sky go bright.</p><p><strong>What to look for.</strong> The Art Deco front of the Adelphi, described as a monumental building of 1936-38. Check on the day whether the restaurant is open; if it is, the room where the family dinner of series two was filmed is inside.</p>"
+                }
+              ]
+            },
+            {
+              "locationId": "grosvenor-chapel",
+              "lmml:transition": {
+                "mode": "tube",
+                "minutes": 34,
+                "text": "<p>Walk about 9 minutes to Charing Cross station. Take the Northern line one stop north to Tottenham Court Road and change to the Elizabeth line for one stop west to Bond Street. From Bond Street walk about 17 minutes south through Mayfair to South Audley Street.</p>"
+              },
+              "lmml:texts": [
+                {
+                  "lmml:length": "medium",
+                  "lmml:level": "average",
+                  "lmml:tone": "adult",
+                  "inLanguage": "en",
+                  "text": "<p><strong>Where to stand.</strong> On the west pavement of South Audley Street, opposite the chapel, facing its front head on and looking east (about 90°).</p><p><strong>Light and time of day.</strong> The front faces west, so it is lit from the front in the afternoon: this route brings you here at the right time.</p><p><strong>What to look for.</strong> The whole front of the 1730s chapel in one frame. The wedding of Peter and Juliet is an interior scene: if the chapel is open, look down the aisle. On the outside of the west wall, find the tablet recording the American forces who worshipped here during the Second World War.</p>"
+                }
+              ]
+            },
+            {
+              "locationId": "selfridges",
+              "lmml:transition": {
+                "mode": "walk",
+                "minutes": 13,
+                "text": "<p>Walk about 13 minutes north through Mayfair to Oxford Street. Selfridges is on the north side.</p>"
+              },
+              "lmml:texts": [
+                {
+                  "lmml:length": "medium",
+                  "lmml:level": "average",
+                  "lmml:tone": "adult",
+                  "inLanguage": "en",
+                  "text": "<p><strong>Where to stand.</strong> On the south pavement of Oxford Street, facing the store and looking north (about 0°). The scene itself is in the jewellery department, which the sources do not locate inside the store.</p><p><strong>Light and time of day.</strong> The Oxford Street front faces south and is in the sun for most of the day; in the late afternoon the light comes from your left.</p><p><strong>What to look for.</strong> Outside: the full width of Daniel Burnham's building of 1909. Inside: go to the jewellery department and imagine Harry waiting while the necklace is wrapped. In the film it is Christmas, so the picture is closest to the scene when the decorations are up.</p>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Marylebone to Notting Hill",
+          "text": "<p>The last chapter takes you from the station where the Beatles catch their train to three stops in Notting Hill, a few minutes apart, where the day ends.</p><p>Two of the three Notting Hill stops are front doors of private homes. Photograph from the public street, do not block the doorway, and leave no trace.</p>",
+          "steps": [
+            {
+              "locationId": "marylebone-station",
+              "lmml:transition": {
+                "mode": "tube",
+                "minutes": 23,
+                "text": "<p>Walk about 11 minutes to Bond Street station. Take the Jubilee line northbound to Baker Street (2 minutes) and change to the Bakerloo line for one stop to Marylebone. From the Underground it is then a few minutes' walk up to the main-line station and round to Boston Place. Walking all the way takes about 25 minutes.</p>"
+              },
+              "lmml:texts": [
+                {
+                  "lmml:length": "medium",
+                  "lmml:level": "average",
+                  "lmml:tone": "adult",
+                  "inLanguage": "en",
+                  "text": "<p><strong>Where to stand.</strong> Estimate: at the south end of Boston Place, the street along the east side of the station, looking north up the street (about 345°).</p><p><strong>Light and time of day.</strong> Looking north-north-west along a street with a high wall, you have the sun behind you or to your left in the afternoon; the pavement may be in shadow.</p><p><strong>What to look for.</strong> The long straight perspective of Boston Place for the run towards the camera: the sources do not say which way the Beatles ran, so try both ends. Then go into the station for the concourse and the platforms, where the four were filmed running to catch a moving train. The film is in black-and-white: convert your picture.</p>"
+                }
+              ]
+            },
+            {
+              "locationId": "notting-hill-bookshop",
+              "lmml:transition": {
+                "mode": "tube",
+                "minutes": 30,
+                "text": "<p>Walk about 11 minutes to Edgware Road station (the Circle and Hammersmith &amp; City line station). Take the Hammersmith &amp; City line westbound to Ladbroke Grove (about 7 minutes), then walk about 12 minutes to 142 Portobello Road.</p>"
+              },
+              "lmml:texts": [
+                {
+                  "lmml:length": "medium",
+                  "lmml:level": "average",
+                  "lmml:tone": "adult",
+                  "inLanguage": "en",
+                  "text": "<p><strong>Where to stand.</strong> On the pavement opposite no. 142 Portobello Road, facing the shop front square on (estimated direction about 255°, west-south-west).</p><p><strong>Light and time of day.</strong> If the estimate is right you are looking towards the sun in the late afternoon: the shop front will be in shadow and the sky bright. Expose for the shop front, or stand closer to cut out the sky.</p><p><strong>What to look for.</strong> The sign reading 'The Travel Book Shop', added by the present gift shop, which copies the typeface and colours of the film title. For the real bookshop that inspired the film, walk round the corner to 13 Blenheim Crescent.</p>"
+                }
+              ]
+            },
+            {
+              "locationId": "notting-hill-blue-door",
+              "lmml:transition": {
+                "mode": "walk",
+                "minutes": 4,
+                "text": "<p>Walk north up Portobello Road to Westbourne Park Road and turn left: no. 280 is a few yards from the corner. About 4 minutes.</p>"
+              },
+              "lmml:texts": [
+                {
+                  "lmml:length": "medium",
+                  "lmml:level": "average",
+                  "lmml:tone": "adult",
+                  "inLanguage": "en",
+                  "text": "<p><strong>Where to stand.</strong> On the pavement on the other side of Westbourne Park Road, facing the door and looking roughly north (about 345°).</p><p><strong>Light and time of day.</strong> Looking north you have the light behind you; in the late afternoon it comes from your left and rakes across the door.</p><p><strong>What to look for.</strong> The door, blue again after the original was auctioned for charity. This is where the paparazzi wait in the film. A few yards away is the corner of Portobello Road where William bumps into Anna. It is a private home: stay on the far pavement.</p>"
+                }
+              ]
+            },
             {
               "locationId": "st-lukes-mews",
               "lmml:transition": {
-                "mode": "tube",
-                "minutes": null,
-                "text": "<p>TODO: directions from the previous location.</p>"
-              }
+                "mode": "walk",
+                "minutes": 4,
+                "text": "<p>Walk back east along Westbourne Park Road, across Portobello Road, then a short way north to St Luke's Mews, which runs off All Saints Road: about 4 minutes.</p>"
+              },
+              "lmml:texts": [
+                {
+                  "lmml:length": "medium",
+                  "lmml:level": "average",
+                  "lmml:tone": "adult",
+                  "inLanguage": "en",
+                  "text": "<p><strong>Where to stand.</strong> In the mews, facing the pink house on the south side and looking south-south-east (about 160°) at the front door.</p><p><strong>Light and time of day.</strong> You are looking roughly south, so the front of the house is in its own shadow for much of the day; the soft light at the end of the afternoon suits it.</p><p><strong>What to look for.</strong> The front door where Mark holds up his cue cards, about 96 minutes into the film. Bring a card of your own. The house is a private home in a narrow residential street: take the picture and move on.</p>"
+                }
+              ]
             }
           ]
         }
