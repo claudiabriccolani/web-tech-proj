@@ -7,7 +7,7 @@ Nothing in `data/locations.json` is marked as verified yet: every location has `
 - **Camera positions and bearings are estimates.** They were worked out from descriptions of the shots, from the coordinates and captions of Wikimedia Commons photos and from the street geometry on OpenStreetMap. No film still was consulted. The Street View links below open at the estimated position, looking along the estimated bearing.
 - **Interior scenes.** Selfridges, Smith & Wollensky, Grosvenor Chapel and the Tate Modern scene of Fleabag were filmed indoors. The camera position given is the outside of the building.
 - **Light and time-of-day advice** in the *Recreate the shot* texts is derived from the estimated bearing (which way the façade faces), not from a source. If a bearing changes, re-read that step's text.
-- **Directions and minutes** in the transitions come from the TfL journey planner (queried for a Tuesday at 11:00). Street-by-street wording is mine: walk the trickier legs on Street View, especially Great Portland Street → Charlotte Mews and the walk into St Luke's Mews.
+- **Directions and minutes** in the transitions come from the TfL journey planner (queried for a Tuesday at 11:00). Street-by-street wording is mine: walk the trickier legs on Street View, especially Charlotte Mews → Great Portland Street, Bank → Leadenhall Market and the walk into St Luke's Mews.
 - **Scholar texts** contain, besides the facts, one or two sentences of interpretation each (for example on what the cue cards change in the Love Actually scene). They add no factual claims, but they are my reading, not a source's: keep, rewrite or cut.
 - **French short texts** use the usual French names *Chaudron Baveur* and *Mangemorts* for the Leaky Cauldron and the Death Eaters; film titles are left in English.
 - **Not checked in a real browser by hand.** Pages were rendered in headless Chrome at 1280×800 (data check OK, no console errors). The portrait layout could not be tested reliably in headless mode: check it on a phone.
@@ -19,8 +19,8 @@ Nothing in `data/locations.json` is marked as verified yet: every location has `
 
 ## Day plan
 
-- **Historical timeline** (14 locations, York Rise excluded): 405 min of travel (6 h 45) + 210 min at the stops (15 min each) = about 10 h 15 min, without a lunch break.
-- **Recreate the shot** (15 locations): 285 min of travel (4 h 45) + 300 min at the stops (20 min each) = about 9 h 45 min, without a lunch break.
+- **Historical timeline** (14 locations, York Rise excluded, same-year stops ordered by distance): 380 min of travel (6 h 20) + 140 min at the stops (10 min each) = about 8 h 40 min, without a lunch break.
+- **Recreate the shot** (15 locations): 285 min of travel (4 h 45) + 300 min at the stops (20 min each, deliberately longer) = about 9 h 45 min, without a lunch break.
 
 See the final report for how feasible each one is.
 
