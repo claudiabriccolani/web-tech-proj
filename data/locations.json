@@ -2497,6 +2497,10 @@
         {
           "text": "The house of Fleabag's sister Claire is on Laurier Road, a two-minute walk from the café.",
           "url": "https://www.virginmedia.com/the-edit/tv/where-was-fleabag-filmed"
+        },
+        {
+          "text": "Sunset in London (51.51° N, 0.13° W) in 2026, as computed by the US Naval Observatory: 18:13 GMT on 20 March, 20:22 UTC (21:22 British Summer Time) on 21 June, 17:57 UTC (18:57 British Summer Time) on 23 September and 15:53 GMT on 21 December.",
+          "url": "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-12-21&coords=51.51,-0.13&tz=0"
         }
       ],
       "lmml:openQuestions": [
@@ -2529,6 +2533,11 @@
           "@type": "CreativeWork",
           "url": "https://www.openstreetmap.org/?mlat=51.5586216&mlon=-0.1434227#map=19/51.5586216/-0.1434227",
           "description": "OpenStreetMap: coordinates of 20 York Rise"
+        },
+        {
+          "@type": "CreativeWork",
+          "url": "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-12-21&coords=51.51,-0.13&tz=0",
+          "description": "US Naval Observatory, Astronomical Applications Department: sun rise and set times for one day (queried for London on 20 March, 21 June, 23 September and 21 December 2026; the link shows 21 December)"
         }
       ],
       "lmml:texts": [

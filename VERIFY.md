@@ -14,6 +14,7 @@ Nothing in `data/locations.json` is marked as verified yet: every location has `
 - **Image height on location pages.** With a long transition text the header takes a lot of room and the image row becomes short at 1280×800. This is a layout matter, so it was left for you.
 - **Photo captions.** Only 6 of the 26 photos were opened and looked at (St Luke's Mews 1, Charlotte Mews, York Rise, St Bartholomew's 2, Selfridges 2, plus one discarded). The other captions are based on the Commons titles and descriptions: check each against the picture.
 - **Inline markup in texts.** The texts use `em` (titles) and `strong`, which are not in the restricted element list in the README: if the course requires that list strictly, replace them with `span`.
+- **Sunset times at York Rise** come from the US Naval Observatory for 2026, in UTC; I converted the June and September values to British Summer Time by adding one hour. Timeanddate refused automated access and the HM Nautical Almanac Office site was unavailable, so neither was used.
 - **Before printing QR codes** set `baseUrl` in `data/site.json`; they currently encode `localhost`.
 - `author` in `data/site.json` was set to "Claudia Briccolani" (from the git user name): correct it if needed. The about text is still TODO.
 
