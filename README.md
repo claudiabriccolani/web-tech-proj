@@ -294,8 +294,9 @@ can style by content:
 - All 15 locations have `lmml:verified: false` and
   `lmml:cameraConfidence: "estimated"`. `VERIFY.md` lists what to check by
   hand for each one (camera, open questions, missing images).
-- Set `baseUrl` in `data/site.json` to the deployed URL before printing the
-  QR codes. Otherwise they encode the current address (e.g. `localhost`).
+- `baseUrl` in `data/site.json` is set to the GitHub Pages address, so QR
+  codes always encode the public site, even when printed from `localhost`.
+  Change it if the site moves.
 - The about text and most documentation sections in `data/site.json` are
   still TODO.
 - Image `alt` text currently reuses the caption. Consider adding a separate

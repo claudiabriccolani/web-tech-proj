@@ -3,7 +3,7 @@
   "shortTitle": "LMML",
   "subtitle": "A one-day visit to fifteen London filming locations",
   "author": "Claudia Briccolani",
-  "baseUrl": "",
+  "baseUrl": "https://claudiabriccolani.github.io/web-tech-proj/",
   "defaultTheme": "victorian",
   "defaultNarrative": "historical-timeline",
   "themes": [
