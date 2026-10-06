@@ -146,6 +146,7 @@ The JSON files are plain JSON shaped like JSON-LD:
 | `lmml:facts` | Place | short atomic facts, each `{text, url}` with the source it comes from; the texts are written only from these |
 | `lmml:openQuestions` | Place | points on which sources disagree or that could not be confirmed |
 | `lmml:imageTodo` | Place | note about a missing image |
+| `lmml:visitorAccess` | Place | for interior scenes: `{dateChecked, statements: [{text, url}]}` with opening hours, booking and photography rules from the venue's own site; shown in the metadata table as "Visiting and photography" |
 | `lmml:estimatedMinutes` | narrative | `{travel, visits, visitMinutesPerStop, total}`; `total` is shown on the cover |
 | `lmml:sceneDescription` | Place | description of the scene |
 | `lmml:representsPlace` | Place | the Place it plays in the fiction, or `null` |

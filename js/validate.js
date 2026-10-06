@@ -38,6 +38,10 @@ export function validateData(data) {
       if (!fact.url) warn(`${where} facts[${f}]: no source "url"`);
       else if (!cited.has(fact.url)) warn(`${where} facts[${f}]: source ${fact.url} is not in "citation"`);
     });
+    (loc['lmml:visitorAccess']?.statements ?? []).forEach((statement, v) => {
+      if (!statement.url) warn(`${where} visitorAccess[${v}]: no source "url"`);
+      else if (!cited.has(statement.url)) warn(`${where} visitorAccess[${v}]: source ${statement.url} is not in "citation"`);
+    });
     (loc.image ?? []).forEach((image, m) => {
       if (!image.license || !image.url) warn(`${where} image[${m}]: missing "license" or source "url"`);
     });

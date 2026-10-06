@@ -5,7 +5,7 @@ Nothing in `data/locations.json` is marked as verified yet: every location has `
 ## Before the locations: things that apply to everything
 
 - **Camera positions and bearings are estimates.** They were worked out from descriptions of the shots, from the coordinates and captions of Wikimedia Commons photos and from the street geometry on OpenStreetMap. No film still was consulted. The Street View links below open at the estimated position, looking along the estimated bearing.
-- **Interior scenes.** Selfridges, Smith & Wollensky, Grosvenor Chapel and the Tate Modern scene of Fleabag were filmed indoors. The camera position given is the outside of the building.
+- **Interior scenes.** Selfridges, Smith & Wollensky, Grosvenor Chapel and the Tate Modern scene of Fleabag were filmed indoors. The camera position given is the outside of the building. Each has an `lmml:visitorAccess` field with opening hours, booking and photography rules taken from the venue's own site on 2026-10-06: opening hours change, so re-check them before the visit.
 - **Light and time-of-day advice** in the *Recreate the shot* texts is derived from the estimated bearing (which way the façade faces), not from a source. If a bearing changes, re-read that step's text.
 - **Directions and minutes** in the transitions come from the TfL journey planner (queried for a Tuesday at 11:00). Street-by-street wording is mine: walk the trickier legs on Street View, especially Charlotte Mews → Great Portland Street, Bank → Leadenhall Market and the walk into St Luke's Mews.
 - **Scholar texts** contain, besides the facts, one or two sentences of interpretation each (for example on what the cue cards change in the Love Actually scene). They add no factual claims, but they are my reading, not a source's: keep, rewrite or cut.
@@ -202,7 +202,13 @@ See the final report for how feasible each one is.
 **Open questions**
 
 - [ ] The sources say the wedding 'is conducted in' the chapel but do not say whether any exterior shot of the chapel is in the film: the camera estimate is simply the classic view of the front.
-- [ ] Check opening hours: the chapel is a working church and may be closed to visitors at times.
+- [ ] The chapel's site does not say whether photography is allowed inside: ask at the chapel.
+
+**Visitor access (from the venue's own site, read on 2026-10-06)**
+
+- [ ] The chapel is normally open to visitors Monday to Friday, 8am to 2.30pm. It is also open on Saturdays for Occasional Offices and on Sundays for the 11am Sung Eucharist. ([source](https://www.grosvenorchapel.org.uk/about-1))
+- [ ] Exceptions to the opening times are public holidays, private bookings and staff annual leave. ([source](https://www.grosvenorchapel.org.uk/about-1))
+- [ ] Photography: the chapel's site says nothing about taking photographs inside. ([source](https://www.grosvenorchapel.org.uk/about-1))
 
 **Images**
 
@@ -228,6 +234,11 @@ See the final report for how feasible each one is.
 **Open questions**
 
 - [ ] Interior scene: no source read says where in the store the counter was, or whether it was a real counter. The camera position is therefore the exterior of the building, not the shot.
+
+**Visitor access (from the venue's own site, read on 2026-10-06)**
+
+- [ ] Opening hours listed by Selfridges for the London store: Monday to Friday 10:00–22:00, Saturday 10:00–21:00, Sunday 11:30–18:00. ([source](https://www.selfridges.com/GB/en/features/info/stores/london/))
+- [ ] Photography: the store page says nothing about taking photographs inside the store. ([source](https://www.selfridges.com/GB/en/features/info/stores/london/))
 
 **Images**
 
@@ -284,6 +295,13 @@ See the final report for how feasible each one is.
 - [ ] Fleabag: Virgin Media places the Tate Modern 'sexhibition' in the final scene of series 1; the Wikipedia paragraph lists it right after the series 2 restaurant, which could be read as series 2. Confirm the episode.
 - [ ] 'Top floor of Tate Modern' is not precise: check which room it is and whether it is open to visitors.
 - [ ] This location has three works; the data model has one main work (the Harry Potter film, used for the timeline) and lists the other two under 'Also appears in'. Say if you prefer another main work.
+
+**Visitor access (from the venue's own site, read on 2026-10-06)**
+
+- [ ] The Millennium Bridge is a footbridge for pedestrians across the Thames, in the open air. ([source](https://en.wikipedia.org/wiki/Millennium_Bridge,_London))
+- [ ] Tate Modern: entry to the collection is free for everyone; booking is recommended for exhibitions, which are paid. Opening times: Sunday to Thursday 10.00–18.00, Friday and Saturday 10.00–21.00. Bags are checked on arrival. ([source](https://www.tate.org.uk/visit/tate-modern))
+- [ ] Photography in Tate Modern: 'You can take photos, but make sure the flash is turned off.' ([source](https://www.tate.org.uk/visit/tate-modern/visual-story))
+- [ ] Tate describes its Restaurant and Bar, on Level 6 of the Natalie Bell Building, as sitting 'at the top of Tate Modern with panoramic views across the Thames towards St Paul's Cathedral'; it takes reservations and is open Monday to Thursday 12.00–16.30, Friday 12.00–16.00 and 18.45–21.30, Saturday 10.00–16.00 and 18.45–21.30, Sunday 10.00–16.30. No source confirms that this is the room of the Fleabag scene. ([source](https://www.tate.org.uk/visit/tate-modern/restaurant))
 
 **Images**
 
@@ -424,8 +442,14 @@ See the final report for how feasible each one is.
 **Open questions**
 
 - [ ] The building: Virgin Media describes it as 'the old Adelphi Hotel building … the last survivor of the 18th-century neoclassical terrace', with a 1930s art deco interior; the Commons description calls it the New Adelphi, an Art Deco building of 1936-38. These do not agree on the age of the building.
-- [ ] Is the restaurant still trading? OpenStreetMap still lists Smith & Wollensky at 1-11 John Adam Street, but this was not confirmed with a current source.
+- [ ] The restaurant's site does not say whether visitors who are not dining may enter to look or take photographs: ask the restaurant.
 - [ ] Interior scene: the camera position is the street outside, not the shot. No source read describes the dinner in detail (who is at the table, what happens): add that only after checking the episode.
+
+**Visitor access (from the venue's own site, read on 2026-10-06)**
+
+- [ ] The restaurant is open: its site lists opening times Monday to Thursday 12:00–22:00, Friday and Saturday 12:00–22:30, Sunday 12:00–21:30 (last orders), and says exceptions may apply without prior notice. ([source](https://www.smithandwollensky.co.uk/find-us/))
+- [ ] Tables are booked through the 'Book a table' link on the restaurant's site; bookings of 12 or more people are made by phone. ([source](https://www.smithandwollensky.co.uk/find-us/))
+- [ ] The site does not say whether people who are not dining may come in to look, and says nothing about photography. ([source](https://www.smithandwollensky.co.uk/find-us/))
 
 **Images**
 

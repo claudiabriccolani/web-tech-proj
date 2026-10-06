@@ -1051,6 +1051,23 @@
       "lmml:cameraBearing": 90,
       "lmml:cameraConfidence": "estimated",
       "lmml:shotDescription": "Estimate. The wedding is an interior scene; for the outside, stand on the opposite (west) pavement of South Audley Street and face the front of the chapel head on, looking east.",
+      "lmml:visitorAccess": {
+        "dateChecked": "2026-10-06",
+        "statements": [
+          {
+            "text": "The chapel is normally open to visitors Monday to Friday, 8am to 2.30pm. It is also open on Saturdays for Occasional Offices and on Sundays for the 11am Sung Eucharist.",
+            "url": "https://www.grosvenorchapel.org.uk/about-1"
+          },
+          {
+            "text": "Exceptions to the opening times are public holidays, private bookings and staff annual leave.",
+            "url": "https://www.grosvenorchapel.org.uk/about-1"
+          },
+          {
+            "text": "Photography: the chapel's site says nothing about taking photographs inside.",
+            "url": "https://www.grosvenorchapel.org.uk/about-1"
+          }
+        ]
+      },
       "lmml:verified": false,
       "lmml:appearsIn": {
         "@type": "Movie",
@@ -1136,7 +1153,7 @@
       ],
       "lmml:openQuestions": [
         "The sources say the wedding 'is conducted in' the chapel but do not say whether any exterior shot of the chapel is in the film: the camera estimate is simply the classic view of the front.",
-        "Check opening hours: the chapel is a working church and may be closed to visitors at times."
+        "The chapel's site does not say whether photography is allowed inside: ask at the chapel."
       ],
       "citation": [
         {
@@ -1158,6 +1175,11 @@
           "@type": "CreativeWork",
           "url": "https://www.openstreetmap.org/?mlat=51.5090453&mlon=-0.1512052#map=19/51.5090453/-0.1512052",
           "description": "OpenStreetMap: coordinates of Grosvenor Chapel"
+        },
+        {
+          "@type": "CreativeWork",
+          "url": "https://www.grosvenorchapel.org.uk/about-1",
+          "description": "Grosvenor Chapel: official site (opening times for visitors)"
         }
       ],
       "lmml:texts": [
@@ -1215,6 +1237,19 @@
       "lmml:cameraBearing": 0,
       "lmml:cameraConfidence": "estimated",
       "lmml:shotDescription": "Estimate. The scene is inside the store, at a jewellery counter that the sources do not locate. The position given is the outside view: south pavement of Oxford Street, facing the store (north).",
+      "lmml:visitorAccess": {
+        "dateChecked": "2026-10-06",
+        "statements": [
+          {
+            "text": "Opening hours listed by Selfridges for the London store: Monday to Friday 10:00–22:00, Saturday 10:00–21:00, Sunday 11:30–18:00.",
+            "url": "https://www.selfridges.com/GB/en/features/info/stores/london/"
+          },
+          {
+            "text": "Photography: the store page says nothing about taking photographs inside the store.",
+            "url": "https://www.selfridges.com/GB/en/features/info/stores/london/"
+          }
+        ]
+      },
       "lmml:verified": false,
       "lmml:appearsIn": {
         "@type": "Movie",
@@ -1300,7 +1335,8 @@
         }
       ],
       "lmml:openQuestions": [
-        "Interior scene: no source read says where in the store the counter was, or whether it was a real counter. The camera position is therefore the exterior of the building, not the shot."
+        "Interior scene: no source read says where in the store the counter was, or whether it was a real counter. The camera position is therefore the exterior of the building, not the shot.",
+        "Selfridges' store page does not say whether photography is allowed inside the store: ask staff."
       ],
       "citation": [
         {
@@ -1332,6 +1368,11 @@
           "@type": "CreativeWork",
           "url": "https://www.openstreetmap.org/?mlat=51.5146022&mlon=-0.1528176#map=19/51.5146022/-0.1528176",
           "description": "OpenStreetMap: coordinates of Selfridges"
+        },
+        {
+          "@type": "CreativeWork",
+          "url": "https://www.selfridges.com/GB/en/features/info/stores/london/",
+          "description": "Selfridges: London store page (official opening hours)"
         }
       ],
       "lmml:texts": [
@@ -1553,6 +1594,27 @@
       "lmml:cameraBearing": 5,
       "lmml:cameraConfidence": "estimated",
       "lmml:shotDescription": "Estimate. Stand at the southern end of the bridge, on Bankside in front of Tate Modern, on the axis of the deck, and look north towards St Paul's Cathedral. For the Fleabag view, the windows of Tate Modern look out over the Thames and St Paul's from above.",
+      "lmml:visitorAccess": {
+        "dateChecked": "2026-10-06",
+        "statements": [
+          {
+            "text": "The Millennium Bridge is a footbridge for pedestrians across the Thames, in the open air.",
+            "url": "https://en.wikipedia.org/wiki/Millennium_Bridge,_London"
+          },
+          {
+            "text": "Tate Modern: entry to the collection is free for everyone; booking is recommended for exhibitions, which are paid. Opening times: Sunday to Thursday 10.00–18.00, Friday and Saturday 10.00–21.00. Bags are checked on arrival.",
+            "url": "https://www.tate.org.uk/visit/tate-modern"
+          },
+          {
+            "text": "Photography in Tate Modern: 'You can take photos, but make sure the flash is turned off.'",
+            "url": "https://www.tate.org.uk/visit/tate-modern/visual-story"
+          },
+          {
+            "text": "Tate describes its Restaurant and Bar, on Level 6 of the Natalie Bell Building, as sitting 'at the top of Tate Modern with panoramic views across the Thames towards St Paul's Cathedral'; it takes reservations and is open Monday to Thursday 12.00–16.30, Friday 12.00–16.00 and 18.45–21.30, Saturday 10.00–16.00 and 18.45–21.30, Sunday 10.00–16.30. No source confirms that this is the room of the Fleabag scene.",
+            "url": "https://www.tate.org.uk/visit/tate-modern/restaurant"
+          }
+        ]
+      },
       "lmml:verified": false,
       "lmml:appearsIn": {
         "@type": "Movie",
@@ -1689,7 +1751,7 @@
       "lmml:openQuestions": [
         "Love Actually: the sources only say the bridge is 'briefly seen' about 18 minutes in. None describes what happens in the shot or who is in it: watch the film to confirm before describing it further.",
         "Fleabag: Virgin Media places the Tate Modern 'sexhibition' in the final scene of series 1; the Wikipedia paragraph lists it right after the series 2 restaurant, which could be read as series 2. Confirm the episode.",
-        "'Top floor of Tate Modern' is not precise: check which room it is and whether it is open to visitors.",
+        "'Top floor of Tate Modern' is not precise. Tate's Restaurant and Bar on Level 6 of the Natalie Bell Building is described by Tate as 'at the top of Tate Modern' with views towards St Paul's, but no source confirms it is the room of the Fleabag scene.",
         "This location has three works; the data model has one main work (the Harry Potter film, used for the timeline) and lists the other two under 'Also appears in'. Say if you prefer another main work."
       ],
       "citation": [
@@ -1742,6 +1804,21 @@
           "@type": "CreativeWork",
           "url": "https://www.openstreetmap.org/?mlat=51.510173&mlon=-0.098438#map=19/51.510173/-0.098438",
           "description": "Coordinates of Millennium Bridge as given by Wikipedia, shown on OpenStreetMap"
+        },
+        {
+          "@type": "CreativeWork",
+          "url": "https://www.tate.org.uk/visit/tate-modern",
+          "description": "Tate Modern: official visit page (opening times, entry, bag checks)"
+        },
+        {
+          "@type": "CreativeWork",
+          "url": "https://www.tate.org.uk/visit/tate-modern/visual-story",
+          "description": "Tate Modern: official visual story (rules for visitors, photography)"
+        },
+        {
+          "@type": "CreativeWork",
+          "url": "https://www.tate.org.uk/visit/tate-modern/restaurant",
+          "description": "Tate Modern: Restaurant and Bar page (location, views, opening times)"
         }
       ],
       "lmml:texts": [
@@ -2508,7 +2585,24 @@
       },
       "lmml:cameraBearing": 180,
       "lmml:cameraConfidence": "estimated",
-      "lmml:shotDescription": "Estimate. The dinner is an interior scene. For the outside, stand on the north pavement of John Adam Street and face the Adelphi building, looking south. Which door is the restaurant entrance was not confirmed.",
+      "lmml:shotDescription": "Estimate. The dinner is an interior scene; the restaurant is open and takes bookings (see Visiting and photography). For the outside, stand on the north pavement of John Adam Street and face the Adelphi building, looking south. Which door is the restaurant entrance was not confirmed.",
+      "lmml:visitorAccess": {
+        "dateChecked": "2026-10-06",
+        "statements": [
+          {
+            "text": "The restaurant is open: its site lists opening times Monday to Thursday 12:00–22:00, Friday and Saturday 12:00–22:30, Sunday 12:00–21:30 (last orders), and says exceptions may apply without prior notice.",
+            "url": "https://www.smithandwollensky.co.uk/find-us/"
+          },
+          {
+            "text": "Tables are booked through the 'Book a table' link on the restaurant's site; bookings of 12 or more people are made by phone.",
+            "url": "https://www.smithandwollensky.co.uk/find-us/"
+          },
+          {
+            "text": "The site does not say whether people who are not dining may come in to look, and says nothing about photography.",
+            "url": "https://www.smithandwollensky.co.uk/find-us/"
+          }
+        ]
+      },
       "lmml:verified": false,
       "lmml:appearsIn": {
         "@type": "TVEpisode",
@@ -2592,8 +2686,8 @@
       ],
       "lmml:openQuestions": [
         "The building: Virgin Media describes it as 'the old Adelphi Hotel building … the last survivor of the 18th-century neoclassical terrace', with a 1930s art deco interior; the Commons description calls it the New Adelphi, an Art Deco building of 1936-38. These do not agree on the age of the building.",
-        "Is the restaurant still trading? OpenStreetMap still lists Smith & Wollensky at 1-11 John Adam Street, but this was not confirmed with a current source.",
-        "Interior scene: the camera position is the street outside, not the shot. No source read describes the dinner in detail (who is at the table, what happens): add that only after checking the episode."
+        "Interior scene: the camera position is the street outside, not the shot. No source read describes the dinner in detail (who is at the table, what happens): add that only after checking the episode.",
+        "The restaurant's site does not say whether visitors who are not dining may enter to look or take photographs: ask the restaurant."
       ],
       "citation": [
         {
@@ -2615,6 +2709,11 @@
           "@type": "CreativeWork",
           "url": "https://www.openstreetmap.org/?mlat=51.5093559&mlon=-0.1221443#map=19/51.5093559/-0.1221443",
           "description": "OpenStreetMap: coordinates of Smith & Wollensky, John Adam Street"
+        },
+        {
+          "@type": "CreativeWork",
+          "url": "https://www.smithandwollensky.co.uk/find-us/",
+          "description": "Smith & Wollensky London: official site, Find us (opening times, booking)"
         }
       ],
       "lmml:texts": [

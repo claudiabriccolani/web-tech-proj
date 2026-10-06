@@ -24,6 +24,7 @@ const LABELS = {
   'lmml:cameraBearing': 'Camera direction',
   'lmml:cameraConfidence': 'Camera data',
   'lmml:shotDescription': 'How to find the shot',
+  'lmml:visitorAccess': 'Visiting and photography',
   'lmml:verified': 'Verified',
   'lmml:appearsIn': 'Appears in',
   'lmml:alsoAppearsIn': 'Also appears in',
@@ -66,6 +67,7 @@ const KEY_FORMATTERS = {
   'lmml:cameraBearing': (v) => `${v}° from north (${compass(v)})`,
   'lmml:verified': (v) => (v ? 'Yes' : 'No — to be checked'),
   'lmml:cameraConfidence': (v) => (v === 'estimated' ? 'Estimated, not yet checked on site' : String(v)),
+  'lmml:visitorAccess': visitorAccess,
 };
 
 export function buildMetadataTable(loc) {
@@ -117,6 +119,19 @@ function renderValue(key, value) {
   if (typeof value === 'boolean') return value ? 'Yes' : 'No';
   if (typeof value === 'string' && /^https?:\/\//.test(value)) return externalLink(value);
   return String(value);
+}
+
+/**
+ * Opening hours, booking and photography rules: one list item per statement,
+ * each followed by a link to its source, then the date the sources were read
+ * (opening hours change, so the reader should know how old the information is).
+ */
+function visitorAccess(value) {
+  return el('div', { 'data-role': 'visitor-access' },
+    el('ul', { 'data-role': 'metadata-list' },
+      (value.statements ?? []).map((s) =>
+        el('li', {}, s.text, ' ', s.url && externalLink(s.url, 'Source')))),
+    value.dateChecked && el('p', { 'data-role': 'date-checked' }, `Information checked on ${value.dateChecked}.`));
 }
 
 /** One item of a list: works by their label, other objects by their formatter. */
