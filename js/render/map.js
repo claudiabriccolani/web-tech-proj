@@ -5,7 +5,8 @@
  *   1. OpenStreetMap tiles
  *   2. the route of the current narrative (polyline through its steps, in order)
  *   3. for each location: a "view cone" from the camera position, pointing
- *      along lmml:cameraBearing, and a small dot at the camera position
+ *      along lmml:cameraBearing, an arrow along the same direction and a
+ *      small dot at the camera position
  *   4. a circle marker at the place; clicking it opens the location page
  *
  * Map shapes get CSS classes (lmml-marker, lmml-route, ...) and their
@@ -22,6 +23,7 @@ import { navigate } from '../router.js';
 const LONDON = [51.5074, -0.1278];
 const CONE_LENGTH_M = 45;     // how far the cone reaches, in metres
 const CONE_HALF_ANGLE = 20;   // half of the cone's opening, in degrees
+const ARROW_HEAD_M = 12;      // length of the two strokes of the arrow head, in metres
 const EARTH_RADIUS_M = 6371000;
 
 export function renderMap(outlet, params) {
@@ -40,7 +42,7 @@ export function renderMap(outlet, params) {
         el('p', { 'data-role': 'map-legend' },
           el('span', { 'data-legend': 'route' }), ` Route: ${narrative?.name ?? '—'} `,
           el('span', { 'data-legend': 'marker' }), ' Filming location ',
-          el('span', { 'data-legend': 'cone' }), ' Camera position and direction'),
+          el('span', { 'data-legend': 'cone' }), ' Camera position and direction (estimated)'),
       ),
       canvas,
     ),
@@ -117,6 +119,14 @@ function drawCamera(L, map, camera) {
       points.push(destination(camera.latLng, camera.bearing + offset, CONE_LENGTH_M));
     }
     L.polygon(points, { className: 'lmml-camera-cone', interactive: false }).addTo(map);
+
+    // Arrow: a shaft from the camera to the tip, plus two short strokes
+    // going back from the tip at ±150° from the bearing (the arrow head).
+    const tip = destination(camera.latLng, camera.bearing, CONE_LENGTH_M);
+    L.polyline([
+      [camera.latLng, tip],
+      [destination(tip, camera.bearing + 150, ARROW_HEAD_M), tip, destination(tip, camera.bearing - 150, ARROW_HEAD_M)],
+    ], { className: 'lmml-camera-arrow', interactive: false }).addTo(map);
   }
   L.circleMarker(camera.latLng, { radius: 4, className: 'lmml-camera', interactive: false }).addTo(map);
 }

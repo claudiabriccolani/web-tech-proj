@@ -101,7 +101,7 @@ js/render/notFound.js      unknown routes
   - length: short < medium < long
   - level: intro < average < advanced
   - tone: young < adult < scholar
-- Each of the six buttons moves one step along one axis:
+- Each of the six buttons moves one step along one axis (the language buttons, when present, choose which language the six buttons work on):
 
 | Button | Axis | Direction |
 |---|---|---|
@@ -137,8 +137,14 @@ The JSON files are plain JSON shaped like JSON-LD:
 |---|---|---|
 | `lmml:cameraPosition` | Place | GeoCoordinates where the camera stood |
 | `lmml:cameraBearing` | Place | camera direction, degrees clockwise from north |
+| `lmml:cameraConfidence` | Place | `"estimated"` until the camera position and bearing have been checked on site |
 | `lmml:shotDescription` | Place | how to find the exact angle |
-| `lmml:appearsIn` | Place | the Movie / TVEpisode filmed here (schema.org has no "filmed at" property on Place) |
+| `lmml:appearsIn` | Place | the main Movie / TVEpisode / TVSeries filmed here (schema.org has no "filmed at" property on Place); its `datePublished` orders the timeline |
+| `lmml:alsoAppearsIn` | Place | list of other works filmed at the same place |
+| `lmml:facts` | Place | short atomic facts, each `{text, url}` with the source it comes from; the texts are written only from these |
+| `lmml:openQuestions` | Place | points on which sources disagree or that could not be confirmed |
+| `lmml:imageTodo` | Place | note about a missing image |
+| `lmml:estimatedMinutes` | narrative | `{travel, visits, total}`; `total` is shown on the cover |
 | `lmml:sceneDescription` | Place | description of the scene |
 | `lmml:representsPlace` | Place | the Place it plays in the fiction, or `null` |
 | `lmml:verified` | Place | `true` once the data has been checked |
@@ -151,7 +157,13 @@ Some schema.org properties are used in a specific sense:
 
 - `ImageObject.contentUrl` is the image file.
 - `ImageObject.url` is its source page.
-- `citation` lists the sources that feed the disclaimer.
+- `citation` lists the sources that feed the disclaimer. Every `url` used in
+  `lmml:facts` must also be in `citation` (the validator checks it).
+- `ImageObject.creditText` is "author, licence, via Wikimedia Commons" and
+  `ImageObject.license` is the licence URL.
+
+`lmml:facts`, `lmml:openQuestions` and `lmml:imageTodo` are working data: the
+metadata table does not show them. `VERIFY.md` lists them location by location.
 
 ## How to…
 
@@ -185,9 +197,16 @@ Add an object to the location's `lmml:texts`:
 
 - Only one text per cell (the validator warns about duplicates).
 - `text` is HTML and is inserted as-is, so only put trusted content there.
-- To give a location a different set of texts **inside one narrative**, add
-  `lmml:texts` to that narrative step. There, it replaces the location's
-  default texts.
+- Write texts only from the location's `lmml:facts`. To say something new,
+  add the fact (with its source) first.
+- To give a location a different text **inside one narrative**, add
+  `lmml:texts` to that narrative step. Each of those texts replaces the
+  location's default text of the same cell and language; the other default
+  texts stay available.
+- `inLanguage` sets the language (`en` if missing). When a location has texts
+  in more than one language, language buttons appear next to the six switches.
+  The switches only move among the texts of the current language, so a
+  language with a single text has all six disabled.
 
 ### Add a narrative
 
@@ -250,11 +269,12 @@ caption tbody tr th td ul ol li div span`.
   `location-kicker`, `location-title`, `location-work`, `verified-flag`,
   `location-media`, `location-figure`, `figure-caption`, `caption-credit`,
   `panel-tabs`, `location-text`, `text-controls`, `text-switch`,
-  `text-cell`, `text-body`, `location-meta`, `metadata-table`,
+  `lang-switch`, `text-cell`, `text-body`, `location-meta`,
+  `metadata-table`,
   `location-qr`, `qr-code`, `qr-url`, `map-link`
 - **Map:** `map`, `map-legend`, `map-canvas`. Leaflet shapes use the classes
-  `lmml-marker`, `lmml-marker--in-route`, `lmml-route`, `lmml-camera-cone`
-  and `lmml-camera`.
+  `lmml-marker`, `lmml-marker--in-route`, `lmml-route`, `lmml-camera-cone`,
+  `lmml-camera-arrow` and `lmml-camera`.
 
 **Other `data-*` attributes.** These describe the current state, so themes
 can style by content:
@@ -271,10 +291,12 @@ can style by content:
 
 ## Open TODOs
 
-- All content in `data/` is placeholder and marked TODO. Locations have
-  `lmml:verified: false`, and the coordinates and bearings are approximate.
+- All 15 locations have `lmml:verified: false` and
+  `lmml:cameraConfidence: "estimated"`. `VERIFY.md` lists what to check by
+  hand for each one (camera, open questions, missing images).
 - Set `baseUrl` in `data/site.json` to the deployed URL before printing the
   QR codes. Otherwise they encode the current address (e.g. `localhost`).
-- Set `author` in `data/site.json` (used by the disclaimer).
+- The about text and most documentation sections in `data/site.json` are
+  still TODO.
 - Image `alt` text currently reuses the caption. Consider adding a separate
   description field.

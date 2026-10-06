@@ -392,6 +392,7 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 .lmml-route { stroke: var(--map-route); stroke-width: 3; stroke-dasharray: 6 6; fill: none; }
 .lmml-camera-cone { stroke: var(--map-cone); stroke-width: 1; fill: var(--map-cone); fill-opacity: 0.35; }
 .lmml-camera { stroke: var(--map-cone); fill: var(--map-cone); fill-opacity: 1; }
+.lmml-camera-arrow { stroke: var(--map-marker-route); stroke-width: 2; fill: none; }
 
 
 /* 10. QR SHEET ============================================================ */

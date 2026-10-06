@@ -13,13 +13,15 @@
  *   </article>
  *
  * TEXTS: if the location is a step of the current narrative and that step
- * has its own "lmml:texts", those REPLACE the location's default texts.
+ * has its own "lmml:texts", each of those REPLACES the location's default text
+ * of the same cell and language (see mergeTexts in textSelector.js).
+ * If texts exist in more than one language, a language switch is shown.
  */
 import { el, externalLink } from '../dom.js';
 import { getLocation, getNarrative, textsOf, workOf, workLabel, locationUrl } from '../data.js';
 import { getState, setState } from '../state.js';
 import { screenFor } from '../narrative.js';
-import { KEYS, SWITCHES, usableTexts, pickInitial, findNeighbour, cellLabel } from '../textSelector.js';
+import { KEYS, SWITCHES, usableTexts, languagesOf, mergeTexts, pickInitial, findNeighbour, cellLabel } from '../textSelector.js';
 import { drawQr } from '../qr.js';
 import { buildMetadataTable } from './metadataTable.js';
 import { renderNotFound } from './notFound.js';
@@ -31,6 +33,7 @@ const PANELS = [
 ];
 
 const MODE_LABELS = { walk: 'Walk', tube: 'Tube', bus: 'Bus' };
+const LANGUAGE_LABELS = { en: 'English', fr: 'Français', it: 'Italiano' };
 
 export function renderLocation(outlet, params) {
   const loc = getLocation(params.id);
@@ -38,9 +41,7 @@ export function renderLocation(outlet, params) {
 
   // Is this location a step of the current narrative? (null if not)
   const screen = screenFor(loc.identifier);
-  const narrativeTexts = screen?.step['lmml:texts'];
-  const useNarrativeTexts = Array.isArray(narrativeTexts) && narrativeTexts.length > 0;
-  const texts = usableTexts(useNarrativeTexts ? narrativeTexts : textsOf(loc));
+  const texts = mergeTexts(textsOf(loc), screen?.step['lmml:texts']);
 
   const article = el('article', {
     'data-role': 'location',
@@ -54,7 +55,7 @@ export function renderLocation(outlet, params) {
     buildHeader(loc, screen),
     buildMedia(loc),
     buildPanelTabs(article),
-    buildTextPanel(texts, useNarrativeTexts ? 'narrative' : 'location'),
+    buildTextPanel(texts),
     el('section', { 'data-role': 'location-meta', 'data-panel': 'info', 'data-scroll': true },
       buildMetadataTable(loc)),
     buildQrPanel(loc),
@@ -151,13 +152,21 @@ function buildPanelTabs(article) {
 /**
  * The text and its six switches. Only this panel is updated when a switch
  * is pressed: the rest of the page is not re-rendered.
+ *
+ * allTexts = every text of the location (all languages). The six switches
+ * only move among the texts of the current language; the language buttons
+ * (shown only if there is more than one language) change that language.
  */
-function buildTextPanel(texts, source) {
+function buildTextPanel(allTexts) {
   const panel = el('section', { 'data-role': 'location-text', 'data-panel': 'text' });
   const controls = el('div', { 'data-role': 'text-controls' });
   const cell = el('p', { 'data-role': 'text-cell' });
-  const body = el('div', { 'data-role': 'text-body', 'data-scroll': true, 'data-text-source': source });
+  const body = el('div', { 'data-role': 'text-body', 'data-scroll': true });
   panel.append(controls, cell, body);
+
+  const languages = languagesOf(allTexts);
+  let lang = languages.includes(getState().lang) ? getState().lang : (languages[0] ?? 'en');
+  let texts = usableTexts(allTexts, lang);
 
   if (!texts.length) {
     body.append(el('p', { 'data-role': 'text-empty' }, 'No text is available for this location yet.'));
@@ -178,9 +187,26 @@ function buildTextPanel(texts, source) {
     return { sw, button };
   });
 
+  // Language buttons: one per language, the current one is "pressed"
+  const languageButtons = languages.length > 1
+    ? languages.map((code) => {
+      const button = el('button', { type: 'button', 'data-role': 'lang-switch', 'data-lang': code, lang: code },
+        LANGUAGE_LABELS[code] ?? code);
+      button.addEventListener('click', () => {
+        lang = code;
+        setState({ lang });
+        texts = usableTexts(allTexts, lang);
+        show(pickInitial(texts, getState().textPref));
+      });
+      controls.append(button);
+      return button;
+    })
+    : [];
+
   function show(text) {
     body.innerHTML = text.text; // trusted HTML from our own data files
     body.lang = text.inLanguage ?? 'en';
+    body.dataset.textSource = text.source ?? 'location';
     body.dataset.textLength = text[KEYS.length];
     body.dataset.textLevel = text[KEYS.level];
     body.dataset.textTone = text[KEYS.tone];
@@ -191,6 +217,9 @@ function buildTextPanel(texts, source) {
     for (const { sw, button } of buttons) {
       button.target = findNeighbour(texts, text, sw.axis, sw.dir, pref);
       button.disabled = !button.target;
+    }
+    for (const button of languageButtons) {
+      button.setAttribute('aria-pressed', String(button.dataset.lang === lang));
     }
   }
 

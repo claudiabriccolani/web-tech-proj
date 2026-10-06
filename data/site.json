@@ -1,67 +1,114 @@
 {
   "title": "LMML – Live Museum of Movie Locations",
   "shortTitle": "LMML",
-  "subtitle": "TODO: subtitle",
-  "author": "TODO: your name",
+  "subtitle": "A one-day visit to fifteen London filming locations",
+  "author": "Claudia Briccolani",
   "baseUrl": "",
   "defaultTheme": "victorian",
   "defaultNarrative": "historical-timeline",
-
   "themes": [
-    { "id": "victorian", "label": "Victorian", "href": "css/themes/victorian.css" },
-    { "id": "sixties",   "label": "Sixties",   "href": "css/themes/sixties.css" }
+    {
+      "id": "victorian",
+      "label": "Victorian",
+      "href": "css/themes/victorian.css"
+    },
+    {
+      "id": "sixties",
+      "label": "Sixties",
+      "href": "css/themes/sixties.css"
+    }
   ],
-
   "cover": {
-    "intro": "<p><strong>TODO</strong>: introductory text of the visit. Explain what LMML is, how the day is organised and how to use the text switches on each location page.</p>",
+    "intro": "<p>LMML treats London as a museum whose rooms are streets. Its fifteen exhibits are places where a film or a television series was shot between 1964 and 2019: the station where the Beatles run from their fans in <em>A Hard Day's Night</em>, the blue door of <em>Notting Hill</em>, the mews, the chapel and the department store of <em>Love Actually</em>, the market and the bridge of the Harry Potter films, the front door, the park bench and the hospital roof of <em>Sherlock</em>, the café and the restaurant of <em>Fleabag</em>.</p><p>This site is the companion to the visit. Each location has its own page, with photographs, a table of data about the place and the scene, and a text; a QR code posted at the location opens the same page on your phone. The map shows every stop, the route of the day and the estimated position and direction of the camera.</p><p><strong>Two narratives.</strong> The same fifteen places can be visited in two different orders. <em>Historical timeline</em> follows the release dates of the works, decade by decade, and tells how London on screen has changed. <em>Recreate the shot</em> follows the map and is for visitors who want to stand where the camera stood: it adds, at every stop, where to stand, how the light falls and what to look for. Choose one below; you can switch at any time from the menu, and the Previous and Next buttons will follow the narrative you chose.</p><p><strong>Texts that adapt to you.</strong> On every location page six buttons change the text: <em>Tell me more</em> / <em>Tell me less</em> for the length, <em>Too simple</em> / <em>Too difficult</em> for the level, <em>Do you want to play?</em> / <em>Additional details and references</em> for the tone. A button is disabled when there is no text in that direction. A short French version is available where you see the <em>Français</em> button.</p><p>Camera positions are estimates and the information is still being verified: pages say so until each location has been checked on site.</p>",
     "narrativesHeading": "Choose a narrative"
   },
-
   "about": {
     "title": "About the author",
     "text": "<p><strong>TODO</strong>: text about the author.</p>"
   },
-
   "disclaimer": {
     "title": "Disclaimer",
     "template": "<p>The purpose of this web site is to explore various types of typographic and layout style for specialized tourist visits, as an end-of-course project for the 'Information Modeling and Web technologies' course of the Master's Degree in Digital Humanities and Digital Knowledge of the University of Bologna, under the supervision of prof. Fabio Vitali.</p><p>The documents contained in this web site have been selected for their length and complexity from {{sourceNames}}. Their publication here is not intended to be an alternative to or a replacement for their original locations:</p>{{sourceList}}<p>Copyright and related rights on the content remain with their original owners.</p><p>Copyright on the typographic and layout choices are 2026 © {{author}}.</p>"
   },
-
   "docs": [
     {
       "title": "Design choices",
       "text": "<p>TODO</p>",
       "sections": [
-        { "title": "Viewport-sized canvas and scroll containers", "text": "<p>TODO</p>" },
-        { "title": "HTML vocabulary and style hooks", "text": "<p>TODO</p>" },
-        { "title": "Portrait and landscape layouts", "text": "<p>TODO</p>" }
+        {
+          "title": "Viewport-sized canvas and scroll containers",
+          "text": "<p>TODO</p>"
+        },
+        {
+          "title": "HTML vocabulary and style hooks",
+          "text": "<p>TODO</p>"
+        },
+        {
+          "title": "Portrait and landscape layouts",
+          "text": "<p>TODO</p>"
+        }
       ]
     },
     {
       "title": "Metadata model",
       "text": "<p>TODO</p>",
       "sections": [
-        { "title": "schema.org terms", "text": "<p>TODO</p>" },
-        { "title": "The lmml: namespace", "text": "<p>TODO</p>" },
-        { "title": "The text grid (length × level × tone)", "text": "<p>TODO</p>" }
+        {
+          "title": "schema.org terms",
+          "text": "<p>TODO</p>"
+        },
+        {
+          "title": "The lmml: namespace",
+          "text": "<p>TODO</p>"
+        },
+        {
+          "title": "The text grid (length × level × tone)",
+          "text": "<p>TODO</p>"
+        },
+        {
+          "title": "Facts, sources and open questions",
+          "text": "<p>Every location carries the material its texts are written from. lmml:facts is a list of short, atomic statements, each with the URL of the source it comes from; every such URL must also appear in the location's citation list, which feeds the disclaimer page (the validator checks this). lmml:openQuestions records points on which sources disagree or that could not be confirmed, lmml:cameraConfidence says whether the camera position was estimated or checked, and lmml:imageTodo notes a missing image. These working properties are not shown in the metadata table.</p><p>TODO: expand.</p>"
+        },
+        {
+          "title": "Narrative texts and languages",
+          "text": "<p>A narrative step may carry its own lmml:texts. Such a text replaces the location's default text of the same cell and language, and only that one. Texts have an inLanguage; when a location has texts in more than one language a language switch appears, and the six switches move among the texts of the current language only.</p><p>TODO: expand.</p>"
+        }
       ]
     },
     {
       "title": "Themes",
       "text": "<p>TODO</p>",
       "sections": [
-        { "title": "Victorian", "text": "<p>TODO</p>" },
-        { "title": "Sixties", "text": "<p>TODO</p>" },
-        { "title": "How a theme overrides the layout", "text": "<p>TODO</p>" }
+        {
+          "title": "Victorian",
+          "text": "<p>TODO</p>"
+        },
+        {
+          "title": "Sixties",
+          "text": "<p>TODO</p>"
+        },
+        {
+          "title": "How a theme overrides the layout",
+          "text": "<p>TODO</p>"
+        }
       ]
     },
     {
       "title": "Narratives",
       "text": "<p>TODO</p>",
       "sections": [
-        { "title": "Historical timeline", "text": "<p>TODO</p>" },
-        { "title": "Recreate the shot", "text": "<p>TODO</p>" },
-        { "title": "Text selection algorithm", "text": "<p>TODO</p>" }
+        {
+          "title": "Historical timeline",
+          "text": "<p>TODO</p>"
+        },
+        {
+          "title": "Recreate the shot",
+          "text": "<p>TODO</p>"
+        },
+        {
+          "title": "Text selection algorithm",
+          "text": "<p>TODO</p>"
+        }
       ]
     }
   ]

@@ -8,6 +8,7 @@
  *   lastPosition {narrativeId: index} — last screen visited in each narrative,
  *                used by "Resume" and "Return to the narrative"
  *   activePanel  which panel (text / info / qr) is open on location pages in portrait
+ *   lang         preferred language of the texts ('en', 'fr'); used when a text exists in it
  *
  * It's a deliberately simple store: getState() to read, setState(patch) to
  * change (and save). Whoever changes the state is responsible for
@@ -24,6 +25,7 @@ let state = {
   textPref: { ...DEFAULT_PREF },
   lastPosition: {},
   activePanel: 'text',
+  lang: 'en',
 };
 
 /* localStorage can throw (private mode, blocked storage): never let it break the app. */
@@ -61,6 +63,7 @@ export function initState({ themeIds, defaultTheme, narrativeIds, defaultNarrati
     textPref,
     lastPosition: saved.lastPosition && typeof saved.lastPosition === 'object' ? saved.lastPosition : {},
     activePanel: PANELS.includes(saved.activePanel) ? saved.activePanel : 'text',
+    lang: typeof saved.lang === 'string' ? saved.lang : 'en',
   };
   writeStorage();
 }

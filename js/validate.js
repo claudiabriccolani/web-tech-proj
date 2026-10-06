@@ -30,6 +30,17 @@ export function validateData(data) {
     }
     if (!loc['lmml:appearsIn']) warn(`${where}: missing "lmml:appearsIn"`);
     if (!(loc['lmml:texts'] ?? []).length) warn(`${where}: no texts`);
+
+    // Every fact needs a source, and that source must be listed in "citation"
+    const cited = new Set((loc.citation ?? []).map((c) => c.url));
+    (loc['lmml:facts'] ?? []).forEach((fact, f) => {
+      if (!fact.text) warn(`${where} facts[${f}]: empty "text"`);
+      if (!fact.url) warn(`${where} facts[${f}]: no source "url"`);
+      else if (!cited.has(fact.url)) warn(`${where} facts[${f}]: source ${fact.url} is not in "citation"`);
+    });
+    (loc.image ?? []).forEach((image, m) => {
+      if (!image.license || !image.url) warn(`${where} image[${m}]: missing "license" or source "url"`);
+    });
     checkTexts(loc['lmml:texts'], where, warn);
   });
 

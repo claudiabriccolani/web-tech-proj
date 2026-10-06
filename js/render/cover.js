@@ -35,12 +35,22 @@ function narrativeCard(narrative) {
     el('h3', { 'data-role': 'narrative-title' }, narrative.name),
     el('div', { 'data-role': 'narrative-description', html: narrative.description ?? '' }),
     el('p', { 'data-role': 'narrative-meta' },
-      `${locationCount} locations · ${(narrative.chapters ?? []).length} chapters`),
+      [`${locationCount} locations`, `${(narrative.chapters ?? []).length} chapters`, durationLabel(narrative)]
+        .filter(Boolean).join(' · ')),
     el('div', { 'data-role': 'narrative-actions' },
       el('button', { type: 'button', 'data-role': 'start-button', disabled: !sequence.length, onclick: () => start(id, false) }, 'Start'),
       canResume && el('button', { type: 'button', 'data-role': 'resume-button', onclick: () => start(id, true) }, 'Resume'),
     ),
   );
+}
+
+/** "about 11 h 20 min" from the narrative's lmml:estimatedMinutes.total, or null. */
+function durationLabel(narrative) {
+  const total = narrative['lmml:estimatedMinutes']?.total;
+  if (typeof total !== 'number') return null;
+  const hours = Math.floor(total / 60);
+  const minutes = total % 60;
+  return `about ${hours} h${minutes ? ` ${minutes} min` : ''}`;
 }
 
 /** Select the narrative and go to its first screen (or where the user left it). */

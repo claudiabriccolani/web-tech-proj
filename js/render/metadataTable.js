@@ -13,6 +13,7 @@
  *  - Empty values (null, "", []) are not shown.
  */
 import { el, externalLink } from '../dom.js';
+import { workLabel } from '../data.js';
 
 const LABELS = {
   '@type': 'Type',
@@ -21,20 +22,31 @@ const LABELS = {
   geo: 'Coordinates',
   'lmml:cameraPosition': 'Camera position',
   'lmml:cameraBearing': 'Camera direction',
+  'lmml:cameraConfidence': 'Camera data',
   'lmml:shotDescription': 'How to find the shot',
   'lmml:verified': 'Verified',
   'lmml:appearsIn': 'Appears in',
+  'lmml:alsoAppearsIn': 'Also appears in',
   'lmml:sceneDescription': 'Scene',
   'lmml:representsPlace': 'Plays the role of',
   datePublished: 'Released',
   director: 'Director',
+  author: 'Writer',
+  creator: 'Created by',
+  addressCountry: 'Country',
   episodeNumber: 'Episode',
   partOfSeason: 'Season',
   partOfSeries: 'Series',
   citation: 'Sources',
 };
 
-const SKIP = new Set(['@context', 'identifier', 'image', 'lmml:texts']);
+/* Editorial working data (the facts the texts are written from, the questions
+   still open, the missing images) is not shown to visitors: see VERIFY.md. */
+const SKIP = new Set(['@context', 'identifier', 'image', 'lmml:texts',
+  'lmml:facts', 'lmml:openQuestions', 'lmml:imageTodo']);
+
+/** Types that are a film or a series: in a list they are shown by their label. */
+const WORK_TYPES = new Set(['Movie', 'TVEpisode', 'TVSeries']);
 
 /** One-line rendering of whole objects, chosen by their schema.org @type. */
 const TYPE_FORMATTERS = {
@@ -53,6 +65,7 @@ const TYPE_FORMATTERS = {
 const KEY_FORMATTERS = {
   'lmml:cameraBearing': (v) => `${v}° from north (${compass(v)})`,
   'lmml:verified': (v) => (v ? 'Yes' : 'No — to be checked'),
+  'lmml:cameraConfidence': (v) => (v === 'estimated' ? 'Estimated, not yet checked on site' : String(v)),
 };
 
 export function buildMetadataTable(loc) {
@@ -93,8 +106,10 @@ function renderValue(key, value) {
 
   if (Array.isArray(value)) {
     return el('ul', { 'data-role': 'metadata-list' },
-      value.map((item) => el('li', {}, renderValue(key, item) ?? JSON.stringify(item))));
+      value.map((item) => el('li', {}, renderListItem(key, item))));
   }
+  // The main work is always expanded into sub-rows, whatever its type
+  if (key === 'lmml:appearsIn') return undefined;
   if (typeof value === 'object') {
     const formatter = TYPE_FORMATTERS[value['@type']];
     return formatter ? formatter(value) : undefined;
@@ -102,6 +117,12 @@ function renderValue(key, value) {
   if (typeof value === 'boolean') return value ? 'Yes' : 'No';
   if (typeof value === 'string' && /^https?:\/\//.test(value)) return externalLink(value);
   return String(value);
+}
+
+/** One item of a list: works by their label, other objects by their formatter. */
+function renderListItem(key, item) {
+  if (item && typeof item === 'object' && WORK_TYPES.has(item['@type'])) return workLabel(item);
+  return renderValue(key, item) ?? JSON.stringify(item);
 }
 
 /** null, undefined, '', [] and objects whose values are all empty. */

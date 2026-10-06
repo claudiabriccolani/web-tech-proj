@@ -145,6 +145,30 @@ export function findNeighbour(texts, current, axis, dir, pref) {
   ]);
 }
 
+/** The languages that have at least one valid text, in order of first appearance: ['en', 'fr']. */
+export function languagesOf(texts) {
+  const valid = (texts ?? []).filter((t) => AXIS_NAMES.every((axis) => rank(t, axis) !== -1));
+  return [...new Set(valid.map((t) => t.inLanguage ?? 'en'))];
+}
+
+/** A text's cell and language as one string, e.g. "short|intro|young|fr". */
+export function cellKey(text) {
+  return [...AXIS_NAMES.map((axis) => text[KEYS[axis]]), text.inLanguage ?? 'en'].join('|');
+}
+
+/**
+ * Combine a location's default texts with the texts of a narrative step.
+ * A narrative text REPLACES the default text of the same cell and language;
+ * all other default texts are kept, so the switches still have somewhere to go.
+ * Each returned text is a copy with a "source" property: 'location' or 'narrative'.
+ */
+export function mergeTexts(locationTexts, narrativeTexts) {
+  const byCell = new Map();
+  for (const t of locationTexts ?? []) byCell.set(cellKey(t), { ...t, source: 'location' });
+  for (const t of narrativeTexts ?? []) byCell.set(cellKey(t), { ...t, source: 'narrative' });
+  return [...byCell.values()];
+}
+
 /** Human-readable name of a text's cell: "short · intro · adult". */
 export function cellLabel(text) {
   return AXIS_NAMES.map((axis) => text[KEYS[axis]]).join(' · ');
