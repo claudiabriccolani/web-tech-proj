@@ -20,7 +20,7 @@ Nothing in `data/locations.json` is marked as verified yet: every location has `
 ## Day plan
 
 - **Historical timeline** (14 locations, York Rise excluded, same-year stops ordered by distance): 380 min of travel (6 h 20) + 140 min at the stops (10 min each) = about 8 h 40 min, without a lunch break.
-- **Recreate the shot** (15 locations): 285 min of travel (4 h 45) + 300 min at the stops (20 min each, deliberately longer) = about 9 h 45 min, without a lunch break.
+- **Recreate the shot** (15 locations, Notting Hill first so that the Grosvenor Chapel is reached around midday): 263 min of travel (4 h 23) + 300 min at the stops (20 min each, deliberately longer) = about 9 h 23 min, without a lunch break.
 
 See the final report for how feasible each one is.
 
