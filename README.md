@@ -97,6 +97,24 @@ js/render/notFound.js      unknown routes
   They also show "Return to the narrative" once a visit has begun.
 - **Keyboard:** the ← and → keys follow prev/next.
 
+### Location page on phones
+
+- The page is **narrow** when the viewport is in portrait, or at most 600px
+  wide, or at most 500px high (a phone in landscape). Otherwise it is wide.
+- Narrow layout: compact header (title, work, directions line), the
+  Text / Info / QR tabs, one scrolling content area (picture + active panel)
+  and a toolbar at the bottom with the text switches, the language buttons
+  and the map link. The toolbar is one row that scrolls sideways.
+- The same DOM serves both layouts. `placeControls()` in
+  `js/render/location.js` moves the switches and the map link into the
+  toolbar when the narrow media query matches, and back when it does not.
+  The query is written twice: `NARROW` in that file and section 11 of
+  `css/base.css`. Change both together.
+- Directions are a `<details>`, closed by default. Opened, they are laid over
+  the page below the header and scroll in their own box.
+- `screenshots/` (ignored by git) holds the layout test screenshots and
+  their `REPORT.md`.
+
 ### Text selection
 
 - Each text sits in a cell of a 3 × 3 × 3 grid. Each axis is an ordered scale:
@@ -154,7 +172,7 @@ The JSON files are plain JSON shaped like JSON-LD:
 | `lmml:verified` | Place | `true` once the data has been checked |
 | `lmml:texts` | Place, narrative step | the texts (see below) |
 | `lmml:length` / `lmml:level` / `lmml:tone` | text | the text's cell in the grid |
-| `lmml:transition` | narrative step | `{mode, minutes, text}`: how to get here from the previous step |
+| `lmml:transition` | narrative step | `{mode, minutes, lines, text}`: how to get here from the previous step. `lines` lists the Underground lines (omit it for a walk); mode, minutes and lines make the one-line summary ("36 min · Central + Piccadilly lines", "13 min · Walk") |
 | `lmml:orderedBy` | narrative | e.g. `"datePublished"`: the validator checks the order |
 
 Some schema.org properties are used in a specific sense:
@@ -249,17 +267,29 @@ Add an object to `data/narratives.json` → `narratives`:
    - **Typography:** `--font-body`, `--font-heading`, `--font-ui`, `--line-height`
    - **Colours:** `--color-*`, `--map-*`
    - **Layout of the whole page:** `--app-areas`, `--app-rows`
-   - **Layout of location pages:** `--loc-landscape-areas | -columns | -rows`
-     and `--loc-portrait-areas | -columns | -rows`
-4. The location page has these areas: `header`, `media`, `text`, `meta`,
-   `qr` and, in portrait only, `tabs` and `panel`. Rows and columns must
-   match the areas template.
+   - **Layout of location pages, wide viewports:**
+     `--loc-landscape-areas | -columns | -rows`
+   - **Layout of location pages, narrow viewports:**
+     `--loc-narrow-areas | -columns | -rows` (phones in portrait) and
+     `--loc-short-areas | -columns | -rows` (phones in landscape)
+   - **Guaranteed sizes, which a theme can only raise:** `--target-size`
+     (controls, at least 44px) and `--loc-image-min-height` (picture of a
+     location, used between 6rem and 35% of the viewport height)
+4. Areas of the location page. Rows and columns must match the template.
+   - **Wide:** `header`, `media`, `text`, `meta`, `qr`. The row that holds
+     `media` must keep `minmax(calc(var(--loc-image-min) + 3.5rem), …)`,
+     or the picture can be squashed.
+   - **Narrow and short:** `header`, `tabs`, `content`, `toolbar`. The
+     `content` row must stay `minmax(0, 1fr)`: it is the one scroll
+     container, holding the picture and the active panel.
+   - The old `--loc-portrait-*` variables are no longer read.
 5. For anything else, add rules that target the `data-role` hooks below.
 
 ## Style hooks
 
 **Elements.** The HTML uses a restricted vocabulary: `header nav main footer
-article section figure figcaption img h1 h2 h3 p a button label select table
+article section figure figcaption img h1 h2 h3 p a button label select details
+summary table
 caption tbody tr th td ul ol li div span`.
 
 **`data-role` attributes.** Everything is targeted through `data-role`:
@@ -271,7 +301,8 @@ caption tbody tr th td ul ol li div span`.
   `page-body`, `cover-intro`, `narrative-list`, `narrative-card`,
   `chapter-intro`, `chapter-steps`, `docs-toc`, `docs-section`,
   `section-number`, `disclaimer-text`, `source-list`, `qr-grid`, `qr-card`
-- **Location:** `location`, `location-header`, `transition`,
+- **Location:** `location`, `location-header`, `location-content`,
+  `location-toolbar`, `transition`, `transition-summary`, `transition-text`,
   `location-kicker`, `outside-note`, `location-title`, `location-work`, `verified-flag`,
   `location-media`, `location-figure`, `figure-caption`, `caption-credit`, `image-note`,
   `panel-tabs`, `location-text`, `text-controls`, `text-switch`,

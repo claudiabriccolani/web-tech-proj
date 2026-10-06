@@ -4,13 +4,21 @@
  * Structure (each block is a grid area in base.css; themes can move them):
  *
  *   <article data-role="location" data-active-panel="text">
- *     <header  data-role="location-header">   transition, kicker, title, work, "not verified"
- *     <section data-role="location-media">    images with captions (horizontal scroll)
- *     <nav     data-role="panel-tabs">        Text | Info | QR (portrait only)
- *     <section data-role="location-text" data-panel="text">   text switches + current text
- *     <section data-role="location-meta" data-panel="info">   metadata table
- *     <section data-role="location-qr"   data-panel="qr">     QR code
+ *     <header  data-role="location-header">   transition (<details>), kicker, title, work, "not verified"
+ *     <nav     data-role="panel-tabs">        Text | Info | QR (narrow viewports only)
+ *     <div     data-role="location-content">  wrapper: the scroll container on narrow viewports
+ *       <section data-role="location-media">    images with captions (horizontal scroll)
+ *       <section data-role="location-text" data-panel="text">   text switches + current text
+ *       <section data-role="location-meta" data-panel="info">   metadata table
+ *       <section data-role="location-qr"   data-panel="qr">     QR code + map link
+ *     </div>
+ *     <div     data-role="location-toolbar">  empty on wide viewports (see placeControls)
  *   </article>
+ *
+ * NARROW VIEWPORTS: the text switches and the map link are MOVED into the
+ * toolbar, which CSS keeps at the bottom of the page. This is the one thing
+ * CSS cannot do alone (an element cannot leave its parent's box), so
+ * placeControls() does it and repeats it whenever the viewport changes.
  *
  * TEXTS: if the location is a step of the current narrative and that step
  * has its own "lmml:texts", each of those REPLACES the location's default text
@@ -33,6 +41,9 @@ const PANELS = [
 ];
 
 const MODE_LABELS = { walk: 'Walk', tube: 'Tube', bus: 'Bus' };
+
+/* Same conditions as the "narrow" media query in css/base.css, section 11. */
+const NARROW = '(orientation: portrait), (max-width: 600px), (max-height: 500px)';
 const LANGUAGE_LABELS = { en: 'English', fr: 'Français', it: 'Italiano' };
 
 export function renderLocation(outlet, params) {
@@ -51,16 +62,41 @@ export function renderLocation(outlet, params) {
     'data-active-panel': getState().activePanel,
   });
 
-  article.append(
-    buildHeader(loc, screen),
+  const content = el('div', { 'data-role': 'location-content' },
     buildMedia(loc),
-    buildPanelTabs(article),
     buildTextPanel(texts),
     el('section', { 'data-role': 'location-meta', 'data-panel': 'info', 'data-scroll': true },
       buildMetadataTable(loc)),
     buildQrPanel(loc),
   );
+  const toolbar = el('div', { 'data-role': 'location-toolbar' });
+
+  article.append(buildHeader(loc, screen), buildPanelTabs(article), content, toolbar);
   outlet.append(article);
+
+  // Put the controls where the current viewport wants them, now and on every change
+  const narrow = window.matchMedia(NARROW);
+  const place = () => placeControls(article, narrow.matches);
+  place();
+  narrow.addEventListener('change', place);
+  return () => narrow.removeEventListener('change', place); // cleanup, called by the router
+}
+
+/**
+ * Narrow viewport: the text switches and the map link go into the toolbar.
+ * Wide viewport: they go back to their panels (switches first in the text
+ * panel, map link last in the QR panel). Moving a node keeps its listeners.
+ */
+function placeControls(article, isNarrow) {
+  const q = (role) => article.querySelector(`[data-role="${role}"]`);
+  const controls = q('text-controls');
+  const mapLink = q('map-link');
+  if (isNarrow) {
+    q('location-toolbar').append(...[controls, mapLink].filter(Boolean));
+  } else {
+    if (controls) q('location-text').prepend(controls);
+    if (mapLink) q('location-qr').append(mapLink);
+  }
 }
 
 /* ---------------------------------------------------------------- header */
@@ -94,17 +130,27 @@ function buildOutsideNote(loc) {
     others.length ? ` It is part of: ${others.map((n) => n.name).join(', ')}.` : '');
 }
 
-/** How to get here from the previous step: "Tube · approx. 20 min" + directions text. */
+/**
+ * How to get here from the previous step, as a <details>: the <summary> is a
+ * short line built from the data ("28 min · Hammersmith & City line",
+ * "13 min · Walk"), the directions open below it. Closed by default, so the
+ * directions never take the room of the picture and the text.
+ */
 function buildTransition(transition) {
-  const summary = [
-    MODE_LABELS[transition.mode] ?? transition.mode,
-    transition.minutes != null ? `approx. ${transition.minutes} min` : null,
-  ].filter(Boolean).join(' · ');
-
-  return el('section', { 'data-role': 'transition', 'data-transition-mode': transition.mode ?? '' },
-    summary && el('p', { 'data-role': 'transition-summary' }, summary),
+  return el('details', { 'data-role': 'transition', 'data-transition-mode': transition.mode ?? '' },
+    el('summary', { 'data-role': 'transition-summary' }, transitionSummary(transition)),
     transition.text && el('div', { 'data-role': 'transition-text', html: transition.text }),
   );
+}
+
+/** "36 min · Central + Piccadilly lines" / "13 min · Walk" / "Directions" if there is no data. */
+function transitionSummary(transition) {
+  const lines = (transition.lines ?? []).map((name) => name.replace(/ line$/i, ''));
+  const how = lines.length
+    ? `${lines.join(' + ')} line${lines.length > 1 ? 's' : ''}`
+    : (MODE_LABELS[transition.mode] ?? transition.mode);
+  const parts = [transition.minutes != null ? `${transition.minutes} min` : null, how].filter(Boolean);
+  return parts.length ? parts.join(' · ') : 'Directions';
 }
 
 /* ----------------------------------------------------------------- media */
@@ -202,6 +248,7 @@ function buildTextPanel(allTexts) {
       // Update the preference on this axis only, so it carries over to the next location
       setState({ textPref: { ...getState().textPref, [sw.axis]: button.target[KEYS[sw.axis]] } });
       show(button.target);
+      revealText();
     });
     controls.append(button);
     return { sw, button };
@@ -217,6 +264,7 @@ function buildTextPanel(allTexts) {
         setState({ lang });
         texts = usableTexts(allTexts, lang);
         show(pickInitial(texts, getState().textPref));
+        revealText();
       });
       controls.append(button);
       return button;
@@ -240,6 +288,19 @@ function buildTextPanel(allTexts) {
     }
     for (const button of languageButtons) {
       button.setAttribute('aria-pressed', String(button.dataset.lang === lang));
+    }
+  }
+
+  /**
+   * After a switch is pressed, bring the start of the new text into view.
+   * On narrow viewports the text scrolls together with the picture inside
+   * the content wrapper, so that wrapper is scrolled; on wide ones the text
+   * has its own scroll box, already reset by show().
+   */
+  function revealText() {
+    const content = panel.closest('[data-role="location-content"]');
+    if (content && content.scrollHeight > content.clientHeight) {
+      content.scrollTop = panel.offsetTop - content.offsetTop;
     }
   }
 

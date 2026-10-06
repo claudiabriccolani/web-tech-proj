@@ -25,6 +25,9 @@
               "lmml:transition": {
                 "mode": "tube",
                 "minutes": 28,
+                "lines": [
+                  "Hammersmith & City"
+                ],
                 "text": "<p>Walk about 16 minutes north through Fitzrovia to Great Portland Street station. Take the Hammersmith &amp; City line (or Circle / Metropolitan) one stop west to Baker Street, a 2-minute ride. From Baker Street it is about 10 minutes on foot to Marylebone station; Boston Place runs along its east side.</p>"
               }
             }
@@ -39,6 +42,9 @@
               "lmml:transition": {
                 "mode": "tube",
                 "minutes": 27,
+                "lines": [
+                  "Hammersmith & City"
+                ],
                 "text": "<p>Walk about 11 minutes to Edgware Road station (the Circle and Hammersmith &amp; City line station). Take the Hammersmith &amp; City line westbound to Ladbroke Grove (about 7 minutes). From Ladbroke Grove station walk about 9 minutes to Westbourne Park Road: no. 280 is a few yards west of the junction with Portobello Road.</p>"
               }
             },
@@ -61,6 +67,9 @@
               "lmml:transition": {
                 "mode": "tube",
                 "minutes": 51,
+                "lines": [
+                  "Central"
+                ],
                 "text": "<p>The longest transfer of the day. Walk about 22 minutes south along Portobello Road to Notting Hill Gate station and take the Central line eastbound to Bank (about 16 minutes, no change). From Bank walk about 13 minutes to Gracechurch Street and Leadenhall Market; Bull's Head Passage is on the edge of the market.</p>"
               }
             },
@@ -69,6 +78,9 @@
               "lmml:transition": {
                 "mode": "tube",
                 "minutes": 49,
+                "lines": [
+                  "Hammersmith & City"
+                ],
                 "text": "<p>Back to the west. Walk about 17 minutes north to Liverpool Street station and take the Hammersmith &amp; City line westbound to Westbourne Park (about 21 minutes). From Westbourne Park station it is about 11 minutes on foot to St Luke's Mews, off All Saints Road.</p>"
               }
             },
@@ -77,6 +89,9 @@
               "lmml:transition": {
                 "mode": "tube",
                 "minutes": 44,
+                "lines": [
+                  "Central"
+                ],
                 "text": "<p>Walk about 26 minutes south through Notting Hill to Notting Hill Gate station. Take the Central line eastbound to Bond Street (about 6 minutes). Selfridges is about 12 minutes' walk west along Oxford Street, on the north side.</p>"
               }
             },
@@ -93,6 +108,9 @@
               "lmml:transition": {
                 "mode": "tube",
                 "minutes": 38,
+                "lines": [
+                  "Piccadilly"
+                ],
                 "text": "<p>Walk about 18 minutes east to Green Park station. Take the Piccadilly line eastbound to Covent Garden (about 4 minutes), then walk about 16 minutes down to the Strand. Enter Somerset House through the Strand gateway to reach the courtyard.</p>"
               }
             },
@@ -115,6 +133,10 @@
               "lmml:transition": {
                 "mode": "tube",
                 "minutes": 36,
+                "lines": [
+                  "Central",
+                  "Piccadilly"
+                ],
                 "text": "<p>Cross back over the Millennium Bridge and walk to St Paul's station (about 14 minutes from the bridge). Take the Central line westbound two stops to Holborn (about 3 minutes) and change to the Piccadilly line northbound for one stop to Russell Square (about 2 minutes). From the station walk to the square and go into the gardens; the planner allows 11 minutes to reach the middle of the square. The Imperial Hotel is on the east side.</p>"
               }
             },
@@ -131,6 +153,9 @@
               "lmml:transition": {
                 "mode": "tube",
                 "minutes": 21,
+                "lines": [
+                  "Metropolitan"
+                ],
                 "text": "<p>Walk about 5 minutes to Euston Square station. Take the Metropolitan line (or Circle / Hammersmith &amp; City) eastbound three stops to Barbican (about 6 minutes). From Barbican walk about 10 minutes to West Smithfield and the hospital.</p>"
               }
             },
@@ -139,6 +164,10 @@
               "lmml:transition": {
                 "mode": "tube",
                 "minutes": 27,
+                "lines": [
+                  "Elizabeth line",
+                  "Northern"
+                ],
                 "text": "<p>Walk about 9 minutes back to Farringdon and take the Elizabeth line one stop west to Tottenham Court Road (about 3 minutes). Change to the Northern line southbound (Charing Cross branch) for two stops to Charing Cross (about 2 minutes). From Charing Cross walk about 9 minutes east along the Strand and turn right towards John Adam Street. Walking all the way takes about 35 minutes.</p>"
               }
             }
@@ -219,6 +248,9 @@
               "lmml:transition": {
                 "mode": "tube",
                 "minutes": 29,
+                "lines": [
+                  "Circle"
+                ],
                 "text": "<p>Walk about 11 minutes to Westbourne Park station. Take the Circle line (or Hammersmith &amp; City) eastbound to Edgware Road, about 7 minutes. From Edgware Road it is about 11 minutes on foot to Marylebone station; Boston Place runs along its east side.</p>"
               },
               "lmml:texts": [
@@ -236,6 +268,10 @@
               "lmml:transition": {
                 "mode": "tube",
                 "minutes": 23,
+                "lines": [
+                  "Bakerloo",
+                  "Jubilee"
+                ],
                 "text": "<p>From Boston Place it is about 7 minutes to the Underground platforms at Marylebone. Take the Bakerloo line one stop to Baker Street and change to the Jubilee line southbound for one stop to Bond Street (about 2 minutes). Selfridges is about 11 minutes' walk west along Oxford Street, on the north side. Walking all the way takes about 25 minutes.</p><p><strong>Before you go.</strong> The scene is inside the store, which is open Monday to Friday 10:00–22:00, Saturday 10:00–21:00 and Sunday 11:30–18:00. With a 9:00 start this route arrives at about 11:20. The store's page does not say whether photography is allowed inside, so ask staff before photographing at a counter.</p>"
               },
               "lmml:texts": [
@@ -276,6 +312,10 @@
               "lmml:transition": {
                 "mode": "tube",
                 "minutes": 33,
+                "lines": [
+                  "Elizabeth line",
+                  "Northern"
+                ],
                 "text": "<p>Walk about 17 minutes north to Bond Street station. Take the Elizabeth line one stop east to Tottenham Court Road and change to the Northern line southbound (Charing Cross branch) for two stops to Charing Cross. From Charing Cross walk about 9 minutes east along the Strand and turn right towards John Adam Street.</p><p><strong>Before you go.</strong> The dinner scene is inside the restaurant, so from the street you can only photograph the building. The restaurant is open daily from 12:00 and takes bookings on its website; with a 9:00 start this route arrives at about 12:45, so it can be your lunch stop if you reserve a table in advance. Its site does not say whether photography is allowed.</p>"
               },
               "lmml:texts": [
@@ -310,6 +350,9 @@
               "lmml:transition": {
                 "mode": "tube",
                 "minutes": 26,
+                "lines": [
+                  "District"
+                ],
                 "text": "<p>Walk about 11 minutes to Temple station. Take the District line (or Circle) eastbound four stops to Monument, about 6 minutes. From Monument walk about 9 minutes north along Gracechurch Street to Leadenhall Market; Bull's Head Passage is on the edge of the market.</p>"
               },
               "lmml:texts": [
@@ -367,6 +410,9 @@
               "lmml:transition": {
                 "mode": "tube",
                 "minutes": 21,
+                "lines": [
+                  "Hammersmith & City"
+                ],
                 "text": "<p>Walk about 10 minutes to Barbican station. Take the Hammersmith &amp; City line (or Circle / Metropolitan) westbound three stops to Euston Square, about 6 minutes. From Euston Square it is about 5 minutes on foot: North Gower Street is just north of Euston Road.</p>"
               },
               "lmml:texts": [
@@ -418,6 +464,9 @@
               "lmml:transition": {
                 "mode": "tube",
                 "minutes": 31,
+                "lines": [
+                  "Northern"
+                ],
                 "text": "<p>Walk about 8 minutes to Goodge Street station. Take the Northern line northbound (High Barnet or Mill Hill East branch) to Tufnell Park, about 10 minutes. From Tufnell Park station walk about 13 minutes to York Rise in Dartmouth Park.</p>"
               },
               "lmml:texts": [

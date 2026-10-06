@@ -11,8 +11,12 @@
    - Layouts use NAMED GRID AREAS whose templates are stored in custom
      properties (--app-areas, --loc-landscape-areas, ...). A theme can move
      blocks around just by redefining a variable, without touching the HTML.
-   - Two layout families: "landscape" (desktop) and "portrait" (phone),
-     each with its own variables, so a theme can change one without the other.
+   - Two layout families: "wide" (desktop) and "narrow" (phones, in portrait
+     and in landscape), each with its own variables, so a theme can change one
+     without the other.
+   - Two sizes are GUARANTEED by this file and can only be raised by a theme:
+     the minimum size of controls (--target-size) and the minimum height of
+     the picture on a location page (--loc-image-min-height).
    - Every hook is a data-role attribute (see README, "Style hooks").
 
    Contents
@@ -26,7 +30,7 @@
      8. Location page
      9. Map
     10. QR sheet
-    11. Portrait layout
+    11. Narrow layout (phones, portrait and landscape)
     12. Print
    ========================================================================== */
 
@@ -66,23 +70,49 @@
   --app-areas: "header" "main" "footer";
   --app-rows: auto minmax(0, 1fr) auto;
 
-  /* Location page, LANDSCAPE: images left, text right */
+  /* Minimum size of every control: buttons, menu links, the two switchers.
+     44px is the target size of WCAG 2.5.5 (AAA) and of Apple's Human
+     Interface Guidelines; WCAG 2.2 2.5.8 (AA) asks for at least 24px.
+     A theme may set a LARGER value; smaller values are ignored (section 5). */
+  --target-size: 44px;
+
+  /* Minimum height of the picture on a location page. A theme may change it,
+     but the value actually used (--loc-image-min) is kept between 6rem and
+     35% of the viewport height, so the picture can be neither squashed into a
+     strip nor allowed to fill a small screen. */
+  --loc-image-min-height: 10rem;
+  --loc-image-min: clamp(6rem, var(--loc-image-min-height), 35vh);
+
+  /* Location page, WIDE: images left, text right.
+     The row that holds "media" must keep the picture's minimum height (plus
+     room for a caption): a theme that redefines the rows must keep that
+     minmax(calc(var(--loc-image-min) + 3.5rem), ...) on the media row. */
   --loc-landscape-areas:
     "header header"
     "media  text"
     "meta   text"
     "qr     text";
   --loc-landscape-columns: minmax(0, 2fr) minmax(0, 3fr);
-  --loc-landscape-rows: auto minmax(0, 1.4fr) minmax(0, 1fr) auto;
+  --loc-landscape-rows: auto minmax(calc(var(--loc-image-min) + 3.5rem), 1.4fr) minmax(0, 1fr) auto;
 
-  /* Location page, PORTRAIT: one column; text/info/qr share the "panel" area */
-  --loc-portrait-areas:
+  /* Location page, NARROW (phones in portrait): header, tabs, one scrolling
+     content area (picture + active panel), toolbar. Areas: header, tabs,
+     content, toolbar. The content row must stay minmax(0, 1fr). */
+  --loc-narrow-areas:
     "header"
-    "media"
     "tabs"
-    "panel";
-  --loc-portrait-columns: minmax(0, 1fr);
-  --loc-portrait-rows: auto minmax(0, 32%) auto minmax(0, 1fr);
+    "content"
+    "toolbar";
+  --loc-narrow-columns: minmax(0, 1fr);
+  --loc-narrow-rows: auto auto minmax(0, 1fr) auto;
+
+  /* Location page, SHORT (phones in landscape): tabs and toolbar share one row */
+  --loc-short-areas:
+    "header  header"
+    "content content"
+    "tabs    toolbar";
+  --loc-short-columns: auto minmax(0, 1fr);
+  --loc-short-rows: auto minmax(0, 1fr) auto;
 
   /* Text pages */
   --page-max-width: 70ch;
@@ -178,6 +208,35 @@ th, td {
 caption { text-align: left; font-weight: bold; padding-bottom: var(--space-xs); }
 
 [data-role="error"] { padding: var(--space-m); }
+
+/* Minimum target size (see --target-size in section 1). max() makes 44px a
+   floor: a theme can enlarge the targets but cannot shrink them. Links inside
+   running text are not targets of this kind and keep their text size. */
+button,
+select,
+summary,
+[data-role="site-title"],
+[data-role="site-menu"] a,
+[data-role="step-nav"] a,
+[data-role="map-link"],
+[data-role="docs-toc"] a,
+[data-role="chapter-steps"] a,
+.leaflet-bar a {
+  min-height: max(44px, var(--target-size));
+  min-width: max(44px, var(--target-size));
+}
+/* Links are inline by default and ignore min-height: make them boxes and
+   keep their label centred vertically. */
+[data-role="site-title"],
+[data-role="site-menu"] a,
+[data-role="step-nav"] a,
+[data-role="map-link"],
+[data-role="docs-toc"] a,
+[data-role="chapter-steps"] a {
+  display: inline-flex;
+  align-items: center;
+}
+[data-role="step-nav"] a { justify-content: center; }
 
 
 /* 6. HEADER AND FOOTER ==================================================== */
@@ -276,23 +335,48 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 
 /* 8. LOCATION PAGE ======================================================== */
 
+/* DOM (see js/render/location.js):
+
+     article[location]
+       header[location-header]      transition (a <details>), kicker, title, work
+       nav[panel-tabs]              Text | Info | QR (narrow viewports only)
+       div[location-content]        wrapper around the four blocks below
+         section[location-media]
+         section[location-text]
+         section[location-meta]
+         section[location-qr]
+       div[location-toolbar]        text switches + map link (narrow viewports only)
+
+   WIDE viewports: the wrapper is "display: contents", so media, text, meta
+   and qr are grid items of the article and are ARRANGED by the
+   --loc-landscape-* variables. NARROW viewports: section 11. */
+
 [data-role="location"] {
   height: 100%;
+  min-height: 0;
   display: grid;
   gap: var(--gap);
   padding: var(--space-m);
+  /* Safety net: if the rows of a theme cannot fit, the article scrolls
+     instead of pushing blocks out of reach (the page itself never scrolls). */
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
-/* Each block is assigned to its named area. Areas are ARRANGED by the
-   --loc-*-areas variables (landscape here, portrait in section 11). */
-[data-role="location-header"] { grid-area: header; }
+[data-role="location-content"] { display: contents; }
+[data-role="location-toolbar"] { display: none; }
+
+[data-role="location-header"] { grid-area: header; min-width: 0; }
 [data-role="location-media"]  { grid-area: media; }
 [data-role="panel-tabs"]      { grid-area: tabs; }
 [data-role="location-text"]   { grid-area: text; }
 [data-role="location-meta"]   { grid-area: meta; }
 [data-role="location-qr"]     { grid-area: qr; }
 
-@media (orientation: landscape) and (min-width: 601px) {
+/* Wide = landscape, wider than 600px AND taller than 500px.
+   Everything else is "narrow" (section 11). Keep the three numbers in sync
+   with NARROW in js/render/location.js. */
+@media (orientation: landscape) and (min-width: 601px) and (min-height: 501px) {
   [data-role="location"] {
     grid-template-areas: var(--loc-landscape-areas);
     grid-template-columns: var(--loc-landscape-columns);
@@ -307,21 +391,54 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 [data-role="location-kicker"],
 [data-role="location-work"] { color: var(--color-muted); }
 [data-role="verified-flag"] { font-size: 0.85em; font-style: italic; }
+
+/* Transition: a <details>. The <summary> is the short line ("13 min · Walk").
+   When opened, the directions are laid OVER the page just below the header
+   and scroll in their own box: they never push the picture and the text
+   down, so opening them cannot squeeze any other block. */
+[data-role="location-header"] { position: relative; }
 [data-role="transition"] {
   margin-bottom: var(--space-s);
-  padding: var(--space-s);
   background: var(--color-surface);
 }
-[data-role="transition"] p { margin: 0; }
-[data-role="transition-summary"] { font-weight: bold; }
+[data-role="transition-summary"] {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: 0 var(--space-s);
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none;            /* our own marker replaces the browser's triangle */
+}
+[data-role="transition-summary"]::-webkit-details-marker { display: none; }
+[data-role="transition-summary"]::before { content: "\25B8"; }             /* ▸ closed */
+[data-role="transition"][open] > [data-role="transition-summary"]::before { content: "\25BE"; } /* ▾ open */
+[data-role="transition-text"] {
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: min(40vh, 16rem);
+  max-height: min(40dvh, 16rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-s);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+[data-role="transition-text"] p { margin: 0; }
 
-/* Media: one figure per "slide", horizontal scroll with snapping */
+/* Media: one figure per "slide", horizontal scroll with snapping.
+   The picture row of each figure is at least --loc-image-min high, whatever
+   the caption needs; if the box is shorter than picture + caption, the box
+   scrolls vertically instead of shrinking the picture. */
 [data-role="location-media"] {
   min-height: 0;
   display: flex;
   gap: var(--space-s);
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: auto;
   scroll-snap-type: x mandatory;
 }
 [data-role="location-figure"] {
@@ -329,12 +446,13 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
   min-height: 0;
   margin: 0;
   display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-rows: minmax(var(--loc-image-min), 1fr) auto;
   scroll-snap-align: start;
 }
 [data-role="location-figure"] img {
   width: 100%;
   height: 100%;
+  min-height: 0;
   object-fit: contain;
   background: var(--color-surface);
 }
@@ -360,13 +478,15 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 [data-role="metadata-table"] tr[data-depth="2"] th { font-weight: normal; }
 [data-role="metadata-list"] { margin: 0; padding-left: 1.2em; }
 
-/* QR */
+/* QR: the code on the left, its address and the map link stacked beside it,
+   so the block is only as tall as the code */
 [data-role="location-qr"] {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
-  gap: var(--space-s) var(--space-m);
+  gap: 0 var(--space-m);
 }
+[data-role="location-qr"] [data-role="qr-code"] { grid-row: span 2; }
 [data-role="location-qr"] [data-role="qr-code"] img,
 [data-role="location-qr"] [data-role="qr-code"] canvas { width: 6rem; height: 6rem; }
 [data-role="qr-url"] { margin: 0; font-size: 0.75em; overflow-wrap: anywhere; }
@@ -386,6 +506,13 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 [data-legend="cone"]   { background: var(--map-cone); clip-path: polygon(0 50%, 100% 0, 100% 100%); }
 
 [data-role="map-canvas"] { min-height: 0; height: 100%; }
+
+/* Leaflet's zoom buttons are 30px by default: same minimum as our controls */
+.leaflet-bar a {
+  width: max(44px, var(--target-size));
+  height: max(44px, var(--target-size));
+  line-height: max(44px, var(--target-size));
+}
 
 /* Leaflet shapes are SVG paths: CSS properties override Leaflet's defaults */
 .lmml-marker { stroke: var(--map-marker); fill: var(--map-marker); fill-opacity: 0.35; stroke-width: 2; }
@@ -417,29 +544,75 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 [data-role="qr-label"] { font-weight: bold; }
 
 
-/* 11. PORTRAIT LAYOUT ===================================================== */
-/* Phones (portrait) and narrow windows. */
+/* 11. NARROW LAYOUT ======================================================= */
+/* Phones in portrait, narrow windows, and phones in landscape (a wide but
+   very short viewport). The same three conditions are in NARROW in
+   js/render/location.js, which moves the text switches and the map link
+   into the toolbar when they match. */
 
-@media (orientation: portrait), (max-width: 600px) {
+@media (orientation: portrait), (max-width: 600px), (max-height: 500px) {
 
-  /* Header: the menu and switchers collapse behind the "Menu" button */
+  /* Site header: the menu and switchers collapse behind the "Menu" button */
   [data-role="menu-toggle"] { display: inline-block; }
   [data-role="site-menu"],
   [data-role="switchers"] { display: none; flex-basis: 100%; }
   [data-role="site-header"][data-menu-open] [data-role="site-menu"],
   [data-role="site-header"][data-menu-open] [data-role="switchers"] { display: flex; }
+  /* An open menu may be taller than a short screen: it scrolls in the header */
+  [data-role="site-header"][data-menu-open] {
+    max-height: 70vh;
+    max-height: 70dvh;
+    overflow-y: auto;
+  }
 
-  /* Location: one column; the three panels share the "panel" area and only
-     the active one (data-active-panel on the article) is shown */
+  /* Location: three fixed rows around one scrolling content area.
+       header    compact: title + work + the closed directions line
+       tabs      Text | Info | QR code
+       content   picture + the active panel; the ONLY part that scrolls
+       toolbar   text switches, language buttons, map link; always visible  */
   [data-role="location"] {
-    grid-template-areas: var(--loc-portrait-areas);
-    grid-template-columns: var(--loc-portrait-columns);
-    grid-template-rows: var(--loc-portrait-rows);
+    grid-template-areas: var(--loc-narrow-areas);
+    grid-template-columns: var(--loc-narrow-columns);
+    grid-template-rows: var(--loc-narrow-rows);
     padding: var(--space-s);
     gap: var(--space-s);
+    overflow: hidden;
   }
-  [data-role="location"] [data-panel] { grid-area: panel; }
 
+  /* Compact header: title and work only. Kicker, "not verified" flag and
+     the outside-the-narrative note are left to the Info panel and the footer. */
+  [data-role="location-header"] {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 var(--space-s);
+  }
+  [data-role="location-kicker"],
+  [data-role="verified-flag"],
+  [data-role="outside-note"] { display: none; }
+  [data-role="location-title"] { order: 1; flex: 1 1 100%; font-size: clamp(1.15rem, 5vw, 1.5rem); }
+  [data-role="location-work"]  { order: 2; flex: 1 1 auto; min-width: 0; }
+  [data-role="transition"]     { order: 3; flex: 0 1 auto; margin: 0; min-width: 0; }
+
+  /* Content: the wrapper becomes a real box and the single scroll container */
+  [data-role="location-content"] {
+    display: block;
+    grid-area: content;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  [data-role="location-content"] > * + * { margin-top: var(--space-s); }
+
+  /* Inside it nothing else scrolls vertically: the picture has its
+     guaranteed height, the panels are as tall as their content. */
+  [data-role="location-media"] { overflow-y: hidden; }
+  [data-role="location-figure"] { grid-template-rows: var(--loc-image-min) auto; }
+  [data-role="location-text"] { display: block; }
+  [data-role="location-text"] > * + * { margin-top: var(--space-s); }
+  [data-role="location-content"] [data-scroll] { overflow: visible; }
+
+  /* Only the active panel (data-active-panel on the article) is shown */
   [data-role="location"][data-active-panel="text"] [data-panel]:not([data-panel="text"]),
   [data-role="location"][data-active-panel="info"] [data-panel]:not([data-panel="info"]),
   [data-role="location"][data-active-panel="qr"]   [data-panel]:not([data-panel="qr"]) {
@@ -449,9 +622,41 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
   [data-role="panel-tabs"] { display: flex; gap: var(--space-xs); }
   [data-role="panel-tabs"] button { flex: 1; }
 
-  [data-role="location-qr"] { flex-direction: column; justify-content: center; }
+  [data-role="location-qr"] { grid-template-columns: minmax(0, 1fr); justify-items: center; gap: var(--space-s); }
+  [data-role="location-qr"] [data-role="qr-code"] { grid-row: auto; }
   [data-role="location-qr"] [data-role="qr-code"] img,
   [data-role="location-qr"] [data-role="qr-code"] canvas { width: 10rem; height: 10rem; }
+
+  /* Toolbar: one row that scrolls sideways, so it always costs one line of
+     height and every control stays one swipe away. */
+  [data-role="location-toolbar"] {
+    grid-area: toolbar;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: var(--space-xs);
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior: contain;
+  }
+  [data-role="location-toolbar"] [data-role="text-controls"] { display: contents; }
+  [data-role="location-toolbar"] button,
+  [data-role="location-toolbar"] a { flex: 0 0 auto; white-space: nowrap; }
+}
+
+/* Phones in landscape: height is the scarce resource, so the tabs share the
+   bottom row with the toolbar and the header stays on one line. */
+@media (max-height: 500px) {
+  [data-role="location"] {
+    grid-template-areas: var(--loc-short-areas);
+    grid-template-columns: var(--loc-short-columns);
+    grid-template-rows: var(--loc-short-rows);
+  }
+  [data-role="location-title"] { flex: 0 1 auto; }
+  [data-role="transition"] { margin-left: auto; }
+  [data-role="panel-tabs"] button { flex: 0 0 auto; }
+
 }
 
 

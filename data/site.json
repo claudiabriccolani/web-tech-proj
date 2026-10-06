@@ -37,7 +37,7 @@
       "sections": [
         {
           "title": "Viewport-sized canvas and scroll containers",
-          "text": "<p>TODO</p>"
+          "text": "<p>TODO</p><p><strong>TODO (rewrite):</strong> Found with screenshots at 390×844, 844×390 and 1280×800 on 2026-10-06: on phones the location text was not visible at all. The chain from main to the text container already had min-height: 0 at every level; the cause was the grid of the article, whose header row was auto and held the full directions text. An auto row is sized to its content before the flexible rows share what is left, so a long header left nothing for the rows below, and main, with overflow: hidden, clipped them with no way to scroll. The fix bounds every auto row (the directions are closed by default and scroll when open; the toolbar is one row) and gives the article itself overflow-y: auto as a last resort.</p>"
         },
         {
           "title": "HTML vocabulary and style hooks",
@@ -45,7 +45,7 @@
         },
         {
           "title": "Portrait and landscape layouts",
-          "text": "<p>TODO</p>"
+          "text": "<p>TODO</p><p><strong>TODO (rewrite in my own words, with the reasons):</strong> The location page has two layouts, chosen by one media query. It is <em>wide</em> when the viewport is in landscape, wider than 600px and taller than 500px; otherwise it is <em>narrow</em>, which covers phones in portrait and phones in landscape. In the wide layout the blocks (header, media, text, meta, qr) are grid items of the article and a theme arranges them with the --loc-landscape-* variables. In the narrow layout the article has three fixed rows around one scrolling area: a compact header (title and work), the Text / Info / QR code tabs, a content area that holds the picture and the active panel and is the only part that scrolls, and a toolbar at the bottom with the six text switches, the language buttons and the map link. The toolbar is a single row that scrolls sideways. On phones in landscape the tabs share the bottom row with the toolbar. The previous / next bar belongs to the page shell and stays where the theme puts it.</p><p><strong>TODO (rewrite):</strong> The same DOM serves both layouts. A wrapper around the media and the three panels is display: contents in the wide layout and becomes the scroll container in the narrow one. The text switches and the map link are the only elements that change parent: a small function moves them into the toolbar when the narrow media query matches and back when it stops matching. The directions to a location are a details element, closed by default, whose summary line is built from the data of the transition (minutes, and the Underground lines or the mode); when opened, the directions scroll in a box of limited height.</p><p><strong>TODO (rewrite):</strong> Two sizes are guaranteed by base.css and can only be raised by a theme. Controls (buttons, menu links, the two switchers, the zoom buttons of the map) are at least 44 by 44 px, the target size of WCAG 2.5.5 and of Apple's Human Interface Guidelines (WCAG 2.2 2.5.8, level AA, asks for 24 px). The picture of a location is at least --loc-image-min-height high (10rem by default), a value that base.css keeps between 6rem and 35% of the viewport height.</p>"
         }
       ]
     },

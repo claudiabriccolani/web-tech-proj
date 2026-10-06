@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- LMML: a map pin with a film frame inside -->
+  <rect width="32" height="32" rx="6" fill="#2a2118"/>
+  <path d="M16 4.5c-4.7 0-8.5 3.7-8.5 8.3 0 6 8.5 14.7 8.5 14.7s8.5-8.700 8.500-14.700c0-4.600-3.800-8.300-8.500-8.300z" fill="#f6f1e7"/>
+  <rect x="11.500" y="9.500" width="9" height="6.500" rx="1" fill="#2a2118"/>
+  <path d="M14.800 11.200v3.100l2.900-1.550z" fill="#f6f1e7"/>
+</svg>
