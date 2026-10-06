@@ -29,7 +29,8 @@ import { el, externalLink } from '../dom.js';
 import { getData, getLocation, getNarrative, textsOf, workOf, workLabel, locationUrl } from '../data.js';
 import { getState, setState } from '../state.js';
 import { screenFor } from '../narrative.js';
-import { KEYS, SWITCHES, usableTexts, languagesOf, mergeTexts, pickInitial, findNeighbour, cellLabel } from '../textSelector.js';
+import { resumeHash } from '../navigation.js';
+import { KEYS, SWITCHES, AXIS_LABELS, usableTexts, languagesOf, mergeTexts, pickInitial, findNeighbour, cellLabel } from '../textSelector.js';
 import { drawQr } from '../qr.js';
 import { buildMetadataTable } from './metadataTable.js';
 import { renderNotFound } from './notFound.js';
@@ -113,7 +114,7 @@ function buildHeader(loc, screen) {
     !screen && buildOutsideNote(loc),
     el('h1', { 'data-role': 'location-title' }, loc.name),
     work && el('p', { 'data-role': 'location-work', 'data-work-type': work['@type'] }, workLabel(work)),
-    !loc['lmml:verified'] && el('p', { 'data-role': 'verified-flag' }, 'Information not yet verified'),
+    !loc['lmml:verified'] && el('p', { 'data-role': 'verified-flag' }, twoLabels('Information not yet verified', 'Not verified')),
   );
 }
 
@@ -125,9 +126,22 @@ function buildHeader(loc, screen) {
 function buildOutsideNote(loc) {
   const current = getNarrative(getState().narrativeId);
   const others = getData().narratives.filter((n) => screenFor(loc.identifier, n.identifier));
+  const long = `This location is not part of the narrative “${current?.name ?? ''}”.`
+    + (others.length ? ` It is part of: ${others.map((n) => n.name).join(', ')}.` : '');
+  const back = resumeHash();
   return el('p', { 'data-role': 'outside-note' },
-    `This location is not part of the narrative “${current?.name ?? ''}”.`,
-    others.length ? ` It is part of: ${others.map((n) => n.name).join(', ')}.` : '');
+    twoLabels(long, `Not part of “${current?.name ?? ''}”.`),
+    back && ' ',
+    back && el('a', { 'data-role': 'outside-return', href: back }, 'Return to the narrative'));
+}
+
+/**
+ * The same message in two lengths. CSS shows the long one on wide screens and
+ * the short one where space is tight (see [data-label] in base.css); the one
+ * that is not shown is display: none, so it is not read aloud twice.
+ */
+function twoLabels(long, short) {
+  return [el('span', { 'data-label': 'long' }, long), el('span', { 'data-label': 'short' }, short)];
 }
 
 /**
@@ -239,10 +253,26 @@ function buildTextPanel(allTexts) {
     return panel;
   }
 
+  // One group per axis: on phones the two buttons of an axis sit side by
+  // side under the name of the axis; on wide screens the groups are
+  // display: contents and the six buttons flow as one row.
+  const group = (axis, name) => {
+    const box = el('div', { 'data-role': 'switch-group', 'data-axis': axis, role: 'group', 'aria-label': name },
+      el('span', { 'data-role': 'group-label', 'aria-hidden': 'true' }, name));
+    controls.append(box);
+    return box;
+  };
+  const groups = Object.fromEntries(Object.keys(AXIS_LABELS).map((axis) => [axis, group(axis, AXIS_LABELS[axis])]));
+
   // Create the six buttons once; show() only updates their state.
   // "target" = the text each button would show, or null (button disabled).
+  // The accessible name is "short: wording of the assignment", so it always
+  // contains whichever label is visible; the tooltip is the full wording.
   const buttons = SWITCHES.map((sw) => {
-    const button = el('button', { type: 'button', 'data-role': 'text-switch', 'data-switch': sw.id, 'data-axis': sw.axis }, sw.label);
+    const button = el('button', {
+      type: 'button', 'data-role': 'text-switch', 'data-switch': sw.id, 'data-axis': sw.axis,
+      title: sw.label, 'aria-label': `${sw.short}: ${sw.label}`,
+    }, twoLabels(sw.label, sw.short));
     button.addEventListener('click', () => {
       if (!button.target) return;
       // Update the preference on this axis only, so it carries over to the next location
@@ -250,11 +280,12 @@ function buildTextPanel(allTexts) {
       show(button.target);
       revealText();
     });
-    controls.append(button);
+    groups[sw.axis].append(button);
     return { sw, button };
   });
 
   // Language buttons: one per language, the current one is "pressed"
+  const languageGroup = languages.length > 1 ? group('language', 'Language') : null;
   const languageButtons = languages.length > 1
     ? languages.map((code) => {
       const button = el('button', { type: 'button', 'data-role': 'lang-switch', 'data-lang': code, lang: code },
@@ -266,7 +297,7 @@ function buildTextPanel(allTexts) {
         show(pickInitial(texts, getState().textPref));
         revealText();
       });
-      controls.append(button);
+      languageGroup.append(button);
       return button;
     })
     : [];
@@ -318,6 +349,7 @@ function buildQrPanel(loc) {
   return el('section', { 'data-role': 'location-qr', 'data-panel': 'qr' },
     code,
     el('p', { 'data-role': 'qr-url' }, url),
-    el('a', { 'data-role': 'map-link', href: `#/map/${encodeURIComponent(loc.identifier)}` }, 'Show on the map'),
+    el('a', { 'data-role': 'map-link', href: `#/map/${encodeURIComponent(loc.identifier)}`, 'aria-label': 'Map: show on the map', title: 'Show on the map' },
+      twoLabels('Show on the map', 'Map')),
   );
 }

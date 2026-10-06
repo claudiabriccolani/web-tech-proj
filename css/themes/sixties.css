@@ -7,7 +7,6 @@
    Layout changes compared with base.css, all done by redefining variables:
      1. the prev/next bar moves from the bottom to the top (under the header)
      2. landscape location page: text on the LEFT, images on the RIGHT
-     3. portrait location page: the Text/Info/QR tabs go ABOVE the images
    ========================================================================== */
 
 :root[data-theme="sixties"] {
@@ -42,14 +41,6 @@
     "text   meta"
     "text   qr";
   --loc-landscape-columns: minmax(0, 3fr) minmax(0, 2fr);
-
-  /* 3. Location, portrait: tabs above the images */
-  --loc-portrait-areas:
-    "header"
-    "tabs"
-    "media"
-    "panel";
-  --loc-portrait-rows: auto auto minmax(0, 32%) minmax(0, 1fr);
 }
 
 :root[data-theme="sixties"] [data-role="location-title"],

@@ -104,7 +104,13 @@ js/render/notFound.js      unknown routes
 - Narrow layout: compact header (title, work, directions line), the
   Text / Info / QR tabs, one scrolling content area (picture + active panel)
   and a toolbar at the bottom with the text switches, the language buttons
-  and the map link. The toolbar is one row that scrolls sideways.
+  and the map link. The toolbar never scrolls: the six switches are three
+  pairs (Length, Level, Tone) on one row, language and map link on a second
+  row; on a phone in landscape it is all one row.
+- Phone buttons show the `short` label of `SWITCHES` in
+  `js/textSelector.js`; the assignment's wording stays as tooltip and in the
+  accessible name ("Harder: Too simple"). A short label says what the button
+  does, so "Too simple" is "Harder" and "Too difficult" is "Simpler".
 - The same DOM serves both layouts. `placeControls()` in
   `js/render/location.js` moves the switches and the map link into the
   toolbar when the narrow media query matches, and back when it does not.
@@ -302,7 +308,8 @@ caption tbody tr th td ul ol li div span`.
   `chapter-intro`, `chapter-steps`, `docs-toc`, `docs-section`,
   `section-number`, `disclaimer-text`, `source-list`, `qr-grid`, `qr-card`
 - **Location:** `location`, `location-header`, `location-content`,
-  `location-toolbar`, `transition`, `transition-summary`, `transition-text`,
+  `location-toolbar`, `transition`, `transition-summary`, `transition-text`, `outside-return`,
+  `switch-group`, `group-label`,
   `location-kicker`, `outside-note`, `location-title`, `location-work`, `verified-flag`,
   `location-media`, `location-figure`, `figure-caption`, `caption-credit`, `image-note`,
   `panel-tabs`, `location-text`, `text-controls`, `text-switch`,
@@ -312,6 +319,10 @@ caption tbody tr th td ul ol li div span`.
 - **Map:** `map`, `map-legend`, `map-canvas`. Leaflet shapes use the classes
   `lmml-marker`, `lmml-marker--in-route`, `lmml-route`, `lmml-camera-cone`,
   `lmml-camera-arrow` and `lmml-camera`.
+
+**Two-length labels.** `[data-label="long"]` and `[data-label="short"]` are
+two spans with the same message; `base.css` shows one of them depending on
+the layout.
 
 **Other `data-*` attributes.** These describe the current state, so themes
 can style by content:

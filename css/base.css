@@ -468,6 +468,12 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
   gap: var(--space-s);
 }
 [data-role="text-controls"] { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+/* Wide screens: the groups dissolve, the six buttons and the language
+   buttons flow as one wrapping row, with the full wording. */
+[data-role="switch-group"] { display: contents; }
+[data-role="group-label"] { display: none; }
+/* Two lengths of the same label (see twoLabels in location.js): long by default */
+[data-label="short"] { display: none; }
 [data-role="text-cell"] { margin: 0; font-size: 0.8em; color: var(--color-muted); }
 [data-role="text-body"] > :first-child { margin-top: 0; }
 
@@ -579,20 +585,30 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
     overflow: hidden;
   }
 
-  /* Compact header: title and work only. Kicker, "not verified" flag and
-     the outside-the-narrative note are left to the Info panel and the footer. */
+  /* Compact header: title, then one line with the work, the "not verified"
+     flag and the directions; a location outside the current narrative gets
+     one more line with a short note and the way back. The chapter line is
+     hidden. Flag and note use their short wording. */
   [data-role="location-header"] {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 0 var(--space-s);
   }
-  [data-role="location-kicker"],
-  [data-role="verified-flag"],
-  [data-role="outside-note"] { display: none; }
+  [data-role="location-kicker"] { display: none; }
+  [data-role="location-header"] [data-label="long"] { display: none; }
+  [data-role="location-header"] [data-label="short"] { display: inline; }
   [data-role="location-title"] { order: 1; flex: 1 1 100%; font-size: clamp(1.15rem, 5vw, 1.5rem); }
-  [data-role="location-work"]  { order: 2; flex: 1 1 auto; min-width: 0; }
-  [data-role="transition"]     { order: 3; flex: 0 1 auto; margin: 0; min-width: 0; }
+  [data-role="location-work"]  { order: 2; flex: 0 1 auto; min-width: 0; }
+  [data-role="verified-flag"]  { order: 3; flex: 1 1 auto; white-space: nowrap; }
+  [data-role="transition"]     { order: 4; flex: 0 1 auto; margin: 0; min-width: 0; }
+  [data-role="outside-note"]   { order: 5; flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--space-s); }
+  [data-role="outside-return"] {
+    display: inline-flex;
+    align-items: center;
+    min-height: max(44px, var(--target-size));
+    min-width: max(44px, var(--target-size));
+  }
 
   /* Content: the wrapper becomes a real box and the single scroll container */
   [data-role="location-content"] {
@@ -627,22 +643,50 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
   [data-role="location-qr"] [data-role="qr-code"] img,
   [data-role="location-qr"] [data-role="qr-code"] canvas { width: 10rem; height: 10rem; }
 
-  /* Toolbar: one row that scrolls sideways, so it always costs one line of
-     height and every control stays one swipe away. */
+  /* Toolbar: every control visible at once, nothing scrolls sideways.
+     Row 1: the three axes (Length, Level, Tone), each a pair of buttons
+     under its name. Row 2: the language buttons and the map link.
+     Each pair is a two-column grid whose columns are at least one target
+     wide, so six buttons fit a 390px screen. */
   [data-role="location-toolbar"] {
     grid-area: toolbar;
     display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: var(--space-xs);
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: var(--space-xs) var(--space-s);
     min-width: 0;
-    overflow-x: auto;
-    overflow-y: hidden;
-    overscroll-behavior: contain;
   }
   [data-role="location-toolbar"] [data-role="text-controls"] { display: contents; }
-  [data-role="location-toolbar"] button,
-  [data-role="location-toolbar"] a { flex: 0 0 auto; white-space: nowrap; }
+  [data-role="location-toolbar"] [data-role="switch-group"] {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(max(44px, var(--target-size)), 1fr));
+    column-gap: 2px;
+    /* three groups share a row: a third each, minus the two gaps */
+    flex: 1 1 calc((100% - 2 * var(--space-s)) / 3);
+    min-width: 0;
+  }
+  [data-role="location-toolbar"] [data-role="group-label"] {
+    display: block;
+    grid-column: 1 / -1;
+    font-size: 0.75em;
+    line-height: 1.3;
+    text-align: center;
+    color: var(--color-muted);
+  }
+  [data-role="location-toolbar"] [data-label="long"] { display: none; }
+  [data-role="location-toolbar"] [data-label="short"] { display: inline; }
+  [data-role="location-toolbar"] button {
+    padding-inline: 2px;
+    font-size: 0.85em;
+    white-space: nowrap;
+    min-width: 0;                /* the grid column already guarantees the target width */
+  }
+  /* Row 2: the language pair keeps its natural width, the map link goes right */
+  [data-role="location-toolbar"] [data-role="switch-group"][data-axis="language"] { flex: 0 1 auto; }
+  [data-role="location-toolbar"] [data-role="switch-group"][data-axis="language"] button { padding-inline: var(--space-s); }
+  [data-role="location-toolbar"] [data-role="map-link"] { margin-left: auto; white-space: nowrap; }
+  [data-role="location-toolbar"] [data-role="map-link"] [data-label="long"] { display: inline; }
+  [data-role="location-toolbar"] [data-role="map-link"] [data-label="short"] { display: none; }
 }
 
 /* Phones in landscape: height is the scarce resource, so the tabs share the
@@ -655,7 +699,15 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
   }
   [data-role="location-title"] { flex: 0 1 auto; }
   [data-role="transition"] { margin-left: auto; }
+  [data-role="outside-note"] { flex: 0 1 auto; }
+  [data-role="panel-tabs"] { align-items: flex-end; }
   [data-role="panel-tabs"] button { flex: 0 0 auto; }
+
+  /* One row for everything: tabs, the three axes, language, map ("Map") */
+  [data-role="location-toolbar"] { flex-wrap: nowrap; }
+  [data-role="location-toolbar"] [data-role="switch-group"] { flex: 1 1 0; }
+  [data-role="location-toolbar"] [data-role="map-link"] [data-label="long"] { display: none; }
+  [data-role="location-toolbar"] [data-role="map-link"] [data-label="short"] { display: inline; }
 
 }
 

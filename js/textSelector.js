@@ -47,13 +47,22 @@ export const DEFAULT_PREF = Object.freeze({ length: 'medium', level: 'average', 
  *   "Additional details and references"  -> towards "scholar" (+1)
  */
 export const SWITCHES = Object.freeze([
-  { id: 'more', label: 'Tell me more', axis: 'length', dir: +1 },
-  { id: 'less', label: 'Tell me less', axis: 'length', dir: -1 },
-  { id: 'too-simple', label: 'Too simple', axis: 'level', dir: +1 },
-  { id: 'too-difficult', label: 'Too difficult', axis: 'level', dir: -1 },
-  { id: 'play', label: 'Do you want to play?', axis: 'tone', dir: -1 },
-  { id: 'details', label: 'Additional details and references', axis: 'tone', dir: +1 },
+  { id: 'more', label: 'Tell me more', short: 'More', axis: 'length', dir: +1 },
+  { id: 'less', label: 'Tell me less', short: 'Less', axis: 'length', dir: -1 },
+  { id: 'too-simple', label: 'Too simple', short: 'Harder', axis: 'level', dir: +1 },
+  { id: 'too-difficult', label: 'Too difficult', short: 'Simpler', axis: 'level', dir: -1 },
+  { id: 'play', label: 'Do you want to play?', short: 'Play', axis: 'tone', dir: -1 },
+  { id: 'details', label: 'Additional details and references', short: 'Details', axis: 'tone', dir: +1 },
 ]);
+
+/**
+ * "label" is the wording of the assignment and is what wide screens show.
+ * "short" is what the phone toolbar shows, where the two buttons of an axis
+ * sit side by side under the name of the axis. A short label says what the
+ * button DOES: "Too simple" asks for a harder text, so its short label is
+ * "Harder" (and "Too difficult" becomes "Simpler").
+ */
+export const AXIS_LABELS = Object.freeze({ length: 'Length', level: 'Level', tone: 'Tone' });
 
 const AXIS_NAMES = Object.keys(AXES);
 
