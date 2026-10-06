@@ -164,7 +164,36 @@
           "description": "OpenStreetMap: coordinates of Marylebone station building"
         }
       ],
-      "lmml:texts": []
+      "lmml:texts": [
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "en",
+          "text": "<p>Run! This is where the Beatles sprint away from more than a hundred fans at the start of <em>A Hard Day's Night</em> (1964). The film says it's Liverpool. It's actually London. Can you run the length of Boston Place faster than Ringo?</p>"
+        },
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "fr",
+          "text": "<p>Courez ! C'est ici que les Beatles fuient plus de cent fans au début de <em>A Hard Day's Night</em> (1964). Le film prétend que c'est Liverpool… mais c'est Londres. Qui court le plus vite jusqu'au bout de Boston Place ?</p>"
+        },
+        {
+          "lmml:length": "medium",
+          "lmml:level": "average",
+          "lmml:tone": "adult",
+          "inLanguage": "en",
+          "text": "<p>The first minutes of <em>A Hard Day's Night</em> (1964) show the Beatles being chased by fans into a railway station. The story says it is Lime Street Station in Liverpool, but the scenes were filmed here, at Marylebone. Later in the film the same station, shot from a different angle, is where the band arrive in London.</p><p>The chase was filmed on Sunday 5 April 1964, when the station was closed to the public. Over a hundred fans took part as extras, paid £7 10s each. One scene was shot in Boston Place, the street beside the station, with the group running towards the camera. A week later the four came back, without the crowd, and were filmed running down a platform to catch a moving train.</p><p>Marylebone opened in 1899 and was the last of London's main line termini to be built. It is one of the smallest and quietest, which is why film crews like it: <em>The IPCRESS File</em> was shot here too.</p>"
+        },
+        {
+          "lmml:length": "long",
+          "lmml:level": "advanced",
+          "lmml:tone": "scholar",
+          "inLanguage": "en",
+          "text": "<p>Richard Lester's <em>A Hard Day's Night</em>, written by Alun Owen, premiered at the London Pavilion on 6 July 1964 and went on general release, with its soundtrack, on 10 July. It was shot in black-and-white in a cinéma vérité manner that drew on the French New Wave and on British kitchen sink realism, and its opening sequence is the clearest statement of that manner: the band pursued by fans into a station that the narrative presents as Liverpool Lime Street.</p><p>The station is Marylebone. Movie-Locations identifies it both as the film's 'Lime Street' and, from another angle, as the London terminus where the band arrive, so that a single building stands at both ends of the journey. The Beatles Bible dates the opening sequence to Sunday 5 April 1964, a day on which the station was closed to the public; more than a hundred fans were filmed in pursuit, the extras receiving £7 10s, and a further scene was taken in Boston Place with the group running towards the camera. On Sunday 12 April the four returned without the crowd and were filmed running the length of a platform to catch a moving train.</p><p>Wikipedia, however, states that filming of the picture began at Marylebone on 2 March 1964, the morning on which the four Beatles joined the actors' union Equity. How this first day relates to the April Sundays is not explained by the sources consulted.</p><p>The choice of station was practical. Opened to passengers on 15 March 1899 as the London terminus of the Great Central Main Line, Marylebone was the last of the capital's main line termini to be built and remains one of the smallest; its quietness has made it a recurrent film location, used the following year for <em>The IPCRESS File</em>.</p><h3>References</h3><ol><li>Wikipedia: A Hard Day's Night (film) (credits, shooting schedule, premiere). <a href=\"https://en.wikipedia.org/wiki/A_Hard_Day%27s_Night_(film)\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/A_Hard_Day%27s_Night_(film)</a></li><li>Movie-Locations.com: A Hard Day's Night film locations. <a href=\"https://www.movie-locations.com/movies/h/Hard-Days-Night.php\" target=\"_blank\" rel=\"noopener\">https://www.movie-locations.com/movies/h/Hard-Days-Night.php</a></li><li>The Beatles Bible: filming A Hard Day's Night, 5 April 1964 (Marylebone Station, Boston Place). <a href=\"https://www.beatlesbible.com/1964/04/05/filming-a-hard-days-night-24/\" target=\"_blank\" rel=\"noopener\">https://www.beatlesbible.com/1964/04/05/filming-a-hard-days-night-24/</a></li><li>The Beatles Bible: filming A Hard Day's Night, 12 April 1964 (return to Marylebone Station). <a href=\"https://www.beatlesbible.com/1964/04/12/filming-a-hard-days-night-29/\" target=\"_blank\" rel=\"noopener\">https://www.beatlesbible.com/1964/04/12/filming-a-hard-days-night-29/</a></li><li>Wikipedia: Marylebone station (history, use as a filming location). <a href=\"https://en.wikipedia.org/wiki/Marylebone_station\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Marylebone_station</a></li></ol>"
+        }
+      ]
     },
     {
       "@type": "Place",
@@ -227,6 +256,10 @@
         {
           "text": "The scene comes about 70 minutes into the film.",
           "url": "https://tokyofox.net/2016/02/27/london-filming-locations-a-hard-days-night-1964/"
+        },
+        {
+          "text": "Movie-Locations captions the scene 'The Beatles arrive in the nick of time'.",
+          "url": "https://www.movie-locations.com/movies/h/Hard-Days-Night.php"
         },
         {
           "text": "The mews is opposite the old entrance of the Scala Theatre, which the band run into, and is still unchanged.",
@@ -302,7 +335,36 @@
           "description": "OpenStreetMap: coordinates of southern end of Charlotte Mews"
         }
       ],
-      "lmml:texts": []
+      "lmml:texts": [
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "en",
+          "text": "<p>Four Beatles, one narrow alley, and a TV show about to start without them! In <em>A Hard Day's Night</em> the band burst out of this archway and dash into the theatre across the road. Try it: who gets across first?</p>"
+        },
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "fr",
+          "text": "<p>Quatre Beatles, une ruelle étroite et une émission de télé qui va commencer sans eux ! Dans <em>A Hard Day's Night</em>, le groupe surgit de ce passage et file vers le théâtre d'en face. À vous : qui traverse le premier ?</p>"
+        },
+        {
+          "lmml:length": "medium",
+          "lmml:level": "average",
+          "lmml:tone": "adult",
+          "inLanguage": "en",
+          "text": "<p>About 70 minutes into <em>A Hard Day's Night</em> (1964) the film reaches its climax: the television concert is about to begin. They come running out of this alleyway, Charlotte Mews, and into the theatre opposite, 'in the nick of time'.</p><p>That theatre was the Scala. In the film it is the 'TV studio' where the band rehearse and play the final concert. The crew worked there from 23 to 30 March 1964, and on 31 March the concert was filmed, with the group miming to backing tracks.</p><p>The Scala had opened in 1905, designed by Frank Verity, with 1,139 seats. Its name is the Italian word for staircase, after the stairways that led from the dress circle down to the stalls. From 1945 it staged <em>Peter Pan</em> every year until it closed in 1969. A block called Scala House now stands on the site.</p><p>The theatre is gone, but the mews has not changed. Goodge Street station on the Northern line is a couple of minutes' walk away.</p>"
+        },
+        {
+          "lmml:length": "long",
+          "lmml:level": "advanced",
+          "lmml:tone": "scholar",
+          "inLanguage": "en",
+          "text": "<p>Charlotte Mews supplies one of the last exterior images of <em>A Hard Day's Night</em> (dir. Richard Lester; premiered in London on 6 July 1964). At roughly the seventieth minute, according to Tokyo Fox, the four Beatles emerge from the alleyway on their way to the television concert that closes the film. Movie-Locations notes that the mews lies opposite the old entrance of the Scala Theatre, into which they run, and that it survives unchanged.</p><p>The Scala is the film's 'TV studio', the setting of both rehearsal and concert. Wikipedia's account of the shooting schedule places the unit there from 23 to 30 March 1964, with the concert footage taken on 31 March, the group miming to backing tracks. The building then in use had opened in 1905 to designs by Frank Verity and seated 1,139; its name, the Italian for staircase, referred to the stairways descending from either side of the dress circle to the stalls. From 1945 it presented <em>Peter Pan</em> annually until its closure in 1969. A block named Scala House now occupies the site.</p><p>The mews therefore outlives the building that gave the scene its meaning: the visitor sees the place the Beatles ran from, not the place they ran to. The sources consulted differ on when the theatre was demolished and on its street address, and these points are recorded as open questions in the data for this location.</p><p>The mews is a couple of minutes' walk from Goodge Street Underground station on the Northern line.</p><h3>References</h3><ol><li>Movie-Locations.com: A Hard Day's Night film locations. <a href=\"https://www.movie-locations.com/movies/h/Hard-Days-Night.php\" target=\"_blank\" rel=\"noopener\">https://www.movie-locations.com/movies/h/Hard-Days-Night.php</a></li><li>Tokyo Fox: London filming locations of A Hard Day's Night. <a href=\"https://tokyofox.net/2016/02/27/london-filming-locations-a-hard-days-night-1964/\" target=\"_blank\" rel=\"noopener\">https://tokyofox.net/2016/02/27/london-filming-locations-a-hard-days-night-1964/</a></li><li>Wikipedia: A Hard Day's Night (film) (credits, shooting schedule, premiere). <a href=\"https://en.wikipedia.org/wiki/A_Hard_Day%27s_Night_(film)\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/A_Hard_Day%27s_Night_(film)</a></li><li>Wikipedia: Scala Theatre (history of the theatre opposite Charlotte Mews). <a href=\"https://en.wikipedia.org/wiki/Scala_Theatre\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Scala_Theatre</a></li></ol>"
+        }
+      ]
     },
     {
       "@type": "Place",
@@ -375,7 +437,7 @@
           "url": "https://en.wikipedia.org/wiki/Notting_Hill_(film)"
         },
         {
-          "text": "It tells of a romance between a British bookshop keeper and a famous American actress who happens to walk into his shop.",
+          "text": "It tells of a romance between a British bookshop keeper (Grant) and a famous American actress (Roberts) who happens to walk into his shop.",
           "url": "https://en.wikipedia.org/wiki/Notting_Hill_(film)"
         },
         {
@@ -442,7 +504,36 @@
           "description": "OpenStreetMap: coordinates of 142 Portobello Road"
         }
       ],
-      "lmml:texts": []
+      "lmml:texts": [
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "en",
+          "text": "<p>A film star walks into a little bookshop… and falls for the bookseller! That's <em>Notting Hill</em> (1999), and this is the shop front. Surprise: it was never a bookshop. Look for the sign that says 'The Travel Book Shop' anyway.</p>"
+        },
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "fr",
+          "text": "<p>Une star de cinéma entre dans une petite librairie… et tombe amoureuse du libraire ! C'est <em>Notting Hill</em> (1999), et voici la devanture. Surprise : ça n'a jamais été une librairie. Cherchez quand même l'enseigne « The Travel Book Shop ».</p>"
+        },
+        {
+          "lmml:length": "medium",
+          "lmml:level": "average",
+          "lmml:tone": "adult",
+          "inLanguage": "en",
+          "text": "<p><em>Notting Hill</em> (1999), directed by Roger Michell and written by Richard Curtis, is the story of a British bookshop keeper, played by Hugh Grant, and a famous American actress, played by Julia Roberts, who happens to walk into his shop. This is the shop: 142 Portobello Road. Near the end of the film she comes back here with a wrapped gift and asks him to take her back.</p><p>There never was a travel bookshop at this address. When the film was made the premises were Nicholls Antique Arcade; later they became a furniture store, and today they are a gift shop called 'Notting Hill', which copies the film's typeface and has added a sign reading 'The Travel Book Shop'.</p><p>The real Travel Bookshop that inspired the film was around the corner, at 13-15 Blenheim Crescent. It closed in 2011 and has reopened as The Notting Hill Bookshop.</p><p>Filming began on 17 April 1998 and lasted six weeks in the neighbourhood. On release the film was the highest-grossing British film of all time.</p>"
+        },
+        {
+          "lmml:length": "long",
+          "lmml:level": "advanced",
+          "lmml:tone": "scholar",
+          "inLanguage": "en",
+          "text": "<p><em>Notting Hill</em>, directed by Roger Michell from a screenplay by Richard Curtis, premiered at the Odeon Leicester Square on 27 April 1999 and opened in the United Kingdom on 21 May; on release it was the highest-grossing British film to date. Its premise is a romance between a British bookshop keeper and a famous American actress who happens to walk into his shop, and the shop is accordingly the film's first and last important location: near the end, Anna returns to it with a wrapped gift to ask Will to take her back.</p><p>The front used for William Thacker's shop is 142 Portobello Road. Movie-Locations is explicit that no travel bookshop ever traded there: at the time of filming the premises were Nicholls Antique Arcade, subsequently the furniture store Gong, and now a gift and souvenir shop named 'Notting Hill', which reproduces the typeface and colours of the film's title and has added a sign reading 'The Travel Book Shop'. The model for the fictional business was the real Travel Bookshop at 13-15 Blenheim Crescent, around the corner, which closed in 2011 and has reopened as The Notting Hill Bookshop at no. 13. The location thus presents a film set that has been turned, after the fact, into an imitation of the fiction it once served.</p><p>According to Wikipedia, filming began on 17 April 1998 and continued for six weeks in Notting Hill, the interiors being shot last at Shepperton Studios. Michell feared that working on Portobello Road would bring gridlock and thousands of onlookers and paparazzi. The song heard as Will strides down the road is Bill Withers's 'Ain't No Sunshine'.</p><h3>References</h3><ol><li>Wikipedia: Notting Hill (film) (credits, production, release). <a href=\"https://en.wikipedia.org/wiki/Notting_Hill_(film)\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Notting_Hill_(film)</a></li><li>Movie-Locations.com: Notting Hill film locations (bookshop, blue door). <a href=\"https://www.movie-locations.com/movies/n/Notting-Hill.php\" target=\"_blank\" rel=\"noopener\">https://www.movie-locations.com/movies/n/Notting-Hill.php</a></li></ol>"
+        }
+      ]
     },
     {
       "@type": "Place",
@@ -556,7 +647,36 @@
           "description": "OpenStreetMap: coordinates of 280 Westbourne Park Road"
         }
       ],
-      "lmml:texts": []
+      "lmml:texts": [
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "en",
+          "text": "<p>Knock knock! Behind this blue door live William and his flatmate Spike in <em>Notting Hill</em> (1999). Except… they don't. The flat was built in a studio, and the first blue door was sold for charity. Spot the door, but don't ring the bell: somebody really lives here!</p>"
+        },
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "fr",
+          "text": "<p>Toc toc ! Derrière cette porte bleue vivent William et son colocataire Spike dans <em>Notting Hill</em> (1999). Enfin… pas vraiment : l'appartement a été construit en studio, et la première porte bleue a été vendue pour une œuvre de charité. Ne sonnez pas : quelqu'un habite vraiment ici !</p>"
+        },
+        {
+          "lmml:length": "medium",
+          "lmml:level": "average",
+          "lmml:tone": "adult",
+          "inLanguage": "en",
+          "text": "<p>This is the 'blue door' of <em>Notting Hill</em> (1999): the entrance to the flat that the bookseller William Thacker shares with Spike. In the film Anna hides here from a tabloid scandal, and the next morning the paparazzi besiege the house and photograph Will, Anna and a half-dressed Spike on the doorstep.</p><p>The door is real, the flat is not. The rundown interior was a studio set and looked nothing like what is behind the door, which is a grand house. At the time it was owned by Richard Curtis, the film's screenwriter.</p><p>The original door was auctioned for charity. The door you see today is blue again.</p><p>The corner of Westbourne Park Road and Portobello Road, a few yards away, is where William bumps into Anna at the beginning of the film. Shooting in the streets of Notting Hill began on 17 April 1998 and lasted six weeks; the film opened in the UK on 21 May 1999.</p>"
+        },
+        {
+          "lmml:length": "long",
+          "lmml:level": "advanced",
+          "lmml:tone": "scholar",
+          "inLanguage": "en",
+          "text": "<p>280 Westbourne Park Road is, in the words of Movie-Locations, one of the most famous British film locations ever to grace the screen. In <em>Notting Hill</em> (dir. Roger Michell; UK release 21 May 1999) its door is the entrance to the flat that William Thacker shares with Spike, and the threshold on which the film's public and private worlds collide: Anna takes refuge in the flat from a tabloid scandal, and the next morning paparazzi besiege the house and photograph Will, Anna and a half-dressed Spike at the front door.</p><p>The location is a composite. Movie-Locations reports that the rundown interior was a studio set bearing no resemblance to what lies behind the door; Wikipedia adds that the house was owned by the screenwriter, Richard Curtis, and that behind the entrance stands a grand house rather than the flat of the film. Only the doorway, then, belongs to the fiction.</p><p>The door itself has a history. Wikipedia records that the original blue door was auctioned for charity and that the present door is blue again; the sources consulted do not date the sale.</p><p>The door stands a few yards from the corner of Westbourne Park Road and Portobello Road, where William bumps into Anna at the beginning of the film. The six weeks of street filming in Notting Hill began on 17 April 1998.</p><h3>References</h3><ol><li>Movie-Locations.com: Notting Hill film locations (bookshop, blue door). <a href=\"https://www.movie-locations.com/movies/n/Notting-Hill.php\" target=\"_blank\" rel=\"noopener\">https://www.movie-locations.com/movies/n/Notting-Hill.php</a></li><li>Wikipedia: Notting Hill (film) (credits, production, release). <a href=\"https://en.wikipedia.org/wiki/Notting_Hill_(film)\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Notting_Hill_(film)</a></li></ol>"
+        }
+      ]
     },
     {
       "@type": "Place",
@@ -710,7 +830,36 @@
           "description": "OpenStreetMap: coordinates of The Glass House optician, Bull's Head Passage"
         }
       ],
-      "lmml:texts": []
+      "lmml:texts": [
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "en",
+          "text": "<p>Psst… wizards only! In the first Harry Potter film, Hagrid leads Harry through this market and into the Leaky Cauldron. The secret door is real. Clue: today it belongs to a shop that helps you see better. Can you find it?</p>"
+        },
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "fr",
+          "text": "<p>Psst… réservé aux sorciers ! Dans le premier film Harry Potter, Hagrid emmène Harry à travers ce marché jusqu'au Chaudron Baveur. La porte secrète existe vraiment. Indice : aujourd'hui, c'est une boutique qui vous aide à mieux voir. La trouverez-vous ?</p>"
+        },
+        {
+          "lmml:length": "medium",
+          "lmml:level": "average",
+          "lmml:tone": "adult",
+          "inLanguage": "en",
+          "text": "<p>In <em>Harry Potter and the Philosopher's Stone</em> (2001) Hagrid leads Harry through the streets of London to the Leaky Cauldron, the wizards' pub. Leadenhall Market plays those streets. As they walk, Harry asks: 'Can you find all this in London?' Hagrid answers: 'If you know where to go.'</p><p>The door they go through is in Bull's Head Passage. It belongs to what is now an optician, The Glass House, and has a rounded doorway. Time Out reports that the director, Chris Columbus, was struggling to find his Leaky Cauldron when he came upon the shop. The owner remembers that the door 'looked old and decrepit': 'the perfect guise for a pub for wizards'. In the novel the pub is on Charing Cross Road, and for the third film it moved to Borough Market.</p><p>The market itself dates from the 14th century and is one of the oldest in London. The present building, with its roof painted green, maroon and cream, was designed in 1881 by Sir Horace Jones. It is Grade II* listed.</p>"
+        },
+        {
+          "lmml:length": "long",
+          "lmml:level": "advanced",
+          "lmml:tone": "scholar",
+          "inLanguage": "en",
+          "text": "<p>Leadenhall Market represents, in <em>Harry Potter and the Philosopher's Stone</em> (dir. Chris Columbus; premiered at the Odeon Leicester Square on 4 November 2001, released on 16 November), the area of London near the Leaky Cauldron and Diagon Alley. The novel places the pub on Charing Cross Road; the film relocates it to a City market. As Harry and Hagrid walk through, Harry asks 'Can you find all this in London?' and Hagrid replies 'If you know where to go' — an exchange that the location turns into a statement about the city itself.</p><p>The door of the Leaky Cauldron is that of what is now The Glass House, an optician in Bull's Head Passage, recognisable by its rounded doorway; inside the fictional pub, a magical brick wall leads to Diagon Alley. Time Out reports that Columbus was struggling to find a setting when he came upon the shop, and quotes its owner: the front door 'looked old and decrepit' because the premises had not been renovated, 'the perfect guise for a pub for wizards'. The identification did not last within the series: for the third film, <em>The Prisoner of Azkaban</em>, the Leaky Cauldron moved to a shop front in Borough Market.</p><p>The sources consulted disagree on the street number of the door and on the state of the shop at the time of filming; these points are listed as open questions.</p><p>The market dates from the 14th century and is among the oldest in London. The present structure, with its ornate roof painted green, maroon and cream, was designed in 1881 by Sir Horace Jones, architect also of Billingsgate and Smithfield Markets. It has been a Grade II* listed building since 1972.</p><h3>References</h3><ol><li>Wikipedia: Leadenhall Market (history, film appearances). <a href=\"https://en.wikipedia.org/wiki/Leadenhall_Market\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Leadenhall_Market</a></li><li>Wikipedia: Harry Potter and the Philosopher's Stone (film) (credits, release). <a href=\"https://en.wikipedia.org/wiki/Harry_Potter_and_the_Philosopher%27s_Stone_(film)\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Harry_Potter_and_the_Philosopher%27s_Stone_(film)</a></li><li>The Magician: film-by-film round-up of Harry Potter locations. <a href=\"https://www.the-magician.co.uk/harry-potter-film-locations.htm\" target=\"_blank\" rel=\"noopener\">https://www.the-magician.co.uk/harry-potter-film-locations.htm</a></li><li>Time Out London: London on screen – the Leaky Cauldron from Harry Potter and the Philosopher's Stone. <a href=\"https://www.timeout.com/london/news/london-on-screen-the-leaky-cauldron-from-harry-potter-and-the-philosophers-stone-070318\" target=\"_blank\" rel=\"noopener\">https://www.timeout.com/london/news/london-on-screen-the-leaky-cauldron-from-harry-potter-and-the-philosophers-stone-070318</a></li></ol>"
+        }
+      ]
     },
     {
       "@type": "Place",
@@ -847,7 +996,36 @@
           "description": "Coordinates of Somerset House as given by Wikipedia, shown on OpenStreetMap"
         }
       ],
-      "lmml:texts": []
+      "lmml:texts": [
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "en",
+          "text": "<p>Skates on! At the very start of <em>Love Actually</em> (2003), Londoners glide around an ice rink in this grand courtyard. Not so long ago it was… a car park! Come in winter and you can skate here too.</p>"
+        },
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "fr",
+          "text": "<p>Chaussez vos patins ! Au tout début de <em>Love Actually</em> (2003), les Londoniens glissent sur une patinoire dans cette grande cour. Il n'y a pas si longtemps, c'était… un parking ! Venez en hiver et vous pourrez patiner ici aussi.</p>"
+        },
+        {
+          "lmml:length": "medium",
+          "lmml:level": "average",
+          "lmml:tone": "adult",
+          "inLanguage": "en",
+          "text": "<p><em>Love Actually</em> (2003) opens with a montage of London, and one of its pictures is this courtyard turned into an ice rink. It is one of the film's establishing shots of the city.</p><p>A few years earlier the image would have been impossible. The courtyard used to be a car park for the Civil Service, and that is how it looks in the films <em>GoldenEye</em> and <em>Tomorrow Never Dies</em>. After it was refurbished and opened to the public it became a court of fountains, with a skating rink in winter and outdoor film screenings in summer.</p><p>The building around you was designed by Sir William Chambers and begun in 1776, on the site of a Tudor palace that belonged to the Duke of Somerset. Its single courtyard measures 300 by 200 feet. Until the Victoria Embankment was built in the late 1860s, Somerset House stood directly on the Thames.</p><p><em>Love Actually</em> was written and directed by Richard Curtis, his first film as director, and was mostly filmed on location in London.</p>"
+        },
+        {
+          "lmml:length": "long",
+          "lmml:level": "advanced",
+          "lmml:tone": "scholar",
+          "inLanguage": "en",
+          "text": "<p>The central court of Somerset House appears as a skating rink in the opening montage of <em>Love Actually</em> (written and directed by Richard Curtis; released in the United States on 14 November 2003 and a week later in the United Kingdom). Movie-Locations lists it among the film's establishing shots of London, a function that depends on a very recent change in the use of the space.</p><p>The courtyard had long been a car park for the Civil Service. Movie-Locations calls it 'a rather dull parking lot' and notes that it appears in that state in <em>GoldenEye</em> and <em>Tomorrow Never Dies</em>. Wikipedia records its refurbishment and opening to the public; since then it has been a fountain court, with a skating rink in winter and outdoor film screenings in summer. Curtis's film, his first as director and mostly shot on location in London, is therefore among the works that fixed the new, festive image of the place.</p><p>The setting is Sir William Chambers's Somerset House, begun in 1776 on the site of a Tudor palace that had belonged to Edward Seymour, 1st Duke of Somerset. Chambers's final design organised the whole around a single courtyard of 300 ft by 200 ft (91 m by 61 m). The building stood directly on the Thames until the construction of the Victoria Embankment in the late 1860s.</p><p>No source consulted describes the angle from which the rink was filmed; the camera position recorded for this location is an estimate.</p><h3>References</h3><ol><li>Movie-Locations.com: Love Actually film locations (scenes, addresses). <a href=\"https://www.movie-locations.com/movies/l/Love-Actually.php\" target=\"_blank\" rel=\"noopener\">https://www.movie-locations.com/movies/l/Love-Actually.php</a></li><li>Wikipedia: Somerset House (history, architecture). <a href=\"https://en.wikipedia.org/wiki/Somerset_House\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Somerset_House</a></li><li>Wikipedia: Love Actually (credits, release dates, list of London locations). <a href=\"https://en.wikipedia.org/wiki/Love_Actually\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Love_Actually</a></li></ol>"
+        }
+      ]
     },
     {
       "@type": "Place",
@@ -982,7 +1160,36 @@
           "description": "OpenStreetMap: coordinates of Grosvenor Chapel"
         }
       ],
-      "lmml:texts": []
+      "lmml:texts": [
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "en",
+          "text": "<p>Here comes the bride… and a surprise! In <em>Love Actually</em> (2003), Peter and Juliet get married in this chapel and suddenly everyone hears 'All You Need Is Love'. The chapel is nearly 300 years old. Can you hum the tune outside?</p>"
+        },
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "fr",
+          "text": "<p>Vive les mariés… et surprise ! Dans <em>Love Actually</em> (2003), Peter et Juliet se marient dans cette chapelle et soudain retentit « All You Need Is Love ». La chapelle a presque 300 ans. Saurez-vous fredonner l'air devant la chapelle ?</p>"
+        },
+        {
+          "lmml:length": "medium",
+          "lmml:level": "average",
+          "lmml:tone": "adult",
+          "inLanguage": "en",
+          "text": "<p><em>Love Actually</em> (2003), written and directed by Richard Curtis, starts with a wedding. Peter, played by Chiwetel Ejiofor, marries Juliet, played by Keira Knightley, and the ceremony ends with a surprise performance of 'All You Need Is Love'. It takes place here, in the Grosvenor Chapel.</p><p>The chapel stands at 24 South Audley Street in Mayfair, just behind the Dorchester Hotel on Park Lane. It is an Anglican church built in the 1730s: the foundation stone was laid on 7 April 1730 by Sir Richard Grosvenor, who had leased the site to a group led by a local builder, Benjamin Timbrell. Its design inspired many churches in New England.</p><p>During the Second World War members of the American armed forces came here for their Sunday services; a tablet outside the west wall records it. After the war the poet Sir John Betjeman was among the congregation.</p><p>Regular music concerts are held in the chapel.</p>"
+        },
+        {
+          "lmml:length": "long",
+          "lmml:level": "advanced",
+          "lmml:tone": "scholar",
+          "inLanguage": "en",
+          "text": "<p>The wedding of Peter (Chiwetel Ejiofor) and Juliet (Keira Knightley), which comes at the start of <em>Love Actually</em> (2003; written and directed by Richard Curtis), is conducted, according to Movie-Locations, in the Grosvenor Chapel, and culminates in a surprise performance of 'All You Need Is Love'. The same source notes that regular music concerts are held in the chapel, so that the film's set piece exaggerates an existing use of the building rather than inventing one.</p><p>The chapel stands at 24 South Audley Street, Mayfair, just behind the Dorchester Hotel on Park Lane. It is an Anglican church of the 1730s. Wikipedia records that its foundation stone was laid on 7 April 1730 by Sir Richard Grosvenor, who had leased the site to a syndicate led by the local builder Benjamin Timbrell, and that the building inspired many churches in New England.</p><p>That transatlantic connection was renewed in the twentieth century: during the Second World War members of the American armed forces were welcomed to the chapel for Sunday services, as a tablet outside the west wall records. After the war the congregation included the poet Sir John Betjeman.</p><p>The sources consulted say that the wedding takes place in the chapel but do not specify whether its exterior appears in the film; the camera position recorded here is the conventional view of the front from South Audley Street and is an estimate.</p><h3>References</h3><ol><li>Movie-Locations.com: Love Actually film locations (scenes, addresses). <a href=\"https://www.movie-locations.com/movies/l/Love-Actually.php\" target=\"_blank\" rel=\"noopener\">https://www.movie-locations.com/movies/l/Love-Actually.php</a></li><li>Wikipedia: Grosvenor Chapel (history). <a href=\"https://en.wikipedia.org/wiki/Grosvenor_Chapel\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Grosvenor_Chapel</a></li><li>Wikipedia: Love Actually (credits, release dates, list of London locations). <a href=\"https://en.wikipedia.org/wiki/Love_Actually\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Love_Actually</a></li></ol>"
+        }
+      ]
     },
     {
       "@type": "Place",
@@ -1127,7 +1334,36 @@
           "description": "OpenStreetMap: coordinates of Selfridges"
         }
       ],
-      "lmml:texts": []
+      "lmml:texts": [
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "en",
+          "text": "<p>'Would you like it gift-wrapped?' In <em>Love Actually</em> (2003), Harry buys a secret necklace here, and the shop assistant, played by Rowan Atkinson, wraps it sooo slowly. How long would <em>you</em> take to wrap a present?</p>"
+        },
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "fr",
+          "text": "<p>« Je vous fais un paquet-cadeau ? » Dans <em>Love Actually</em> (2003), Harry achète ici un collier en cachette, et le vendeur, joué par Rowan Atkinson, l'emballe trèèès lentement. Et vous, combien de temps pour emballer un cadeau ?</p>"
+        },
+        {
+          "lmml:length": "medium",
+          "lmml:level": "average",
+          "lmml:tone": "adult",
+          "inLanguage": "en",
+          "text": "<p>About 77 minutes into <em>Love Actually</em> (2003), Harry, played by Alan Rickman, slips into the jewellery department of Selfridges to buy a necklace for Mia. He is nervous, because his wife Karen, played by Emma Thompson, is about to arrive. The shop assistant, played by Rowan Atkinson, makes an elaborate job of wrapping the gift.</p><p>The assistant was originally meant to be an angel who would turn up again and again through the film. That is why he reappears, with a knowing smile, at the airport near the end.</p><p>Oxford Street is rarely seen in films because it is expensive to close, but Selfridges opened its doors for the shoot.</p><p>The store, at 400 Oxford Street, was designed by Daniel Burnham for Harry Gordon Selfridge and opened on 15 March 1909. It was an early example in Britain of a steel-framed building. Today it is Grade II listed and the second-largest department store in the United Kingdom, after Harrods.</p>"
+        },
+        {
+          "lmml:length": "long",
+          "lmml:level": "advanced",
+          "lmml:tone": "scholar",
+          "inLanguage": "en",
+          "text": "<p>The Selfridges sequence of <em>Love Actually</em> (2003; written and directed by Richard Curtis) occurs, by Tokyo Fox's timing, about 77 minutes into the film. Harry (Alan Rickman) furtively buys a necklace for Mia in the jewellery department while the imminent arrival of his wife Karen (Emma Thompson) makes him nervous, and the shop assistant, played by Rowan Atkinson, makes an elaborate job of wrapping the gift.</p><p>Movie-Locations supplies the detail that explains the assistant's odd prominence: the character was originally conceived as a recurring angel, which is why he reappears with a knowing smile at the airport near the end of the film. The scene preserves a trace of a structural idea that the finished film otherwise abandoned.</p><p>The same source observes that Oxford Street is rarely seen on screen, because it is expensive to close, and that Selfridges opened its doors for the filming. The scene is thus an interior one, and no source consulted locates the counter within the store.</p><p>The building, at 400 Oxford Street, was designed by Daniel Burnham for Harry Gordon Selfridge and opened on 15 March 1909. Wikipedia describes it as an early example in the United Kingdom of the use of a steel frame. It is Grade II listed and is the second-largest department store in the country, after Harrods.</p><h3>References</h3><ol><li>Movie-Locations.com: Love Actually film locations (scenes, addresses). <a href=\"https://www.movie-locations.com/movies/l/Love-Actually.php\" target=\"_blank\" rel=\"noopener\">https://www.movie-locations.com/movies/l/Love-Actually.php</a></li><li>Tokyo Fox: London filming locations of Love Actually (running times of scenes). <a href=\"https://tokyofox.net/2015/12/11/london-filming-locations-love-actually-2004/\" target=\"_blank\" rel=\"noopener\">https://tokyofox.net/2015/12/11/london-filming-locations-love-actually-2004/</a></li><li>Find That Location: Love Actually (scene list). <a href=\"https://findthatlocation.com/film-title/love-actually\" target=\"_blank\" rel=\"noopener\">https://findthatlocation.com/film-title/love-actually</a></li><li>Wikipedia: Selfridges, Oxford Street (history, architecture). <a href=\"https://en.wikipedia.org/wiki/Selfridges,_Oxford_Street\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Selfridges,_Oxford_Street</a></li><li>Wikipedia: Love Actually (credits, release dates, list of London locations). <a href=\"https://en.wikipedia.org/wiki/Love_Actually\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Love_Actually</a></li></ol>"
+        }
+      ]
     },
     {
       "@type": "Place",
@@ -1262,7 +1498,36 @@
           "description": "OpenStreetMap: coordinates of 27 St Luke's Mews"
         }
       ],
-      "lmml:texts": []
+      "lmml:texts": [
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "en",
+          "text": "<p>Shhh… no talking! In <em>Love Actually</em> (2003), Mark tells Juliet he loves her right here without saying a single word. He uses big cards instead. What would <em>you</em> write on a card for someone you like?</p>"
+        },
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "fr",
+          "text": "<p>Chut… pas un mot ! Dans <em>Love Actually</em> (2003), Mark déclare son amour à Juliet ici même, sans dire une seule parole : il utilise de grandes pancartes. Et vous, qu'écririez-vous sur une pancarte pour quelqu'un que vous aimez ?</p>"
+        },
+        {
+          "lmml:length": "medium",
+          "lmml:level": "average",
+          "lmml:tone": "adult",
+          "inLanguage": "en",
+          "text": "<p><em>Love Actually</em> (2003) is a Christmas romantic comedy written and directed by Richard Curtis, his first film as director. It follows ten separate stories that play out in a weekly countdown to Christmas, and it was mostly filmed on location in London.</p><p>In one of those stories, 27 St Luke's Mews is the home of the newlyweds Peter and Juliet. About 96 minutes into the film, the lovestruck Mark comes to the door and silently declares his love to Juliet with a series of cue cards.</p><p>The scene could have looked very different: the original script called for Mark to carpet the mews with rose petals.</p><p>St Luke's Mews is off All Saints Road in Notting Hill. The film was released in the United States on 14 November 2003 and a week later in the United Kingdom.</p>"
+        },
+        {
+          "lmml:length": "long",
+          "lmml:level": "advanced",
+          "lmml:tone": "scholar",
+          "inLanguage": "en",
+          "text": "<p><em>Love Actually</em>, a Christmas romantic comedy written and directed by Richard Curtis and his first film as director, was released in the United States on 14 November 2003 and a week later in the United Kingdom. Wikipedia describes its structure as ten separate stories played out in a weekly countdown to Christmas, and notes that it was mostly filmed on location in London; St Luke's Mews, off All Saints Road in Notting Hill, is among the locations it lists.</p><p>Movie-Locations identifies 27 St Luke's Mews as the home of the newlyweds Peter and Juliet, and as the place where the lovestruck Mark silently declares his love to Juliet with cue cards. Tokyo Fox places the scene about 96 minutes into the film.</p><p>The same account preserves a variant: the original script called for Mark to carpet the mews with rose petals. The cue cards that replaced the petals move the declaration from spectacle to writing, and from the street to the doorstep, which is why the scene can be located at a single front door.</p><p>The house number is not uncontested in the sources. Movie-Locations and Tokyo Fox give no. 27, while the caption of the Wikimedia Commons photograph reproduced here refers to no. 22; the discrepancy is recorded among the open questions for this location. Visitors should remember that the mews is a residential street and the house a private home.</p><h3>References</h3><ol><li>Movie-Locations.com: Love Actually film locations (scenes, addresses). <a href=\"https://www.movie-locations.com/movies/l/Love-Actually.php\" target=\"_blank\" rel=\"noopener\">https://www.movie-locations.com/movies/l/Love-Actually.php</a></li><li>Tokyo Fox: London filming locations of Love Actually (running times of scenes). <a href=\"https://tokyofox.net/2015/12/11/london-filming-locations-love-actually-2004/\" target=\"_blank\" rel=\"noopener\">https://tokyofox.net/2015/12/11/london-filming-locations-love-actually-2004/</a></li><li>Wikipedia: Love Actually (credits, release dates, list of London locations). <a href=\"https://en.wikipedia.org/wiki/Love_Actually\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Love_Actually</a></li></ol>"
+        }
+      ]
     },
     {
       "@type": "Place",
@@ -1479,7 +1744,36 @@
           "description": "Coordinates of Millennium Bridge as given by Wikipedia, shown on OpenStreetMap"
         }
       ],
-      "lmml:texts": []
+      "lmml:texts": [
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "en",
+          "text": "<p>Hold on tight! At the start of <em>Harry Potter and the Half-Blood Prince</em> (2009), Death Eaters twist this bridge until it crashes into the river. Don't worry, it's still here. But Londoners do call it the 'Wobbly Bridge'… can you guess why?</p>"
+        },
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "fr",
+          "text": "<p>Accrochez-vous ! Au début de <em>Harry Potter and the Half-Blood Prince</em> (2009), les Mangemorts tordent ce pont jusqu'à ce qu'il s'effondre dans le fleuve. Rassurez-vous, il est toujours là. Mais les Londoniens l'appellent le « pont qui tremble »… devinez pourquoi ?</p>"
+        },
+        {
+          "lmml:length": "medium",
+          "lmml:level": "average",
+          "lmml:tone": "adult",
+          "inLanguage": "en",
+          "text": "<p>Three of our stories meet at this bridge. In the opening scenes of <em>Harry Potter and the Half-Blood Prince</em> (2009), Death Eaters attack it: the metal twists and buckles, and the bridge collapses into the Thames. The scenes were filmed here in March 2008. It is an anachronism, because the story is set in 1996, before the bridge was built.</p><p>In <em>Love Actually</em> (2003) the bridge is seen briefly, about 18 minutes in. And the first series of <em>Fleabag</em> (2016) ends at the south end of the bridge, on the top floor of Tate Modern, where Fleabag's godmother holds her 'sexhibition'. The gallery's large windows look over the Thames and St Paul's Cathedral, and the scene was shot at sunset.</p><p>The bridge opened on 10 June 2000 and swayed so much on its first day that Londoners named it the 'Wobbly Bridge'. It was closed two days later and reopened on 22 February 2002, after dampers had been fitted. It was designed by Arup, Foster + Partners and the sculptor Anthony Caro, and is 325 m long. Tate Modern occupies the former Bankside Power Station, designed by Sir Giles Gilbert Scott.</p>"
+        },
+        {
+          "lmml:length": "long",
+          "lmml:level": "advanced",
+          "lmml:tone": "scholar",
+          "inLanguage": "en",
+          "text": "<p>The Millennium Bridge is the one location in this collection claimed by three works. The most substantial appearance is in the opening scenes of <em>Harry Potter and the Half-Blood Prince</em> (dir. David Yates; released on 15 July 2009), where the bridge collapses after an attack by Death Eaters; The Magician describes the metal twisting and buckling while terrified Muggles cling to the railings before the structure falls into the Thames. Scenes were filmed at the bridge in March 2008.</p><p>Wikipedia notes two departures from the source. In the novel the bridge destroyed is the Brockdale Bridge, and its collapse is only described; Yates chose to show it. And the choice is an anachronism: the story is set in 1996, before the bridge was built.</p><p>The bridge is a steel suspension footbridge linking Bankside with the City of London, designed by Arup, Foster + Partners and the sculptor Anthony Caro, and 325 m long. It opened on 10 June 2000, swayed on its opening day, was closed two days later and reopened on 22 February 2002 after dampers were fitted; Londoners still call it the 'Wobbly Bridge'. A film that makes it shake itself to pieces is drawing on a memory its audience already had.</p><p>The other two appearances are slighter. Wikipedia lists the bridge and Tate Modern among the London locations of <em>Love Actually</em> (2003); Tokyo Fox reports that the bridge is seen briefly about 18 minutes in, and Almost Ginger places the shot between Peter and Juliet's wedding reception and the first appearance of Alan Rickman. Virgin Media states that the final scene of the first series of <em>Fleabag</em>, the 'sexhibition' mounted by Fleabag's godmother, was shot on the top floor of Tate Modern, whose large windows overlook the Thames and St Paul's Cathedral, and that the cinematographer took advantage of the sunset. That episode, the sixth, was directed by Harry Bradbeer, written by Phoebe Waller-Bridge and released on 25 August 2016. Tate Modern occupies the former Bankside Power Station, designed by Sir Giles Gilbert Scott, directly across the river from St Paul's.</p><h3>References</h3><ol><li>Wikipedia: Millennium Bridge, London (design, opening, film appearances). <a href=\"https://en.wikipedia.org/wiki/Millennium_Bridge,_London\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Millennium_Bridge,_London</a></li><li>The Magician: film-by-film round-up of Harry Potter locations. <a href=\"https://www.the-magician.co.uk/harry-potter-film-locations.htm\" target=\"_blank\" rel=\"noopener\">https://www.the-magician.co.uk/harry-potter-film-locations.htm</a></li><li>Wikipedia: Harry Potter and the Half-Blood Prince (film) (credits, filming, release). <a href=\"https://en.wikipedia.org/wiki/Harry_Potter_and_the_Half-Blood_Prince_(film)\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Harry_Potter_and_the_Half-Blood_Prince_(film)</a></li><li>Wikipedia: Love Actually (credits, release dates, list of London locations). <a href=\"https://en.wikipedia.org/wiki/Love_Actually\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Love_Actually</a></li><li>Tokyo Fox: London filming locations of Love Actually (running times of scenes). <a href=\"https://tokyofox.net/2015/12/11/london-filming-locations-love-actually-2004/\" target=\"_blank\" rel=\"noopener\">https://tokyofox.net/2015/12/11/london-filming-locations-love-actually-2004/</a></li><li>Almost Ginger: Love Actually filming locations (where the Millennium Bridge shot falls in the film). <a href=\"https://almostginger.com/?p=16652\" target=\"_blank\" rel=\"noopener\">https://almostginger.com/?p=16652</a></li><li>Virgin Media: Where was Fleabag filmed?. <a href=\"https://www.virginmedia.com/the-edit/tv/where-was-fleabag-filmed\" target=\"_blank\" rel=\"noopener\">https://www.virginmedia.com/the-edit/tv/where-was-fleabag-filmed</a></li><li>Wikipedia: Fleabag (creator, episode list, filming locations). <a href=\"https://en.wikipedia.org/wiki/Fleabag\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Fleabag</a></li><li>Wikipedia: Tate Modern (building history). <a href=\"https://en.wikipedia.org/wiki/Tate_Modern\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Tate_Modern</a></li></ol>"
+        }
+      ]
     },
     {
       "@type": "Place",
@@ -1634,7 +1928,36 @@
           "description": "OpenStreetMap: coordinates of Speedy's café, 187 North Gower Street"
         }
       ],
-      "lmml:texts": []
+      "lmml:texts": [
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "en",
+          "text": "<p>Elementary! This is the front door of Sherlock Holmes in the BBC series <em>Sherlock</em>. In the show the address is Baker Street, but that's a trick. And Speedy's, the café next door? It's real. Detective challenge: find the blue plaque the film crew hides behind a lamp!</p>"
+        },
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "fr",
+          "text": "<p>Élémentaire ! Voici la porte d'entrée de Sherlock Holmes dans la série <em>Sherlock</em> de la BBC. Dans la série, c'est Baker Street, mais c'est une ruse. Et Speedy's, le café d'à côté ? Il existe vraiment. Défi de détective : trouvez la plaque bleue que l'équipe de tournage cache derrière une lampe !</p>"
+        },
+        {
+          "lmml:length": "medium",
+          "lmml:level": "average",
+          "lmml:tone": "adult",
+          "inLanguage": "en",
+          "text": "<p>In the BBC series <em>Sherlock</em>, created by Steven Moffat and Mark Gatiss, Sherlock Holmes and Doctor Watson live at 221B Baker Street. The outside of their home, however, was filmed here, at 187 North Gower Street, a small side road just off the Euston Road. Baker Street itself was impractical: there was too much traffic, and too many things labelled 'Sherlock Holmes' that would have had to be disguised.</p><p>Speedy's, the sandwich shop below the flat, is a real café. Its interior was used in series two, in 'A Scandal in Belgravia', and it reported a sharp rise in customers who recognised it from the show.</p><p>The house has an older story. The Italian patriot Giuseppe Mazzini lived here from 1837 to 1840, when the address was 9 George Street. During filming, his blue plaque is covered by a fake lamp.</p><p>Thirteen episodes of <em>Sherlock</em> were made, starring Benedict Cumberbatch and Martin Freeman and shown from 2010 to 2017. Most of the series was filmed in Cardiff.</p>"
+        },
+        {
+          "lmml:length": "long",
+          "lmml:level": "advanced",
+          "lmml:tone": "scholar",
+          "inLanguage": "en",
+          "text": "<p><em>Sherlock</em>, created by Steven Moffat and Mark Gatiss for the BBC, with Benedict Cumberbatch as Holmes and Martin Freeman as Watson, ran to thirteen episodes between 2010 and 2017; the first, 'A Study in Pink', was broadcast on BBC One on 25 July 2010. The series was filmed primarily in Cardiff, where filming was cheaper than in London, and its London is therefore a matter of selected exteriors. The most important of them is this one.</p><p>According to Wikipedia, the location shots for 221B Baker Street were filmed at 187 North Gower Street, a small side road just off the Euston Road. Baker Street itself was judged impractical, because of heavy traffic and because of the number of things labelled 'Sherlock Holmes' that would have needed to be disguised: the real street was too full of the character to play his address.</p><p>Fiction and place have since exchanged roles. Speedy's, the sandwich shop below the flat, is a real café; Free Tours by Foot notes that its interior was used for filming in series two, in 'A Scandal in Belgravia', and Wikipedia that it reported a sharp rise in new customers who recognised it from the programme.</p><p>The house also carries a history that the series conceals. The Italian patriot Giuseppe Mazzini lived here from 1837 to 1840, when the address was 9 George Street, and during filming the blue plaque that commemorates him is covered by a fake lamp. The sources consulted do not agree on the present house number, a point recorded among the open questions.</p><h3>References</h3><ol><li>Wikipedia: Sherlock (TV series) (creators, production, 221B exterior). <a href=\"https://en.wikipedia.org/wiki/Sherlock_(TV_series)\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Sherlock_(TV_series)</a></li><li>Free Tours by Foot: self-guided Sherlock tour of London. <a href=\"https://freetoursbyfoot.com/sherlock-holmes-tour-london/\" target=\"_blank\" rel=\"noopener\">https://freetoursbyfoot.com/sherlock-holmes-tour-london/</a></li><li>Wikipedia: North Gower Street (Sherlock filming, Mazzini plaque). <a href=\"https://en.wikipedia.org/wiki/North_Gower_Street\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/North_Gower_Street</a></li><li>Wikipedia: A Study in Pink (credits, broadcast, unaired pilot). <a href=\"https://en.wikipedia.org/wiki/A_Study_in_Pink\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/A_Study_in_Pink</a></li></ol>"
+        }
+      ]
     },
     {
       "@type": "Place",
@@ -1779,7 +2102,36 @@
           "description": "Coordinates of Russell Square as given by Wikipedia, shown on OpenStreetMap"
         }
       ],
-      "lmml:texts": []
+      "lmml:texts": [
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "en",
+          "text": "<p>Two old classmates bump into each other in a park. One of them is Doctor Watson! It happens right here, in the very first episode of <em>Sherlock</em> (2010). Find a bench with the big hotel behind it and you've found the spot.</p>"
+        },
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "fr",
+          "text": "<p>Deux anciens camarades de classe se croisent dans un parc. L'un d'eux est le docteur Watson ! Ça se passe ici même, dans le tout premier épisode de <em>Sherlock</em> (2010). Trouvez un banc avec le grand hôtel derrière et vous y êtes.</p>"
+        },
+        {
+          "lmml:length": "medium",
+          "lmml:level": "average",
+          "lmml:tone": "adult",
+          "inLanguage": "en",
+          "text": "<p>'A Study in Pink' is the first episode of <em>Sherlock</em>, first shown on BBC One on 25 July 2010. In it, Russell Square is the park where Dr Watson meets his former classmate Mike Stamford again. The two talk on a park bench, with the façade of the Imperial Hotel behind them.</p><p>The episode was written by Steven Moffat and directed by Paul McGuigan, and is loosely based on the first Sherlock Holmes novel, <em>A Study in Scarlet</em>. It had a difficult birth: the story was first filmed as a 60-minute pilot, directed by Coky Giedroyc, which the BBC decided not to show. It was then filmed again as a 90-minute episode, which 7.5 million people watched overnight.</p><p>Russell Square was laid out in 1804 and takes its name from the family name of the Earls and Dukes of Bedford. In 2002 it was re-landscaped in a style based on the original design by Humphry Repton. The gardens are Grade II listed.</p>"
+        },
+        {
+          "lmml:length": "long",
+          "lmml:level": "advanced",
+          "lmml:tone": "scholar",
+          "inLanguage": "en",
+          "text": "<p>In 'A Study in Pink', the first episode of <em>Sherlock</em> (written by Steven Moffat, directed by Paul McGuigan; first broadcast on BBC One on 25 July 2010), Russell Square is, as Wikipedia puts it, the park in which Dr Watson is re-acquainted with his former classmate Mike Stamford; the façade of the Imperial Hotel serves as the backdrop to their park-bench conversation. The episode is loosely based on the first Sherlock Holmes novel, <em>A Study in Scarlet</em>.</p><p>The scene belongs to the second version of the story. It was first filmed as a 60-minute pilot, directed by Coky Giedroyc, which the BBC decided not to transmit; the story was then refilmed as a 90-minute episode. The broadcast version drew 7.5 million viewers overnight.</p><p>Mark Gatiss, co-creator of the series, said that its makers wanted to 'fetishise modern London in the way that the period versions fetishise Victorian London'. The square suits that programme because its appearance is itself a modern reconstruction of an older one: laid out in 1804 and named after the family name of the Earls and Dukes of Bedford, it was re-landscaped in 2002 in a style based on the original early-nineteenth-century layout by Humphry Repton. The gardens are Grade II listed on the Register of Historic Parks and Gardens.</p><p>No source consulted identifies the bench used; the camera position recorded for this location is an estimate based on the hotel backdrop.</p><h3>References</h3><ol><li>Wikipedia: Russell Square (history, Sherlock scene). <a href=\"https://en.wikipedia.org/wiki/Russell_Square\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Russell_Square</a></li><li>Wikipedia: A Study in Pink (credits, broadcast, unaired pilot). <a href=\"https://en.wikipedia.org/wiki/A_Study_in_Pink\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/A_Study_in_Pink</a></li><li>Wikipedia: Sherlock (TV series) (creators, production, 221B exterior). <a href=\"https://en.wikipedia.org/wiki/Sherlock_(TV_series)\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Sherlock_(TV_series)</a></li></ol>"
+        }
+      ]
     },
     {
       "@type": "Place",
@@ -1937,7 +2289,36 @@
           "description": "OpenStreetMap: coordinates of St Bartholomew's Hospital"
         }
       ],
-      "lmml:texts": []
+      "lmml:texts": [
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "en",
+          "text": "<p>Look up! In <em>Sherlock</em>, the great detective steps off this hospital's roof while his friend John watches from the street. (Spoiler: it's a trick.) The hospital is about 900 years old. Can you find the phone box that has become a Sherlock 'shrine'?</p>"
+        },
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "fr",
+          "text": "<p>Levez les yeux ! Dans <em>Sherlock</em>, le grand détective saute du toit de cet hôpital sous les yeux de son ami John, resté dans la rue. (Attention, spoiler : c'est une ruse.) L'hôpital a environ 900 ans. Trouverez-vous la cabine téléphonique devenue un mémorial pour Sherlock ?</p>"
+        },
+        {
+          "lmml:length": "medium",
+          "lmml:level": "average",
+          "lmml:tone": "adult",
+          "inLanguage": "en",
+          "text": "<p>'The Reichenbach Fall' is the last episode of the second series of <em>Sherlock</em>, first shown on BBC One on 15 January 2012. Sherlock invites his enemy Moriarty to meet him on the roof of St Bartholomew's Hospital to solve their 'final problem'. Moriarty shoots himself. Sherlock then phones John, tells him the call is his 'note', and dives off the roof while John looks on from the street. Before John can reach the body, a cyclist knocks him to the ground.</p><p>The episode, written by Stephen Thompson and directed by Toby Haynes, is based on Conan Doyle's story 'The Final Problem'; the hospital roof takes the place of the waterfall in the original. 9.78 million people watched it. The hospital was used again in 'The Empty Hearse', which explains the faked suicide. A phone box outside, on Giltspur Street, has become a Sherlock 'shrine'.</p><p>Barts was founded in 1123 by Rahere and is the oldest hospital in Britain still working on its original site. It was already part of the story: in the novel <em>A Study in Scarlet</em> (1887), Holmes and Watson first meet in a laboratory here.</p>"
+        },
+        {
+          "lmml:length": "long",
+          "lmml:level": "advanced",
+          "lmml:tone": "scholar",
+          "inLanguage": "en",
+          "text": "<p>'The Reichenbach Fall', the third and final episode of the second series of <em>Sherlock</em>, was written by Stephen Thompson, directed by Toby Haynes and first broadcast on BBC One on 15 January 2012. It is based on Conan Doyle's 'The Final Problem', and Wikipedia's article on the hospital states the substitution on which the adaptation rests: the roof of St Bartholomew's stands in for the waterfall of the original story.</p><p>In the episode Sherlock invites Moriarty to meet him on the hospital roof to solve their 'final problem', and Moriarty shoots himself there. Sherlock then telephones John, tells him that the call is his 'note', and dives from the roof as John looks on from the street; John is knocked to the ground by a cyclist before he reaches the body. The broadcast attracted 9.78 million viewers and set off much online and media speculation about Sherlock's death. The hospital was used again for the explanation of the faked suicide in 'The Empty Hearse'.</p><p>The choice of building is an allusion as well as a location. In Conan Doyle's 1887 novel <em>A Study in Scarlet</em>, Holmes and Watson first meet in a chemical laboratory at Barts, so that the series stages the apparent end of the partnership where the canon began it. The hospital, founded in 1123 by Rahere, is the oldest in Britain still providing medical services on its original site; its main public entrance is the Henry VIII gate, with a statue of the king above it.</p><p>The reception of the episode has left a physical trace: a phone box outside the hospital on Giltspur Street has become a Sherlock Holmes 'shrine'. None of the sources consulted identifies the part of the roof used or the spot where John stands; the camera position recorded here is an estimate.</p><h3>References</h3><ol><li>Wikipedia: The Reichenbach Fall (credits, plot, broadcast). <a href=\"https://en.wikipedia.org/wiki/The_Reichenbach_Fall\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/The_Reichenbach_Fall</a></li><li>Wikipedia: St Bartholomew's Hospital (history, Sherlock Holmes connections). <a href=\"https://en.wikipedia.org/wiki/St_Bartholomew%27s_Hospital\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/St_Bartholomew%27s_Hospital</a></li><li>Wikimedia Commons: photo and description of the Sherlock phone box 'shrine' on Giltspur Street. <a href=\"https://commons.wikimedia.org/wiki/File:Sherlock_Holmes_phone_box,_St_Bart%27s_Hospital,_City_of_London,_England.jpg\" target=\"_blank\" rel=\"noopener\">https://commons.wikimedia.org/wiki/File:Sherlock_Holmes_phone_box,_St_Bart%27s_Hospital,_City_of_London,_England.jpg</a></li></ol>"
+        }
+      ]
     },
     {
       "@type": "Place",
@@ -2073,7 +2454,36 @@
           "description": "OpenStreetMap: coordinates of 20 York Rise"
         }
       ],
-      "lmml:texts": []
+      "lmml:texts": [
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "en",
+          "text": "<p>Welcome to the guinea-pig café! In <em>Fleabag</em>, a cheese sandwich here costs £12.55. 'London, eh?' The real café had to be put back together for one week only so the second series could be filmed. What would you put on the menu?</p>"
+        },
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "fr",
+          "text": "<p>Bienvenue au café des cochons d'Inde ! Dans <em>Fleabag</em>, un sandwich au fromage y coûte 12,55 £. « London, eh? » Le vrai café a dû être remis en état pour une seule semaine afin de tourner la deuxième saison. Et vous, que mettriez-vous au menu ?</p>"
+        },
+        {
+          "lmml:length": "medium",
+          "lmml:level": "average",
+          "lmml:tone": "adult",
+          "inLanguage": "en",
+          "text": "<p><em>Fleabag</em> is a comedy-drama created and written by Phoebe Waller-Bridge, who also plays the title role. It grew out of her one-woman show, first performed at the Edinburgh Festival Fringe in 2013, and ran from 21 July 2016 to 8 April 2019. Most of it was filmed around Dartmouth Park, on five local streets including this one.</p><p>In the story, Fleabag is left to run a guinea-pig-themed café after her best friend is killed in a traffic accident. In one scene she charges a customer £12.55 for a cheese sandwich. He cannot believe it. 'London, eh?' she says.</p><p>The café was a real one, the Village Café, at 20 York Rise. By the time the second series was filmed, its owners were converting it, and the production company had to put it back to how it was, for one week only. 'It was weird going backwards,' the manager told Time Out. In 2019 the premises were a Turkish place called the Bold Café & Restaurant.</p><p>The house of Fleabag's sister Claire is on Laurier Road, two minutes' walk away.</p>"
+        },
+        {
+          "lmml:length": "long",
+          "lmml:level": "advanced",
+          "lmml:tone": "scholar",
+          "inLanguage": "en",
+          "text": "<p><em>Fleabag</em>, created and written by Phoebe Waller-Bridge, who also stars, derives from her one-woman show first performed at the Edinburgh Festival Fringe in 2013; the television series premiered on 21 July 2016 and concluded with its second series on 8 April 2019. Wikipedia gives Dartmouth Park, in north-west London, as its primary filming location, with street scenes on five roads including York Rise.</p><p>The café that anchors the first series was, according to the Camden New Journal, the Village Café in York Rise; Time Out gives the address as 20 York Rise, NW5 1ST. In the story Fleabag is left to run the guinea-pig-themed café after her best friend is killed in a traffic accident, and Time Out singles out the scene in which she charges a customer £12.55 for a cheese sandwich and answers his disbelief with 'London, eh?' — a line that makes the neighbourhood itself the joke.</p><p>The afterlife of the location is unusually well documented. By the time the second series was filmed the owners were converting the café, and the production company, Two Brothers, put it back to how it had been for one week; the manager told Time Out that it was 'weird going backwards', six weeks into the refurbishment. In 2019 the premises were a Turkish place called the Bold Café & Restaurant. The set, in other words, had to be reconstructed inside the real place that it had originally merely borrowed.</p><p>Virgin Media adds that the house of Fleabag's sister Claire is on Laurier Road, a two-minute walk from the café. The present occupant of no. 20 is recorded as an open question.</p><h3>References</h3><ol><li>Wikipedia: Fleabag (creator, episode list, filming locations). <a href=\"https://en.wikipedia.org/wiki/Fleabag\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Fleabag</a></li><li>Camden New Journal: Scenes for new Fleabag episodes filmed at Kentish Town café. <a href=\"https://www.camdennewjournal.co.uk/article/scenes-for-new-fleabag-episodes-filmed-at-kentish-town-cafe\" target=\"_blank\" rel=\"noopener\">https://www.camdennewjournal.co.uk/article/scenes-for-new-fleabag-episodes-filmed-at-kentish-town-cafe</a></li><li>Time Out London: London on screen – the guinea pig-themed café from Fleabag. <a href=\"https://www.timeout.com/london/news/london-on-screen-the-guinea-pig-themed-cafe-from-fleabag-031919\" target=\"_blank\" rel=\"noopener\">https://www.timeout.com/london/news/london-on-screen-the-guinea-pig-themed-cafe-from-fleabag-031919</a></li><li>Virgin Media: Where was Fleabag filmed?. <a href=\"https://www.virginmedia.com/the-edit/tv/where-was-fleabag-filmed\" target=\"_blank\" rel=\"noopener\">https://www.virginmedia.com/the-edit/tv/where-was-fleabag-filmed</a></li></ol>"
+        }
+      ]
     },
     {
       "@type": "Place",
@@ -2207,7 +2617,36 @@
           "description": "OpenStreetMap: coordinates of Smith & Wollensky, John Adam Street"
         }
       ],
-      "lmml:texts": []
+      "lmml:texts": [
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "en",
+          "text": "<p>Imagine the most awkward family dinner ever. That's how the second series of <em>Fleabag</em> begins, and it was filmed in a steakhouse inside this huge building. Count the windows while you think of your own funniest family dinner!</p>"
+        },
+        {
+          "lmml:length": "short",
+          "lmml:level": "intro",
+          "lmml:tone": "young",
+          "inLanguage": "fr",
+          "text": "<p>Imaginez le dîner de famille le plus gênant de tous les temps. C'est ainsi que commence la deuxième saison de <em>Fleabag</em>, tournée dans un steakhouse à l'intérieur de cet immense immeuble. Comptez les fenêtres en repensant à votre dîner de famille le plus drôle !</p>"
+        },
+        {
+          "lmml:length": "medium",
+          "lmml:level": "average",
+          "lmml:tone": "adult",
+          "inLanguage": "en",
+          "text": "<p>The second series of <em>Fleabag</em> opens with a family dinner party, 'spine-tinglingly awkward' in the words of Virgin Media. It was filmed at Smith & Wollensky, an American steakhouse in Covent Garden, just off the Strand.</p><p>The episode was directed by Harry Bradbeer and written by Phoebe Waller-Bridge, who created the show and plays the title character. It was released on 4 March 2019; filming for the series had started in late August 2018. Andrew Scott joined the cast for this series.</p><p>The restaurant is in the Adelphi, on John Adam Street, described on Wikimedia Commons as a monumental Art Deco building of 1936-38 by the architects Collcutt & Hamp.</p><p>The second series won Emmy Awards for Outstanding Comedy Series, Lead Actress and Writing. In September 2019 <em>Fleabag</em> became the first British show to win Best Comedy Series at the Emmys.</p>"
+        },
+        {
+          "lmml:length": "long",
+          "lmml:level": "advanced",
+          "lmml:tone": "scholar",
+          "inLanguage": "en",
+          "text": "<p>The second series of <em>Fleabag</em> opened, according to Wikipedia, with a family dinner party filmed at the American steakhouse Smith & Wollensky in Covent Garden. The episode was directed by Harry Bradbeer, written by Phoebe Waller-Bridge, the creator and star of the show, and released on 4 March 2019; filming for the series had begun in late August 2018, and Andrew Scott joined the cast for it. Virgin Media calls the restaurant 'the backdrop to the spine-tinglingly awkward family dinner' and places it just off the Strand.</p><p>The location differs in kind from the café of the first series. York Rise was a neighbourhood business borrowed for a neighbourhood comedy; here the series begins again inside a large commercial interior in the West End. The restaurant is in the Adelphi building on John Adam Street, which the description of a Wikimedia Commons photograph calls a monumental Art Deco building of 1936-38 by the architects Collcutt & Hamp. The sources consulted do not agree on the history of the building, a point recorded among the open questions.</p><p>The series that this dinner opens was the one that brought the programme its widest recognition: it won Primetime Emmy Awards for Outstanding Comedy Series, Lead Actress and Writing, and in September 2019 <em>Fleabag</em> became the first British show to win Best Comedy Series at the Emmys.</p><p>Because the scene is an interior one, the camera position recorded for this location is only the street outside. No source consulted describes the dinner itself in detail.</p><h3>References</h3><ol><li>Wikipedia: Fleabag (creator, episode list, filming locations). <a href=\"https://en.wikipedia.org/wiki/Fleabag\" target=\"_blank\" rel=\"noopener\">https://en.wikipedia.org/wiki/Fleabag</a></li><li>Virgin Media: Where was Fleabag filmed?. <a href=\"https://www.virginmedia.com/the-edit/tv/where-was-fleabag-filmed\" target=\"_blank\" rel=\"noopener\">https://www.virginmedia.com/the-edit/tv/where-was-fleabag-filmed</a></li><li>Wikimedia Commons: photo and description of the Adelphi building, John Adam Street. <a href=\"https://commons.wikimedia.org/wiki/File:London_-_The_Adelphi_(31931338322).jpg\" target=\"_blank\" rel=\"noopener\">https://commons.wikimedia.org/wiki/File:London_-_The_Adelphi_(31931338322).jpg</a></li></ol>"
+        }
+      ]
     }
   ]
 }
