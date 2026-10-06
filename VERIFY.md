@@ -19,8 +19,8 @@ Nothing in `data/locations.json` is marked as verified yet: every location has `
 
 ## Day plan
 
-- **Historical timeline**: 455 min of travel (7 h 35) + 225 min at the stops = about 11 h 20 min, without a lunch break.
-- **Recreate the shot**: 285 min of travel (4 h 45) + 300 min at the stops = about 9 h 45 min, without a lunch break.
+- **Historical timeline** (14 locations, York Rise excluded): 405 min of travel (6 h 45) + 210 min at the stops (15 min each) = about 10 h 15 min, without a lunch break.
+- **Recreate the shot** (15 locations): 285 min of travel (4 h 45) + 300 min at the stops (20 min each) = about 9 h 45 min, without a lunch break.
 
 See the final report for how feasible each one is.
 

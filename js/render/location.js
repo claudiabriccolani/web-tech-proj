@@ -18,7 +18,7 @@
  * If texts exist in more than one language, a language switch is shown.
  */
 import { el, externalLink } from '../dom.js';
-import { getLocation, getNarrative, textsOf, workOf, workLabel, locationUrl } from '../data.js';
+import { getData, getLocation, getNarrative, textsOf, workOf, workLabel, locationUrl } from '../data.js';
 import { getState, setState } from '../state.js';
 import { screenFor } from '../narrative.js';
 import { KEYS, SWITCHES, usableTexts, languagesOf, mergeTexts, pickInitial, findNeighbour, cellLabel } from '../textSelector.js';
@@ -74,10 +74,24 @@ function buildHeader(loc, screen) {
     transition && buildTransition(transition),
     narrative && el('p', { 'data-role': 'location-kicker' },
       `${narrative.name} · Chapter ${screen.chapterIndex + 1}: ${screen.chapter.name}`),
+    !screen && buildOutsideNote(loc),
     el('h1', { 'data-role': 'location-title' }, loc.name),
     work && el('p', { 'data-role': 'location-work', 'data-work-type': work['@type'] }, workLabel(work)),
     !loc['lmml:verified'] && el('p', { 'data-role': 'verified-flag' }, 'Information not yet verified'),
   );
+}
+
+/**
+ * Shown when the location is not a step of the current narrative (reached
+ * from the map, a QR code or a link): says so and names the narratives that
+ * do include it. The footer then offers "Return to the narrative".
+ */
+function buildOutsideNote(loc) {
+  const current = getNarrative(getState().narrativeId);
+  const others = getData().narratives.filter((n) => screenFor(loc.identifier, n.identifier));
+  return el('p', { 'data-role': 'outside-note' },
+    `This location is not part of the narrative “${current?.name ?? ''}”.`,
+    others.length ? ` It is part of: ${others.map((n) => n.name).join(', ')}.` : '');
 }
 
 /** How to get here from the previous step: "Tube · approx. 20 min" + directions text. */

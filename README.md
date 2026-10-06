@@ -88,7 +88,9 @@ js/render/notFound.js      unknown routes
   `[chapter 1] [loc A] [loc B] [chapter 2] [loc C]`. Prev/next move along it,
   and the first screen's "Previous" goes back to the cover.
 - **A location or chapter not in the current narrative** (for example, opened
-  from the map) shows no prev/next, only "Return to the narrative". That link
+  from the map) shows no prev/next, only "Return to the narrative". A location
+  page also says which narratives it does belong to. (York Rise is in
+  "Recreate the shot" only.) That link
   goes to the last screen visited in the narrative.
 - **Cover:** "Next" starts the current narrative.
 - **Map → About → Docs → Disclaimer → QR:** these pages form their own chain.
@@ -266,7 +268,7 @@ caption tbody tr th td ul ol li div span`.
   `chapter-intro`, `chapter-steps`, `docs-toc`, `docs-section`,
   `section-number`, `disclaimer-text`, `source-list`, `qr-grid`, `qr-card`
 - **Location:** `location`, `location-header`, `transition`,
-  `location-kicker`, `location-title`, `location-work`, `verified-flag`,
+  `location-kicker`, `outside-note`, `location-title`, `location-work`, `verified-flag`,
   `location-media`, `location-figure`, `figure-caption`, `caption-credit`,
   `panel-tabs`, `location-text`, `text-controls`, `text-switch`,
   `lang-switch`, `text-cell`, `text-body`, `location-meta`,

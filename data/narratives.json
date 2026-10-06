@@ -5,11 +5,11 @@
       "name": "Historical timeline",
       "lmml:orderedBy": "datePublished",
       "lmml:estimatedMinutes": {
-        "travel": 455,
-        "visits": 225,
-        "total": 680
+        "travel": 405,
+        "visits": 210,
+        "total": 615
       },
-      "description": "<p>Fifty-five years of London on screen, in the order in which audiences first saw it: from the Beatles running through Marylebone in 1964 to the family dinner that opens the second series of <em>Fleabag</em> in 2019. The stops follow the release dates of the films and series, grouped by decade, so the route criss-crosses the city instead of following the map.</p><p>15 locations, 4 chapters. Allow a very full day: about 7½ hours of walking and Underground plus the time you spend at each stop (roughly 11 hours in all). Start at Marylebone station; the route ends near Charing Cross.</p>",
+      "description": "<p>Fifty-five years of London on screen, in the order in which audiences first saw it: from the Beatles running through Marylebone in 1964 to the family dinner that opens the second series of <em>Fleabag</em> in 2019. The stops follow the release dates of the films and series, grouped by decade, so the route criss-crosses the city instead of following the map.</p><p>14 locations, 4 chapters. Allow a very full day: about 6¾ hours of walking and Underground plus about 15 minutes at each stop (roughly 10¼ hours in all). Start at Marylebone station; the route ends near Charing Cross.</p>",
       "chapters": [
         {
           "name": "The 1960s: the Beatles on the run",
@@ -107,7 +107,7 @@
         },
         {
           "name": "The 2010s: television moves in",
-          "text": "<p>The last chapter belongs to two BBC series. <em>Sherlock</em> (2010–2017), created by Steven Moffat and Mark Gatiss, was filmed mainly in Cardiff, but a few London exteriors carry the whole idea of the show: a front door in North Gower Street that plays 221B Baker Street, a bench in Russell Square, and the roof of St Bartholomew's Hospital.</p><p><em>Fleabag</em> (2016–2019), created and written by Phoebe Waller-Bridge, is at home in north London: its café was a real one in Dartmouth Park. The visit ends where its second series begins, at a restaurant just off the Strand.</p>",
+          "text": "<p>The last chapter belongs to two BBC series. <em>Sherlock</em> (2010–2017), created by Steven Moffat and Mark Gatiss, was filmed mainly in Cardiff, but a few London exteriors carry the whole idea of the show: a front door in North Gower Street that plays 221B Baker Street, a bench in Russell Square, and the roof of St Bartholomew's Hospital.</p><p><em>Fleabag</em> (2016–2019), created and written by Phoebe Waller-Bridge, closes the visit: the day ends where its second series begins, at a restaurant just off the Strand. (The café of the first series, in Dartmouth Park, is not on this route: you will find it in the narrative <em>Recreate the shot</em> and on the map.)</p>",
           "steps": [
             {
               "locationId": "north-gower-street",
@@ -134,19 +134,11 @@
               }
             },
             {
-              "locationId": "york-rise",
-              "lmml:transition": {
-                "mode": "tube",
-                "minutes": 41,
-                "text": "<p>Walk about 9 minutes back to Farringdon and take the Elizabeth line one stop west to Tottenham Court Road. Change to the Northern line northbound (High Barnet or Mill Hill East branch) to Tufnell Park, about 12 minutes. From Tufnell Park station walk about 13 minutes to York Rise in Dartmouth Park.</p>"
-              }
-            },
-            {
               "locationId": "smith-wollensky",
               "lmml:transition": {
                 "mode": "tube",
-                "minutes": 36,
-                "text": "<p>Walk about 13 minutes back to Tufnell Park station and take the Northern line southbound (Charing Cross branch) to Charing Cross, about 14 minutes. From Charing Cross walk about 9 minutes east along the Strand and turn right towards John Adam Street.</p>"
+                "minutes": 27,
+                "text": "<p>Walk about 9 minutes back to Farringdon and take the Elizabeth line one stop west to Tottenham Court Road (about 3 minutes). Change to the Northern line southbound (Charing Cross branch) for two stops to Charing Cross (about 2 minutes). From Charing Cross walk about 9 minutes east along the Strand and turn right towards John Adam Street. Walking all the way takes about 35 minutes.</p>"
               }
             }
           ]
