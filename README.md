@@ -27,6 +27,10 @@ any problems ("LMML data check").
 
 ```
 index.html                 app shell: header, <main>, footer; loads CSS, CDN libraries, js/app.js
+favicon.svg                icon of the site
+VERIFY.md                  what the author still has to check by hand, location by location
+CAPTIONS.md                record of the caption changes made after looking at every image
+screenshots/               layout test screenshots and their REPORT.md (ignored by git)
 css/base.css               structure and layout only (grid areas, scroll containers), neutral tokens
 css/themes/victorian.css   placeholder theme
 css/themes/sixties.css     placeholder theme (also moves blocks around, to prove layout switching)
@@ -91,7 +95,9 @@ js/render/notFound.js      unknown routes
   from the map) shows no prev/next, only "Return to the narrative". A location
   page also says which narratives it does belong to. (York Rise is in
   "Recreate the shot" only.) That link
-  goes to the last screen visited in the narrative.
+  goes to the last screen visited in the narrative. On narrow viewports a
+  location outside the narrative shows that link in its own header, and the
+  previous / next bar is then not displayed.
 - **Cover:** "Next" starts the current narrative.
 - **Map → About → Docs → Disclaimer → QR:** these pages form their own chain.
   They also show "Return to the narrative" once a visit has begun.
@@ -305,7 +311,7 @@ caption tbody tr th td ul ol li div span`.
   `step-nav`, `nav-prev`, `nav-next`, `nav-return`, `nav-position`
 - **Text pages:** `page`, `page-header`, `page-kicker`, `page-title`,
   `page-body`, `cover-intro`, `narrative-list`, `narrative-card`,
-  `chapter-intro`, `chapter-steps`, `docs-toc`, `docs-section`,
+  `chapter-intro`, `chapter-steps`, `docs-toc`, `docs-section`, `docs-example`,
   `section-number`, `disclaimer-text`, `source-list`, `qr-grid`, `qr-card`
 - **Location:** `location`, `location-header`, `location-content`,
   `location-toolbar`, `transition`, `transition-summary`, `transition-text`, `outside-return`,
@@ -345,5 +351,6 @@ can style by content:
 - `baseUrl` in `data/site.json` is set to the GitHub Pages address, so QR
   codes always encode the public site, even when printed from `localhost`.
   Change it if the site moves.
-- The about text and most documentation sections in `data/site.json` are
-  still TODO.
+- The about text in `data/site.json` is still TODO. The documentation
+  describes the code and data as they are; every reason is left to the
+  author and marked `TODO (author)`, and the theme sections are empty.

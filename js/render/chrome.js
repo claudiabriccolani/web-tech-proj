@@ -64,6 +64,11 @@ export function updateChrome(route) {
   returnLink.hidden = !nav.returnTo;
   if (nav.returnTo) returnLink.href = nav.returnTo;
 
+  // A location outside the current narrative shows its own "Return to the
+  // narrative" link in its header. On narrow viewports base.css then hides
+  // this bar, which would only repeat that link (see section 11).
+  q('site-footer').dataset.returnInHeader = String(route.name === 'location' && nav.outside && Boolean(nav.returnTo));
+
   q('nav-position').textContent = nav.position ? `${nav.position.current} / ${nav.position.total}` : '';
 
   // Highlight the current page in the menu

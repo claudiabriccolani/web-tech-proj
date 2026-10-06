@@ -331,6 +331,8 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 [data-role="docs-toc"] { padding-left: 0; }
 [data-role="docs-section"][data-target] > [data-role="docs-heading"] { text-decoration: underline; }
 [data-role="section-number"] { color: var(--color-muted); }
+/* A JSON example in the documentation: keep its line breaks and indentation */
+[data-role="docs-example"] { white-space: pre-wrap; overflow-wrap: anywhere; font-family: monospace; font-size: 0.85em; }
 
 
 /* 8. LOCATION PAGE ======================================================== */
@@ -564,6 +566,11 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
   [data-role="switchers"] { display: none; flex-basis: 100%; }
   [data-role="site-header"][data-menu-open] [data-role="site-menu"],
   [data-role="site-header"][data-menu-open] [data-role="switchers"] { display: flex; }
+  /* A location outside the current narrative: its compact header already has
+     "Return to the narrative", and this bar has nothing else to show there
+     (no previous / next), so the bar is not shown. */
+  [data-role="site-footer"][data-return-in-header="true"] { display: none; }
+
   /* An open menu may be taller than a short screen: it scrolls in the header */
   [data-role="site-header"][data-menu-open] {
     max-height: 70vh;
