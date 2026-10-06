@@ -340,6 +340,7 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 }
 [data-role="figure-caption"] { font-size: 0.85em; }
 [data-role="caption-credit"] { display: block; color: var(--color-muted); }
+[data-role="image-note"] { display: block; }
 
 /* Text panel: switches, cell label, then the text which scrolls */
 [data-role="location-text"] {

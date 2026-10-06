@@ -12,7 +12,7 @@ Nothing in `data/locations.json` is marked as verified yet: every location has `
 - **French short texts** use the usual French names *Chaudron Baveur* and *Mangemorts* for the Leaky Cauldron and the Death Eaters; film titles are left in English.
 - **Not checked in a real browser by hand.** Pages were rendered in headless Chrome at 1280×800 (data check OK, no console errors). The portrait layout could not be tested reliably in headless mode: check it on a phone.
 - **Image height on location pages.** With a long transition text the header takes a lot of room and the image row becomes short at 1280×800. This is a layout matter, so it was left for you.
-- **Photo captions.** All 26 photos have now been opened and each has its own `lmml:alt` text. Eleven captions say something the picture does not show or cannot confirm: they are listed in `CAPTIONS.md` with a suggested replacement, waiting for your approval. No caption was changed.
+- **Photo captions.** All 27 photos have been opened and each has its own `lmml:alt` text. Ten captions were revised on 2026-10-06 to say only what the picture shows (the list and the old wording are in `CAPTIONS.md`). One is still open: the blue door photo shows two blue doors, see that location.
 - **Inline markup in texts.** The texts use `em` (titles) and `strong`, which are not in the restricted element list in the README: if the course requires that list strictly, replace them with `span`.
 - **Sunset times at York Rise** come from the US Naval Observatory for 2026, in UTC; I converted the June and September values to British Summer Time by adding one hour. Timeanddate refused automated access and the HM Nautical Almanac Office site was unavailable, so neither was used.
 - **Before printing QR codes** set `baseUrl` in `data/site.json`; they currently encode `localhost`.
@@ -44,7 +44,7 @@ See the final report for how feasible each one is.
 **Images**
 
 - [ ] `img/marylebone-station-1.jpg` — "The concourse of Marylebone station in 2011." (Ben Brooksbank, CC BY-SA 2.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:Marylebone_station,_concourse_2011_-_geograph.org.uk_-_5363518.jpg). Check that the caption matches what the photo shows.
-- [ ] `img/marylebone-station-2.jpg` — "Boston Place, the street along the east side of Marylebone station, where the Beatles were filmed running from their fans." (Christopher Hilton, CC BY-SA 2.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:Boston_Place,_up_the_east_side_of_Marylebone_station_-_geograph.org.uk_-_2413994.jpg). Check that the caption matches what the photo shows.
+- [ ] `img/marylebone-station-2.jpg` — "Boston Place, beside Marylebone station (as titled on Wikimedia Commons), where the Beatles were filmed running from their fans." (Christopher Hilton, CC BY-SA 2.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:Boston_Place,_up_the_east_side_of_Marylebone_station_-_geograph.org.uk_-_2413994.jpg). Caption revised after looking at the photo.
 
 **Sources used**
 
@@ -102,7 +102,7 @@ See the final report for how feasible each one is.
 
 **Images**
 
-- [ ] `img/notting-hill-bookshop-1.jpg` — "The gift shop at 142 Portobello Road, the front used for William Thacker's bookshop, in 2018." (Enrico Cabianca, CC0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:NH_Enrico.jpg). Check that the caption matches what the photo shows.
+- [ ] `img/notting-hill-bookshop-1.jpg` — "The sign of the gift shop at 142 Portobello Road, the building used for William Thacker's bookshop, in 2018." (Enrico Cabianca, CC0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:NH_Enrico.jpg). Caption revised after looking at the photo.
 - [ ] `img/notting-hill-bookshop-2.jpg` — "The real Travel Bookshop at 13 Blenheim Crescent in February 2011, the year it closed." (Ewan-M, CC BY-SA 2.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:Travel_Bookshop,_Notting_Hill,_W11.jpg). Check that the caption matches what the photo shows.
 
 **Sources used**
@@ -124,6 +124,7 @@ See the final report for how feasible each one is.
 
 - [ ] Postcode: OpenStreetMap gives W11 1EH for no. 280; the caption of the Commons photo gives W11 1EF.
 - [ ] Sources read do not say when the door was auctioned, nor what colour it was in between ('blue again').
+- [ ] Which door: the photo used here shows two blue doors, a dark blue one between white columns and a lighter blue one to its left, and no visible number 280 (the digits '28' can be read above the left-hand door). Confirm on Street View which is no. 280 before changing the caption.
 
 **Images**
 
@@ -181,7 +182,7 @@ See the final report for how feasible each one is.
 **Images**
 
 - [ ] `img/somerset-house-1.jpg` — "The winter ice rink in the courtyard of Somerset House, December 2025." (Matt Brown, CC BY 4.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:Somerset_House_ice_rink_2025-12-09.jpg). Check that the caption matches what the photo shows.
-- [ ] `img/somerset-house-2.jpg` — "Skaters on the Somerset House rink in December 2016." (Peter S, CC BY-SA 2.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:Ice_skating_rink,_Somerset_House_-_geograph.org.uk_-_5233156.jpg). Check that the caption matches what the photo shows.
+- [ ] `img/somerset-house-2.jpg` — "The Somerset House ice rink, empty, with the word SKATE on the roof, December 2016." (Peter S, CC BY-SA 2.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:Ice_skating_rink,_Somerset_House_-_geograph.org.uk_-_5233156.jpg). Caption revised after looking at the photo.
 
 **Sources used**
 
@@ -271,7 +272,7 @@ See the final report for how feasible each one is.
 **Images**
 
 - [ ] `img/st-lukes-mews-1.jpg` — "St Luke's Mews: the pink house on the right, beyond the blue no. 31, is the one identified with the film." (Chris Wood, CC BY-SA 4.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:St_Lukes_Mews,_Notting_Hill,_London_(geograph_6086918).jpg). Check that the caption matches what the photo shows.
-- [ ] `img/st-lukes-mews-2.jpg` — "St Luke's Mews in June 2025." (Bex Walton, CC BY 4.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:St_Lukes_Mews_2025-06-14.jpg). Check that the caption matches what the photo shows.
+- [ ] `img/st-lukes-mews-2.jpg` — "The pink house of St Luke's Mews beside the black no. 29, June 2025." (Bex Walton, CC BY 4.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:St_Lukes_Mews_2025-06-14.jpg). Caption revised after looking at the photo.
 
 **Sources used**
 
@@ -306,7 +307,7 @@ See the final report for how feasible each one is.
 
 **Images**
 
-- [ ] `img/millennium-bridge-1.jpg` — "St Paul's Cathedral and the Millennium Bridge from the south bank." (Alexandre Buisse (Nattfodd), CC BY-SA 3.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:St_Pauls_Cathedral_and_Millennium_Bridge.jpg). Check that the caption matches what the photo shows.
+- [ ] `img/millennium-bridge-1.jpg` — "St Paul's Cathedral seen through the structure of the Millennium Bridge, from the riverside." (Alexandre Buisse (Nattfodd), CC BY-SA 3.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:St_Pauls_Cathedral_and_Millennium_Bridge.jpg). Caption revised after looking at the photo.
 - [ ] `img/millennium-bridge-2.jpg` — "The bridge and Tate Modern seen from the St Paul's side." (Anthony O'Neil, CC BY-SA 2.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:Millennium_Footbridge_with_Tate_Modern,_from_St_Paul%27s_side_-_geograph.org.uk_-_1859714.jpg). Check that the caption matches what the photo shows.
 
 **Sources used**
@@ -367,7 +368,7 @@ See the final report for how feasible each one is.
 **Images**
 
 - [ ] `img/russell-square-1.jpg` — "The Imperial Hotel seen from Russell Square gardens, the backdrop of the bench scene." (Jim Osley, CC BY-SA 2.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:Imperial_Hotel,_Russell_Square_-_geograph.org.uk_-_5213223.jpg). Check that the caption matches what the photo shows.
-- [ ] `img/russell-square-2.jpg` — "The fountains of Russell Square." (mattbuck, CC BY-SA 3.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:London_MMB_L8_Russell_Square.jpg). Check that the caption matches what the photo shows.
+- [ ] `img/russell-square-2.jpg` — "The fountain of Russell Square." (mattbuck, CC BY-SA 3.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:London_MMB_L8_Russell_Square.jpg). Caption revised after looking at the photo.
 
 **Sources used**
 
@@ -392,8 +393,8 @@ See the final report for how feasible each one is.
 
 **Images**
 
-- [ ] `img/st-barts-1.jpg` — "The Sherlock Holmes phone box 'shrine' outside the hospital on Giltspur Street, April 2018." (Acabashi, CC BY-SA 4.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:Sherlock_Holmes_phone_box,_St_Bart%27s_Hospital,_City_of_London,_England.jpg). Check that the caption matches what the photo shows.
-- [ ] `img/st-barts-2.jpg` — "The Henry VIII gate, the West Smithfield entrance to the hospital, seen from inside the grounds." (Robert Lamb, CC BY-SA 2.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:View_of_the_West_Smithfield_entrance_to_St._Bartholomew%27s_Hospital_from_the_hospital_grounds_-_geograph.org.uk_-_5165317.jpg). Check that the caption matches what the photo shows.
+- [ ] `img/st-barts-1.jpg` — "The red telephone box outside the hospital on Giltspur Street, described on Wikimedia Commons as a Sherlock Holmes 'shrine', April 2018." (Acabashi, CC BY-SA 4.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:Sherlock_Holmes_phone_box,_St_Bart%27s_Hospital,_City_of_London,_England.jpg). Caption revised after looking at the photo.
+- [ ] `img/st-barts-2.jpg` — "The West Smithfield entrance to the hospital, seen from the hospital grounds." (Robert Lamb, CC BY-SA 2.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:View_of_the_West_Smithfield_entrance_to_St._Bartholomew%27s_Hospital_from_the_hospital_grounds_-_geograph.org.uk_-_5165317.jpg). Caption revised after looking at the photo.
 
 **Sources used**
 
@@ -420,7 +421,7 @@ See the final report for how feasible each one is.
 
 **Images**
 
-- [ ] `img/york-rise-1.jpg` — "Looking up York Rise from Chetwynd Road in January 2017." (Christopher Hilton, CC BY-SA 2.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:Looking_up_York_Rise_from_Chetwynd_Road,_Kentish_Town_-_geograph.org.uk_-_5259191.jpg). Check that the caption matches what the photo shows.
+- [ ] `img/york-rise-1.jpg` — "Looking up York Rise from the corner of Chetwynd Road in January 2017; the café is not identifiable in this view." (Christopher Hilton, CC BY-SA 2.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:Looking_up_York_Rise_from_Chetwynd_Road,_Kentish_Town_-_geograph.org.uk_-_5259191.jpg). Caption revised after looking at the photo.
 - [ ] **Missing:** no freely licensed photo of the shop front at 20 York Rise was found on Wikimedia Commons. Take one on site or search again.
 
 **Sources used**
@@ -454,7 +455,8 @@ See the final report for how feasible each one is.
 
 **Images**
 
-- [ ] `img/smith-wollensky-1.jpg` — "The Adelphi building on John Adam Street, which houses the restaurant." (Fred Romero, CC BY 2.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:London_-_The_Adelphi_(31931338322).jpg). Check that the caption matches what the photo shows.
+- [ ] `img/smith-wollensky-1.jpg` — "Looking up at the Adelphi building; the restaurant, at street level, is not in the picture." (Fred Romero, CC BY 2.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:London_-_The_Adelphi_(31931338322).jpg). Caption revised after looking at the photo.
+- [ ] `img/smith-wollensky-2.jpg` — "The main entrance of the Adelphi building, February 2024. The restaurant gives its address as the Adelphi Building, 1-11 John Adam Street; its own entrance is not in the picture." (Tom Page, CC BY-SA 2.0, via Wikimedia Commons) → [Commons page](https://commons.wikimedia.org/wiki/File:The_Adelphi,_London_2024-02-10.jpg). Added 2026-10-06.
 - [ ] **Missing:** no freely licensed photo of the restaurant entrance or interior was found on Wikimedia Commons.
 
 **Sources used**

@@ -120,8 +120,12 @@ function buildMedia(loc) {
         el('figcaption', { 'data-role': 'figure-caption' },
           el('span', { 'data-role': 'caption-text' }, image.caption),
           buildCredit(image),
+          // Says so when no licensed photo of the exact place exists (lmml:imageNote)
+          loc['lmml:imageNote'] && el('span', { 'data-role': 'image-note' }, loc['lmml:imageNote']),
         ),
       )),
+    // A location with no image at all still shows the note, not an empty box
+    !images.length && loc['lmml:imageNote'] && el('p', { 'data-role': 'image-note' }, loc['lmml:imageNote']),
   );
 }
 

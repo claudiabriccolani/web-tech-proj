@@ -145,7 +145,8 @@ The JSON files are plain JSON shaped like JSON-LD:
 | `lmml:alsoAppearsIn` | Place | list of other works filmed at the same place |
 | `lmml:facts` | Place | short atomic facts, each `{text, url}` with the source it comes from; the texts are written only from these |
 | `lmml:openQuestions` | Place | points on which sources disagree or that could not be confirmed |
-| `lmml:imageTodo` | Place | note about a missing image |
+| `lmml:imageTodo` | Place | working note about a missing image (not shown) |
+| `lmml:imageNote` | Place | note for visitors, shown under the images, when no licensed photo of the exact place exists |
 | `lmml:visitorAccess` | Place | for interior scenes: `{dateChecked, statements: [{text, url}]}` with opening hours, booking and photography rules from the venue's own site; shown in the metadata table as "Visiting and photography" |
 | `lmml:estimatedMinutes` | narrative | `{travel, visits, visitMinutesPerStop, total}`; `total` is shown on the cover |
 | `lmml:sceneDescription` | Place | description of the scene |
@@ -272,7 +273,7 @@ caption tbody tr th td ul ol li div span`.
   `section-number`, `disclaimer-text`, `source-list`, `qr-grid`, `qr-card`
 - **Location:** `location`, `location-header`, `transition`,
   `location-kicker`, `outside-note`, `location-title`, `location-work`, `verified-flag`,
-  `location-media`, `location-figure`, `figure-caption`, `caption-credit`,
+  `location-media`, `location-figure`, `figure-caption`, `caption-credit`, `image-note`,
   `panel-tabs`, `location-text`, `text-controls`, `text-switch`,
   `lang-switch`, `text-cell`, `text-body`, `location-meta`,
   `metadata-table`,

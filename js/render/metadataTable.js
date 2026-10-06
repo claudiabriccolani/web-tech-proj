@@ -44,7 +44,7 @@ const LABELS = {
 /* Editorial working data (the facts the texts are written from, the questions
    still open, the missing images) is not shown to visitors: see VERIFY.md. */
 const SKIP = new Set(['@context', 'identifier', 'image', 'lmml:texts',
-  'lmml:facts', 'lmml:openQuestions', 'lmml:imageTodo']);
+  'lmml:facts', 'lmml:openQuestions', 'lmml:imageTodo', 'lmml:imageNote']);
 
 /** Types that are a film or a series: in a list they are shown by their label. */
 const WORK_TYPES = new Set(['Movie', 'TVEpisode', 'TVSeries']);

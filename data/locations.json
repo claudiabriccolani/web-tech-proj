@@ -60,7 +60,7 @@
         {
           "@type": "ImageObject",
           "contentUrl": "img/marylebone-station-2.jpg",
-          "caption": "Boston Place, the street along the east side of Marylebone station, where the Beatles were filmed running from their fans.",
+          "caption": "Boston Place, beside Marylebone station (as titled on Wikimedia Commons), where the Beatles were filmed running from their fans.",
           "lmml:alt": "Quiet street with a long red-brick building on the left and a row of parked cars along the kerb.",
           "creditText": "Christopher Hilton, CC BY-SA 2.0, via Wikimedia Commons",
           "creator": {
@@ -412,7 +412,7 @@
         {
           "@type": "ImageObject",
           "contentUrl": "img/notting-hill-bookshop-1.jpg",
-          "caption": "The gift shop at 142 Portobello Road, the front used for William Thacker's bookshop, in 2018.",
+          "caption": "The sign of the gift shop at 142 Portobello Road, the building used for William Thacker's bookshop, in 2018.",
           "lmml:alt": "Blue shop sign reading 'The Travel Book Shop' and 'Notting Hill' below two floors of brick wall with white windows.",
           "creditText": "Enrico Cabianca, CC0, via Wikimedia Commons",
           "creator": {
@@ -634,7 +634,8 @@
       ],
       "lmml:openQuestions": [
         "Postcode: OpenStreetMap gives W11 1EH for no. 280; the caption of the Commons photo gives W11 1EF.",
-        "Sources read do not say when the door was auctioned, nor what colour it was in between ('blue again')."
+        "Sources read do not say when the door was auctioned, nor what colour it was in between ('blue again').",
+        "Which door: the photo used here shows two blue doors, a dark blue one between white columns and a lighter blue one to its left, and no visible number 280 (the digits '28' can be read above the left-hand door). Confirm on Street View which is no. 280 before changing the caption."
       ],
       "citation": [
         {
@@ -922,7 +923,7 @@
         {
           "@type": "ImageObject",
           "contentUrl": "img/somerset-house-2.jpg",
-          "caption": "Skaters on the Somerset House rink in December 2016.",
+          "caption": "The Somerset House ice rink, empty, with the word SKATE on the roof, December 2016.",
           "lmml:alt": "Empty ice rink in a stone courtyard; large white letters spelling SKATE stand on the roof below a green dome.",
           "creditText": "Peter S, CC BY-SA 2.0, via Wikimedia Commons",
           "creator": {
@@ -1476,7 +1477,7 @@
         {
           "@type": "ImageObject",
           "contentUrl": "img/st-lukes-mews-2.jpg",
-          "caption": "St Luke's Mews in June 2025.",
+          "caption": "The pink house of St Luke's Mews beside the black no. 29, June 2025.",
           "lmml:alt": "Row of mews houses on a cobbled street: a pink house, a black one numbered 29 and a blue one with yellow windows.",
           "creditText": "Bex Walton, CC BY 4.0, via Wikimedia Commons",
           "creator": {
@@ -1676,7 +1677,7 @@
         {
           "@type": "ImageObject",
           "contentUrl": "img/millennium-bridge-1.jpg",
-          "caption": "St Paul's Cathedral and the Millennium Bridge from the south bank.",
+          "caption": "St Paul's Cathedral seen through the structure of the Millennium Bridge, from the riverside.",
           "lmml:alt": "Close view of the steel arms and cables of a footbridge, with the dome of St Paul's Cathedral behind them.",
           "creditText": "Alexandre Buisse (Nattfodd), CC BY-SA 3.0, via Wikimedia Commons",
           "creator": {
@@ -2122,7 +2123,7 @@
         {
           "@type": "ImageObject",
           "contentUrl": "img/russell-square-2.jpg",
-          "caption": "The fountains of Russell Square.",
+          "caption": "The fountain of Russell Square.",
           "lmml:alt": "Fountain with a tall central jet in a paved circle, surrounded by tall trees; people sit on a bench behind it.",
           "creditText": "mattbuck, CC BY-SA 3.0, via Wikimedia Commons",
           "creator": {
@@ -2285,7 +2286,7 @@
         {
           "@type": "ImageObject",
           "contentUrl": "img/st-barts-1.jpg",
-          "caption": "The Sherlock Holmes phone box 'shrine' outside the hospital on Giltspur Street, April 2018.",
+          "caption": "The red telephone box outside the hospital on Giltspur Street, described on Wikimedia Commons as a Sherlock Holmes 'shrine', April 2018.",
           "lmml:alt": "Red telephone box with a few stickers and notes on its glass, standing against a stone building next to parked bicycles.",
           "creditText": "Acabashi, CC BY-SA 4.0, via Wikimedia Commons",
           "creator": {
@@ -2298,7 +2299,7 @@
         {
           "@type": "ImageObject",
           "contentUrl": "img/st-barts-2.jpg",
-          "caption": "The Henry VIII gate, the West Smithfield entrance to the hospital, seen from inside the grounds.",
+          "caption": "The West Smithfield entrance to the hospital, seen from the hospital grounds.",
           "lmml:alt": "Stone gateway with a balustrade above; people walk through its central arch towards trees beyond.",
           "creditText": "Robert Lamb, CC BY-SA 2.0, via Wikimedia Commons",
           "creator": {
@@ -2466,7 +2467,7 @@
         {
           "@type": "ImageObject",
           "contentUrl": "img/york-rise-1.jpg",
-          "caption": "Looking up York Rise from Chetwynd Road in January 2017.",
+          "caption": "Looking up York Rise from the corner of Chetwynd Road in January 2017; the café is not identifiable in this view.",
           "lmml:alt": "Street corner with a brick building housing a 'Village Vet' shop; the road climbs past more shops to the right.",
           "creditText": "Christopher Hilton, CC BY-SA 2.0, via Wikimedia Commons",
           "creator": {
@@ -2477,7 +2478,8 @@
           "url": "https://commons.wikimedia.org/wiki/File:Looking_up_York_Rise_from_Chetwynd_Road,_Kentish_Town_-_geograph.org.uk_-_5259191.jpg"
         }
       ],
-      "lmml:imageTodo": "TODO: no freely licensed photo of the shop front at 20 York Rise was found on Wikimedia Commons. Take one on site or search again.",
+      "lmml:imageNote": "No freely licensed photo of the café front at 20 York Rise was found: the picture shows the street, not the café.",
+      "lmml:imageTodo": "TODO: no freely licensed photo of the shop front at 20 York Rise was found on Wikimedia Commons (searched by name and by location on 2026-10-06). Take one on site or search again.",
       "lmml:facts": [
         {
           "text": "Fleabag is a comedy-drama created and written by Phoebe Waller-Bridge, who also stars, based on her one-woman show first performed at the Edinburgh Festival Fringe in 2013.",
@@ -2669,7 +2671,7 @@
         {
           "@type": "ImageObject",
           "contentUrl": "img/smith-wollensky-1.jpg",
-          "caption": "The Adelphi building on John Adam Street, which houses the restaurant.",
+          "caption": "Looking up at the Adelphi building; the restaurant, at street level, is not in the picture.",
           "lmml:alt": "View up the corner of a tall pale stone building with rows of windows, a tree branch in the top left.",
           "creditText": "Fred Romero, CC BY 2.0, via Wikimedia Commons",
           "creator": {
@@ -2678,9 +2680,23 @@
           },
           "license": "https://creativecommons.org/licenses/by/2.0",
           "url": "https://commons.wikimedia.org/wiki/File:London_-_The_Adelphi_(31931338322).jpg"
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "img/smith-wollensky-2.jpg",
+          "caption": "The main entrance of the Adelphi building, February 2024. The restaurant gives its address as the Adelphi Building, 1-11 John Adam Street; its own entrance is not in the picture.",
+          "lmml:alt": "View up a brick building from its stone entrance, lettered 'ADELPHI' in gold above 'Nos 1 to 10 John Street'.",
+          "creditText": "Tom Page, CC BY-SA 2.0, via Wikimedia Commons",
+          "creator": {
+            "@type": "Person",
+            "name": "Tom Page"
+          },
+          "license": "https://creativecommons.org/licenses/by-sa/2.0",
+          "url": "https://commons.wikimedia.org/wiki/File:The_Adelphi,_London_2024-02-10.jpg"
         }
       ],
-      "lmml:imageTodo": "TODO: no freely licensed photo of the restaurant entrance or interior was found on Wikimedia Commons.",
+      "lmml:imageNote": "No freely licensed photo of the restaurant's own entrance or of its interior was found: the pictures show the building it is in.",
+      "lmml:imageTodo": "TODO: no freely licensed photo of the restaurant entrance or interior was found on Wikimedia Commons (searched by name and by location on 2026-10-06).",
       "lmml:facts": [
         {
           "text": "The second series of Fleabag opened with a family dinner party filmed at the American steakhouse Smith & Wollensky in Covent Garden.",
@@ -2717,6 +2733,10 @@
         {
           "text": "Fleabag was created and written by Phoebe Waller-Bridge, who plays the title character.",
           "url": "https://en.wikipedia.org/wiki/Fleabag"
+        },
+        {
+          "text": "Smith & Wollensky London gives its address as The Adelphi Building, 1-11 John Adam Street, London WC2N 6HT.",
+          "url": "https://www.smithandwollensky.co.uk/find-us/"
         }
       ],
       "lmml:openQuestions": [
