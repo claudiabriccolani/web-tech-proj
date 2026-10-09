@@ -28,6 +28,7 @@ any problems ("LMML data check").
 ```
 index.html                 app shell: header, <main>, footer; loads CSS, CDN libraries, js/app.js
 favicon.svg                icon of the site
+ns/index.html              page of the lmml namespace: lists the lmml: terms from docs section 2.2
 VERIFY.md                  what the author still has to check by hand, location by location
 CAPTIONS.md                record of the caption changes made after looking at every image
 screenshots/               layout test screenshots and their REPORT.md (ignored by git)
@@ -160,6 +161,10 @@ The JSON files are plain JSON shaped like JSON-LD:
   `ImageObject`, `CreativeWork`, `Person`).
 - Terms schema.org doesn't cover use the `lmml:` prefix. The `@context` at
   the top of `locations.json` declares both vocabularies.
+- The `lmml:` namespace is `https://claudiabriccolani.github.io/web-tech-proj/ns#`.
+  That address shows `ns/index.html`, which lists the terms by reading
+  section 2.2 of the documentation in `data/site.json`: edit the definitions
+  there, not in the page.
 - In JavaScript, prefixed names need brackets: `loc['lmml:cameraBearing']`.
   These accesses are collected in `js/data.js`.
 

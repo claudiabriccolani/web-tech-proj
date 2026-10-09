@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+  ns/index.html — the page behind the lmml namespace
+  https://claudiabriccolani.github.io/web-tech-proj/ns#
+
+  It lists every lmml: term with its definition. The list is NOT written here:
+  it is read from the documentation, section 2.2 ("The lmml: namespace") in
+  data/site.json, so the two can never disagree. Each term gets an id equal
+  to its name without the prefix, so that an address such as
+  .../ns#cameraBearing opens the page at that term.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>lmml: namespace – LMML, Live Museum of Movie Locations</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <style>
+    /* Minimal and theme-independent: this page is a reference, not part of the visit */
+    body { margin: 0 auto; padding: 1rem; max-width: 60rem; font-family: system-ui, sans-serif; line-height: 1.5; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.6rem; border-bottom: 1px solid #ccc; overflow-wrap: anywhere; }
+    tr:target { outline: 2px solid currentColor; }
+  </style>
+</head>
+<body>
+  <h1>lmml: namespace</h1>
+  <p>Namespace address: <span data-role="ns-uri">https://claudiabriccolani.github.io/web-tech-proj/ns#</span></p>
+  <p>
+    Terms defined by the project
+    <a href="../">LMML – Live Museum of Movie Locations</a>
+    for properties that schema.org does not cover. They are used, with the prefix
+    lmml:, in <a href="../data/locations.json">data/locations.json</a> and
+    <a href="../data/narratives.json">data/narratives.json</a>.
+    The list below is read from section 2.2 of the
+    <a href="../#/docs/2.2">documentation</a>.
+  </p>
+
+  <div data-role="ns-terms">
+    <p data-role="ns-loading">Loading the list of terms…</p>
+    <noscript><p>The list needs JavaScript. The same list is in section 2.2 of the documentation, in data/site.json.</p></noscript>
+  </div>
+
+  <script type="module">
+    const SECTION = 'The lmml: namespace';
+    const box = document.querySelector('[data-role="ns-terms"]');
+
+    /** Find a documentation section by title, at any depth. */
+    function find(sections, title) {
+      for (const section of sections ?? []) {
+        if (section.title === title) return section;
+        const inner = find(section.sections, title);
+        if (inner) return inner;
+      }
+      return null;
+    }
+
+    try {
+      const response = await fetch('../data/site.json', { cache: 'no-cache' });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const section = find((await response.json()).docs, SECTION);
+      if (!section) throw new Error(`section “${SECTION}” not found`);
+
+      // The section text is HTML from our own data file: take its table as it is
+      const table = new DOMParser().parseFromString(section.text, 'text/html').querySelector('table');
+      if (!table) throw new Error('no table in the section');
+
+      // One id per term: "lmml:cameraBearing" -> id="cameraBearing".
+      // A row that defines several terms ("lmml:length, lmml:level, lmml:tone")
+      // gets the first id, and an empty anchor for each of the others.
+      for (const row of table.querySelectorAll('tr')) {
+        const cell = row.querySelector('td');
+        if (!cell) continue; // the header row
+        const names = cell.textContent.split(',').map((t) => t.trim().replace(/^lmml:/, '')).filter(Boolean);
+        row.id = names[0];
+        for (const name of names.slice(1)) {
+          const anchor = document.createElement('span');
+          anchor.id = name;
+          cell.prepend(anchor);
+        }
+      }
+      box.replaceChildren(table);
+
+      // The table arrived after the page: go to the requested term now
+      if (location.hash.length > 1) document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView();
+    } catch (error) {
+      box.querySelector('[data-role="ns-loading"]').textContent =
+        `The list of terms could not be loaded (${error.message}). It is in section 2.2 of the documentation.`;
+    }
+  </script>
+</body>
+</html>
