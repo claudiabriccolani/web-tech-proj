@@ -1,37 +1,313 @@
 /* ==========================================================================
-   victorian.css — PLACEHOLDER THEME
+   victorian.css — theme after The Strand Magazine (1890s)
 
-   It only exists to prove that a theme can switch typography, colours and
-   layout. Replace it with the real design.
+   Sources looked at (see the documentation, section 3.1):
+     - The Strand Magazine, No. 19 (July 1892), pages 9 and 12
+     - the cover of the bound volume of 1894
+     - illustrations of the July 1891 issue
+
+   What the theme changes, compared with base.css:
+     1. fonts and colours
+     2. site header: a running head (centred italic capitals, double rule)
+     3. text pages: one centred column; the cover has a framed title and a
+        one-column list of narratives
+     4. location page, wide: two equal halves, text left; on the right the
+        metadata and the QR code side by side, the picture below them
+     5. pictures: black and white, ruled, caption centred in capitals
+     6. map: framed like a plate, legend below it as a caption
 
    All rules are scoped with :root[data-theme="victorian"], so they never
    apply to another theme even while stylesheets are being swapped.
+   The minimum sizes of base.css (--target-size, --loc-image-min-height) are
+   not redefined.
    ========================================================================== */
 
-:root[data-theme="victorian"] {
-  /* Typography (placeholder: generic system serif) */
-  --font-body: Georgia, "Times New Roman", serif;
-  --font-heading: Georgia, "Times New Roman", serif;
-  --font-ui: Georgia, "Times New Roman", serif;
-  --line-height: 1.6;
-
-  /* Colours (placeholder) */
-  --color-bg: #f6f1e7;
-  --color-fg: #2a2118;
-  --color-muted: #6d5f4f;
-  --color-surface: #ece3d2;
-  --color-border: #c9b99c;
-  --color-accent: #5a3b1c;
-  --color-accent-contrast: #f6f1e7;
-
-  --map-marker: #7a5a3a;
-  --map-marker-route: #5a3b1c;
-  --map-route: #5a3b1c;
-  --map-cone: #a07850;
-
-  /* Layout: keeps base.css (images left, text right) */
+/* Old Standard TT, by Alexey Kryukov. SIL Open Font License 1.1
+   (fonts/OFL-Old-Standard-TT.txt). Files from Google Fonts, latin subset. */
+@font-face {
+  font-family: "Old Standard TT";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../fonts/old-standard-tt-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Old Standard TT";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../fonts/old-standard-tt-italic-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Old Standard TT";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../../fonts/old-standard-tt-700.woff2") format("woff2");
 }
 
-:root[data-theme="victorian"] [data-role="location-title"] {
+
+/* 1. FONTS AND COLOURS ==================================================== */
+
+:root[data-theme="victorian"] {
+  --font-body: "Old Standard TT", Georgia, "Times New Roman", serif;
+  --font-heading: var(--font-body);
+  --font-ui: var(--font-body);
+  --line-height: 1.55;
+
+  /* Paper, ink, and the blue-green of the bound volume (darkened for text) */
+  --color-bg: #f4efe2;
+  --color-fg: #1c1a17;
+  --color-muted: #5a5246;
+  --color-surface: #e6dfcc;
+  --color-border: #1c1a17;
+  --color-accent: #1f5c59;
+  --color-accent-contrast: #f4efe2;
+
+  --map-marker: #1c1a17;
+  --map-marker-route: #1f5c59;
+  --map-route: #1c1a17;
+  --map-cone: #1f5c59;
+
+  --page-max-width: 62ch;
+
+  /* 4. Location, wide: two equal halves. Left the text; right, the metadata
+     and the QR code side by side, and below them the picture, which keeps
+     its guaranteed minimum height. */
+  --loc-landscape-areas:
+    "header header header"
+    "text   meta   qr"
+    "text   media  media";
+  --loc-landscape-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+  --loc-landscape-rows: auto minmax(7rem, 1fr) minmax(calc(var(--loc-image-min) + 3.5rem), 1.6fr);
+}
+
+/* The face is small on the body: one step larger than the browser default */
+:root[data-theme="victorian"] body { font-size: 1.0625rem; }
+
+:root[data-theme="victorian"] button {
+  background: var(--color-bg);
+}
+:root[data-theme="victorian"] button[aria-pressed="true"] {
+  background: var(--color-accent);
+}
+:root[data-theme="victorian"] th,
+:root[data-theme="victorian"] td {
+  border-bottom: 1px solid var(--color-muted);
+}
+
+
+/* 2. SITE HEADER: A RUNNING HEAD ========================================== */
+
+:root[data-theme="victorian"] [data-role="site-header"] {
+  justify-content: center;
+  border-bottom: 3px double var(--color-border);
+}
+:root[data-theme="victorian"] [data-role="site-title"] {
+  flex: 1 1 100%;
+  justify-content: center;
+  margin-right: 0;
   font-style: italic;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+:root[data-theme="victorian"] [data-role="site-footer"] {
+  border-top: 3px double var(--color-border);
+}
+/* The position in the narrative, set like a page number */
+:root[data-theme="victorian"] [data-role="nav-position"] {
+  font-style: italic;
+}
+
+
+/* 3. TEXT PAGES =========================================================== */
+
+:root[data-theme="victorian"] [data-role="page-header"] { text-align: center; }
+:root[data-theme="victorian"] [data-role="page-title"] { font-weight: normal; letter-spacing: 0.02em; }
+:root[data-theme="victorian"] [data-role="page-kicker"] {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+:root[data-theme="victorian"] [data-role="page-body"] > * { margin-inline: auto; }
+
+/* Cover: the title in a double-rule frame, the subtitle beneath it */
+:root[data-theme="victorian"] [data-page="cover"] [data-role="page-header"] {
+  display: flex;
+  flex-direction: column-reverse;
+  margin: var(--space-m) var(--space-m) var(--space-s);
+  padding: var(--space-m);
+  border: 4px double var(--color-border);
+}
+:root[data-theme="victorian"] [data-page="cover"] [data-role="page-title"] {
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  letter-spacing: 0.12em;
+}
+:root[data-theme="victorian"] [data-page="cover"] [data-role="page-kicker"] {
+  margin: var(--space-xs) 0 0;
+  color: var(--color-fg);
+}
+
+/* Cover: the narratives as a one-column list separated by rules */
+:root[data-theme="victorian"] [data-role="narrative-list"] h2 {
+  font-size: 1em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+:root[data-theme="victorian"] [data-role="narrative-list"] ul {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  border-bottom: 1px solid var(--color-border);
+}
+:root[data-theme="victorian"] [data-role="narrative-card"] {
+  padding: var(--space-m) 0;
+  border: 0;
+  border-top: 1px solid var(--color-border);
+}
+:root[data-theme="victorian"] [data-role="narrative-card"][data-current="true"] {
+  border-top: 3px double var(--color-border);
+}
+:root[data-theme="victorian"] [data-role="narrative-title"] { margin: 0; font-style: italic; font-weight: normal; font-size: 1.4em; }
+:root[data-theme="victorian"] [data-role="narrative-meta"] { color: var(--color-muted); }
+
+
+/* 4. LOCATION PAGE ======================================================== */
+
+:root[data-theme="victorian"] [data-role="location-title"] { font-weight: normal; }
+:root[data-theme="victorian"] [data-role="location-kicker"] { font-style: italic; }
+:root[data-theme="victorian"] [data-role="transition"] { background: none; }
+:root[data-theme="victorian"] [data-role="transition-summary"] { font-weight: normal; font-style: italic; }
+:root[data-theme="victorian"] [data-role="transition-text"] { background: var(--color-bg); }
+
+:root[data-theme="victorian"] [data-role="metadata-caption"] {
+  font-size: 0.8em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Paragraphs as in the magazine: first line indented, no space between them */
+:root[data-theme="victorian"] [data-role="text-body"] p { margin: 0; text-indent: 1.4em; }
+:root[data-theme="victorian"] [data-role="text-body"] h3 {
+  margin: var(--space-m) 0 var(--space-xs);
+  font-size: 0.9em;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@media (orientation: landscape) and (min-width: 601px) and (min-height: 501px) {
+  :root[data-theme="victorian"] [data-role="location-header"] { text-align: center; }
+  :root[data-theme="victorian"] [data-role="transition-summary"] { justify-content: center; }
+  :root[data-theme="victorian"] [data-role="transition-text"] { text-align: left; }
+  /* Running head on one line: menu, title in the middle, switchers */
+  :root[data-theme="victorian"] [data-role="site-header"] {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  }
+  :root[data-theme="victorian"] [data-role="site-menu"] { grid-column: 1; grid-row: 1; }
+  :root[data-theme="victorian"] [data-role="site-title"] { grid-column: 2; grid-row: 1; }
+  :root[data-theme="victorian"] [data-role="switchers"] { grid-column: 3; grid-row: 1; justify-content: flex-end; }
+
+  /* The QR code above its address: the block is half a column wide */
+  :root[data-theme="victorian"] [data-role="location-qr"] {
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    justify-items: center;
+    gap: var(--space-xs);
+    min-height: 0;
+    overflow: auto;
+    text-align: center;
+  }
+  :root[data-theme="victorian"] [data-role="location-qr"] [data-role="qr-code"] { grid-row: auto; }
+
+  /* A column rule between the two halves of the page */
+  :root[data-theme="victorian"] [data-role="location-text"] {
+    padding-right: var(--gap);
+    border-right: 1px solid var(--color-border);
+  }
+  /* Justified only where the column is wide enough not to open gaps */
+  :root[data-theme="victorian"] [data-role="text-body"] {
+    text-align: justify;
+    hyphens: auto;
+    padding-right: var(--space-xs);
+  }
+}
+
+
+/* 5. PICTURES ============================================================= */
+
+/* Black and white like the engravings: a filter, the files are not changed */
+:root[data-theme="victorian"] [data-role="location-figure"] img {
+  filter: grayscale(1) contrast(1.05);
+  border: 1px solid var(--color-border);
+  background: none;
+}
+:root[data-theme="victorian"] [data-role="figure-caption"] {
+  padding-top: var(--space-xs);
+  text-align: center;
+}
+:root[data-theme="victorian"] [data-role="caption-text"] {
+  display: block;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+:root[data-theme="victorian"] [data-role="image-note"] { font-style: italic; }
+
+
+/* 6. MAP ================================================================== */
+
+/* Title, then the map as a framed plate, then the legend as its caption.
+   The header of the map page is dissolved so that title and legend can sit
+   in different rows of the same grid. */
+:root[data-theme="victorian"] [data-role="map"] {
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  padding: 0 var(--space-m) var(--space-s);
+}
+:root[data-theme="victorian"] [data-role="map"] > [data-role="page-header"] { display: contents; }
+:root[data-theme="victorian"] [data-role="map"] [data-role="page-title"] {
+  grid-row: 1;
+  padding: var(--space-s) 0;
+  text-align: center;
+}
+:root[data-theme="victorian"] [data-role="map-canvas"] {
+  grid-row: 2;
+  margin: 5px;
+  border: 1px solid var(--color-border);
+  outline: 1px solid var(--color-border);
+  outline-offset: 3px;
+}
+:root[data-theme="victorian"] [data-role="map-legend"] {
+  grid-row: 3;
+  margin: var(--space-s) 0 0;
+  text-align: center;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+:root[data-theme="victorian"] .leaflet-tile-pane { filter: grayscale(1) sepia(0.25) contrast(0.95); }
+
+
+/* NARROW LAYOUT =========================================================== */
+
+@media (orientation: portrait), (max-width: 600px), (max-height: 500px) {
+  /* One line: the running head and the Menu button */
+  :root[data-theme="victorian"] [data-role="site-title"] { flex: 1 1 auto; }
+  :root[data-theme="victorian"] [data-page="cover"] [data-role="page-header"] {
+    margin: var(--space-s);
+    padding: var(--space-s);
+  }
+}
+
+/* Phones in landscape: the title of the map leaves the height to the map */
+@media (max-height: 500px) {
+  :root[data-theme="victorian"] [data-role="map"] [data-role="page-title"] {
+    padding: 0;
+    font-size: 1.2rem;
+  }
 }

@@ -1,56 +1,258 @@
 /* ==========================================================================
-   sixties.css — PLACEHOLDER THEME
+   sixties.css — theme after 1960s British print
 
-   It only exists to prove that a theme can switch typography, colours and
-   LAYOUT. Replace it with the real design.
+   Sources looked at (see the documentation, section 3.2):
+     - Romek Marber's grid for the Penguin Crime covers (1961)
+     - the UK sleeve of A Hard Day's Night (1964)
+     - a cover of Nova, and the article on Nova in Eye no. 10 (1993)
 
-   Layout changes compared with base.css, all done by redefining variables:
-     1. the prev/next bar moves from the bottom to the top (under the header)
-     2. landscape location page: text on the LEFT, images on the RIGHT
+   What the theme changes, compared with base.css:
+     1. fonts and colours
+     2. app shell: the previous / next bar moves to the top, under the
+        header, so every page opens with horizontal bands, type ranged left
+     3. cover: the narratives first, as bordered tiles; the intro below
+     4. location page, wide: text left, the picture right in the largest
+        column, edge to edge; metadata and QR code side by side under the text
+     5. location page, narrow: the tabs move to the bottom, above the toolbar
+     6. pictures: full colour, no frame, cropped to fill; caption in a band
+     7. map: title and legend in a band above the map
+
+   All rules are scoped with :root[data-theme="sixties"].
+   The minimum sizes of base.css (--target-size, --loc-image-min-height) are
+   not redefined.
    ========================================================================== */
 
+/* Archivo and Archivo Black, by Omnibus-Type. SIL Open Font License 1.1
+   (fonts/OFL-Archivo.txt, fonts/OFL-Archivo-Black.txt). Files from Google
+   Fonts, latin subset. The upright Archivo is one variable file. */
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../../fonts/archivo-variable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Archivo";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../fonts/archivo-italic-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Archivo Black";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../fonts/archivo-black-400.woff2") format("woff2");
+}
+
+
+/* 1. FONTS AND COLOURS ==================================================== */
+
 :root[data-theme="sixties"] {
-  /* Typography (placeholder: generic system sans) */
-  --font-body: "Helvetica Neue", Arial, sans-serif;
-  --font-heading: "Arial Black", "Helvetica Neue", Arial, sans-serif;
-  --font-ui: "Helvetica Neue", Arial, sans-serif;
-  --line-height: 1.45;
+  --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Archivo Black", "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  --font-ui: var(--font-body);
+  --line-height: 1.5;
 
-  /* Colours (placeholder) */
-  --color-bg: #fffbea;
-  --color-fg: #1b1b1b;
-  --color-muted: #5c5c5c;
-  --color-surface: #ffe8b3;
-  --color-border: #1b1b1b;
-  --color-accent: #c2410c;
-  --color-accent-contrast: #fffbea;
+  /* White, black, and the blue and red of the record sleeve */
+  --color-bg: #ffffff;
+  --color-fg: #111111;
+  --color-muted: #555555;
+  --color-surface: #f0f0ec;
+  --color-border: #111111;
+  --color-accent: #1d3f94;
+  --color-accent-contrast: #ffffff;
+  --sixties-red: #c8102e;
 
-  --map-marker: #c2410c;
-  --map-marker-route: #7c2d12;
-  --map-route: #1b1b1b;
-  --map-cone: #0e7490;
+  --map-marker: #c8102e;
+  --map-marker-route: #1d3f94;
+  --map-route: #111111;
+  --map-cone: #1d3f94;
 
-  /* 1. App shell: navigation bar on top */
+  /* 2. App shell: header band, navigation band, then the page */
   --app-areas: "header" "footer" "main";
   --app-rows: auto auto minmax(0, 1fr);
 
-  /* 2. Location, landscape: text left, media right */
+  /* 4. Location, wide: text left, picture right in the larger column.
+     The picture spans the two rows under the header; the first of them
+     keeps the guaranteed minimum height of the picture. */
   --loc-landscape-areas:
-    "header header"
-    "text   media"
-    "text   meta"
-    "text   qr";
-  --loc-landscape-columns: minmax(0, 3fr) minmax(0, 2fr);
+    "header header header"
+    "text   text   media"
+    "meta   qr     media";
+  --loc-landscape-columns: minmax(0, 1fr) minmax(0, 17rem) minmax(0, 2fr);
+  --loc-landscape-rows: auto minmax(calc(var(--loc-image-min) + 3.5rem), 2.2fr) minmax(8.5rem, 1fr);
+
+  /* 5. Location, narrow: the picture comes straight after the header */
+  --loc-narrow-areas:
+    "header"
+    "content"
+    "tabs"
+    "toolbar";
+  --loc-narrow-rows: auto minmax(0, 1fr) auto auto;
 }
 
-:root[data-theme="sixties"] [data-role="location-title"],
-:root[data-theme="sixties"] [data-role="page-title"] {
+/* The heading face has one weight: do not let the browser embolden it */
+:root[data-theme="sixties"] h1,
+:root[data-theme="sixties"] h2,
+:root[data-theme="sixties"] h3 { font-weight: 400; }
+
+:root[data-theme="sixties"] button {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  border: 2px solid var(--color-border);
+  font-weight: 700;
+}
+:root[data-theme="sixties"] button[aria-pressed="true"] {
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+}
+:root[data-theme="sixties"] select {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  border: 2px solid var(--color-border);
+}
+
+
+/* 2. THE BANDS ============================================================ */
+
+/* Band 1: the site, white on black */
+:root[data-theme="sixties"] [data-role="site-header"] {
+  background: var(--color-fg);
+  color: var(--color-bg);
+  border-bottom: 0;
+}
+:root[data-theme="sixties"] [data-role="site-title"] {
+  font-family: var(--font-heading);
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
+:root[data-theme="sixties"] [data-role="site-menu"] a { color: inherit; }
+:root[data-theme="sixties"] [data-role="site-header"] button,
+:root[data-theme="sixties"] [data-role="site-header"] select { border-color: var(--color-bg); }
 
-/* The nav bar is now on top: move its border accordingly */
+/* Band 2: previous / next, white on blue */
 :root[data-theme="sixties"] [data-role="site-footer"] {
+  padding-bottom: var(--space-s);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
   border-top: 0;
-  border-bottom: 1px solid var(--color-border);
+}
+:root[data-theme="sixties"] [data-role="step-nav"] a {
+  color: inherit;
+  border: 2px solid currentColor;
+  font-weight: 700;
+}
+
+/* Band 3: the title of the page, red on white, ranged left */
+:root[data-theme="sixties"] [data-role="page-header"] {
+  border-bottom: 4px solid var(--color-border);
+}
+:root[data-theme="sixties"] [data-role="page-title"] {
+  color: var(--sixties-red);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+:root[data-theme="sixties"] [data-role="page-kicker"] { font-weight: 700; color: var(--color-fg); }
+:root[data-theme="sixties"] [data-role="page-body"] { padding-top: var(--space-m); }
+
+
+/* 3. COVER ================================================================ */
+
+/* The narratives come first, as equal tiles; the intro follows */
+:root[data-theme="sixties"] [data-page="cover"] [data-role="page-body"] {
+  display: flex;
+  flex-direction: column;
+}
+:root[data-theme="sixties"] [data-page="cover"] [data-role="page-body"] > * { flex: none; }
+:root[data-theme="sixties"] [data-page="cover"] [data-role="narrative-list"] {
+  order: -1;
+  max-width: none;
+}
+:root[data-theme="sixties"] [data-role="narrative-list"] h2 { margin-top: 0; }
+:root[data-theme="sixties"] [data-role="narrative-list"] ul { margin: 0; }
+:root[data-theme="sixties"] [data-role="narrative-card"] {
+  border: 4px solid var(--color-accent);
+}
+:root[data-theme="sixties"] [data-role="narrative-card"][data-current="true"] {
+  border-color: var(--sixties-red);
+}
+:root[data-theme="sixties"] [data-role="narrative-title"] { margin: 0; text-transform: uppercase; }
+:root[data-theme="sixties"] [data-role="narrative-meta"] { font-weight: 700; }
+
+
+/* 4. LOCATION PAGE ======================================================== */
+
+:root[data-theme="sixties"] [data-role="location-title"] { color: var(--sixties-red); }
+:root[data-theme="sixties"] [data-role="location-kicker"] { font-weight: 700; color: var(--color-fg); }
+:root[data-theme="sixties"] [data-role="metadata-caption"] {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+:root[data-theme="sixties"] [data-role="text-body"] h3 { text-transform: uppercase; font-size: 1em; }
+
+@media (orientation: landscape) and (min-width: 601px) and (min-height: 501px) {
+  /* The article has no padding, so the picture reaches the edge of the
+     window; the other blocks take the padding instead. */
+  :root[data-theme="sixties"] [data-role="location"] {
+    padding: 0;
+    gap: 0;
+  }
+  :root[data-theme="sixties"] [data-role="location-header"] {
+    padding: var(--space-s) var(--space-m);
+    border-bottom: 4px solid var(--color-border);
+  }
+  :root[data-theme="sixties"] [data-role="location-text"] { padding: var(--space-m); }
+  :root[data-theme="sixties"] [data-role="location-meta"] {
+    padding: var(--space-s) var(--space-m);
+    border-top: 2px solid var(--color-border);
+  }
+  :root[data-theme="sixties"] [data-role="location-qr"] {
+    align-content: start;
+    min-height: 0;
+    overflow: auto;
+    padding: var(--space-s) var(--space-m);
+    border-top: 2px solid var(--color-border);
+    border-left: 2px solid var(--color-border);
+  }
+  /* Six long labels in a column that is not the widest: a smaller size
+     keeps them on two rows (the height of each button does not change) */
+  :root[data-theme="sixties"] [data-role="location-text"] [data-role="text-controls"] button { font-size: 0.85em; }
+  :root[data-theme="sixties"] [data-role="location-media"] {
+    border-left: 4px solid var(--color-border);
+  }
+}
+
+
+/* 6. PICTURES ============================================================= */
+
+/* Cropped to fill their box, no frame; the caption in a black band */
+:root[data-theme="sixties"] [data-role="location-figure"] img {
+  object-fit: cover;
+  background: var(--color-fg);
+}
+:root[data-theme="sixties"] [data-role="figure-caption"] {
+  padding: var(--space-xs) var(--space-s);
+  background: var(--color-fg);
+  color: var(--color-bg);
+}
+:root[data-theme="sixties"] [data-role="caption-text"] { font-weight: 700; }
+:root[data-theme="sixties"] [data-role="caption-credit"] { color: #dddddd; }
+:root[data-theme="sixties"] [data-role="figure-caption"] a { color: inherit; }
+
+
+/* 7. MAP ================================================================== */
+
+/* The map already reaches the edges; its title and legend form the band */
+:root[data-theme="sixties"] [data-role="map-legend"] { font-weight: 700; }
+
+
+/* NARROW LAYOUT =========================================================== */
+
+@media (orientation: portrait), (max-width: 600px), (max-height: 500px) {
+  :root[data-theme="sixties"] [data-role="page-header"] { padding-top: var(--space-s); }
 }

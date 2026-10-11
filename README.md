@@ -33,8 +33,9 @@ VERIFY.md                  what the author still has to check by hand, location 
 CAPTIONS.md                record of the caption changes made after looking at every image
 screenshots/               layout test screenshots and their REPORT.md (ignored by git)
 css/base.css               structure and layout only (grid areas, scroll containers), neutral tokens
-css/themes/victorian.css   placeholder theme
-css/themes/sixties.css     placeholder theme (also moves blocks around, to prove layout switching)
+css/themes/victorian.css   theme after The Strand Magazine (1890s)
+css/themes/sixties.css     theme after 1960s British print
+fonts/                     the fonts of the two themes, with their licences (SIL OFL 1.1)
 data/site.json             title, intro, about, disclaimer template, docs sections, list of themes
 data/locations.json        the locations (schema.org + lmml:)
 data/narratives.json       the narratives (chapters → steps)
