@@ -359,4 +359,4 @@ can style by content:
   Change it if the site moves.
 - The documentation
   describes the code and data as they are; every reason is left to the
-  author and marked `TODO (author)`, and the theme sections are empty.
+  author and marked `TODO (author)`.
