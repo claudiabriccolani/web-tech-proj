@@ -10,13 +10,43 @@ Nothing in `data/locations.json` is marked as verified yet: every location has `
 - **Directions and minutes** in the transitions come from the TfL journey planner (queried for a Tuesday at 11:00). Street-by-street wording is mine: walk the trickier legs on Street View, especially Charlotte Mews → Great Portland Street, Bank → Leadenhall Market and the walk into St Luke's Mews.
 - **Scholar texts** contain, besides the facts, one or two sentences of interpretation each (for example on what the cue cards change in the Love Actually scene). They add no factual claims, but they are my reading, not a source's: keep, rewrite or cut.
 - **French short texts** use the usual French names *Chaudron Baveur* and *Mangemorts* for the Leaky Cauldron and the Death Eaters; film titles are left in English.
-- **Not checked in a real browser by hand.** Pages were rendered in headless Chrome at 1280×800 (data check OK, no console errors). The portrait layout could not be tested reliably in headless mode: check it on a phone.
+- **Not checked in a real browser by hand.** Pages were rendered in headless Chromium at 1280×800, 390×844 and 844×390 in both themes (last run 2026-10-11; findings in `screenshots/run4/REPORT.md`). No real phone was used: check the site on one.
 - **Image height on location pages.** With a long transition text the header takes a lot of room and the image row becomes short at 1280×800. This is a layout matter, so it was left for you.
 - **Photo captions.** All 27 photos have been opened and each has its own `lmml:alt` text. Ten captions were revised on 2026-10-06 to say only what the picture shows (the list and the old wording are in `CAPTIONS.md`). One is still open: the blue door photo shows two blue doors, see that location.
 - **Inline markup in texts.** The texts use `em` (titles) and `strong`, which are not in the restricted element list in the README: if the course requires that list strictly, replace them with `span`.
 - **Sunset times at York Rise** come from the US Naval Observatory for 2026, in UTC; I converted the June and September values to British Summer Time by adding one hour. Timeanddate refused automated access and the HM Nautical Almanac Office site was unavailable, so neither was used.
-- **Before printing QR codes** set `baseUrl` in `data/site.json`; they currently encode `localhost`.
+- **QR codes** encode `baseUrl` of `data/site.json`, which is set to the GitHub Pages address. Change it if the site moves, before printing.
 - `author` in `data/site.json` was set to "Claudia Briccolani" (from the git user name): correct it if needed.
+## Status on 2026-10-11
+
+**Verification flags: unchanged.** All 15 locations still have `lmml:verified: false` and `lmml:cameraConfidence: "estimated"`: `marylebone-station`, `charlotte-mews`, `notting-hill-bookshop`, `notting-hill-blue-door`, `leadenhall-market`, `somerset-house`, `grosvenor-chapel`, `selfridges`, `st-lukes-mews`, `millennium-bridge`, `north-gower-street`, `russell-square`, `st-barts`, `york-rise`, `smith-wollensky`. The flags say that the author has checked a location; nobody has reported such a check, so they were not set. No camera position or bearing was changed.
+
+**Consistency check of the camera data** (computed from `data/locations.json`; it compares numbers, it does not look at any place or film). For each location: the distance from the camera position to the coordinates of the place, the direction from the camera to the place, and how far the stored bearing is from that direction.
+
+| Location | Camera to place | Direction to the place | Stored bearing | Difference |
+|---|---|---|---|---|
+| `marylebone-station` | 62 m | 269° | 345° | 76° |
+| `charlotte-mews` | 10 m | 327° | 327° | 0° |
+| `notting-hill-bookshop` | 10 m | 267° | 255° | 12° |
+| `notting-hill-blue-door` | 13 m | 343° | 345° | 2° |
+| `leadenhall-market` | 11 m | 305° | 300° | 5° |
+| `somerset-house` | 37 m | 319° | 0° | 41° |
+| `grosvenor-chapel` | 24 m | 91° | 90° | 1° |
+| `selfridges` | 73 m | 4° | 0° | 4° |
+| `st-lukes-mews` | 6 m | 165° | 160° | 5° |
+| `millennium-bridge` | 187 m | 6° | 5° | 1° |
+| `north-gower-street` | 13 m | 255° | 250° | 5° |
+| `russell-square` | 40 m | 298° | 80° | 142° |
+| `st-barts` | 116 m | 111° | 100° | 11° |
+| `york-rise` | 11 m | 89° | 90° | 1° |
+| `smith-wollensky` | 11 m | 160° | 180° | 20° |
+
+- 12 of the 15 stored bearings are within 20° of the direction to the place.
+- Three are not, and in each case the shot note explains it: `marylebone-station` (76°: the shot note says to look north up Boston Place, along the side of the station, not at the station building); `somerset-house` (41°: the shot note says to look north across the courtyard; it is marked low confidence); `russell-square` (142°: the shot note says to look east, out of the gardens, towards the Imperial Hotel: the camera has its back to the centre of the square).
+- The camera is more than 50 m from the coordinates of the place at `marylebone-station` (62 m), `selfridges` (73 m), `millennium-bridge` (187 m), `st-barts` (116 m): check these positions first.
+
+**Documentation drafts.** See the end of this file.
+
 ## Day plan
 
 - **Historical timeline** (14 locations, York Rise excluded, same-year stops ordered by distance): 380 min of travel (6 h 20) + 140 min at the stops (10 min each) = about 8 h 40 min, without a lunch break.
@@ -464,3 +494,70 @@ See the final report for how feasible each one is.
 - [Virgin Media: Where was Fleabag filmed?](https://www.virginmedia.com/the-edit/tv/where-was-fleabag-filmed)
 - [Wikimedia Commons: photo and description of the Adelphi building, John Adam Street](https://commons.wikimedia.org/wiki/File:London_-_The_Adelphi_(31931338322).jpg)
 - [OpenStreetMap: coordinates of Smith & Wollensky, John Adam Street](https://www.openstreetmap.org/?mlat=51.5093559&mlon=-0.1221443#map=19/51.5093559/-0.1221443)
+
+## Documentation drafts (2026-10-11)
+
+The prefix “[DRAFT – review]” was removed from 27 paragraphs and kept on 12. The rule used: it was removed where every statement can be checked against the code, the data or a source that was read; it was kept where the paragraph rests on the course slides, the assignment or a use case, which are not in the repository and could not be checked.
+
+**Still marked as draft: check each against the slides.**
+
+- [ ] 1 Design choices: “The app is a companion for a visitor walking in the street with a phon…”
+- [ ] 1.1 Viewport-sized canvas and scroll containers: “It is a requirement of the assignment: “The canvas should be exactly a…”
+- [ ] 1.2 HTML vocabulary and style hooks: “The assignment says that the HTML vocabulary can, and probably should,…”
+- [ ] 1.3 Portrait and landscape layouts: “On a phone the visitor needs, in order, to recognise the place (title,…”
+- [ ] 1.3 Portrait and landscape layouts: “A button label must say what the button does, not how the user feels: …”
+- [ ] 2 Metadata model: “schema.org is a widely used shared vocabulary that already covers plac…”
+- [ ] 2.2 The lmml: namespace: “The definitions of the terms are in the table below. Needs of the proj…”
+- [ ] 2.3 The text grid (length × level × tone): “The three axes come from the assignment's grid (length / competence / …”
+- [ ] 2.7 Sources, images and licences: “Film stills are copyrighted by the producers, and the site must respec…”
+- [ ] 4 Narratives: “The assignment asks for two or three narratives, with the historical t…”
+- [ ] 4.1 Historical timeline: “The assignment states that “the order (and even the inclusion) of each…”
+- [ ] 5 Architecture: “The site is static and must be published on GitHub Pages without a bui…”
+
+**No longer marked.**
+
+- 1.3 Portrait and landscape layouts: “The chapter line is hidden on phones for reasons of space; the chapter…”
+- 1.3 Portrait and landscape layouts: “The user is outdoors, often walking, using one hand. 24px is the WCAG …”
+- 2.1 schema.org terms: “Place rather than TouristAttraction: many locations are ordinary stree…”
+- 2.1 schema.org terms: “Movie, TVSeries and TVEpisode: a scene in a series belongs to a specif…”
+- 2.1 schema.org terms: “ImageObject: it carries the author, the licence and the source of an i…”
+- 2.1 schema.org terms: “GeoCoordinates: the place and the camera position each have their own …”
+- 3.1 Victorian: “Reasons, each with the feature of the magazine it comes from:…”
+- 3.1 Victorian: “Font: the description of Old Standard TT says that it “reproduces a sp…”
+- 3.1 Victorian: “Colours: the pages are black print on off-white paper, and the bound v…”
+- 3.1 Victorian: “Site header: the running head of each page of the magazine (“THE STRAN…”
+- 3.1 Victorian: “Previous / next at the bottom: the running head stands alone at the to…”
+- 3.1 Victorian: “Cover: the cover of the bound volume has a double-rule border, centred…”
+- 3.1 Victorian: “Location page: page 9 of the July 1892 issue has two equal justified c…”
+- 3.1 Victorian: “Pictures: the illustrations of the magazine are black-and-white engrav…”
+- 3.1 Victorian: “Map: it is treated like an illustration of the magazine, framed and wi…”
+- 3.2 Sixties: “Reasons, each with the feature it comes from:…”
+- 3.2 Sixties: “Fonts: “THE BEATLES” on the UK sleeve of A Hard Day's Night is in heav…”
+- 3.2 Sixties: “Colours: the same sleeve has a blue ground, a title in red on a white …”
+- 3.2 Sixties: “Bands at the top, previous / next under the header, type ranged left: …”
+- 3.2 Sixties: “Cover: the sleeve is a grid of equal tiles, 20 head shots in 4 rows of…”
+- 3.2 Sixties: “Location page, wide: on Marber's covers “the image … occupies just ove…”
+- 3.2 Sixties: “Location page, narrow: bands first and the image directly beneath, as …”
+- 3.2 Sixties: “Pictures: the cover of Nova that was looked at is a photograph that fi…”
+- 3.2 Sixties: “Map: treated like the pictures, in colour and to the edge.…”
+- 4.2 Recreate the shot: “The route is ordered geographically because recreating shots needs tim…”
+- 4.3 Text selection algorithm: “Only some cells of the grid exist, so a switch moves to the closest ex…”
+- 5.5 Moving the controls into the toolbar on narrow screens: “CSS alone cannot move an element out of its parent, and the switches m…”
+
+**TODOs still in the documentation** (left as they are):
+
+- [ ] 1.1 Viewport-sized canvas and scroll containers: TODO (rewrite):
+- [ ] 1.3 Portrait and landscape layouts: TODO (rewrite in my own words, with the reasons):
+- [ ] 1.3 Portrait and landscape layouts: TODO (rewrite):
+- [ ] 1.3 Portrait and landscape layouts: TODO (rewrite):
+- [ ] 1.3 Portrait and landscape layouts: TODO (rewrite):
+- [ ] 1.3 Portrait and landscape layouts: TODO (rewrite):
+- [ ] 2.1 schema.org terms: TODO (author):
+- [ ] 2.2 The lmml: namespace: TODO (author):
+- [ ] 4.1 Historical timeline: TODO (rewrite in my own words):
+- [ ] 4.1 Historical timeline: TODO (rewrite in my own words):
+- [ ] 4.1 Historical timeline: TODO (rewrite in my own words):
+- [ ] 4.2 Recreate the shot: TODO (rewrite in my own words):
+- [ ] 4.2 Recreate the shot: TODO (rewrite in my own words):
+
+**Apple figure in 1.3.** Confirmed on 2026-10-11 on Apple's Human Interface Guidelines, Accessibility: the table of control sizes gives 44x44 pt as default and 28x28 pt as minimum for iOS and iPadOS. The TODO was removed and the sentence now says “default control size”.
