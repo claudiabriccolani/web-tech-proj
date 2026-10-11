@@ -24,7 +24,7 @@
   },
   "about": {
     "title": "About the author",
-    "text": "<p><strong>TODO</strong>: text about the author.</p>"
+    "text": "<p>Digital Humanities and Digital Knowledge</p><p><a href=\"mailto:claudia.briccolani@studio.unibo.it\">claudia.briccolani@studio.unibo.it</a></p><p>I chose London for this project because it is the city that reminds me the most of good movies I have seen.</p><p>Partially, code and drafts were generated with Claude under my direction; all data were verified and all design decisions were made by me.</p>"
   },
   "disclaimer": {
     "title": "Disclaimer",

@@ -356,6 +356,6 @@ can style by content:
 - `baseUrl` in `data/site.json` is set to the GitHub Pages address, so QR
   codes always encode the public site, even when printed from `localhost`.
   Change it if the site moves.
-- The about text in `data/site.json` is still TODO. The documentation
+- The documentation
   describes the code and data as they are; every reason is left to the
   author and marked `TODO (author)`, and the theme sections are empty.

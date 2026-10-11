@@ -16,8 +16,7 @@ Nothing in `data/locations.json` is marked as verified yet: every location has `
 - **Inline markup in texts.** The texts use `em` (titles) and `strong`, which are not in the restricted element list in the README: if the course requires that list strictly, replace them with `span`.
 - **Sunset times at York Rise** come from the US Naval Observatory for 2026, in UTC; I converted the June and September values to British Summer Time by adding one hour. Timeanddate refused automated access and the HM Nautical Almanac Office site was unavailable, so neither was used.
 - **Before printing QR codes** set `baseUrl` in `data/site.json`; they currently encode `localhost`.
-- `author` in `data/site.json` was set to "Claudia Briccolani" (from the git user name): correct it if needed. The about text is still TODO.
-
+- `author` in `data/site.json` was set to "Claudia Briccolani" (from the git user name): correct it if needed.
 ## Day plan
 
 - **Historical timeline** (14 locations, York Rise excluded, same-year stops ordered by distance): 380 min of travel (6 h 20) + 140 min at the stops (10 min each) = about 8 h 40 min, without a lunch break.
