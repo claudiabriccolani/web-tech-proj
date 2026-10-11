@@ -497,52 +497,7 @@ See the final report for how feasible each one is.
 
 ## Documentation drafts (2026-10-11)
 
-The prefix “[DRAFT – review]” was removed from 27 paragraphs and kept on 12. The rule used: it was removed where every statement can be checked against the code, the data or a source that was read; it was kept where the paragraph rests on the course slides, the assignment or a use case, which are not in the repository and could not be checked.
-
-**Still marked as draft: check each against the slides.**
-
-- [ ] 1 Design choices: “The app is a companion for a visitor walking in the street with a phon…”
-- [ ] 1.1 Viewport-sized canvas and scroll containers: “It is a requirement of the assignment: “The canvas should be exactly a…”
-- [ ] 1.2 HTML vocabulary and style hooks: “The assignment says that the HTML vocabulary can, and probably should,…”
-- [ ] 1.3 Portrait and landscape layouts: “On a phone the visitor needs, in order, to recognise the place (title,…”
-- [ ] 1.3 Portrait and landscape layouts: “A button label must say what the button does, not how the user feels: …”
-- [ ] 2 Metadata model: “schema.org is a widely used shared vocabulary that already covers plac…”
-- [ ] 2.2 The lmml: namespace: “The definitions of the terms are in the table below. Needs of the proj…”
-- [ ] 2.3 The text grid (length × level × tone): “The three axes come from the assignment's grid (length / competence / …”
-- [ ] 2.7 Sources, images and licences: “Film stills are copyrighted by the producers, and the site must respec…”
-- [ ] 4 Narratives: “The assignment asks for two or three narratives, with the historical t…”
-- [ ] 4.1 Historical timeline: “The assignment states that “the order (and even the inclusion) of each…”
-- [ ] 5 Architecture: “The site is static and must be published on GitHub Pages without a bui…”
-
-**No longer marked.**
-
-- 1.3 Portrait and landscape layouts: “The chapter line is hidden on phones for reasons of space; the chapter…”
-- 1.3 Portrait and landscape layouts: “The user is outdoors, often walking, using one hand. 24px is the WCAG …”
-- 2.1 schema.org terms: “Place rather than TouristAttraction: many locations are ordinary stree…”
-- 2.1 schema.org terms: “Movie, TVSeries and TVEpisode: a scene in a series belongs to a specif…”
-- 2.1 schema.org terms: “ImageObject: it carries the author, the licence and the source of an i…”
-- 2.1 schema.org terms: “GeoCoordinates: the place and the camera position each have their own …”
-- 3.1 Victorian: “Reasons, each with the feature of the magazine it comes from:…”
-- 3.1 Victorian: “Font: the description of Old Standard TT says that it “reproduces a sp…”
-- 3.1 Victorian: “Colours: the pages are black print on off-white paper, and the bound v…”
-- 3.1 Victorian: “Site header: the running head of each page of the magazine (“THE STRAN…”
-- 3.1 Victorian: “Previous / next at the bottom: the running head stands alone at the to…”
-- 3.1 Victorian: “Cover: the cover of the bound volume has a double-rule border, centred…”
-- 3.1 Victorian: “Location page: page 9 of the July 1892 issue has two equal justified c…”
-- 3.1 Victorian: “Pictures: the illustrations of the magazine are black-and-white engrav…”
-- 3.1 Victorian: “Map: it is treated like an illustration of the magazine, framed and wi…”
-- 3.2 Sixties: “Reasons, each with the feature it comes from:…”
-- 3.2 Sixties: “Fonts: “THE BEATLES” on the UK sleeve of A Hard Day's Night is in heav…”
-- 3.2 Sixties: “Colours: the same sleeve has a blue ground, a title in red on a white …”
-- 3.2 Sixties: “Bands at the top, previous / next under the header, type ranged left: …”
-- 3.2 Sixties: “Cover: the sleeve is a grid of equal tiles, 20 head shots in 4 rows of…”
-- 3.2 Sixties: “Location page, wide: on Marber's covers “the image … occupies just ove…”
-- 3.2 Sixties: “Location page, narrow: bands first and the image directly beneath, as …”
-- 3.2 Sixties: “Pictures: the cover of Nova that was looked at is a photograph that fi…”
-- 3.2 Sixties: “Map: treated like the pictures, in colour and to the edge.…”
-- 4.2 Recreate the shot: “The route is ordered geographically because recreating shots needs tim…”
-- 4.3 Text selection algorithm: “Only some cells of the grid exist, so a switch moves to the closest ex…”
-- 5.5 Moving the controls into the toolbar on narrow screens: “CSS alone cannot move an element out of its parent, and the switches m…”
+The author reviewed and approved all the paragraphs marked “[DRAFT – review]” on 2026-10-11. The prefix was removed from every one of them, in all sections; their text was not changed. No paragraph of the documentation is marked as draft now.
 
 **TODOs still in the documentation** (left as they are):
 
