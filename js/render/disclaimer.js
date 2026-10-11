@@ -8,6 +8,8 @@
  *
  * Sources are collected from every location: its "citation" entries and the
  * source page ("url") of every image. Duplicates (same URL) are merged.
+ * The reference images and links of the documentation (site.json
+ * "docsReferences") are added in the same way, under the name "Documentation".
  */
 import { el, escapeHtml } from '../dom.js';
 import { getData } from '../data.js';
@@ -52,7 +54,10 @@ function formatList(items) {
 
 export function renderDisclaimer(outlet) {
   const { site, locations } = getData();
-  const sources = collectSources(locations);
+  // The references of the documentation have the same shape as a location
+  // (image + citation), so they go through the same function.
+  const docs = site.docsReferences ? [{ name: 'Documentation', ...site.docsReferences }] : [];
+  const sources = collectSources([...locations, ...docs]);
   const names = [...new Set(sources.map((s) => hostnameOf(s.url)))];
 
   // Built as an HTML string because it is inserted inside the template string.

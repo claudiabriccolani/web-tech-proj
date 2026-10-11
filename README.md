@@ -39,7 +39,7 @@ fonts/                     the fonts of the two themes, with their licences (SIL
 data/site.json             title, intro, about, disclaimer template, docs sections, list of themes
 data/locations.json        the locations (schema.org + lmml:)
 data/narratives.json       the narratives (chapters → steps)
-img/                       images (placeholders for now)
+img/                       images of the locations; img/refs/ holds the reference images of docs section 3
 js/app.js                  bootstrap: load data → validate → state → theme → chrome → router
 js/router.js               hash routing (#/location/:id …)
 js/state.js                user choices, saved in localStorage
