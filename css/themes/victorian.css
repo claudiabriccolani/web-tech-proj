@@ -157,6 +157,8 @@
   font-weight: normal;
   font-style: italic;
 }
+/* The two switchers further apart than a label and its select */
+:root[data-theme="victorian"] [data-role="switchers"] { column-gap: var(--space-m); }
 /* The select keeps the size and case of the text (1.25 × 0.8em = 1em) */
 :root[data-theme="victorian"] [data-role="switcher"] select {
   font-size: 1.25em;
