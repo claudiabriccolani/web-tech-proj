@@ -29,8 +29,6 @@ any problems ("LMML data check").
 index.html                 app shell: header, <main>, footer; loads CSS, CDN libraries, js/app.js
 favicon.svg                icon of the site
 ns/index.html              page of the lmml namespace: lists the lmml: terms from docs section 2.2
-VERIFY.md                  what the author still has to check by hand, location by location
-CAPTIONS.md                record of the caption changes made after looking at every image
 screenshots/               layout test screenshots and their REPORT.md (ignored by git)
 css/base.css               structure and layout only (grid areas, scroll containers), neutral tokens
 css/themes/victorian.css   theme after The Strand Magazine (1890s)
@@ -181,7 +179,6 @@ The JSON files are plain JSON shaped like JSON-LD:
 | `lmml:alsoAppearsIn` | Place | list of other works filmed at the same place |
 | `lmml:facts` | Place | short atomic facts, each `{text, url}` with the source it comes from; the texts are written only from these |
 | `lmml:openQuestions` | Place | points on which sources disagree or that could not be confirmed |
-| `lmml:imageTodo` | Place | working note about a missing image (not shown) |
 | `lmml:imageNote` | Place | note for visitors, shown under the images, when no licensed photo of the exact place exists |
 | `lmml:visitorAccess` | Place | for interior scenes: `{dateChecked, statements: [{text, url}]}` with opening hours, booking and photography rules from the venue's own site; shown in the metadata table as "Visiting and photography" |
 | `lmml:estimatedMinutes` | narrative | `{travel, visits, visitMinutesPerStop, total}`; `total` is shown on the cover |
@@ -202,10 +199,11 @@ Some schema.org properties are used in a specific sense:
 - `citation` lists the sources that feed the disclaimer. Every `url` used in
   `lmml:facts` must also be in `citation` (the validator checks it).
 - `ImageObject.creditText` is "author, licence, via Wikimedia Commons" and
-  `ImageObject.license` is the licence URL.
+  `ImageObject.license` is the licence URL, or the words "Public domain" for
+  the reference images of the documentation that have no licence.
 
-`lmml:facts`, `lmml:openQuestions` and `lmml:imageTodo` are working data: the
-metadata table does not show them. `VERIFY.md` lists them location by location.
+`lmml:facts` and `lmml:openQuestions` are working data: the metadata table
+does not show them.
 
 ## How to…
 
@@ -349,14 +347,11 @@ can style by content:
 - **Other:** `[data-work-type]`, `[data-transition-mode]`, `[data-switch]`,
   `[data-axis]`, `[data-depth]`
 
-## Open TODOs
+## Known limitations
 
 - All 15 locations have `lmml:verified: false` and
-  `lmml:cameraConfidence: "estimated"`. `VERIFY.md` lists what to check by
-  hand for each one (camera, open questions, missing images).
+  `lmml:cameraConfidence: "estimated"`: camera positions and bearings are
+  estimated from the sources and have not yet been verified on site.
 - `baseUrl` in `data/site.json` is set to the GitHub Pages address, so QR
   codes always encode the public site, even when printed from `localhost`.
   Change it if the site moves.
-- The documentation
-  describes the code and data as they are; every reason is left to the
-  author and marked `TODO (author)`.

@@ -8,6 +8,8 @@
  *
  * Sources are collected from every location: its "citation" entries and the
  * source page ("url") of every image. Duplicates (same URL) are merged.
+ * An image licence that is an address becomes a "Licence" link; one that is
+ * not ("Public domain") is shown as text.
  * The reference images and links of the documentation (site.json
  * "docsReferences") are added in the same way, under the name "Documentation".
  */
@@ -67,7 +69,7 @@ export function renderDisclaimer(outlet) {
         <li data-role="source">
           <a href="${escapeHtml(s.url)}" target="_blank" rel="noopener">${escapeHtml(s.url)}</a>
           — ${escapeHtml(s.descriptions.join(' · '))}
-          ${/^https?:/.test(s.license ?? '') ? `<a data-role="source-license" href="${escapeHtml(s.license)}" target="_blank" rel="noopener">Licence</a>` : ''}
+          ${/^https?:/.test(s.license ?? '') ? `<a data-role="source-license" href="${escapeHtml(s.license)}" target="_blank" rel="noopener">Licence</a>` : (s.license ? `<span data-role="source-license">${escapeHtml(s.license)}</span>` : '')}
           <span data-role="source-locations">(${escapeHtml([...s.locations].join(', '))})</span>
         </li>`).join('')}</ul>`
     : '<p data-role="source-list">TODO: no sources in the data yet.</p>';

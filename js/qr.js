@@ -3,10 +3,12 @@
  * index.html, available as window.QRCode).
  *
  * If the library could not be loaded (offline), the URL is shown as text instead.
+ * The library draws a <canvas> and an <img> without alt text: "alt" is set on
+ * the image afterwards.
  */
 import { el } from './dom.js';
 
-export function drawQr(container, text, size = 128) {
+export function drawQr(container, text, size = 128, alt = 'QR code') {
   if (typeof window.QRCode !== 'function') {
     container.append(el('p', { 'data-role': 'qr-fallback' }, text));
     return;
@@ -20,4 +22,5 @@ export function drawQr(container, text, size = 128) {
     colorLight: '#ffffff',
     correctLevel: window.QRCode.CorrectLevel.M,
   });
+  container.querySelector('img')?.setAttribute('alt', alt);
 }

@@ -30,6 +30,6 @@ export function renderQrSheet(outlet) {
         el('p', { 'data-role': 'qr-url' }, url),
       ),
     );
-    drawQr(code, url, 160);
+    drawQr(code, url, 160, `QR code for ${loc.name}`);
   }
 }

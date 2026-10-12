@@ -344,7 +344,7 @@ function buildTextPanel(allTexts) {
 function buildQrPanel(loc) {
   const url = locationUrl(loc.identifier);
   const code = el('div', { 'data-role': 'qr-code' });
-  drawQr(code, url, 128);
+  drawQr(code, url, 128, `QR code for ${loc.name}`);
 
   return el('section', { 'data-role': 'location-qr', 'data-panel': 'qr' },
     code,
