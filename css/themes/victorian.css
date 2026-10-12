@@ -15,6 +15,10 @@
         metadata and the QR code side by side, the picture below them
      5. pictures: black and white, ruled, caption centred in capitals
      6. map: framed like a plate, legend below it as a caption
+     7. controls: double-rule frames, labels in small capitals, no boxes on
+        menu and previous / next; section headings set in a break of a
+        rule; a boxed initial at the start of a text; Leaflet's controls
+        and labels restyled to match
 
    All rules are scoped with :root[data-theme="victorian"], so they never
    apply to another theme even while stylesheets are being swapped.
@@ -85,11 +89,29 @@
 /* The face is small on the body: one step larger than the browser default */
 :root[data-theme="victorian"] body { font-size: 1.0625rem; }
 
+/* Controls: a double-rule frame, as round the cover of the bound volume and
+   its "Edited by" panel; labels in small capitals (capitals at a smaller
+   size: the face has no true small capitals) */
 :root[data-theme="victorian"] button {
   background: var(--color-bg);
+  border: 3px double var(--color-border);
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 :root[data-theme="victorian"] button[aria-pressed="true"] {
   background: var(--color-accent);
+}
+:root[data-theme="victorian"] select {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+}
+/* Focus: a second rule outside the control, like the double rule of a frame */
+:root[data-theme="victorian"] :focus-visible {
+  outline: 1px solid var(--color-fg);
+  outline-offset: 3px;
 }
 :root[data-theme="victorian"] th,
 :root[data-theme="victorian"] td {
@@ -115,6 +137,42 @@
 :root[data-theme="victorian"] [data-role="site-footer"] {
   border-top: 3px double var(--color-border);
 }
+
+/* Menu, switcher labels and previous / next: spaced capitals, as the items
+   of a ruled dateline; the current page in italic, like the running head */
+:root[data-theme="victorian"] [data-role="site-menu"] a,
+:root[data-theme="victorian"] [data-role="switcher"],
+:root[data-theme="victorian"] [data-role="step-nav"] a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+/* A short word is narrower than its 44px box: centre it, or the gaps differ */
+:root[data-theme="victorian"] [data-role="site-menu"] a { justify-content: center; }
+:root[data-theme="victorian"] [data-role="site-menu"] a:hover,
+:root[data-theme="victorian"] [data-role="step-nav"] a:hover { text-decoration: underline; }
+:root[data-theme="victorian"] [data-role="site-menu"] a[aria-current="page"] {
+  font-weight: normal;
+  font-style: italic;
+}
+/* The select keeps the size and case of the text (1.25 × 0.8em = 1em) */
+:root[data-theme="victorian"] [data-role="switcher"] select {
+  font-size: 1.25em;
+  text-transform: none;
+  letter-spacing: normal;
+}
+/* Previous / next without a box: they sit at the two ends of the band and
+   keep their width; "Return to the narrative" wraps instead */
+:root[data-theme="victorian"] [data-role="nav-prev"],
+:root[data-theme="victorian"] [data-role="nav-next"],
+:root[data-theme="victorian"] [data-role="nav-return"] {
+  padding-inline: 0;
+  border: 0;
+}
+:root[data-theme="victorian"] [data-role="nav-prev"],
+:root[data-theme="victorian"] [data-role="nav-next"] { flex: none; }
 /* The position in the narrative, set like a page number */
 :root[data-theme="victorian"] [data-role="nav-position"] {
   font-style: italic;
@@ -149,14 +207,26 @@
   color: var(--color-fg);
 }
 
-/* Cover: the narratives as a one-column list separated by rules */
-:root[data-theme="victorian"] [data-role="narrative-list"] h2 {
+/* Section headings: spaced capitals set in a break of a rule, as
+   "AN·ILLUSTRATED·MONTHLY" at the foot of the bound volume */
+:root[data-theme="victorian"] [data-role="page-body"] h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
   font-size: 1em;
   font-weight: normal;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
+:root[data-theme="victorian"] [data-role="page-body"] h2::before,
+:root[data-theme="victorian"] [data-role="page-body"] h2::after {
+  content: "";
+  flex: 1 1 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Cover: the narratives as a one-column list separated by rules */
 :root[data-theme="victorian"] [data-role="narrative-list"] ul {
   grid-template-columns: minmax(0, 1fr);
   gap: 0;
@@ -180,7 +250,25 @@
 :root[data-theme="victorian"] [data-role="location-kicker"] { font-style: italic; }
 :root[data-theme="victorian"] [data-role="transition"] { background: none; }
 :root[data-theme="victorian"] [data-role="transition-summary"] { font-weight: normal; font-style: italic; }
-:root[data-theme="victorian"] [data-role="transition-text"] { background: var(--color-bg); }
+:root[data-theme="victorian"] [data-role="transition-text"] {
+  background: var(--color-bg);
+  border: 3px double var(--color-border);
+}
+/* The face has no triangle: the marker is drawn as a shape (closed ▸, open ▾) */
+:root[data-theme="victorian"] [data-role="transition-summary"]::before {
+  content: "";
+  flex: none;
+  width: 0.45em;
+  height: 0.55em;
+  background: currentColor;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+:root[data-theme="victorian"] [data-role="transition"][open] > [data-role="transition-summary"]::before {
+  content: "";
+  width: 0.55em;
+  height: 0.45em;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
 
 :root[data-theme="victorian"] [data-role="metadata-caption"] {
   font-size: 0.8em;
@@ -192,6 +280,19 @@
 
 /* Paragraphs as in the magazine: first line indented, no space between them */
 :root[data-theme="victorian"] [data-role="text-body"] p { margin: 0; text-indent: 1.4em; }
+/* The first paragraph opens with an initial in a double-ruled box, as the
+   boxed initial of an illustrated title (November 1891, page 544) */
+:root[data-theme="victorian"] [data-role="text-body"] > p:first-of-type,
+:root[data-theme="victorian"] [data-role="chapter-intro"] > p:first-of-type { text-indent: 0; }
+:root[data-theme="victorian"] [data-role="text-body"] > p:first-of-type::first-letter,
+:root[data-theme="victorian"] [data-role="chapter-intro"] > p:first-of-type::first-letter {
+  float: left;
+  margin: 0.08em 0.12em 0 0;
+  padding: 0.04em 0.1em 0;
+  border: 3px double var(--color-border);
+  font-size: 3.1em;
+  line-height: 0.9;
+}
 :root[data-theme="victorian"] [data-role="text-body"] h3 {
   margin: var(--space-m) 0 var(--space-xs);
   font-size: 0.9em;
@@ -292,10 +393,51 @@
 }
 :root[data-theme="victorian"] .leaflet-tile-pane { filter: grayscale(1) sepia(0.25) contrast(0.95); }
 
+/* Leaflet's controls in the theme: square, ruled, on paper, in the face of
+   the theme; the marker labels set like captions */
+:root[data-theme="victorian"] .leaflet-container { font-family: var(--font-ui); }
+:root[data-theme="victorian"] .leaflet-bar {
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  box-shadow: none;
+}
+:root[data-theme="victorian"] .leaflet-bar a {
+  border-radius: 0;
+  border-bottom-color: var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-ui);
+}
+:root[data-theme="victorian"] .leaflet-bar a:hover { background: var(--color-surface); }
+:root[data-theme="victorian"] .leaflet-bar a.leaflet-disabled { background: var(--color-surface); color: var(--color-muted); }
+:root[data-theme="victorian"] .lmml-tooltip {
+  padding: var(--space-xs) var(--space-s);
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  box-shadow: none;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+:root[data-theme="victorian"] .lmml-tooltip.leaflet-tooltip-top::before { border-top-color: var(--color-border); }
+:root[data-theme="victorian"] .leaflet-control-attribution {
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+:root[data-theme="victorian"] .leaflet-control-attribution a { color: var(--color-accent); }
+
 
 /* NARROW LAYOUT =========================================================== */
 
 @media (orientation: portrait), (max-width: 600px), (max-height: 500px) {
+  /* The phone toolbar has no room for capitals: its labels keep their case */
+  :root[data-theme="victorian"] [data-role="location-toolbar"] button {
+    font-size: 0.85em;
+    text-transform: none;
+    letter-spacing: normal;
+  }
   /* One line: the running head and the Menu button */
   :root[data-theme="victorian"] [data-role="site-title"] { flex: 1 1 auto; }
   :root[data-theme="victorian"] [data-page="cover"] [data-role="page-header"] {
