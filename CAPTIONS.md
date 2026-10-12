@@ -4,7 +4,7 @@
 
 All 26 images referenced in `data/locations.json` were opened and looked at on 2026-10-06. Each now has its own `lmml:alt` text describing only what is visible. **No caption was changed.** The table below lists the captions that say something the picture does not show, or cannot confirm. Tick the ones you approve and I will apply them.
 
-The other 15 captions match their images and are not listed.
+The other 15 captions match their images and are not listed. test
 
 | ✓ | Location | Image | Current caption | What the image actually shows | Suggested caption | Kind |
 |---|---|---|---|---|---|---|
