@@ -131,6 +131,18 @@ js/render/notFound.js      unknown routes
 - `screenshots/` (ignored by git) holds the layout test screenshots and
   their `REPORT.md`.
 
+### Video and quiz
+
+- **Video:** a location whose work has a `trailer` or a `video` shows it as
+  one more figure after the pictures. The figure holds a button, "Watch the
+  video"; the YouTube player (from `youtube-nocookie.com`) is put in the page
+  only when it is pressed, so nothing is requested from YouTube before that.
+  The video is also a row of the metadata table and a source on the
+  disclaimer page.
+- **Quiz:** a location with `lmml:quiz` shows the question under the text
+  while the text shown is in the `young` tone, the one "Do you want to play?"
+  leads to. It is a `<details>`: pressing the question opens the answer.
+
 ### Text selection
 
 - Each text sits in a cell of a 3 × 3 × 3 grid. Each axis is an ordered scale:
@@ -161,7 +173,8 @@ The JSON files are plain JSON shaped like JSON-LD:
 
 - Property names come from [schema.org](https://schema.org) (`Place`,
   `GeoCoordinates`, `PostalAddress`, `Movie`, `TVEpisode`, `TVSeries`,
-  `ImageObject`, `CreativeWork`, `Person`).
+  `ImageObject`, `CreativeWork`, `Person`, `VideoObject`, `Organization`,
+  `Question`, `Answer`).
 - Terms schema.org doesn't cover use the `lmml:` prefix. The `@context` at
   the top of `locations.json` declares both vocabularies.
 - The `lmml:` namespace is `https://claudiabriccolani.github.io/web-tech-proj/ns#`.
@@ -183,6 +196,7 @@ The JSON files are plain JSON shaped like JSON-LD:
 | `lmml:alsoAppearsIn` | Place | list of other works filmed at the same place |
 | `lmml:facts` | Place | short atomic facts, each `{text, url}` with the source it comes from; the texts are written only from these |
 | `lmml:openQuestions` | Place | points on which sources disagree or that could not be confirmed |
+| `lmml:quiz` | Place | one quiz question, a schema.org `Question`: `name` (the question), `acceptedAnswer.text`, `inLanguage`, `isBasedOn` (the sources of the facts it is built from) |
 | `lmml:imageNote` | Place | note for visitors, shown under the images, when no licensed photo of the exact place exists |
 | `lmml:visitorAccess` | Place | for interior scenes: `{dateChecked, statements: [{text, url}]}` with opening hours, booking and photography rules from the venue's own site; shown in the metadata table as "Visiting and photography" |
 | `lmml:estimatedMinutes` | narrative | `{travel, visits, visitMinutesPerStop, total}`; `total` is shown on the cover |
@@ -206,8 +220,15 @@ Some schema.org properties are used in a specific sense:
   `ImageObject.license` is the licence URL, or the words "Public domain" for
   the reference images of the documentation that have no licence.
 
+- `trailer` (a trailer) or `video` (a clip), inside `lmml:appearsIn`, is the
+  official video of the work: a `VideoObject` with `name`, `url` (its page on
+  YouTube), `embedUrl` (the player, which must be on
+  `https://www.youtube-nocookie.com/embed/`), `thumbnailUrl`, `uploadDate`,
+  `duration` and `publisher` (an `Organization`: the channel).
+
 `lmml:facts` and `lmml:openQuestions` are working data: the metadata table
-does not show them.
+does not show them. It does not show `lmml:quiz` either, which would give the
+answer away.
 
 ## How to…
 
@@ -220,9 +241,12 @@ does not show them.
 3. Add the `image` entries (put the files in `img/`).
 4. Add the `citation` entries. Every `http(s)` URL in `citation` and
    `image[].url` is listed on the disclaimer page automatically.
-5. Set `lmml:verified` to `true` once everything has been checked.
-6. Add the location to one or more narratives (see below).
-7. Reload and check the console for data problems.
+5. Optionally add the official video of the work (`trailer` or `video` in
+   `lmml:appearsIn`) and a quiz question (`lmml:quiz`), written only from the
+   location's facts. Take the video from the channel of the rights holder.
+6. Set `lmml:verified` to `true` once everything has been checked.
+7. Add the location to one or more narratives (see below).
+8. Reload and check the console for data problems.
 
 For a TV episode, use `"@type": "TVEpisode"` with `episodeNumber`,
 `partOfSeason` and `partOfSeries`.
@@ -308,7 +332,7 @@ Add an object to `data/narratives.json` → `narratives`:
 ## Style hooks
 
 **Elements.** The HTML uses a restricted vocabulary: `header nav main footer
-article section figure figcaption img h1 h2 h3 p a button label select details
+article section figure figcaption img iframe h1 h2 h3 p a button label select details
 summary table
 caption tbody tr th td ul ol li div span`.
 
@@ -326,6 +350,7 @@ caption tbody tr th td ul ol li div span`.
   `switch-group`, `group-label`,
   `location-kicker`, `outside-note`, `location-title`, `location-work`, `verified-flag`,
   `location-media`, `location-figure`, `figure-caption`, `caption-credit`, `image-note`,
+  `video-frame`, `video-play`, `quiz`, `quiz-question`, `quiz-label`, `quiz-answer`,
   `panel-tabs`, `location-text`, `text-controls`, `text-switch`,
   `lang-switch`, `text-cell`, `text-body`, `location-meta`,
   `metadata-table`,
@@ -343,6 +368,7 @@ can style by content:
 
 - **Page:** `main[data-view]`, `[data-page]`
 - **Location:** `[data-location]`, `[data-verified]`, `[data-in-narrative]`,
+  `[data-has-video]`, `[data-kind="video"]`,
   `[data-active-panel]`, `[data-panel]`
 - **Narratives and chapters:** `[data-narrative]`, `[data-current]`,
   `[data-chapter]`
@@ -353,6 +379,9 @@ can style by content:
 
 ## Known limitations
 
+- The videos are played from YouTube and were not watched when they were
+  chosen; a channel can withdraw one or limit the countries where it plays.
+- The quiz questions are in English only.
 - All 15 locations have `lmml:verified: false` and
   `lmml:cameraConfidence: "estimated"`: camera positions and bearings are
   estimated from the sources and have not yet been verified on site.
