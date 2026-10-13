@@ -36,6 +36,20 @@
         "director": {
           "@type": "Person",
           "name": "Richard Lester"
+        },
+        "video": {
+          "@type": "VideoObject",
+          "name": "The Beatles - A Hard Day's Night",
+          "url": "https://www.youtube.com/watch?v=Yjyj8qnqkYI",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/Yjyj8qnqkYI",
+          "thumbnailUrl": "https://i.ytimg.com/vi/Yjyj8qnqkYI/hqdefault.jpg",
+          "uploadDate": "2018-06-21",
+          "duration": "PT2M38S",
+          "publisher": {
+            "@type": "Organization",
+            "name": "The Beatles",
+            "url": "https://www.youtube.com/channel/UCc4K7bAqpdBP8jh1j9XZAww"
+          }
         }
       },
       "lmml:sceneDescription": "The opening sequence: the Beatles are chased by fans into a railway station and catch a train. The same station is used again, from a different angle, when they arrive in London.",
@@ -229,6 +243,20 @@
         "director": {
           "@type": "Person",
           "name": "Richard Lester"
+        },
+        "video": {
+          "@type": "VideoObject",
+          "name": "The Beatles - A Hard Day's Night",
+          "url": "https://www.youtube.com/watch?v=Yjyj8qnqkYI",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/Yjyj8qnqkYI",
+          "thumbnailUrl": "https://i.ytimg.com/vi/Yjyj8qnqkYI/hqdefault.jpg",
+          "uploadDate": "2018-06-21",
+          "duration": "PT2M38S",
+          "publisher": {
+            "@type": "Organization",
+            "name": "The Beatles",
+            "url": "https://www.youtube.com/channel/UCc4K7bAqpdBP8jh1j9XZAww"
+          }
         }
       },
       "lmml:sceneDescription": "Near the end of the film the four Beatles come running out of this alleyway and into the theatre over the road, just in time for their television concert.",
@@ -401,6 +429,20 @@
         "director": {
           "@type": "Person",
           "name": "Roger Michell"
+        },
+        "video": {
+          "@type": "VideoObject",
+          "name": "Notting Hill | The Beginning of a Great Romance (Hugh Grant, Julia Roberts)",
+          "url": "https://www.youtube.com/watch?v=G5GF_fLeIFk",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/G5GF_fLeIFk",
+          "thumbnailUrl": "https://i.ytimg.com/vi/G5GF_fLeIFk/hqdefault.jpg",
+          "uploadDate": "2024-08-13",
+          "duration": "PT9M33S",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Universal Pictures",
+            "url": "https://www.youtube.com/@UniversalPictures"
+          }
         }
       },
       "lmml:sceneDescription": "William Thacker's travel bookshop, where the film star Anna Scott walks in one day; she later returns to it with a wrapped gift to ask him to take her back.",
@@ -572,6 +614,20 @@
         "director": {
           "@type": "Person",
           "name": "Roger Michell"
+        },
+        "video": {
+          "@type": "VideoObject",
+          "name": "Notting Hill | The Beginning of a Great Romance (Hugh Grant, Julia Roberts)",
+          "url": "https://www.youtube.com/watch?v=G5GF_fLeIFk",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/G5GF_fLeIFk",
+          "thumbnailUrl": "https://i.ytimg.com/vi/G5GF_fLeIFk/hqdefault.jpg",
+          "uploadDate": "2024-08-13",
+          "duration": "PT9M33S",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Universal Pictures",
+            "url": "https://www.youtube.com/@UniversalPictures"
+          }
         }
       },
       "lmml:sceneDescription": "The front door of the flat William shares with Spike. Anna hides here from a tabloid scandal; the next morning paparazzi besiege the house and photograph Will, Anna and a half-dressed Spike at the door.",
@@ -717,6 +773,20 @@
         "director": {
           "@type": "Person",
           "name": "Chris Columbus"
+        },
+        "video": {
+          "@type": "VideoObject",
+          "name": "Harry Visits Diagon Alley | Full Scene | Harry Potter and the Philosopher's Stone",
+          "url": "https://www.youtube.com/watch?v=5W-a0tl9Fu0",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/5W-a0tl9Fu0",
+          "thumbnailUrl": "https://i.ytimg.com/vi/5W-a0tl9Fu0/hqdefault.jpg",
+          "uploadDate": "2025-08-29",
+          "duration": "PT3M43S",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Harry Potter",
+            "url": "https://www.youtube.com/@harrypotter"
+          }
         }
       },
       "lmml:sceneDescription": "Rescued from the Dursleys, Harry follows Hagrid through the market and through a small doorway into the Leaky Cauldron, the secret wizards' pub whose brick wall leads to Diagon Alley.",
@@ -902,6 +972,20 @@
         "director": {
           "@type": "Person",
           "name": "Richard Curtis"
+        },
+        "trailer": {
+          "@type": "VideoObject",
+          "name": "Love Actually | Official Trailer | Re-releasing In Cinemas November 24",
+          "url": "https://www.youtube.com/watch?v=nikKAfoah8U",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/nikKAfoah8U",
+          "thumbnailUrl": "https://i.ytimg.com/vi/nikKAfoah8U/hqdefault.jpg",
+          "uploadDate": "2023-11-02",
+          "duration": "PT1M41S",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Universal Pictures UK",
+            "url": "https://www.youtube.com/@universalpicturesuk"
+          }
         }
       },
       "lmml:sceneDescription": "In the film's opening montage the courtyard appears as an ice rink, with people skating.",
@@ -1087,6 +1171,20 @@
         "director": {
           "@type": "Person",
           "name": "Richard Curtis"
+        },
+        "trailer": {
+          "@type": "VideoObject",
+          "name": "Love Actually | Official Trailer | Re-releasing In Cinemas November 24",
+          "url": "https://www.youtube.com/watch?v=nikKAfoah8U",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/nikKAfoah8U",
+          "thumbnailUrl": "https://i.ytimg.com/vi/nikKAfoah8U/hqdefault.jpg",
+          "uploadDate": "2023-11-02",
+          "duration": "PT1M41S",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Universal Pictures UK",
+            "url": "https://www.youtube.com/@universalpicturesuk"
+          }
         }
       },
       "lmml:sceneDescription": "The wedding of Peter and Juliet at the start of the film, which ends with a surprise performance of 'All You Need Is Love'.",
@@ -1271,6 +1369,20 @@
         "director": {
           "@type": "Person",
           "name": "Richard Curtis"
+        },
+        "trailer": {
+          "@type": "VideoObject",
+          "name": "Love Actually | Official Trailer | Re-releasing In Cinemas November 24",
+          "url": "https://www.youtube.com/watch?v=nikKAfoah8U",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/nikKAfoah8U",
+          "thumbnailUrl": "https://i.ytimg.com/vi/nikKAfoah8U/hqdefault.jpg",
+          "uploadDate": "2023-11-02",
+          "duration": "PT1M41S",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Universal Pictures UK",
+            "url": "https://www.youtube.com/@universalpicturesuk"
+          }
         }
       },
       "lmml:sceneDescription": "Harry furtively buys a necklace for Mia, nervous that his wife Karen is about to arrive, while the shop assistant makes an elaborate job of wrapping it.",
@@ -1453,6 +1565,20 @@
         "director": {
           "@type": "Person",
           "name": "Richard Curtis"
+        },
+        "video": {
+          "@type": "VideoObject",
+          "name": "Love Actually | Cards on the Doorstep",
+          "url": "https://www.youtube.com/watch?v=QyN9E08vFSY",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/QyN9E08vFSY",
+          "thumbnailUrl": "https://i.ytimg.com/vi/QyN9E08vFSY/hqdefault.jpg",
+          "uploadDate": "2019-12-11",
+          "duration": "PT2M33S",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Universal Pictures",
+            "url": "https://www.youtube.com/@UniversalPictures"
+          }
         }
       },
       "lmml:sceneDescription": "Mark stands on Juliet's doorstep and silently declares his love for her with a series of cue cards.",
@@ -1640,6 +1766,20 @@
         "director": {
           "@type": "Person",
           "name": "David Yates"
+        },
+        "video": {
+          "@type": "VideoObject",
+          "name": "Harry Potter and the Half-Blood Prince | Full Movie Preview | Warner Bros. Entertainment",
+          "url": "https://www.youtube.com/watch?v=HcryxumRxUI",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/HcryxumRxUI",
+          "thumbnailUrl": "https://i.ytimg.com/vi/HcryxumRxUI/hqdefault.jpg",
+          "uploadDate": "2020-06-19",
+          "duration": "PT9M50S",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Warner Bros. Entertainment",
+            "url": "https://www.youtube.com/@warnerbrosentertainment"
+          }
         }
       },
       "lmml:alsoAppearsIn": [
@@ -1909,7 +2049,21 @@
             "@type": "Person",
             "name": "Mark Gatiss"
           }
-        ]
+        ],
+        "video": {
+          "@type": "VideoObject",
+          "name": "221b Baker Street Time Lapse | Sherlock",
+          "url": "https://www.youtube.com/watch?v=xvBj3H5PBK0",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/xvBj3H5PBK0",
+          "thumbnailUrl": "https://i.ytimg.com/vi/xvBj3H5PBK0/hqdefault.jpg",
+          "uploadDate": "2016-12-30",
+          "duration": "PT55S",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Sherlock",
+            "url": "https://www.youtube.com/@Sherlock221B"
+          }
+        }
       },
       "lmml:sceneDescription": "The street door of Sherlock and John's flat, next to Speedy's sandwich shop, seen in many exterior shots across the series.",
       "lmml:representsPlace": {
@@ -2102,6 +2256,20 @@
         "partOfSeries": {
           "@type": "TVSeries",
           "name": "Sherlock"
+        },
+        "video": {
+          "@type": "VideoObject",
+          "name": "Sherlock and John's First Meeting | A Study In Pink | Sherlock | BBC",
+          "url": "https://www.youtube.com/watch?v=VaT7IYQgyqo",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/VaT7IYQgyqo",
+          "thumbnailUrl": "https://i.ytimg.com/vi/VaT7IYQgyqo/hqdefault.jpg",
+          "uploadDate": "2015-09-22",
+          "duration": "PT4M11S",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Sherlock",
+            "url": "https://www.youtube.com/@Sherlock221B"
+          }
         }
       },
       "lmml:sceneDescription": "Dr Watson runs into his former classmate Mike Stamford in the park, and the two talk on a bench with the Imperial Hotel behind them.",
@@ -2278,6 +2446,20 @@
         "partOfSeries": {
           "@type": "TVSeries",
           "name": "Sherlock"
+        },
+        "video": {
+          "@type": "VideoObject",
+          "name": "Sherlock and Moriarty's Rooftop Showdown | Sherlock Series 2 | BBC Studios",
+          "url": "https://www.youtube.com/watch?v=9l963C4HKL0",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/9l963C4HKL0",
+          "thumbnailUrl": "https://i.ytimg.com/vi/9l963C4HKL0/hqdefault.jpg",
+          "uploadDate": "2012-12-25",
+          "duration": "PT3M28S",
+          "publisher": {
+            "@type": "Organization",
+            "name": "BBC Studios",
+            "url": "https://www.youtube.com/@BBCStudios"
+          }
         }
       },
       "lmml:sceneDescription": "Sherlock meets Moriarty on the hospital roof. After Moriarty shoots himself, Sherlock phones John, who is in the street below, and jumps.",
@@ -2456,7 +2638,21 @@
             "@type": "Person",
             "name": "Phoebe Waller-Bridge"
           }
-        ]
+        ],
+        "video": {
+          "@type": "VideoObject",
+          "name": "When your boyfriend catches you in bed with Obama - Fleabag: Episode 1 - BBC Three",
+          "url": "https://www.youtube.com/watch?v=mgHVoeo5K0s",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/mgHVoeo5K0s",
+          "thumbnailUrl": "https://i.ytimg.com/vi/mgHVoeo5K0s/hqdefault.jpg",
+          "uploadDate": "2016-07-13",
+          "duration": "PT1M30S",
+          "publisher": {
+            "@type": "Organization",
+            "name": "BBC",
+            "url": "https://www.youtube.com/@BBC"
+          }
+        }
       },
       "lmml:sceneDescription": "The guinea-pig-themed café that Fleabag runs after the death of her best friend. A customer picks up a cheese sandwich; she tells him it costs £12.55 and, at his disbelief, replies: 'London, eh?'",
       "lmml:representsPlace": {
@@ -2659,6 +2855,20 @@
         "partOfSeries": {
           "@type": "TVSeries",
           "name": "Fleabag"
+        },
+        "video": {
+          "@type": "VideoObject",
+          "name": "Awkward Family Dinner | Fleabag Series 2",
+          "url": "https://www.youtube.com/watch?v=XM_vefU_pTE",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/XM_vefU_pTE",
+          "thumbnailUrl": "https://i.ytimg.com/vi/XM_vefU_pTE/hqdefault.jpg",
+          "uploadDate": "2019-03-05",
+          "duration": "PT5M5S",
+          "publisher": {
+            "@type": "Organization",
+            "name": "BBC",
+            "url": "https://www.youtube.com/@BBC"
+          }
         }
       },
       "lmml:sceneDescription": "The awkward family dinner party that opens the second series.",
