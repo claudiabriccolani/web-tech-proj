@@ -1,30 +1,4 @@
-/* ==========================================================================
-   victorian.css — theme after The Strand Magazine (1890s)
-
-   Sources looked at (see the documentation, section 3.1):
-     - The Strand Magazine, No. 19 (July 1892), pages 9 and 12
-     - the cover of the bound volume of 1894
-     - illustrations of the July 1891 issue
-
-   What the theme changes, compared with base.css:
-     1. fonts and colours
-     2. site header: a running head (centred italic capitals, double rule)
-     3. text pages: one centred column; the cover has a framed title and a
-        one-column list of narratives
-     4. location page, wide: two equal halves, text left; on the right the
-        metadata and the QR code side by side, the picture below them
-     5. pictures: black and white, ruled, caption centred in capitals
-     6. map: framed like a plate, legend below it as a caption
-     7. controls: double-rule frames, labels in small capitals, no boxes on
-        menu and previous / next; section headings set in a break of a
-        rule; a boxed initial at the start of a text; Leaflet's controls
-        and labels restyled to match
-
-   All rules are scoped with :root[data-theme="victorian"], so they never
-   apply to another theme even while stylesheets are being swapped.
-   The minimum sizes of base.css (--target-size, --loc-image-min-height) are
-   not redefined.
-   ========================================================================== */
+/* Theme after The Strand Magazine (1890s). Sources: documentation, section 3.1. */
 
 /* Old Standard TT, by Alexey Kryukov. SIL Open Font License 1.1
    (fonts/OFL-Old-Standard-TT.txt). Files from Google Fonts, latin subset. */
@@ -50,8 +24,7 @@
   src: url("../../fonts/old-standard-tt-700.woff2") format("woff2");
 }
 
-
-/* 1. FONTS AND COLOURS ==================================================== */
+/* Fonts and colours */
 
 :root[data-theme="victorian"] {
   --font-body: "Old Standard TT", Georgia, "Times New Roman", serif;
@@ -75,9 +48,7 @@
 
   --page-max-width: 62ch;
 
-  /* 4. Location, wide: two equal halves. Left the text; right, the metadata
-     and the QR code side by side, and below them the picture, which keeps
-     its guaranteed minimum height. */
+  /* Location, wide: two equal halves */
   --loc-landscape-areas:
     "header header header"
     "text   meta   qr"
@@ -118,8 +89,7 @@
   border-bottom: 1px solid var(--color-muted);
 }
 
-
-/* 2. SITE HEADER: A RUNNING HEAD ========================================== */
+/* Site header: a running head */
 
 :root[data-theme="victorian"] [data-role="site-header"] {
   justify-content: center;
@@ -157,7 +127,6 @@
   font-weight: normal;
   font-style: italic;
 }
-/* The two switchers further apart than a label and its select */
 :root[data-theme="victorian"] [data-role="switchers"] { column-gap: var(--space-m); }
 /* The select keeps the size and case of the text (1.25 × 0.8em = 1em) */
 :root[data-theme="victorian"] [data-role="switcher"] select {
@@ -180,8 +149,7 @@
   font-style: italic;
 }
 
-
-/* 3. TEXT PAGES =========================================================== */
+/* Text pages */
 
 :root[data-theme="victorian"] [data-role="page-header"] { text-align: center; }
 :root[data-theme="victorian"] [data-role="page-title"] { font-weight: normal; letter-spacing: 0.02em; }
@@ -245,8 +213,7 @@
 :root[data-theme="victorian"] [data-role="narrative-title"] { margin: 0; font-style: italic; font-weight: normal; font-size: 1.4em; }
 :root[data-theme="victorian"] [data-role="narrative-meta"] { color: var(--color-muted); }
 
-
-/* 4. LOCATION PAGE ======================================================== */
+/* Location page */
 
 :root[data-theme="victorian"] [data-role="location-title"] { font-weight: normal; }
 :root[data-theme="victorian"] [data-role="location-kicker"] { font-style: italic; }
@@ -341,8 +308,7 @@
   }
 }
 
-
-/* 5. PICTURES ============================================================= */
+/* Pictures */
 
 /* Black and white like the engravings: a filter, the files are not changed */
 :root[data-theme="victorian"] [data-role="location-figure"] img {
@@ -362,8 +328,7 @@
 }
 :root[data-theme="victorian"] [data-role="image-note"] { font-style: italic; }
 
-
-/* 6. MAP ================================================================== */
+/* Map */
 
 /* Title, then the map as a framed plate, then the legend as its caption.
    The header of the map page is dissolved so that title and legend can sit
@@ -430,8 +395,7 @@
 }
 :root[data-theme="victorian"] .leaflet-control-attribution a { color: var(--color-accent); }
 
-
-/* NARROW LAYOUT =========================================================== */
+/* Narrow layout */
 
 @media (orientation: portrait), (max-width: 600px), (max-height: 500px) {
   /* The phone toolbar has no room for capitals: its labels keep their case */

@@ -1,19 +1,3 @@
-/**
- * render/disclaimer.js — disclaimer page (#/disclaimer).
- *
- * The text is a template in site.json with three placeholders:
- *   {{sourceNames}}  short list of source websites, e.g. "wikipedia.org and imdb.com"
- *   {{sourceList}}   full list of sources (<ul>), generated from the data
- *   {{author}}       site.json "author"
- *
- * Sources are collected from every location: its "citation" entries, the
- * source page ("url") of every image and the YouTube page of its video.
- * Duplicates (same URL) are merged.
- * An image licence that is an address becomes a "Licence" link; one that is
- * not ("Public domain") is shown as text.
- * The reference images and links of the documentation (site.json
- * "docsReferences") are added in the same way, under the name "Documentation".
- */
 import { el, escapeHtml } from '../dom.js';
 import { getData, videoOf } from '../data.js';
 import { pageShell } from './page.js';
@@ -21,10 +5,9 @@ import { pageShell } from './page.js';
 export function collectSources(locations) {
   const byUrl = new Map();
 
-  // The same page can be both a cited source and the source page of an image:
-  // then its entry keeps BOTH descriptions, so the image credit is never lost.
+  // A page can be both a cited source and the source of an image: keep both descriptions
   const add = (url, description, loc, license) => {
-    if (!url || !/^https?:\/\//.test(url)) return; // skip empty/TODO values
+    if (!url || !/^https?:\/\//.test(url)) return;
     if (!byUrl.has(url)) byUrl.set(url, { url, descriptions: [], license: null, locations: new Set() });
     const source = byUrl.get(url);
     if (description && !source.descriptions.includes(description)) source.descriptions.push(description);
@@ -54,7 +37,7 @@ function hostnameOf(url) {
   }
 }
 
-/** ['a','b','c'] -> "a, b and c" */
+// ['a','b','c'] -> "a, b and c"
 function formatList(items) {
   if (items.length <= 1) return items.join('');
   return `${items.slice(0, -1).join(', ')} and ${items.at(-1)}`;
@@ -62,14 +45,12 @@ function formatList(items) {
 
 export function renderDisclaimer(outlet) {
   const { site, locations } = getData();
-  // The references of the documentation have the same shape as a location
-  // (image + citation), so they go through the same function.
+  // docsReferences has the same shape as a location
   const docs = site.docsReferences ? [{ name: 'Documentation', ...site.docsReferences }] : [];
   const sources = collectSources([...locations, ...docs]);
   const names = [...new Set(sources.map((s) => hostnameOf(s.url)))];
 
-  // Built as an HTML string because it is inserted inside the template string.
-  // Every value from the data is escaped.
+  // An HTML string because it goes inside the template; every value is escaped
   const listHtml = sources.length
     ? `<ul data-role="source-list">${sources.map((s) => `
         <li data-role="source">

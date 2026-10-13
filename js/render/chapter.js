@@ -1,7 +1,3 @@
-/**
- * render/chapter.js — a chapter intro screen (#/chapter/:narrativeId/:n).
- * These screens sit between locations in the narrative sequence.
- */
 import { el } from '../dom.js';
 import { getNarrative, getLocation, workOf, workLabel } from '../data.js';
 import { pageShell } from './page.js';

@@ -1,13 +1,4 @@
-/**
- * render/docs.js — documentation page (#/docs, #/docs/3.2).
- *
- * Sections come from site.json "docs" (a tree: each section may have
- * "sections"). Numbers are COMPUTED from the position in the tree, so
- * inserting a section renumbers everything automatically.
- *
- * #/docs/3.2 opens the page scrolled to section 3.2. (Normal #anchors can't be
- * used because the hash is already taken by the router.)
- */
+// The router owns the hash, so #/docs/3.2 scrolls to the section in place of a normal anchor
 import { el } from '../dom.js';
 import { getData } from '../data.js';
 import { pageShell } from './page.js';
@@ -28,7 +19,6 @@ export function renderDocs(outlet, params) {
     ),
   );
 
-  // Scroll to the requested section (only possible once it is in the document)
   if (params.section) {
     const target = document.getElementById(sectionId(params.section));
     if (target) {
@@ -38,15 +28,11 @@ export function renderDocs(outlet, params) {
   }
 }
 
-/**
- * Recursive: builds the sections of one level, then calls itself for the
- * sub-sections. prefix "3" + position 2 -> number "3.2".
- */
 function addSections(list, prefix, depth, tocParent, bodyParent) {
   list.forEach((section, i) => {
     const number = prefix ? `${prefix}.${i + 1}` : String(i + 1);
 
-    // Only h2/h3 are in our HTML vocabulary: deeper levels reuse h3 (data-depth tells them apart)
+    // Only h2 and h3 are in the HTML vocabulary: deeper levels reuse h3
     const heading = el(depth === 1 ? 'h2' : 'h3', { 'data-role': 'docs-heading' },
       el('span', { 'data-role': 'section-number' }, number), ' ', section.title);
 

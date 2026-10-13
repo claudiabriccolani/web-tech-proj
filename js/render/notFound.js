@@ -1,6 +1,3 @@
-/**
- * render/notFound.js — shown for unknown hashes or unknown ids.
- */
 import { el } from '../dom.js';
 import { pageShell } from './page.js';
 

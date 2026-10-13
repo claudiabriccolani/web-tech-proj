@@ -1,8 +1,3 @@
-/**
- * render/qr.js — printable sheet with one QR code per location (#/qr).
- * Print styles are in base.css (@media print): header, footer and buttons
- * are hidden and the grid flows over several sheets.
- */
 import { el } from '../dom.js';
 import { getData, locationUrl } from '../data.js';
 import { drawQr } from '../qr.js';

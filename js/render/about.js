@@ -1,6 +1,3 @@
-/**
- * render/about.js — about the author (#/about). Content from data/site.json.
- */
 import { el } from '../dom.js';
 import { getData } from '../data.js';
 import { pageShell } from './page.js';

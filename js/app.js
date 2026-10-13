@@ -1,17 +1,3 @@
-/**
- * app.js — bootstrap. This is the only script loaded by index.html.
- *
- * Startup sequence:
- *   1. load the JSON data (data.js)
- *   2. check it and report problems in the console (validate.js)
- *   3. restore the user's choices from localStorage (state.js)
- *   4. apply the theme (theme.js)
- *   5. wire the header/footer controls (render/chrome.js)
- *   6. declare the routes and start the router (router.js)
- *
- * After that, everything is driven by the URL hash: every change of hash
- * renders a view into <main>, then updates header and footer.
- */
 import { el } from './dom.js';
 import { loadData } from './data.js';
 import { validateData } from './validate.js';
@@ -31,10 +17,7 @@ import { renderDisclaimer } from './render/disclaimer.js';
 import { renderQrSheet } from './render/qr.js';
 import { renderNotFound } from './render/notFound.js';
 
-/**
- * The route table. "page" groups routes that are the same page for the menu
- * and for prev/next (e.g. #/map and #/map/:id are both the "map" page).
- */
+// "page" groups the routes that share a menu entry and a place in prev/next
 const ROUTES = [
   { path: '/', name: 'cover', page: 'cover', render: renderCover },
   { path: '/map', name: 'map', page: 'map', render: renderMap },
@@ -51,8 +34,7 @@ const ROUTES = [
 async function main() {
   const outlet = document.querySelector('[data-role="view"]');
 
-  // 1. Load data. The most common failure: opening index.html as a file://
-  //    (fetch and ES modules need a web server).
+  // fetch and ES modules do not work on file://, which is the usual cause
   let data;
   try {
     data = await loadData();
@@ -66,10 +48,8 @@ async function main() {
     return;
   }
 
-  // 2. Check the data (console only)
   validateData(data);
 
-  // 3. Restore saved choices, falling back to the defaults in site.json
   initState({
     themeIds: data.site.themes.map((t) => t.id),
     defaultTheme: data.site.defaultTheme,
@@ -77,12 +57,9 @@ async function main() {
     defaultNarrative: data.site.defaultNarrative,
   });
 
-  // 4. Theme
   applyTheme(getState().theme);
 
-  // 5. Header and footer. Changing theme or narrative re-renders the current
-  //    view, because both can change the layout, the prev/next links, the
-  //    route on the map and the narrative-specific texts.
+  // Theme and narrative both change the layout, prev/next and the map route
   initChrome({
     onThemeChange(themeId) {
       setState({ theme: themeId });
@@ -95,7 +72,6 @@ async function main() {
     },
   });
 
-  // 6. Routing
   defineRoutes(ROUTES, {
     outlet,
     notFound: renderNotFound,

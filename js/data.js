@@ -1,19 +1,9 @@
-/**
- * data.js — loads the three JSON files and offers small "accessor" functions.
- *
- * Why accessors? The JSON uses schema.org / lmml: property names, some of which
- * contain a colon ("lmml:cameraBearing"). In JavaScript these need bracket
- * notation: loc['lmml:cameraBearing']. Keeping those accesses here means the
- * views stay readable and, if the data model changes, only this file changes.
- */
-
 const FILES = {
   site: 'data/site.json',
   locations: 'data/locations.json',
   narratives: 'data/narratives.json',
 };
 
-/** All loaded data lives here after loadData() has run. */
 let DATA = null;
 
 async function fetchJson(url) {
@@ -22,10 +12,6 @@ async function fetchJson(url) {
   return response.json();
 }
 
-/**
- * Load the three files in parallel and build lookup tables (Map by id),
- * so that "find location by id" is a single .get() instead of a loop.
- */
 export async function loadData() {
   const [site, locationsDoc, narrativesDoc] = await Promise.all([
     fetchJson(FILES.site),
@@ -54,15 +40,12 @@ export function getData() {
 export const getLocation = (id) => getData().locationsById.get(id) ?? null;
 export const getNarrative = (id) => getData().narrativesById.get(id) ?? null;
 
-/* ---------- Accessors for a location ---------- */
-
-/** [lat, lng] of the place itself (Leaflet's coordinate format), or null. */
+// [lat, lng], the order Leaflet expects
 export function geoOf(loc) {
   const g = loc?.geo;
   return g && typeof g.latitude === 'number' ? [g.latitude, g.longitude] : null;
 }
 
-/** Camera position [lat, lng] and bearing in degrees from north, or null. */
 export function cameraOf(loc) {
   const c = loc?.['lmml:cameraPosition'];
   if (!c || typeof c.latitude !== 'number') return null;
@@ -70,28 +53,20 @@ export function cameraOf(loc) {
   return { latLng: [c.latitude, c.longitude], bearing: typeof bearing === 'number' ? bearing : null };
 }
 
-/** The Movie / TVEpisode the location appears in. */
 export const workOf = (loc) => loc?.['lmml:appearsIn'] ?? null;
 
-/**
- * The official video of the work: its trailer, or a clip of the scene (a
- * schema.org VideoObject in "trailer" or "video" of the work), or null.
- */
+// "trailer" holds a trailer, "video" a clip
 export function videoOf(loc) {
   const work = workOf(loc);
   return work?.trailer ?? work?.video ?? null;
 }
 
-/** The quiz question of a location (a schema.org Question), or null. */
 export const quizOf = (loc) => loc?.['lmml:quiz'] ?? null;
 
-/** The default texts of a location (may be replaced by narrative texts, see render/location.js). */
 export const textsOf = (loc) => loc?.['lmml:texts'] ?? [];
 
-/** "2003-11-21" -> "2003" */
 export const yearOf = (date) => String(date ?? '').slice(0, 4);
 
-/** Human-readable label for a work: "Love Actually (2003)" or "Sherlock – Episode (2010)". */
 export function workLabel(work) {
   if (!work) return '';
   const series = work.partOfSeries?.name;
@@ -100,12 +75,7 @@ export function workLabel(work) {
   return year ? `${title} (${year})` : title;
 }
 
-/**
- * Absolute URL of a location page, used in QR codes.
- * If site.json has a "baseUrl" (the deployed site) we use it, so that QR codes
- * printed during development still point to the public site. Otherwise we use
- * the address the page is currently served from.
- */
+// baseUrl keeps printed QR codes pointing at the public site, even from localhost
 export function locationUrl(id) {
   const base = getData().site.baseUrl || `${window.location.origin}${window.location.pathname}`;
   return `${base.replace(/#.*$/, '')}#/location/${encodeURIComponent(id)}`;

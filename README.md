@@ -124,7 +124,7 @@ js/render/notFound.js      unknown routes
 - The same DOM serves both layouts. `placeControls()` in
   `js/render/location.js` moves the switches and the map link into the
   toolbar when the narrow media query matches, and back when it does not.
-  The query is written twice: `NARROW` in that file and section 11 of
+  The query is written twice: `NARROW` in that file and the narrow layout of
   `css/base.css`. Change both together.
 - Directions are a `<details>`, closed by default. Opened, they are laid over
   the page below the header and scroll in their own box.
@@ -307,7 +307,7 @@ Add an object to `data/narratives.json` → `narratives`:
    `:root[data-theme="<id>"]`.
 2. Register it in `data/site.json` → `themes`:
    `{ "id": "<id>", "label": "…", "href": "css/themes/<id>.css" }`.
-3. Override the custom properties from section 1 of `css/base.css`:
+3. Override the custom properties declared at the top of `css/base.css`:
    - **Typography:** `--font-body`, `--font-heading`, `--font-ui`, `--line-height`
    - **Colours:** `--color-*`, `--map-*`
    - **Layout of the whole page:** `--app-areas`, `--app-rows`

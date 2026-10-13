@@ -1,11 +1,5 @@
-/**
- * qr.js — draws a QR code with the qrcodejs library (loaded from CDN in
- * index.html, available as window.QRCode).
- *
- * If the library could not be loaded (offline), the URL is shown as text instead.
- * The library draws a <canvas> and an <img> without alt text: "alt" is set on
- * the image afterwards.
- */
+// qrcodejs draws an <img> without alt text, so alt is set afterwards.
+// If the library did not load, the URL is shown as text.
 import { el } from './dom.js';
 
 export function drawQr(container, text, size = 128, alt = 'QR code') {

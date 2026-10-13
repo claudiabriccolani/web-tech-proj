@@ -1,50 +1,13 @@
-/* ==========================================================================
-   base.css — STRUCTURE AND LAYOUT ONLY
+/* Structure and layout only. Themes override the custom properties below. */
 
-   This file decides WHERE things go, not how they look. Visual decisions are
-   neutral placeholders exposed as CSS custom properties (section 1): themes
-   override those variables and, where needed, add their own rules.
-
-   Key ideas:
-   - The page is exactly the viewport (100dvh) and never scrolls. Only
-     elements marked [data-scroll] scroll, inside their own box.
-   - Layouts use NAMED GRID AREAS whose templates are stored in custom
-     properties (--app-areas, --loc-landscape-areas, ...). A theme can move
-     blocks around just by redefining a variable, without touching the HTML.
-   - Two layout families: "wide" (desktop) and "narrow" (phones, in portrait
-     and in landscape), each with its own variables, so a theme can change one
-     without the other.
-   - Two sizes are GUARANTEED by this file and can only be raised by a theme:
-     the minimum size of controls (--target-size) and the minimum height of
-     the picture on a location page (--loc-image-min-height).
-   - Every hook is a data-role attribute (see README, "Style hooks").
-
-   Contents
-     1. Design tokens (custom properties)
-     2. Minimal reset
-     3. The canvas: app shell grid
-     4. Scroll containers
-     5. Generic elements (buttons, links, tables)
-     6. Header and footer
-     7. Text pages (cover, chapter, about, docs, disclaimer, qr)
-     8. Location page
-     9. Map
-    10. QR sheet
-    11. Narrow layout (phones, portrait and landscape)
-    12. Print
-   ========================================================================== */
-
-
-/* 1. DESIGN TOKENS ======================================================== */
+/* Tokens */
 
 :root {
-  /* Typography: neutral system fonts. Final choices belong to the themes. */
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-heading: var(--font-body);
   --font-ui: var(--font-body);
   --line-height: 1.5;
 
-  /* Colours: neutral greys */
   --color-bg: #ffffff;
   --color-fg: #1f1f1f;
   --color-muted: #6b6b6b;
@@ -53,40 +16,28 @@
   --color-accent: #3a3a3a;
   --color-accent-contrast: #ffffff;
 
-  /* Map */
   --map-marker: #555555;
   --map-marker-route: #111111;
   --map-route: #444444;
   --map-cone: #888888;
 
-  /* Spacing */
   --space-xs: 0.25rem;
   --space-s: 0.5rem;
   --space-m: 1rem;
   --space-l: 1.5rem;
   --gap: var(--space-m);
 
-  /* App shell: header / main / footer, as rows */
   --app-areas: "header" "main" "footer";
   --app-rows: auto minmax(0, 1fr) auto;
 
-  /* Minimum size of every control: buttons, menu links, the two switchers.
-     44px is the target size of WCAG 2.5.5 (AAA) and of Apple's Human
-     Interface Guidelines; WCAG 2.2 2.5.8 (AA) asks for at least 24px.
-     A theme may set a LARGER value; smaller values are ignored (section 5). */
+  /* 44px is the target size of WCAG 2.5.5. A theme can raise it, not lower it. */
   --target-size: 44px;
 
-  /* Minimum height of the picture on a location page. A theme may change it,
-     but the value actually used (--loc-image-min) is kept between 6rem and
-     35% of the viewport height, so the picture can be neither squashed into a
-     strip nor allowed to fill a small screen. */
+  /* The value used (--loc-image-min) is kept between 6rem and 35% of the viewport height */
   --loc-image-min-height: 10rem;
   --loc-image-min: clamp(6rem, var(--loc-image-min-height), 35vh);
 
-  /* Location page, WIDE: images left, text right.
-     The row that holds "media" must keep the picture's minimum height (plus
-     room for a caption): a theme that redefines the rows must keep that
-     minmax(calc(var(--loc-image-min) + 3.5rem), ...) on the media row. */
+  /* Location, wide. A theme that redefines the rows must keep the minmax() of the media row. */
   --loc-landscape-areas:
     "header header"
     "media  text"
@@ -95,9 +46,7 @@
   --loc-landscape-columns: minmax(0, 2fr) minmax(0, 3fr);
   --loc-landscape-rows: auto minmax(calc(var(--loc-image-min) + 3.5rem), 1.4fr) minmax(0, 1fr) auto;
 
-  /* Location page, NARROW (phones in portrait): header, tabs, one scrolling
-     content area (picture + active panel), toolbar. Areas: header, tabs,
-     content, toolbar. The content row must stay minmax(0, 1fr). */
+  /* Location, narrow (phones in portrait). The content row must stay minmax(0, 1fr). */
   --loc-narrow-areas:
     "header"
     "tabs"
@@ -106,7 +55,7 @@
   --loc-narrow-columns: minmax(0, 1fr);
   --loc-narrow-rows: auto auto minmax(0, 1fr) auto;
 
-  /* Location page, SHORT (phones in landscape): tabs and toolbar share one row */
+  /* Location, short (phones in landscape) */
   --loc-short-areas:
     "header  header"
     "content content"
@@ -114,12 +63,10 @@
   --loc-short-columns: auto minmax(0, 1fr);
   --loc-short-rows: auto minmax(0, 1fr) auto;
 
-  /* Text pages */
   --page-max-width: 70ch;
 }
 
-
-/* 2. MINIMAL RESET ======================================================== */
+/* Reset */
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -127,11 +74,9 @@
 
 img { max-width: 100%; }
 
+/* App shell */
 
-/* 3. THE CANVAS =========================================================== */
-
-/* Exactly the viewport: 100dvh follows the visible height on mobile
-   (address bar shown/hidden); 100vh is the fallback for old browsers. */
+/* 100dvh follows the visible height on mobile; 100vh is the fallback */
 html {
   height: 100%;
   overflow: hidden;
@@ -157,26 +102,22 @@ body {
 [data-role="site-header"] { grid-area: header; }
 [data-role="site-footer"] { grid-area: footer; }
 
-/* <main>: fills the remaining space; its content decides what scrolls */
 [data-role="view"] {
   grid-area: main;
   min-height: 0;
   overflow: hidden;
 }
 
+/* Scroll containers */
 
-/* 4. SCROLL CONTAINERS ==================================================== */
-
-/* min-height: 0 is essential: grid/flex children otherwise grow to fit
-   their content instead of scrolling. */
+/* Without min-height: 0, grid and flex children grow instead of scrolling */
 [data-scroll] {
   overflow: auto;
   min-height: 0;
   overscroll-behavior: contain;
 }
 
-
-/* 5. GENERIC ELEMENTS ===================================================== */
+/* Generic elements */
 
 h1, h2, h3 { font-family: var(--font-heading); line-height: 1.2; }
 
@@ -209,9 +150,7 @@ caption { text-align: left; font-weight: bold; padding-bottom: var(--space-xs); 
 
 [data-role="error"] { padding: var(--space-m); }
 
-/* Minimum target size (see --target-size in section 1). max() makes 44px a
-   floor: a theme can enlarge the targets but cannot shrink them. Links inside
-   running text are not targets of this kind and keep their text size. */
+/* max() makes 44px a floor that a theme cannot go under */
 button,
 select,
 summary,
@@ -225,8 +164,7 @@ summary,
   min-height: max(44px, var(--target-size));
   min-width: max(44px, var(--target-size));
 }
-/* Links are inline by default and ignore min-height: make them boxes and
-   keep their label centred vertically. */
+/* Inline links ignore min-height */
 [data-role="site-title"],
 [data-role="site-menu"] a,
 [data-role="step-nav"] a,
@@ -238,8 +176,7 @@ summary,
 }
 [data-role="step-nav"] a { justify-content: center; }
 
-
-/* 6. HEADER AND FOOTER ==================================================== */
+/* Header and footer */
 
 [data-role="site-header"] {
   display: flex;
@@ -271,7 +208,7 @@ summary,
 
 [data-role="switchers"] { display: flex; flex-wrap: wrap; gap: var(--space-s); }
 
-[data-role="menu-toggle"] { display: none; } /* shown in portrait, section 11 */
+[data-role="menu-toggle"] { display: none; }
 
 [data-role="site-footer"] {
   padding: var(--space-s) var(--space-m);
@@ -297,10 +234,8 @@ summary,
 [data-role="nav-next"] { margin-left: auto; }
 a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 
+/* Text pages */
 
-/* 7. TEXT PAGES =========================================================== */
-
-/* header on top, body scrolls */
 [data-role="page"] {
   height: 100%;
   display: grid;
@@ -314,7 +249,6 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 [data-role="page-body"] { padding: 0 var(--space-m) var(--space-m); }
 [data-role="page-body"] > * { max-width: var(--page-max-width); }
 
-/* Cover: narrative cards */
 [data-role="narrative-list"] ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
@@ -326,32 +260,17 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 [data-role="narrative-card"][data-current="true"] { border-color: var(--color-accent); }
 [data-role="narrative-actions"] { display: flex; gap: var(--space-s); }
 
-/* Docs: our own numbers replace the list numbers */
+/* Docs: the computed numbers replace the list numbers */
 [data-role="docs-toc"], [data-role="docs-toc"] ol { list-style: none; padding-left: var(--space-m); }
 [data-role="docs-toc"] { padding-left: 0; }
 [data-role="docs-section"][data-target] > [data-role="docs-heading"] { text-decoration: underline; }
 [data-role="section-number"] { color: var(--color-muted); }
-/* A JSON example in the documentation: keep its line breaks and indentation */
 [data-role="docs-example"] { white-space: pre-wrap; overflow-wrap: anywhere; font-family: monospace; font-size: 0.85em; }
 
+/* Location page */
 
-/* 8. LOCATION PAGE ======================================================== */
-
-/* DOM (see js/render/location.js):
-
-     article[location]
-       header[location-header]      transition (a <details>), kicker, title, work
-       nav[panel-tabs]              Text | Info | QR (narrow viewports only)
-       div[location-content]        wrapper around the four blocks below
-         section[location-media]
-         section[location-text]
-         section[location-meta]
-         section[location-qr]
-       div[location-toolbar]        text switches + map link (narrow viewports only)
-
-   WIDE viewports: the wrapper is "display: contents", so media, text, meta
-   and qr are grid items of the article and are ARRANGED by the
-   --loc-landscape-* variables. NARROW viewports: section 11. */
+/* Wide: the content wrapper is display: contents, so media, text, meta and qr
+   are grid items of the article */
 
 [data-role="location"] {
   height: 100%;
@@ -359,8 +278,7 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
   display: grid;
   gap: var(--gap);
   padding: var(--space-m);
-  /* Safety net: if the rows of a theme cannot fit, the article scrolls
-     instead of pushing blocks out of reach (the page itself never scrolls). */
+  /* If the rows of a theme cannot fit, the article scrolls */
   overflow-y: auto;
   overscroll-behavior: contain;
 }
@@ -375,9 +293,7 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 [data-role="location-meta"]   { grid-area: meta; }
 [data-role="location-qr"]     { grid-area: qr; }
 
-/* Wide = landscape, wider than 600px AND taller than 500px.
-   Everything else is "narrow" (section 11). Keep the three numbers in sync
-   with NARROW in js/render/location.js. */
+/* Keep the numbers in sync with NARROW in js/render/location.js */
 @media (orientation: landscape) and (min-width: 601px) and (min-height: 501px) {
   [data-role="location"] {
     grid-template-areas: var(--loc-landscape-areas);
@@ -387,17 +303,14 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
   [data-role="panel-tabs"] { display: none; }
 }
 
-/* Header */
 [data-role="location-header"] h1 { margin: 0; }
 [data-role="location-header"] p { margin: 0; }
 [data-role="location-kicker"],
 [data-role="location-work"] { color: var(--color-muted); }
 [data-role="verified-flag"] { font-size: 0.85em; font-style: italic; }
 
-/* Transition: a <details>. The <summary> is the short line ("13 min · Walk").
-   When opened, the directions are laid OVER the page just below the header
-   and scroll in their own box: they never push the picture and the text
-   down, so opening them cannot squeeze any other block. */
+/* Open directions are laid over the page and scroll in their own box, so they
+   never push the picture and the text down */
 [data-role="location-header"] { position: relative; }
 [data-role="transition"] {
   margin-bottom: var(--space-s);
@@ -410,7 +323,7 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
   padding: 0 var(--space-s);
   font-weight: bold;
   cursor: pointer;
-  list-style: none;            /* our own marker replaces the browser's triangle */
+  list-style: none;
 }
 [data-role="transition-summary"]::-webkit-details-marker { display: none; }
 [data-role="transition-summary"]::before { content: "\25B8"; }             /* ▸ closed */
@@ -431,10 +344,8 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 }
 [data-role="transition-text"] p { margin: 0; }
 
-/* Media: one figure per "slide", horizontal scroll with snapping.
-   The picture row of each figure is at least --loc-image-min high, whatever
-   the caption needs; if the box is shorter than picture + caption, the box
-   scrolls vertically instead of shrinking the picture. */
+/* One figure per slide. A box shorter than picture + caption scrolls instead of
+   shrinking the picture. */
 [data-role="location-media"] {
   min-height: 0;
   display: flex;
@@ -458,8 +369,7 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
   object-fit: contain;
   background: var(--color-surface);
 }
-/* The video is one more figure of the strip. Its box holds a button, which
-   the player replaces when pressed; the player fills the picture row. */
+/* The video box holds a button, which the player replaces */
 [data-role="video-frame"] {
   min-height: 0;
   display: grid;
@@ -476,7 +386,6 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 [data-role="caption-credit"] { display: block; color: var(--color-muted); }
 [data-role="image-note"] { display: block; }
 
-/* Text panel: switches, cell label, then the text which scrolls */
 [data-role="location-text"] {
   min-height: 0;
   display: grid;
@@ -484,16 +393,14 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
   gap: var(--space-s);
 }
 [data-role="text-controls"] { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
-/* Wide screens: the groups dissolve, the six buttons and the language
-   buttons flow as one wrapping row, with the full wording. */
+/* Wide: the groups dissolve and the buttons flow as one row */
 [data-role="switch-group"] { display: contents; }
 [data-role="group-label"] { display: none; }
-/* Two lengths of the same label (see twoLabels in location.js): long by default */
+/* Two lengths of the same label: long by default */
 [data-label="short"] { display: none; }
 [data-role="text-cell"] { margin: 0; font-size: 0.8em; color: var(--color-muted); }
 [data-role="text-body"] > :first-child { margin-top: 0; }
 
-/* Quiz: under the "young" texts; the question is the summary, the answer opens on tap */
 [data-role="quiz"] {
   margin-top: var(--space-m);
   padding-top: var(--space-s);
@@ -508,15 +415,12 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 }
 [data-role="quiz-answer"] { margin: var(--space-xs) 0 0; }
 
-/* Metadata table: scrolls in its own box */
 [data-role="location-meta"] { min-height: 0; }
 [data-role="metadata-table"] th { width: 40%; }
 [data-role="metadata-table"] tr[data-depth="1"] th,
 [data-role="metadata-table"] tr[data-depth="2"] th { font-weight: normal; }
 [data-role="metadata-list"] { margin: 0; padding-left: 1.2em; }
 
-/* QR: the code on the left, its address and the map link stacked beside it,
-   so the block is only as tall as the code */
 [data-role="location-qr"] {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -528,8 +432,7 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 [data-role="location-qr"] [data-role="qr-code"] canvas { width: 6rem; height: 6rem; }
 [data-role="qr-url"] { margin: 0; font-size: 0.75em; overflow-wrap: anywhere; }
 
-
-/* 9. MAP ================================================================== */
+/* Map */
 
 [data-role="map"] {
   height: 100%;
@@ -544,14 +447,14 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 
 [data-role="map-canvas"] { min-height: 0; height: 100%; }
 
-/* Leaflet's zoom buttons are 30px by default: same minimum as our controls */
+/* Leaflet's zoom buttons are 30px by default */
 .leaflet-bar a {
   width: max(44px, var(--target-size));
   height: max(44px, var(--target-size));
   line-height: max(44px, var(--target-size));
 }
 
-/* Leaflet shapes are SVG paths: CSS properties override Leaflet's defaults */
+/* Leaflet shapes are SVG paths */
 .lmml-marker { stroke: var(--map-marker); fill: var(--map-marker); fill-opacity: 0.35; stroke-width: 2; }
 .lmml-marker--in-route { stroke: var(--map-marker-route); fill: var(--map-marker-route); fill-opacity: 0.7; }
 .lmml-route { stroke: var(--map-route); stroke-width: 3; stroke-dasharray: 6 6; fill: none; }
@@ -559,8 +462,7 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 .lmml-camera { stroke: var(--map-cone); fill: var(--map-cone); fill-opacity: 1; }
 .lmml-camera-arrow { stroke: var(--map-marker-route); stroke-width: 2; fill: none; }
 
-
-/* 10. QR SHEET ============================================================ */
+/* QR sheet */
 
 [data-page="qr"] [data-role="page-body"] > [data-role="qr-grid"] { max-width: none; }
 [data-role="qr-grid"] {
@@ -580,37 +482,25 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 [data-role="qr-card"] [data-role="qr-code"] canvas { margin-inline: auto; }
 [data-role="qr-label"] { font-weight: bold; }
 
-
-/* 11. NARROW LAYOUT ======================================================= */
-/* Phones in portrait, narrow windows, and phones in landscape (a wide but
-   very short viewport). The same three conditions are in NARROW in
-   js/render/location.js, which moves the text switches and the map link
-   into the toolbar when they match. */
+/* Narrow layout. Keep the conditions in sync with NARROW in js/render/location.js. */
 
 @media (orientation: portrait), (max-width: 600px), (max-height: 500px) {
-
-  /* Site header: the menu and switchers collapse behind the "Menu" button */
   [data-role="menu-toggle"] { display: inline-block; }
   [data-role="site-menu"],
   [data-role="switchers"] { display: none; flex-basis: 100%; }
   [data-role="site-header"][data-menu-open] [data-role="site-menu"],
   [data-role="site-header"][data-menu-open] [data-role="switchers"] { display: flex; }
-  /* A location outside the current narrative: its compact header already has
-     "Return to the narrative", so this bar shows previous / next only. */
+  /* The location header already has the return link */
   [data-role="site-footer"][data-return-in-header="true"] [data-role="nav-return"] { display: none; }
 
-  /* An open menu may be taller than a short screen: it scrolls in the header */
+  /* An open menu may be taller than a short screen */
   [data-role="site-header"][data-menu-open] {
     max-height: 70vh;
     max-height: 70dvh;
     overflow-y: auto;
   }
 
-  /* Location: three fixed rows around one scrolling content area.
-       header    compact: title + work + the closed directions line
-       tabs      Text | Info | QR code
-       content   picture + the active panel; the ONLY part that scrolls
-       toolbar   text switches, language buttons, map link; always visible  */
+  /* Three fixed rows around the content, which is the only part that scrolls */
   [data-role="location"] {
     grid-template-areas: var(--loc-narrow-areas);
     grid-template-columns: var(--loc-narrow-columns);
@@ -620,10 +510,6 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
     overflow: hidden;
   }
 
-  /* Compact header: title, then one line with the work, the "not verified"
-     flag and the directions; a location outside the current narrative gets
-     one more line with a short note and the way back. The chapter line is
-     hidden. Flag and note use their short wording. */
   [data-role="location-header"] {
     display: flex;
     flex-wrap: wrap;
@@ -645,7 +531,6 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
     min-width: max(44px, var(--target-size));
   }
 
-  /* Content: the wrapper becomes a real box and the single scroll container */
   [data-role="location-content"] {
     display: block;
     grid-area: content;
@@ -655,15 +540,12 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
   }
   [data-role="location-content"] > * + * { margin-top: var(--space-s); }
 
-  /* Inside it nothing else scrolls vertically: the picture has its
-     guaranteed height, the panels are as tall as their content. */
   [data-role="location-media"] { overflow-y: hidden; }
   [data-role="location-figure"] { grid-template-rows: var(--loc-image-min) auto; }
   [data-role="location-text"] { display: block; }
   [data-role="location-text"] > * + * { margin-top: var(--space-s); }
   [data-role="location-content"] [data-scroll] { overflow: visible; }
 
-  /* Only the active panel (data-active-panel on the article) is shown */
   [data-role="location"][data-active-panel="text"] [data-panel]:not([data-panel="text"]),
   [data-role="location"][data-active-panel="info"] [data-panel]:not([data-panel="info"]),
   [data-role="location"][data-active-panel="qr"]   [data-panel]:not([data-panel="qr"]) {
@@ -678,11 +560,8 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
   [data-role="location-qr"] [data-role="qr-code"] img,
   [data-role="location-qr"] [data-role="qr-code"] canvas { width: 10rem; height: 10rem; }
 
-  /* Toolbar: every control visible at once, nothing scrolls sideways.
-     Row 1: the three axes (Length, Level, Tone), each a pair of buttons
-     under its name. Row 2: the language buttons and the map link.
-     Each pair is a two-column grid whose columns are at least one target
-     wide, so six buttons fit a 390px screen. */
+  /* Every control visible at once. Each pair is a two-column grid at least one
+     target wide, so six buttons fit a 390px screen. */
   [data-role="location-toolbar"] {
     grid-area: toolbar;
     display: flex;
@@ -716,7 +595,6 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
     white-space: nowrap;
     min-width: 0;                /* the grid column already guarantees the target width */
   }
-  /* Row 2: the language pair keeps its natural width, the map link goes right */
   [data-role="location-toolbar"] [data-role="switch-group"][data-axis="language"] { flex: 0 1 auto; }
   [data-role="location-toolbar"] [data-role="switch-group"][data-axis="language"] button { padding-inline: var(--space-s); }
   [data-role="location-toolbar"] [data-role="map-link"] { margin-left: auto; white-space: nowrap; }
@@ -724,8 +602,7 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
   [data-role="location-toolbar"] [data-role="map-link"] [data-label="short"] { display: none; }
 }
 
-/* Phones in landscape: height is the scarce resource, so the tabs share the
-   bottom row with the toolbar and the header stays on one line. */
+/* Phones in landscape: tabs and toolbar share the bottom row */
 @media (max-height: 500px) {
   [data-role="location"] {
     grid-template-areas: var(--loc-short-areas);
@@ -738,7 +615,6 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
   [data-role="panel-tabs"] { align-items: flex-end; }
   [data-role="panel-tabs"] button { flex: 0 0 auto; }
 
-  /* One row for everything: tabs, the three axes, language, map ("Map") */
   [data-role="location-toolbar"] { flex-wrap: nowrap; }
   [data-role="location-toolbar"] [data-role="switch-group"] { flex: 1 1 0; }
   [data-role="location-toolbar"] [data-role="map-link"] [data-label="long"] { display: none; }
@@ -746,9 +622,7 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 
 }
 
-
-/* 12. PRINT =============================================================== */
-/* Printing (mainly the QR sheet): let content flow over several pages. */
+/* Print (mainly the QR sheet) */
 
 @media print {
   html, body, [data-role="view"], [data-role="page"], [data-scroll] {

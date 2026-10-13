@@ -1,24 +1,8 @@
-/**
- * router.js — hash-based routing for a single-page app.
- *
- * The part of the URL after "#" decides the view:
- *   #/location/marylebone-station  ->  route "location", params { id: 'marylebone-station' }
- *
- * The hash never reaches the server, so a simple static server is enough and
- * the browser's back/forward buttons work for free (each hash change is a
- * history entry). We listen to the "hashchange" event and re-render.
- *
- * Routes are declared in app.js as a table:
- *   { path: '/location/:id', name: 'location', page: 'location', render: renderLocation }
- * ":id" is a parameter. "page" groups routes that are the same page
- * (e.g. /map and /map/:id) for the menu and navigation.
- */
-
 let routes = [];
-let outlet = null;          // the <main> element where views are rendered
-let notFound = null;        // render function for unknown hashes
-let onRendered = () => {};  // called after every render (updates header/footer)
-let cleanup = null;         // function returned by the previous view (e.g. to destroy a map)
+let outlet = null;
+let notFound = null;
+let onRendered = () => {};
+let cleanup = null;
 
 export function defineRoutes(table, options) {
   routes = table;
@@ -27,11 +11,8 @@ export function defineRoutes(table, options) {
   onRendered = options.onRendered ?? onRendered;
 }
 
-/**
- * Turn a hash into a route match.
- * '#/chapter/historical-timeline/2' against '/chapter/:narrativeId/:n'
- *   -> { name: 'chapter', params: { narrativeId: 'historical-timeline', n: '2' }, ... }
- */
+// '#/chapter/historical-timeline/2' against '/chapter/:narrativeId/:n'
+// gives params { narrativeId: 'historical-timeline', n: '2' }
 export function parseHash(hash = window.location.hash) {
   const path = hash.replace(/^#/, '') || '/';
   const parts = path.split('/').filter(Boolean);
@@ -54,11 +35,9 @@ export function parseHash(hash = window.location.hash) {
   return { name: 'not-found', page: 'not-found', render: notFound, params: { path } };
 }
 
-/** Render the view for the current hash. */
 export function refresh() {
   const route = parseHash();
 
-  // Let the previous view clean up (remove listeners, destroy the Leaflet map, ...)
   if (typeof cleanup === 'function') cleanup();
   cleanup = null;
 
@@ -66,7 +45,7 @@ export function refresh() {
   outlet.dataset.view = route.page;
 
   try {
-    // A view may return a cleanup function; we keep it for the next render.
+    // A view may return a cleanup function, which runs before the next render
     cleanup = route.render(outlet, route.params, route) ?? null;
   } catch (error) {
     console.error(error);
@@ -79,7 +58,6 @@ export function refresh() {
   onRendered(route);
 }
 
-/** Go to a hash. If we are already there, just re-render. */
 export function navigate(hash) {
   if (window.location.hash === hash) refresh();
   else window.location.hash = hash;

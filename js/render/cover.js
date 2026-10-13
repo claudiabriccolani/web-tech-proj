@@ -1,8 +1,3 @@
-/**
- * render/cover.js — the cover page (#/).
- * Title, introductory text, one card per narrative with its explanation
- * and "Start" (and "Resume" if the narrative was already begun).
- */
 import { el } from '../dom.js';
 import { getData } from '../data.js';
 import { getState, setState } from '../state.js';
@@ -44,7 +39,7 @@ function narrativeCard(narrative) {
   );
 }
 
-/** "about 11 h 20 min" from the narrative's lmml:estimatedMinutes.total, or null. */
+// "about 11 h 20 min"
 function durationLabel(narrative) {
   const total = narrative['lmml:estimatedMinutes']?.total;
   if (typeof total !== 'number') return null;
@@ -53,7 +48,6 @@ function durationLabel(narrative) {
   return `about ${hours} h${minutes ? ` ${minutes} min` : ''}`;
 }
 
-/** Select the narrative and go to its first screen (or where the user left it). */
 function start(narrativeId, resume) {
   const sequence = sequenceOf(narrativeId);
   if (!sequence.length) return;

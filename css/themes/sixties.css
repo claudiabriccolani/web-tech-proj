@@ -1,30 +1,4 @@
-/* ==========================================================================
-   sixties.css — theme after 1960s British print
-
-   Sources looked at (see the documentation, section 3.2):
-     - Romek Marber's grid for the Penguin Crime covers (1961)
-     - the UK sleeve of A Hard Day's Night (1964)
-     - a cover of Nova, and the article on Nova in Eye no. 10 (1993)
-
-   What the theme changes, compared with base.css:
-     1. fonts and colours
-     2. app shell: the previous / next bar moves to the top, under the
-        header, so every page opens with horizontal bands, type ranged left
-     3. cover: the narratives first, as bordered tiles; the intro below
-     4. location page, wide: text left, the picture right in the largest
-        column, edge to edge; metadata and QR code side by side under the text
-     5. location page, narrow: the tabs move to the bottom, above the toolbar
-     6. pictures: full colour, no frame, cropped to fill; caption in a band
-     7. map: title and legend in a band above the map
-     8. controls: capitals, a white block for the current page, black
-        labels for the switchers and directions, solid triangles for
-        arrows, black bands for section headings, the narratives as flat
-        blocks of colour; Leaflet's controls and labels restyled to match
-
-   All rules are scoped with :root[data-theme="sixties"].
-   The minimum sizes of base.css (--target-size, --loc-image-min-height) are
-   not redefined.
-   ========================================================================== */
+/* Theme after 1960s British print. Sources: documentation, section 3.2. */
 
 /* Archivo and Archivo Black, by Omnibus-Type. SIL Open Font License 1.1
    (fonts/OFL-Archivo.txt, fonts/OFL-Archivo-Black.txt). Files from Google
@@ -51,8 +25,7 @@
   src: url("../../fonts/archivo-black-400.woff2") format("woff2");
 }
 
-
-/* 1. FONTS AND COLOURS ==================================================== */
+/* Fonts and colours */
 
 :root[data-theme="sixties"] {
   --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
@@ -75,13 +48,11 @@
   --map-route: #111111;
   --map-cone: #1d3f94;
 
-  /* 2. App shell: header band, navigation band, then the page */
+  /* Header band, navigation band, then the page */
   --app-areas: "header" "footer" "main";
   --app-rows: auto auto minmax(0, 1fr);
 
-  /* 4. Location, wide: text left, picture right in the larger column.
-     The picture spans the two rows under the header; the first of them
-     keeps the guaranteed minimum height of the picture. */
+  /* Location, wide: text left, picture right in the larger column */
   --loc-landscape-areas:
     "header header header"
     "text   text   media"
@@ -89,7 +60,7 @@
   --loc-landscape-columns: minmax(0, 1fr) minmax(0, 17rem) minmax(0, 2fr);
   --loc-landscape-rows: auto minmax(calc(var(--loc-image-min) + 3.5rem), 2.2fr) minmax(8.5rem, 1fr);
 
-  /* 5. Location, narrow: the picture comes straight after the header */
+  /* Location, narrow: the picture comes straight after the header */
   --loc-narrow-areas:
     "header"
     "content"
@@ -136,8 +107,7 @@
 :root[data-theme="sixties"] [data-role="narrative-card"] :focus-visible,
 :root[data-theme="sixties"] [data-role="figure-caption"] :focus-visible { outline-color: var(--color-bg); }
 
-
-/* 2. THE BANDS ============================================================ */
+/* The bands */
 
 /* Band 1: the site, white on black */
 :root[data-theme="sixties"] [data-role="site-header"] {
@@ -234,8 +204,7 @@
 }
 :root[data-theme="sixties"] [data-role="page-body"] h2 [data-role="section-number"] { color: inherit; }
 
-
-/* 3. COVER ================================================================ */
+/* Cover */
 
 /* The narratives come first, as equal tiles; the intro follows */
 :root[data-theme="sixties"] [data-page="cover"] [data-role="page-body"] {
@@ -262,8 +231,7 @@
 :root[data-theme="sixties"] [data-role="narrative-title"] { margin: 0; text-transform: uppercase; }
 :root[data-theme="sixties"] [data-role="narrative-meta"] { font-weight: 700; }
 
-
-/* 4. LOCATION PAGE ======================================================== */
+/* Location page */
 
 :root[data-theme="sixties"] [data-role="location-title"] { color: var(--sixties-red); }
 :root[data-theme="sixties"] [data-role="location-kicker"] { font-weight: 700; color: var(--color-fg); }
@@ -332,8 +300,7 @@
   }
 }
 
-
-/* 6. PICTURES ============================================================= */
+/* Pictures */
 
 /* Cropped to fill their box, no frame; the caption in a black band */
 :root[data-theme="sixties"] [data-role="location-figure"] img {
@@ -349,8 +316,7 @@
 :root[data-theme="sixties"] [data-role="caption-credit"] { color: #dddddd; }
 :root[data-theme="sixties"] [data-role="figure-caption"] a { color: inherit; }
 
-
-/* 7. MAP ================================================================== */
+/* Map */
 
 /* The map already reaches the edges; its title and legend form the band */
 :root[data-theme="sixties"] [data-role="map-legend"] { font-weight: 700; }
@@ -390,8 +356,7 @@
 }
 :root[data-theme="sixties"] .leaflet-control-attribution a { color: var(--color-accent); }
 
-
-/* NARROW LAYOUT =========================================================== */
+/* Narrow layout */
 
 @media (orientation: portrait), (max-width: 600px), (max-height: 500px) {
   :root[data-theme="sixties"] [data-role="page-header"] { padding-top: var(--space-s); }

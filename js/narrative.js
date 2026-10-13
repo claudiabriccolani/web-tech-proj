@@ -1,18 +1,5 @@
-/**
- * narrative.js — turns a narrative (chapters → steps) into a flat SEQUENCE
- * of screens, which is what prev/next navigation needs.
- *
- *   narrative:  chapter 1 [A, B]   chapter 2 [C]
- *   sequence:   [chapter 1] [A] [B] [chapter 2] [C]
- *                   0        1   2       3       4
- *
- * Each screen is one of:
- *   { type: 'chapter',  narrativeId, chapterIndex, chapter }
- *   { type: 'location', narrativeId, chapterIndex, chapter, stepIndex, step, locationId }
- *
- * Chapter intros are therefore real screens between locations, with their
- * own route: #/chapter/<narrativeId>/<chapter number, from 1>.
- */
+// A narrative is flattened into the sequence that prev/next walks:
+//   chapter 1 [A, B], chapter 2 [C]  ->  [chapter 1] [A] [B] [chapter 2] [C]
 import { getNarrative } from './data.js';
 import { getState } from './state.js';
 
@@ -39,7 +26,6 @@ export function buildSequence(narrative) {
   return screens;
 }
 
-/* The data never changes while the app runs, so each sequence is built once. */
 const cache = new Map();
 
 export function sequenceOf(narrativeId) {
@@ -47,7 +33,6 @@ export function sequenceOf(narrativeId) {
   return cache.get(narrativeId);
 }
 
-/** The URL hash of a screen. */
 export function hashFor(screen) {
   if (screen.type === 'chapter') {
     return `#/chapter/${encodeURIComponent(screen.narrativeId)}/${screen.chapterIndex + 1}`;
@@ -55,7 +40,6 @@ export function hashFor(screen) {
   return `#/location/${encodeURIComponent(screen.locationId)}`;
 }
 
-/** Index of the current route in a sequence, or -1 if the route isn't part of it. */
 export function indexOfRoute(sequence, route) {
   if (route.name === 'location') {
     return sequence.findIndex((s) => s.type === 'location' && s.locationId === route.params.id);
@@ -69,10 +53,7 @@ export function indexOfRoute(sequence, route) {
   return -1;
 }
 
-/**
- * The screen of a location in the CURRENT narrative (step, chapter, …),
- * or null if the location is not part of it (e.g. reached from the map).
- */
+// null when the location is not a step of that narrative
 export function screenFor(locationId, narrativeId = getState().narrativeId) {
   return sequenceOf(narrativeId).find((s) => s.type === 'location' && s.locationId === locationId) ?? null;
 }

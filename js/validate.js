@@ -1,10 +1,3 @@
-/**
- * validate.js — checks the data at startup and reports problems in the
- * browser console (F12). It never blocks the app: it only warns.
- *
- * Useful when adding content by hand: a typo in a locationId or in a text's
- * "lmml:length" shows up here immediately.
- */
 import { AXES, KEYS } from './textSelector.js';
 import { yearOf, videoOf, quizOf } from './data.js';
 
@@ -12,7 +5,6 @@ export function validateData(data) {
   const problems = [];
   const warn = (message) => problems.push(message);
 
-  /* ---- Locations ---- */
   const seenIds = new Set();
   data.locations.forEach((loc, i) => {
     const where = `locations[${i}] "${loc.identifier ?? '?'}"`;
@@ -31,7 +23,6 @@ export function validateData(data) {
     if (!loc['lmml:appearsIn']) warn(`${where}: missing "lmml:appearsIn"`);
     if (!(loc['lmml:texts'] ?? []).length) warn(`${where}: no texts`);
 
-    // Every fact needs a source, and that source must be listed in "citation"
     const cited = new Set((loc.citation ?? []).map((c) => c.url));
     (loc['lmml:facts'] ?? []).forEach((fact, f) => {
       if (!fact.text) warn(`${where} facts[${f}]: empty "text"`);
@@ -46,7 +37,6 @@ export function validateData(data) {
       if (!image.license || !image.url) warn(`${where} image[${m}]: missing "license" or source "url"`);
       if (!image['lmml:alt']) warn(`${where} image[${m}]: no "lmml:alt" text`);
     });
-    // A video needs its title, its YouTube page, its channel and a player address without cookies
     const video = videoOf(loc);
     if (video) {
       if (!video.name || !video.url || !video.publisher?.name) warn(`${where} video: missing "name", "url" or "publisher"`);
@@ -54,7 +44,6 @@ export function validateData(data) {
         warn(`${where} video: "embedUrl" must start with https://www.youtube-nocookie.com/embed/`);
       }
     }
-    // A quiz needs a question, an answer and the sources of the facts it is built from
     const quiz = quizOf(loc);
     if (quiz) {
       if (!quiz.name || !quiz.acceptedAnswer?.text) warn(`${where} quiz: missing question ("name") or answer ("acceptedAnswer.text")`);
@@ -66,7 +55,6 @@ export function validateData(data) {
     checkTexts(loc['lmml:texts'], where, warn);
   });
 
-  /* ---- Narratives ---- */
   data.narratives.forEach((narrative) => {
     const inNarrative = new Set();
     const dates = [];
@@ -85,7 +73,6 @@ export function validateData(data) {
       });
     });
 
-    // A narrative that declares "lmml:orderedBy": "datePublished" must really be in date order.
     if (narrative['lmml:orderedBy'] === 'datePublished') {
       for (let i = 1; i < dates.length; i++) {
         if (dates[i].year < dates[i - 1].year) {

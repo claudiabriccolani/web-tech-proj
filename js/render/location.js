@@ -1,34 +1,3 @@
-/**
- * render/location.js — the location page (#/location/:id).
- *
- * Structure (each block is a grid area in base.css; themes can move them):
- *
- *   <article data-role="location" data-active-panel="text">
- *     <header  data-role="location-header">   transition (<details>), kicker, title, work, "not verified"
- *     <nav     data-role="panel-tabs">        Text | Info | QR (narrow viewports only)
- *     <div     data-role="location-content">  wrapper: the scroll container on narrow viewports
- *       <section data-role="location-media">    images with captions, then the video (horizontal scroll)
- *       <section data-role="location-text" data-panel="text">   text switches + current text
- *       <section data-role="location-meta" data-panel="info">   metadata table
- *       <section data-role="location-qr"   data-panel="qr">     QR code + map link
- *     </div>
- *     <div     data-role="location-toolbar">  empty on wide viewports (see placeControls)
- *   </article>
- *
- * NARROW VIEWPORTS: the text switches and the map link are MOVED into the
- * toolbar, which CSS keeps at the bottom of the page. This is the one thing
- * CSS cannot do alone (an element cannot leave its parent's box), so
- * placeControls() does it and repeats it whenever the viewport changes.
- *
- * TEXTS: if the location is a step of the current narrative and that step
- * has its own "lmml:texts", each of those REPLACES the location's default text
- * of the same cell and language (see mergeTexts in textSelector.js).
- * If texts exist in more than one language, a language switch is shown.
- *
- * QUIZ: a location may have one question ("lmml:quiz"). It is shown under the
- * text while the text is in the "young" tone, the one that the switch
- * "Do you want to play?" leads to; the answer opens on tap (<details>).
- */
 import { el, externalLink } from '../dom.js';
 import { getData, getLocation, getNarrative, textsOf, workOf, workLabel, videoOf, quizOf, locationUrl } from '../data.js';
 import { getState, setState } from '../state.js';
@@ -47,7 +16,7 @@ const PANELS = [
 
 const MODE_LABELS = { walk: 'Walk', tube: 'Tube', bus: 'Bus' };
 
-/* Same conditions as the "narrow" media query in css/base.css, section 11. */
+// Must match the narrow media query in css/base.css
 const NARROW = '(orientation: portrait), (max-width: 600px), (max-height: 500px)';
 const LANGUAGE_LABELS = { en: 'English', fr: 'Français', it: 'Italiano' };
 
@@ -55,7 +24,6 @@ export function renderLocation(outlet, params) {
   const loc = getLocation(params.id);
   if (!loc) return renderNotFound(outlet, { path: `/location/${params.id}` });
 
-  // Is this location a step of the current narrative? (null if not)
   const screen = screenFor(loc.identifier);
   const texts = mergeTexts(textsOf(loc), screen?.step['lmml:texts']);
 
@@ -79,19 +47,15 @@ export function renderLocation(outlet, params) {
   article.append(buildHeader(loc, screen), buildPanelTabs(article), content, toolbar);
   outlet.append(article);
 
-  // Put the controls where the current viewport wants them, now and on every change
   const narrow = window.matchMedia(NARROW);
   const place = () => placeControls(article, narrow.matches);
   place();
   narrow.addEventListener('change', place);
-  return () => narrow.removeEventListener('change', place); // cleanup, called by the router
+  return () => narrow.removeEventListener('change', place);
 }
 
-/**
- * Narrow viewport: the text switches and the map link go into the toolbar.
- * Wide viewport: they go back to their panels (switches first in the text
- * panel, map link last in the QR panel). Moving a node keeps its listeners.
- */
+// CSS cannot move an element out of its parent, so on narrow viewports the switches
+// and the map link are moved into the toolbar. Moving a node keeps its listeners.
 function placeControls(article, isNarrow) {
   const q = (role) => article.querySelector(`[data-role="${role}"]`);
   const controls = q('text-controls');
@@ -103,8 +67,6 @@ function placeControls(article, isNarrow) {
     if (mapLink) q('location-qr').append(mapLink);
   }
 }
-
-/* ---------------------------------------------------------------- header */
 
 function buildHeader(loc, screen) {
   const work = workOf(loc);
@@ -122,11 +84,6 @@ function buildHeader(loc, screen) {
   );
 }
 
-/**
- * Shown when the location is not a step of the current narrative (reached
- * from the map, a QR code or a link): says so and names the narratives that
- * do include it. The footer then offers "Return to the narrative".
- */
 function buildOutsideNote(loc) {
   const current = getNarrative(getState().narrativeId);
   const others = getData().narratives.filter((n) => screenFor(loc.identifier, n.identifier));
@@ -139,21 +96,12 @@ function buildOutsideNote(loc) {
     back && el('a', { 'data-role': 'outside-return', href: back }, 'Return to the narrative'));
 }
 
-/**
- * The same message in two lengths. CSS shows the long one on wide screens and
- * the short one where space is tight (see [data-label] in base.css); the one
- * that is not shown is display: none, so it is not read aloud twice.
- */
+// The same message in two lengths: base.css shows one of them, and the other is
+// display: none so that it is not read aloud twice
 function twoLabels(long, short) {
   return [el('span', { 'data-label': 'long' }, long), el('span', { 'data-label': 'short' }, short)];
 }
 
-/**
- * How to get here from the previous step, as a <details>: the <summary> is a
- * short line built from the data ("28 min · Hammersmith & City line",
- * "13 min · Walk"), the directions open below it. Closed by default, so the
- * directions never take the room of the picture and the text.
- */
 function buildTransition(transition) {
   return el('details', { 'data-role': 'transition', 'data-transition-mode': transition.mode ?? '' },
     el('summary', { 'data-role': 'transition-summary' }, transitionSummary(transition)),
@@ -161,7 +109,7 @@ function buildTransition(transition) {
   );
 }
 
-/** "36 min · Central + Piccadilly lines" / "13 min · Walk" / "Directions" if there is no data. */
+// "36 min · Central + Piccadilly lines", "13 min · Walk", or "Directions" without data
 function transitionSummary(transition) {
   const lines = (transition.lines ?? []).map((name) => name.replace(/ line$/i, ''));
   const how = lines.length
@@ -171,38 +119,27 @@ function transitionSummary(transition) {
   return parts.length ? parts.join(' · ') : 'Directions';
 }
 
-/* ----------------------------------------------------------------- media */
-
 function buildMedia(loc) {
   const images = loc.image ?? [];
   const video = videoOf(loc);
   return el('section', { 'data-role': 'location-media', 'data-image-count': images.length, 'data-has-video': String(Boolean(video)) },
     images.map((image, i) =>
       el('figure', { 'data-role': 'location-figure', 'data-index': i },
-        // alt = what the picture shows (lmml:alt); the caption below says what it is.
-        // The caption is only a fallback for images that have no alt text yet.
+        // The caption is only a fallback for images without alt text
         el('img', { src: image.contentUrl, alt: image['lmml:alt'] ?? image.caption ?? '', loading: 'lazy' }),
         el('figcaption', { 'data-role': 'figure-caption' },
           el('span', { 'data-role': 'caption-text' }, image.caption),
           buildCredit(image),
-          // Says so when no licensed photo of the exact place exists (lmml:imageNote)
           loc['lmml:imageNote'] && el('span', { 'data-role': 'image-note' }, loc['lmml:imageNote']),
         ),
       )),
-    // A location with no image at all still shows the note, not an empty box
     !images.length && loc['lmml:imageNote'] && el('p', { 'data-role': 'image-note' }, loc['lmml:imageNote']),
     video && buildVideo(video),
   );
 }
 
-/**
- * The official trailer or clip, as one more figure after the images.
- * Nothing is requested from YouTube until the visitor presses the button:
- * only then is the player put in the page, from youtube-nocookie.com
- * (YouTube's address that sets no cookie before playback). So no frame of
- * the film is shown by the page itself, and a visit that does not play the
- * video sends nothing to a third party.
- */
+// Nothing is requested from YouTube until the button is pressed, and the page
+// itself shows no frame of the film
 function buildVideo(video) {
   const channel = video.publisher?.name;
   const frame = el('div', { 'data-role': 'video-frame' });
@@ -228,7 +165,6 @@ function buildVideo(video) {
   );
 }
 
-/** "Credit: X · License · Source" (links only when the value is a URL). */
 function buildCredit(image) {
   const parts = [];
   if (image.creditText) parts.push(`Credit: ${image.creditText}`);
@@ -236,17 +172,9 @@ function buildCredit(image) {
   if (image.url) parts.push(externalLink(image.url, 'Source'));
   if (!parts.length) return null;
 
-  // interleave " · " between parts
   return el('span', { 'data-role': 'caption-credit' }, parts.flatMap((p, i) => (i ? [' · ', p] : [p])));
 }
 
-/* ------------------------------------------------------------ panel tabs */
-
-/**
- * In portrait only one panel is visible at a time: the tabs set
- * data-active-panel on the article and CSS hides the others.
- * In landscape the tabs are hidden and all panels are visible.
- */
 function buildPanelTabs(article) {
   const nav = el('nav', { 'data-role': 'panel-tabs', 'aria-label': 'Location sections' });
 
@@ -266,16 +194,7 @@ function buildPanelTabs(article) {
   return nav;
 }
 
-/* ------------------------------------------------------------ text panel */
-
-/**
- * The text and its six switches. Only this panel is updated when a switch
- * is pressed: the rest of the page is not re-rendered.
- *
- * allTexts = every text of the location (all languages). The six switches
- * only move among the texts of the current language; the language buttons
- * (shown only if there is more than one language) change that language.
- */
+// The six switches move among the texts of the current language only
 function buildTextPanel(allTexts, quiz) {
   const panel = el('section', { 'data-role': 'location-text', 'data-panel': 'text' });
   const controls = el('div', { 'data-role': 'text-controls' });
@@ -292,9 +211,6 @@ function buildTextPanel(allTexts, quiz) {
     return panel;
   }
 
-  // One group per axis: on phones the two buttons of an axis sit side by
-  // side under the name of the axis; on wide screens the groups are
-  // display: contents and the six buttons flow as one row.
   const group = (axis, name) => {
     const box = el('div', { 'data-role': 'switch-group', 'data-axis': axis, role: 'group', 'aria-label': name },
       el('span', { 'data-role': 'group-label', 'aria-hidden': 'true' }, name));
@@ -303,10 +219,7 @@ function buildTextPanel(allTexts, quiz) {
   };
   const groups = Object.fromEntries(Object.keys(AXIS_LABELS).map((axis) => [axis, group(axis, AXIS_LABELS[axis])]));
 
-  // Create the six buttons once; show() only updates their state.
-  // "target" = the text each button would show, or null (button disabled).
-  // The accessible name is "short: wording of the assignment", so it always
-  // contains whichever label is visible; the tooltip is the full wording.
+  // The accessible name holds both labels, so it contains whichever one is visible
   const buttons = SWITCHES.map((sw) => {
     const button = el('button', {
       type: 'button', 'data-role': 'text-switch', 'data-switch': sw.id, 'data-axis': sw.axis,
@@ -314,7 +227,7 @@ function buildTextPanel(allTexts, quiz) {
     }, twoLabels(sw.label, sw.short));
     button.addEventListener('click', () => {
       if (!button.target) return;
-      // Update the preference on this axis only, so it carries over to the next location
+      // Only this axis of the preference changes, so it carries over to the next location
       setState({ textPref: { ...getState().textPref, [sw.axis]: button.target[KEYS[sw.axis]] } });
       show(button.target);
       revealText();
@@ -323,7 +236,6 @@ function buildTextPanel(allTexts, quiz) {
     return { sw, button };
   });
 
-  // Language buttons: one per language, the current one is "pressed"
   const languageGroup = languages.length > 1 ? group('language', 'Language') : null;
   const languageButtons = languages.length > 1
     ? languages.map((code) => {
@@ -351,8 +263,7 @@ function buildTextPanel(allTexts, quiz) {
     body.scrollTop = 0;
     cell.textContent = cellLabel(text);
 
-    // The quiz closes again at every change and follows the "young" texts only
-    // (body.innerHTML above has already removed it from the previous text)
+    // innerHTML above has already removed the quiz from the previous text
     if (quiz) {
       quiz.open = false;
       if (text[KEYS.tone] === 'young') body.append(quiz);
@@ -368,12 +279,7 @@ function buildTextPanel(allTexts, quiz) {
     }
   }
 
-  /**
-   * After a switch is pressed, bring the start of the new text into view.
-   * On narrow viewports the text scrolls together with the picture inside
-   * the content wrapper, so that wrapper is scrolled; on wide ones the text
-   * has its own scroll box, already reset by show().
-   */
+  // On narrow viewports the text scrolls inside the content wrapper, so that is what scrolls
   function revealText() {
     const content = panel.closest('[data-role="location-content"]');
     if (content && content.scrollHeight > content.clientHeight) {
@@ -385,12 +291,6 @@ function buildTextPanel(allTexts, quiz) {
   return panel;
 }
 
-/* ------------------------------------------------------------------ quiz */
-
-/**
- * One question about the place, answer hidden until the question is tapped:
- * a <details> does this without any script. Returns null if there is no quiz.
- */
 function buildQuiz(quiz) {
   if (!quiz?.name || !quiz.acceptedAnswer?.text) return null;
   const details = el('details', { 'data-role': 'quiz', lang: quiz.inLanguage ?? 'en' },
@@ -398,14 +298,12 @@ function buildQuiz(quiz) {
       el('span', { 'data-role': 'quiz-label' }, 'Spot the shot'), ' ', quiz.name),
     el('p', { 'data-role': 'quiz-answer' }, quiz.acceptedAnswer.text),
   );
-  // The answer may open below the visible part of the scrolling box: bring it into view
+  // The answer may open below the visible part of the scrolling box
   details.addEventListener('toggle', () => {
     if (details.open) details.scrollIntoView({ block: 'nearest' });
   });
   return details;
 }
-
-/* -------------------------------------------------------------- QR panel */
 
 function buildQrPanel(loc) {
   const url = locationUrl(loc.identifier);
