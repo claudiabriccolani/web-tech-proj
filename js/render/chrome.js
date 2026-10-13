@@ -54,11 +54,9 @@ export function updateChrome(route) {
   const state = getState();
   const nav = computeNav(route);
 
-  // Prev / next: hidden when the screen is outside the narrative, disabled at the ends
+  // Prev / next: on every page, disabled where the order ends
   setLink(q('nav-prev'), nav.prev);
   setLink(q('nav-next'), nav.next);
-  q('nav-prev').hidden = nav.outside;
-  q('nav-next').hidden = nav.outside;
 
   const returnLink = q('nav-return');
   returnLink.hidden = !nav.returnTo;
@@ -66,7 +64,7 @@ export function updateChrome(route) {
 
   // A location outside the current narrative shows its own "Return to the
   // narrative" link in its header. On narrow viewports base.css then hides
-  // this bar, which would only repeat that link (see section 11).
+  // the copy in this bar, which keeps previous / next (see section 11).
   q('site-footer').dataset.returnInHeader = String(route.name === 'location' && nav.outside && Boolean(nav.returnTo));
 
   q('nav-position').textContent = nav.position ? `${nav.position.current} / ${nav.position.total}` : '';

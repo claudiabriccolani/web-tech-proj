@@ -567,9 +567,8 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
   [data-role="site-header"][data-menu-open] [data-role="site-menu"],
   [data-role="site-header"][data-menu-open] [data-role="switchers"] { display: flex; }
   /* A location outside the current narrative: its compact header already has
-     "Return to the narrative", and this bar has nothing else to show there
-     (no previous / next), so the bar is not shown. */
-  [data-role="site-footer"][data-return-in-header="true"] { display: none; }
+     "Return to the narrative", so this bar shows previous / next only. */
+  [data-role="site-footer"][data-return-in-header="true"] [data-role="nav-return"] { display: none; }
 
   /* An open menu may be taller than a short screen: it scrolls in the header */
   [data-role="site-header"][data-menu-open] {

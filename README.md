@@ -91,16 +91,20 @@ js/render/notFound.js      unknown routes
 - **In a narrative:** the chapters are flattened into a sequence:
   `[chapter 1] [loc A] [loc B] [chapter 2] [loc C]`. Prev/next move along it,
   and the first screen's "Previous" goes back to the cover.
-- **A location or chapter not in the current narrative** (for example, opened
-  from the map) shows no prev/next, only "Return to the narrative". A location
-  page also says which narratives it does belong to. (York Rise is in
-  "Recreate the shot" only.) That link
-  goes to the last screen visited in the narrative. On narrow viewports a
-  location outside the narrative shows that link in its own header, and the
-  previous / next bar is then not displayed.
-- **Cover:** "Next" starts the current narrative.
-- **Map → About → Docs → Disclaimer → QR:** these pages form their own chain.
-  They also show "Return to the narrative" once a visit has begun.
+  The last screen has no "Next".
+- **Outside the narratives** the pages follow the order of the menu:
+  Cover → Map → About → Docs → Disclaimer → QR. The cover has no "Previous"
+  and the QR sheet no "Next"; a narrative is started with the Start button
+  of the cover. From the map onwards they also show "Return to the
+  narrative" once a visit has begun.
+- **A location not in the current narrative** (for example, opened from the
+  map) is placed after the map: "Previous" shows it on the map, "Next" goes
+  to About. It also shows "Return to the narrative", which goes to the last
+  screen visited, and says which narratives it does belong to. (York Rise is
+  in "Recreate the shot" only.) On narrow viewports that link is in the
+  location's own header and the bar shows previous / next only.
+- **A chapter of the other narrative, or an unknown address,** is placed
+  after the cover: "Previous" goes to the cover, "Next" to the map.
 - **Keyboard:** the ← and → keys follow prev/next.
 
 ### Location page on phones
