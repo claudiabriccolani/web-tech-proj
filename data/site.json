@@ -24,11 +24,11 @@
   },
   "about": {
     "title": "About the author",
-    "text": "<p>Digital Humanities and Digital Knowledge</p><p><a href=\"mailto:claudia.briccolani@studio.unibo.it\">claudia.briccolani@studio.unibo.it</a></p><p>I chose London for this project because it is the city that reminds me the most of good movies I have seen.</p><p>Partially, code and drafts were generated with Claude under my direction; all design decisions were made by me.</p><p>All facts come from the sources cited on each page.</p>"
+    "text": "<p>Digital Humanities and Digital Knowledge</p><p><a href=\"mailto:claudia.briccolani@studio.unibo.it\">claudia.briccolani@studio.unibo.it</a></p><p>I chose London for this project because it is the city that reminds me the most of good movies I have seen. I also plan on using my own website (this one) when I will go to London mid october 2026.</p><p>Partially, code and drafts were generated with Claude under my direction; all design decisions were made by me.</p><p>All facts come from the sources cited on each page.</p>"
   },
   "disclaimer": {
     "title": "Disclaimer",
-    "template": "<p>The purpose of this web site is to explore various types of typographic and layout style for specialized tourist visits, as an end-of-course project for the 'Information Modeling and Web technologies' course of the Master's Degree in Digital Humanities and Digital Knowledge of the University of Bologna, under the supervision of prof. Fabio Vitali.</p><p>The documents contained in this web site have been selected for their length and complexity from {{sourceNames}}. Their publication here is not intended to be an alternative to or a replacement for their original locations:</p>{{sourceList}}<p>Copyright and related rights on the content remain with their original owners.</p><p>Copyright on the typographic and layout choices are 2026 © {{author}}.</p>"
+    "template": "<p>The purpose of this web site is to explore various types of typographic and layout style for specialized tourist visits, as an end-of-course project for the 'Information Modeling and Web technologies' course of the Master's Degree in Digital Humanities and Digital Knowledge of the University of Bologna.</p><p>The documents contained in this web site have been selected for their length and complexity from {{sourceNames}}. Their publication here is not intended to be an alternative to or a replacement for their original locations:</p>{{sourceList}}<p>Copyright and related rights on the content remain with their original owners.</p><p>Copyright on the typographic and layout choices are 2026 © {{author}}.</p>"
   },
   "docs": [
     {
