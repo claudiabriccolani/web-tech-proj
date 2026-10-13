@@ -51,7 +51,7 @@ const TYPE_FORMATTERS = {
 const KEY_FORMATTERS = {
   'lmml:cameraBearing': (v) => `${v}° from north (${compass(v)})`,
   'lmml:verified': (v) => (v ? 'Yes' : 'No — to be checked'),
-  'lmml:cameraConfidence': (v) => (v === 'estimated' ? 'Estimated, not yet checked on site' : String(v)),
+  'lmml:cameraConfidence': (v) => (v === 'estimated' ? 'Estimated, not yet checked on site' : v === 'verified' ? 'Verified on Street View' : String(v)),
   'lmml:visitorAccess': visitorAccess,
 };
 

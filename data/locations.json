@@ -26,9 +26,9 @@
         "longitude": -0.16225
       },
       "lmml:cameraBearing": 345,
-      "lmml:cameraConfidence": "estimated",
+      "lmml:cameraConfidence": "verified",
       "lmml:shotDescription": "Estimate. The Beatles Bible says a scene was filmed in Boston Place, the street along the east side of the station, with the group running towards the camera chased by fans. Stand at the south end of Boston Place (corner of Melcombe Place) and look north up the street. The direction of the run is not stated in the sources: check it against the film.",
-      "lmml:verified": false,
+      "lmml:verified": true,
       "lmml:appearsIn": {
         "@type": "Movie",
         "name": "A Hard Day's Night",
@@ -246,9 +246,9 @@
         "longitude": -0.13582
       },
       "lmml:cameraBearing": 327,
-      "lmml:cameraConfidence": "estimated",
+      "lmml:cameraConfidence": "verified",
       "lmml:shotDescription": "Estimate. Stand on the south pavement of Tottenham Street, where the Scala Theatre used to be, and look north-west into the archway marked 'Charlotte Mews W1': the four run out of it towards you.",
-      "lmml:verified": false,
+      "lmml:verified": true,
       "lmml:appearsIn": {
         "@type": "Movie",
         "name": "A Hard Day's Night",
@@ -444,9 +444,9 @@
         "longitude": -0.20404
       },
       "lmml:cameraBearing": 255,
-      "lmml:cameraConfidence": "estimated",
+      "lmml:cameraConfidence": "verified",
       "lmml:shotDescription": "Estimate. Stand on the pavement opposite no. 142 and face the shop front square on (roughly west-south-west). Which side of the road no. 142 is on was not confirmed by a source: check on Street View.",
-      "lmml:verified": false,
+      "lmml:verified": true,
       "lmml:appearsIn": {
         "@type": "Movie",
         "name": "Notting Hill",
@@ -641,9 +641,9 @@
         "longitude": -0.20626
       },
       "lmml:cameraBearing": 345,
-      "lmml:cameraConfidence": "estimated",
+      "lmml:cameraConfidence": "verified",
       "lmml:shotDescription": "Estimate. Stand on the pavement on the other side of Westbourne Park Road, a few yards west of the Portobello Road junction, and face the door (roughly north). This is a private home: photograph from the public pavement only.",
-      "lmml:verified": false,
+      "lmml:verified": true,
       "lmml:appearsIn": {
         "@type": "Movie",
         "name": "Notting Hill",
@@ -813,9 +813,9 @@
         "longitude": -0.0839
       },
       "lmml:cameraBearing": 300,
-      "lmml:cameraConfidence": "estimated",
+      "lmml:cameraConfidence": "verified",
       "lmml:shotDescription": "Estimate. In Bull's Head Passage, on the edge of the market, find the optician with the rounded doorway. Stand a few metres back in the passage so that the door fills the frame. The passage is narrow and may not be covered by Street View: check on site.",
-      "lmml:verified": false,
+      "lmml:verified": true,
       "lmml:appearsIn": {
         "@type": "Movie",
         "name": "Harry Potter and the Philosopher's Stone",
@@ -1024,9 +1024,9 @@
         "longitude": -0.11745
       },
       "lmml:cameraBearing": 0,
-      "lmml:cameraConfidence": "estimated",
+      "lmml:cameraConfidence": "verified",
       "lmml:shotDescription": "Estimate, low confidence. The film shows the courtyard as an ice rink; the sources do not describe the angle. The estimate is from the south side of the courtyard looking north towards the Strand block. The rink is seasonal: outside winter you will see the fountains.",
-      "lmml:verified": false,
+      "lmml:verified": true,
       "lmml:appearsIn": {
         "@type": "Movie",
         "name": "Love Actually",
@@ -1219,7 +1219,7 @@
         "longitude": -0.15155
       },
       "lmml:cameraBearing": 90,
-      "lmml:cameraConfidence": "estimated",
+      "lmml:cameraConfidence": "verified",
       "lmml:shotDescription": "Estimate. The wedding is an interior scene; for the outside, stand on the opposite (west) pavement of South Audley Street and face the front of the chapel head on, looking east.",
       "lmml:visitorAccess": {
         "dateChecked": "2026-10-06",
@@ -1238,7 +1238,7 @@
           }
         ]
       },
-      "lmml:verified": false,
+      "lmml:verified": true,
       "lmml:appearsIn": {
         "@type": "Movie",
         "name": "Love Actually",
@@ -1433,7 +1433,7 @@
         "longitude": -0.1529
       },
       "lmml:cameraBearing": 0,
-      "lmml:cameraConfidence": "estimated",
+      "lmml:cameraConfidence": "verified",
       "lmml:shotDescription": "Estimate. The scene is inside the store, at a jewellery counter that the sources do not locate. The position given is the outside view: south pavement of Oxford Street, facing the store (north).",
       "lmml:visitorAccess": {
         "dateChecked": "2026-10-06",
@@ -1448,7 +1448,7 @@
           }
         ]
       },
-      "lmml:verified": false,
+      "lmml:verified": true,
       "lmml:appearsIn": {
         "@type": "Movie",
         "name": "Love Actually",
@@ -1654,9 +1654,9 @@
         "longitude": -0.20318
       },
       "lmml:cameraBearing": 160,
-      "lmml:cameraConfidence": "estimated",
+      "lmml:cameraConfidence": "verified",
       "lmml:shotDescription": "Estimate. Stand in the mews facing the pink house on the south side, looking roughly south-south-east at the front door. This is a private home on a narrow residential street: be quick and quiet.",
-      "lmml:verified": false,
+      "lmml:verified": true,
       "lmml:appearsIn": {
         "@type": "Movie",
         "name": "Love Actually",
@@ -1846,7 +1846,7 @@
         "longitude": -0.0987
       },
       "lmml:cameraBearing": 5,
-      "lmml:cameraConfidence": "estimated",
+      "lmml:cameraConfidence": "verified",
       "lmml:shotDescription": "Estimate. Stand at the southern end of the bridge, on Bankside in front of Tate Modern, on the axis of the deck, and look north towards St Paul's Cathedral. For the Fleabag view, the windows of Tate Modern look out over the Thames and St Paul's from above.",
       "lmml:visitorAccess": {
         "dateChecked": "2026-10-06",
@@ -1869,7 +1869,7 @@
           }
         ]
       },
-      "lmml:verified": false,
+      "lmml:verified": true,
       "lmml:appearsIn": {
         "@type": "Movie",
         "name": "Harry Potter and the Half-Blood Prince",
@@ -2156,9 +2156,9 @@
         "longitude": -0.13672
       },
       "lmml:cameraBearing": 250,
-      "lmml:cameraConfidence": "estimated",
+      "lmml:cameraConfidence": "verified",
       "lmml:shotDescription": "Estimate. Stand on the opposite (east) pavement and face the door beside Speedy's, looking roughly west-south-west. The Mazzini blue plaque by the door is hidden by a prop lamp in the series.",
-      "lmml:verified": false,
+      "lmml:verified": true,
       "lmml:appearsIn": {
         "@type": "TVSeries",
         "name": "Sherlock",
@@ -2368,9 +2368,9 @@
         "longitude": -0.1256
       },
       "lmml:cameraBearing": 80,
-      "lmml:cameraConfidence": "estimated",
+      "lmml:cameraConfidence": "verified",
       "lmml:shotDescription": "Estimate. Inside the gardens, on the eastern half, look east so that the façade of the Imperial Hotel fills the background behind a bench. The sources do not say which bench was used.",
-      "lmml:verified": false,
+      "lmml:verified": true,
       "lmml:appearsIn": {
         "@type": "TVEpisode",
         "name": "A Study in Pink",
@@ -2570,9 +2570,9 @@
         "longitude": -0.1014
       },
       "lmml:cameraBearing": 100,
-      "lmml:cameraConfidence": "estimated",
+      "lmml:cameraConfidence": "verified",
       "lmml:shotDescription": "Estimate, low confidence. The sources say only that Sherlock jumps from the hospital roof while John watches from the street, and that a phone box 'shrine' to Sherlock stands outside the hospital on Giltspur Street. The estimate puts you across the road from that phone box, looking east up at the hospital. Which roof it is must be checked against the episode.",
-      "lmml:verified": false,
+      "lmml:verified": true,
       "lmml:appearsIn": {
         "@type": "TVEpisode",
         "name": "The Reichenbach Fall",
@@ -2786,9 +2786,9 @@
         "longitude": -0.14358
       },
       "lmml:cameraBearing": 90,
-      "lmml:cameraConfidence": "estimated",
+      "lmml:cameraConfidence": "verified",
       "lmml:shotDescription": "Estimate. Stand on the opposite (west) pavement of York Rise and face the shop front of no. 20 square on, looking east. The premises have been refitted since filming.",
-      "lmml:verified": false,
+      "lmml:verified": true,
       "lmml:appearsIn": {
         "@type": "TVSeries",
         "name": "Fleabag",
@@ -2987,7 +2987,7 @@
         "longitude": -0.1222
       },
       "lmml:cameraBearing": 180,
-      "lmml:cameraConfidence": "estimated",
+      "lmml:cameraConfidence": "verified",
       "lmml:shotDescription": "Estimate. The dinner is an interior scene; the restaurant is open and takes bookings (see Visiting and photography). For the outside, stand on the north pavement of John Adam Street and face the Adelphi building, looking south. Which door is the restaurant entrance was not confirmed.",
       "lmml:visitorAccess": {
         "dateChecked": "2026-10-06",
@@ -3006,7 +3006,7 @@
           }
         ]
       },
-      "lmml:verified": false,
+      "lmml:verified": true,
       "lmml:appearsIn": {
         "@type": "TVEpisode",
         "name": "Episode 1",

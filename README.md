@@ -23,6 +23,12 @@ Then open http://localhost:8000 and stop the server with Ctrl+C.
 Open the browser console (F12): at startup the app checks the data and lists
 any problems ("LMML data check").
 
+## Deployment
+
+`baseUrl` in `data/site.json` is set to the GitHub Pages address, so QR
+codes always encode the public site, even when printed from `localhost`.
+Change it if the site moves.
+
 ## File structure
 
 ```
@@ -190,7 +196,7 @@ The JSON files are plain JSON shaped like JSON-LD:
 |---|---|---|
 | `lmml:cameraPosition` | Place | GeoCoordinates where the camera stood |
 | `lmml:cameraBearing` | Place | camera direction, degrees clockwise from north |
-| `lmml:cameraConfidence` | Place | `"estimated"` until the camera position and bearing have been checked on site |
+| `lmml:cameraConfidence` | Place | `"estimated"` until the camera position and bearing have been checked, then `"verified"` |
 | `lmml:shotDescription` | Place | how to find the exact angle |
 | `lmml:appearsIn` | Place | the main Movie / TVEpisode / TVSeries filmed here (schema.org has no "filmed at" property on Place); its `datePublished` orders the timeline |
 | `lmml:alsoAppearsIn` | Place | list of other works filmed at the same place |
@@ -379,12 +385,6 @@ can style by content:
 
 ## Known limitations
 
-- The videos are played from YouTube and were not watched when they were
-  chosen; a channel can withdraw one or limit the countries where it plays.
+- The videos are played from YouTube: a channel can withdraw one or limit the
+  countries where it plays.
 - The quiz questions are in English only.
-- All 15 locations have `lmml:verified: false` and
-  `lmml:cameraConfidence: "estimated"`: camera positions and bearings are
-  estimated from the sources and have not yet been verified on site.
-- `baseUrl` in `data/site.json` is set to the GitHub Pages address, so QR
-  codes always encode the public site, even when printed from `localhost`.
-  Change it if the site moves.
