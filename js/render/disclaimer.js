@@ -44,8 +44,7 @@ function formatList(items) {
 export function renderDisclaimer(outlet) {
   const { site, locations } = getData();
   const docs = site.docsReferences ? [{ name: 'Documentation', ...site.docsReferences }] : [];
-  const map = site.mapReferences ? [{ name: 'Map', ...site.mapReferences }] : [];
-  const sources = collectSources([...locations, ...docs, ...map]);
+  const sources = collectSources([...locations, ...docs, ...(site.siteReferences ?? [])]);
   const names = [...new Set(sources.map((s) => hostnameOf(s.url)))];
 
   const listHtml = sources.length
