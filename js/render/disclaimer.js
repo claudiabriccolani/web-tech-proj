@@ -6,15 +6,16 @@
  *   {{sourceList}}   full list of sources (<ul>), generated from the data
  *   {{author}}       site.json "author"
  *
- * Sources are collected from every location: its "citation" entries and the
- * source page ("url") of every image. Duplicates (same URL) are merged.
+ * Sources are collected from every location: its "citation" entries, the
+ * source page ("url") of every image and the YouTube page of its video.
+ * Duplicates (same URL) are merged.
  * An image licence that is an address becomes a "Licence" link; one that is
  * not ("Public domain") is shown as text.
  * The reference images and links of the documentation (site.json
  * "docsReferences") are added in the same way, under the name "Documentation".
  */
 import { el, escapeHtml } from '../dom.js';
-import { getData } from '../data.js';
+import { getData, videoOf } from '../data.js';
 import { pageShell } from './page.js';
 
 export function collectSources(locations) {
@@ -35,6 +36,11 @@ export function collectSources(locations) {
     for (const c of loc.citation ?? []) add(c.url, c.description, loc);
     for (const img of loc.image ?? []) {
       add(img.url, ['Image', img.caption, img.creditText].filter(Boolean).join(' — '), loc, img.license);
+    }
+    const video = videoOf(loc);
+    if (video) {
+      const channel = video.publisher?.name && `${video.publisher.name}, official channel on YouTube`;
+      add(video.url, ['Video', video.name, channel].filter(Boolean).join(' — '), loc);
     }
   }
   return [...byUrl.values()];

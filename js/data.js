@@ -73,6 +73,18 @@ export function cameraOf(loc) {
 /** The Movie / TVEpisode the location appears in. */
 export const workOf = (loc) => loc?.['lmml:appearsIn'] ?? null;
 
+/**
+ * The official video of the work: its trailer, or a clip of the scene (a
+ * schema.org VideoObject in "trailer" or "video" of the work), or null.
+ */
+export function videoOf(loc) {
+  const work = workOf(loc);
+  return work?.trailer ?? work?.video ?? null;
+}
+
+/** The quiz question of a location (a schema.org Question), or null. */
+export const quizOf = (loc) => loc?.['lmml:quiz'] ?? null;
+
 /** The default texts of a location (may be replaced by narrative texts, see render/location.js). */
 export const textsOf = (loc) => loc?.['lmml:texts'] ?? [];
 

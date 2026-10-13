@@ -6,7 +6,7 @@
  * "lmml:length" shows up here immediately.
  */
 import { AXES, KEYS } from './textSelector.js';
-import { yearOf } from './data.js';
+import { yearOf, videoOf, quizOf } from './data.js';
 
 export function validateData(data) {
   const problems = [];
@@ -46,6 +46,23 @@ export function validateData(data) {
       if (!image.license || !image.url) warn(`${where} image[${m}]: missing "license" or source "url"`);
       if (!image['lmml:alt']) warn(`${where} image[${m}]: no "lmml:alt" text`);
     });
+    // A video needs its title, its YouTube page, its channel and a player address without cookies
+    const video = videoOf(loc);
+    if (video) {
+      if (!video.name || !video.url || !video.publisher?.name) warn(`${where} video: missing "name", "url" or "publisher"`);
+      if (!String(video.embedUrl ?? '').startsWith('https://www.youtube-nocookie.com/embed/')) {
+        warn(`${where} video: "embedUrl" must start with https://www.youtube-nocookie.com/embed/`);
+      }
+    }
+    // A quiz needs a question, an answer and the sources of the facts it is built from
+    const quiz = quizOf(loc);
+    if (quiz) {
+      if (!quiz.name || !quiz.acceptedAnswer?.text) warn(`${where} quiz: missing question ("name") or answer ("acceptedAnswer.text")`);
+      if (!(quiz.isBasedOn ?? []).length) warn(`${where} quiz: no source in "isBasedOn"`);
+      (quiz.isBasedOn ?? []).forEach((url) => {
+        if (!cited.has(url)) warn(`${where} quiz: source ${url} is not in "citation"`);
+      });
+    }
     checkTexts(loc['lmml:texts'], where, warn);
   });
 

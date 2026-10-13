@@ -38,13 +38,16 @@ const LABELS = {
   episodeNumber: 'Episode',
   partOfSeason: 'Season',
   partOfSeries: 'Series',
+  trailer: 'Trailer',
+  video: 'Video clip',
   citation: 'Sources',
 };
 
 /* Editorial working data (the facts the texts are written from, the questions
-   still open) is not shown to visitors; lmml:imageNote is shown under the images. */
+   still open) is not shown to visitors; lmml:imageNote is shown under the images
+   and lmml:quiz under the text, where its answer stays hidden until asked for. */
 const SKIP = new Set(['@context', 'identifier', 'image', 'lmml:texts',
-  'lmml:facts', 'lmml:openQuestions', 'lmml:imageNote']);
+  'lmml:facts', 'lmml:openQuestions', 'lmml:imageNote', 'lmml:quiz']);
 
 /** Types that are a film or a series: in a list they are shown by their label. */
 const WORK_TYPES = new Set(['Movie', 'TVEpisode', 'TVSeries']);
@@ -60,6 +63,7 @@ const TYPE_FORMATTERS = {
   TVSeries: (v) => v.name,
   TVSeason: (v) => (v.seasonNumber != null ? `Season ${v.seasonNumber}` : null),
   CreativeWork: (v) => el('span', {}, externalLink(v.url), v.description ? ` — ${v.description}` : ''),
+  VideoObject: (v) => el('span', {}, externalLink(v.url, v.name), v.publisher?.name ? ` — ${v.publisher.name}, YouTube` : ''),
 };
 
 /** Special rendering of single properties, chosen by property name. */

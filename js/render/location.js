@@ -7,7 +7,7 @@
  *     <header  data-role="location-header">   transition (<details>), kicker, title, work, "not verified"
  *     <nav     data-role="panel-tabs">        Text | Info | QR (narrow viewports only)
  *     <div     data-role="location-content">  wrapper: the scroll container on narrow viewports
- *       <section data-role="location-media">    images with captions (horizontal scroll)
+ *       <section data-role="location-media">    images with captions, then the video (horizontal scroll)
  *       <section data-role="location-text" data-panel="text">   text switches + current text
  *       <section data-role="location-meta" data-panel="info">   metadata table
  *       <section data-role="location-qr"   data-panel="qr">     QR code + map link
@@ -24,9 +24,13 @@
  * has its own "lmml:texts", each of those REPLACES the location's default text
  * of the same cell and language (see mergeTexts in textSelector.js).
  * If texts exist in more than one language, a language switch is shown.
+ *
+ * QUIZ: a location may have one question ("lmml:quiz"). It is shown under the
+ * text while the text is in the "young" tone, the one that the switch
+ * "Do you want to play?" leads to; the answer opens on tap (<details>).
  */
 import { el, externalLink } from '../dom.js';
-import { getData, getLocation, getNarrative, textsOf, workOf, workLabel, locationUrl } from '../data.js';
+import { getData, getLocation, getNarrative, textsOf, workOf, workLabel, videoOf, quizOf, locationUrl } from '../data.js';
 import { getState, setState } from '../state.js';
 import { screenFor } from '../narrative.js';
 import { resumeHash } from '../navigation.js';
@@ -65,7 +69,7 @@ export function renderLocation(outlet, params) {
 
   const content = el('div', { 'data-role': 'location-content' },
     buildMedia(loc),
-    buildTextPanel(texts),
+    buildTextPanel(texts, buildQuiz(quizOf(loc))),
     el('section', { 'data-role': 'location-meta', 'data-panel': 'info', 'data-scroll': true },
       buildMetadataTable(loc)),
     buildQrPanel(loc),
@@ -171,7 +175,8 @@ function transitionSummary(transition) {
 
 function buildMedia(loc) {
   const images = loc.image ?? [];
-  return el('section', { 'data-role': 'location-media', 'data-image-count': images.length },
+  const video = videoOf(loc);
+  return el('section', { 'data-role': 'location-media', 'data-image-count': images.length, 'data-has-video': String(Boolean(video)) },
     images.map((image, i) =>
       el('figure', { 'data-role': 'location-figure', 'data-index': i },
         // alt = what the picture shows (lmml:alt); the caption below says what it is.
@@ -186,6 +191,40 @@ function buildMedia(loc) {
       )),
     // A location with no image at all still shows the note, not an empty box
     !images.length && loc['lmml:imageNote'] && el('p', { 'data-role': 'image-note' }, loc['lmml:imageNote']),
+    video && buildVideo(video),
+  );
+}
+
+/**
+ * The official trailer or clip, as one more figure after the images.
+ * Nothing is requested from YouTube until the visitor presses the button:
+ * only then is the player put in the page, from youtube-nocookie.com
+ * (YouTube's address that sets no cookie before playback). So no frame of
+ * the film is shown by the page itself, and a visit that does not play the
+ * video sends nothing to a third party.
+ */
+function buildVideo(video) {
+  const channel = video.publisher?.name;
+  const frame = el('div', { 'data-role': 'video-frame' });
+  frame.append(el('button', {
+    type: 'button',
+    'data-role': 'video-play',
+    onclick: () => frame.replaceChildren(el('iframe', {
+      src: `${video.embedUrl}?autoplay=1`,
+      title: video.name,
+      allow: 'autoplay; encrypted-media; picture-in-picture; fullscreen',
+      referrerpolicy: 'strict-origin-when-cross-origin',
+    })),
+  }, 'Watch the video'));
+
+  return el('figure', { 'data-role': 'location-figure', 'data-kind': 'video' },
+    frame,
+    el('figcaption', { 'data-role': 'figure-caption' },
+      el('span', { 'data-role': 'caption-text' }, video.name),
+      el('span', { 'data-role': 'caption-credit' },
+        channel && `Video: ${channel}, official channel on YouTube · `,
+        externalLink(video.url, 'Watch on YouTube')),
+    ),
   );
 }
 
@@ -237,7 +276,7 @@ function buildPanelTabs(article) {
  * only move among the texts of the current language; the language buttons
  * (shown only if there is more than one language) change that language.
  */
-function buildTextPanel(allTexts) {
+function buildTextPanel(allTexts, quiz) {
   const panel = el('section', { 'data-role': 'location-text', 'data-panel': 'text' });
   const controls = el('div', { 'data-role': 'text-controls' });
   const cell = el('p', { 'data-role': 'text-cell' });
@@ -312,6 +351,13 @@ function buildTextPanel(allTexts) {
     body.scrollTop = 0;
     cell.textContent = cellLabel(text);
 
+    // The quiz closes again at every change and follows the "young" texts only
+    // (body.innerHTML above has already removed it from the previous text)
+    if (quiz) {
+      quiz.open = false;
+      if (text[KEYS.tone] === 'young') body.append(quiz);
+    }
+
     const pref = getState().textPref;
     for (const { sw, button } of buttons) {
       button.target = findNeighbour(texts, text, sw.axis, sw.dir, pref);
@@ -337,6 +383,26 @@ function buildTextPanel(allTexts) {
 
   show(pickInitial(texts, getState().textPref));
   return panel;
+}
+
+/* ------------------------------------------------------------------ quiz */
+
+/**
+ * One question about the place, answer hidden until the question is tapped:
+ * a <details> does this without any script. Returns null if there is no quiz.
+ */
+function buildQuiz(quiz) {
+  if (!quiz?.name || !quiz.acceptedAnswer?.text) return null;
+  const details = el('details', { 'data-role': 'quiz', lang: quiz.inLanguage ?? 'en' },
+    el('summary', { 'data-role': 'quiz-question' },
+      el('span', { 'data-role': 'quiz-label' }, 'Spot the shot'), ' ', quiz.name),
+    el('p', { 'data-role': 'quiz-answer' }, quiz.acceptedAnswer.text),
+  );
+  // The answer may open below the visible part of the scrolling box: bring it into view
+  details.addEventListener('toggle', () => {
+    if (details.open) details.scrollIntoView({ block: 'nearest' });
+  });
+  return details;
 }
 
 /* -------------------------------------------------------------- QR panel */

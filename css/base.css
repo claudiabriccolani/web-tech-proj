@@ -458,6 +458,20 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
   object-fit: contain;
   background: var(--color-surface);
 }
+/* The video is one more figure of the strip. Its box holds a button, which
+   the player replaces when pressed; the player fills the picture row. */
+[data-role="video-frame"] {
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  background: var(--color-surface);
+}
+[data-role="video-frame"] iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border: 0;
+}
 [data-role="figure-caption"] { font-size: 0.85em; }
 [data-role="caption-credit"] { display: block; color: var(--color-muted); }
 [data-role="image-note"] { display: block; }
@@ -478,6 +492,21 @@ a[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 [data-label="short"] { display: none; }
 [data-role="text-cell"] { margin: 0; font-size: 0.8em; color: var(--color-muted); }
 [data-role="text-body"] > :first-child { margin-top: 0; }
+
+/* Quiz: under the "young" texts; the question is the summary, the answer opens on tap */
+[data-role="quiz"] {
+  margin-top: var(--space-m);
+  padding-top: var(--space-s);
+  border-top: 1px solid var(--color-border);
+}
+[data-role="quiz-question"] { cursor: pointer; }
+[data-role="quiz-label"] {
+  margin-right: 0.4em;
+  font-family: var(--font-ui);
+  font-size: 0.8em;
+  color: var(--color-muted);
+}
+[data-role="quiz-answer"] { margin: var(--space-xs) 0 0; }
 
 /* Metadata table: scrolls in its own box */
 [data-role="location-meta"] { min-height: 0; }
