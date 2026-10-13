@@ -7,7 +7,6 @@ export function drawQr(container, text, size = 128, alt = 'QR code') {
     container.append(el('p', { 'data-role': 'qr-fallback' }, text));
     return;
   }
-  // Colours stay black on white on purpose: themes shouldn't reduce scan reliability.
   new window.QRCode(container, {
     text,
     width: size,

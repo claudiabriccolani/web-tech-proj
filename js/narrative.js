@@ -53,7 +53,6 @@ export function indexOfRoute(sequence, route) {
   return -1;
 }
 
-// null when the location is not a step of that narrative
 export function screenFor(locationId, narrativeId = getState().narrativeId) {
   return sequenceOf(narrativeId).find((s) => s.type === 'location' && s.locationId === locationId) ?? null;
 }

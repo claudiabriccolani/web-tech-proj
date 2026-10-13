@@ -30,7 +30,6 @@ const LABELS = {
   citation: 'Sources',
 };
 
-// Working data, and what the page shows elsewhere. lmml:quiz would give its answer away.
 const SKIP = new Set(['@context', 'identifier', 'image', 'lmml:texts',
   'lmml:facts', 'lmml:openQuestions', 'lmml:imageNote', 'lmml:quiz']);
 
@@ -84,7 +83,6 @@ function addRows(tbody, obj, path, isRoot) {
   }
 }
 
-// null hides the row, undefined expands the object into sub-rows
 function renderValue(key, value) {
   if (KEY_FORMATTERS[key]) return KEY_FORMATTERS[key](value);
 
@@ -92,7 +90,6 @@ function renderValue(key, value) {
     return el('ul', { 'data-role': 'metadata-list' },
       value.map((item) => el('li', {}, renderListItem(key, item))));
   }
-  // The main work is always expanded
   if (key === 'lmml:appearsIn') return undefined;
   if (typeof value === 'object') {
     const formatter = TYPE_FORMATTERS[value['@type']];
@@ -125,7 +122,6 @@ function isEmpty(value) {
   return false;
 }
 
-// "lmml:shootingDate" -> "Shooting date"
 function labelFor(key) {
   if (LABELS[key]) return LABELS[key];
   const words = key.replace(/^[a-z]+:/, '').replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase();

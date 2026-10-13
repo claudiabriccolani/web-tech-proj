@@ -45,7 +45,6 @@ export function refresh() {
   outlet.dataset.view = route.page;
 
   try {
-    // A view may return a cleanup function, which runs before the next render
     cleanup = route.render(outlet, route.params, route) ?? null;
   } catch (error) {
     console.error(error);

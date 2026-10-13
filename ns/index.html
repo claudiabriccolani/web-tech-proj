@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- The list of terms is read from section 2.2 of the documentation in data/site.json -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -67,7 +66,6 @@
       }
       box.replaceChildren(table);
 
-      // The table arrived after the page: go to the requested term now
       if (location.hash.length > 1) document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView();
     } catch (error) {
       box.querySelector('[data-role="ns-loading"]').textContent =

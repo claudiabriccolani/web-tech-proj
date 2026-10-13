@@ -17,7 +17,6 @@ import { renderDisclaimer } from './render/disclaimer.js';
 import { renderQrSheet } from './render/qr.js';
 import { renderNotFound } from './render/notFound.js';
 
-// "page" groups the routes that share a menu entry and a place in prev/next
 const ROUTES = [
   { path: '/', name: 'cover', page: 'cover', render: renderCover },
   { path: '/map', name: 'map', page: 'map', render: renderMap },
@@ -34,7 +33,6 @@ const ROUTES = [
 async function main() {
   const outlet = document.querySelector('[data-role="view"]');
 
-  // fetch and ES modules do not work on file://, which is the usual cause
   let data;
   try {
     data = await loadData();
@@ -59,7 +57,6 @@ async function main() {
 
   applyTheme(getState().theme);
 
-  // Theme and narrative both change the layout, prev/next and the map route
   initChrome({
     onThemeChange(themeId) {
       setState({ theme: themeId });

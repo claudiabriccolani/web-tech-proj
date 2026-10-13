@@ -39,7 +39,6 @@ function narrativeCard(narrative) {
   );
 }
 
-// "about 11 h 20 min"
 function durationLabel(narrative) {
   const total = narrative['lmml:estimatedMinutes']?.total;
   if (typeof total !== 'number') return null;

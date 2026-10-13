@@ -8,11 +8,9 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
 
-  <!-- Structure first, then the theme -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" id="theme-css" href="css/themes/victorian.css">
 
-  <!-- defer and module scripts run in document order, so Leaflet and qrcodejs exist before js/app.js starts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
   <script type="module" src="js/app.js"></script>
@@ -37,7 +35,6 @@
     </nav>
 
     <div data-role="switchers" id="site-switchers">
-      <!-- Options are filled in from data/site.json and data/narratives.json -->
       <label data-role="switcher">Theme
         <select data-role="theme-switch"></select>
       </label>

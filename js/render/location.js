@@ -16,7 +16,6 @@ const PANELS = [
 
 const MODE_LABELS = { walk: 'Walk', tube: 'Tube', bus: 'Bus' };
 
-// Must match the narrow media query in css/base.css
 const NARROW = '(orientation: portrait), (max-width: 600px), (max-height: 500px)';
 const LANGUAGE_LABELS = { en: 'English', fr: 'Français', it: 'Italiano' };
 
@@ -54,8 +53,6 @@ export function renderLocation(outlet, params) {
   return () => narrow.removeEventListener('change', place);
 }
 
-// CSS cannot move an element out of its parent, so on narrow viewports the switches
-// and the map link are moved into the toolbar. Moving a node keeps its listeners.
 function placeControls(article, isNarrow) {
   const q = (role) => article.querySelector(`[data-role="${role}"]`);
   const controls = q('text-controls');
@@ -96,8 +93,6 @@ function buildOutsideNote(loc) {
     back && el('a', { 'data-role': 'outside-return', href: back }, 'Return to the narrative'));
 }
 
-// The same message in two lengths: base.css shows one of them, and the other is
-// display: none so that it is not read aloud twice
 function twoLabels(long, short) {
   return [el('span', { 'data-label': 'long' }, long), el('span', { 'data-label': 'short' }, short)];
 }
@@ -109,7 +104,6 @@ function buildTransition(transition) {
   );
 }
 
-// "36 min · Central + Piccadilly lines", "13 min · Walk", or "Directions" without data
 function transitionSummary(transition) {
   const lines = (transition.lines ?? []).map((name) => name.replace(/ line$/i, ''));
   const how = lines.length
@@ -125,7 +119,6 @@ function buildMedia(loc) {
   return el('section', { 'data-role': 'location-media', 'data-image-count': images.length, 'data-has-video': String(Boolean(video)) },
     images.map((image, i) =>
       el('figure', { 'data-role': 'location-figure', 'data-index': i },
-        // The caption is only a fallback for images without alt text
         el('img', { src: image.contentUrl, alt: image['lmml:alt'] ?? image.caption ?? '', loading: 'lazy' }),
         el('figcaption', { 'data-role': 'figure-caption' },
           el('span', { 'data-role': 'caption-text' }, image.caption),
@@ -138,8 +131,6 @@ function buildMedia(loc) {
   );
 }
 
-// Nothing is requested from YouTube until the button is pressed, and the page
-// itself shows no frame of the film
 function buildVideo(video) {
   const channel = video.publisher?.name;
   const frame = el('div', { 'data-role': 'video-frame' });
@@ -194,7 +185,6 @@ function buildPanelTabs(article) {
   return nav;
 }
 
-// The six switches move among the texts of the current language only
 function buildTextPanel(allTexts, quiz) {
   const panel = el('section', { 'data-role': 'location-text', 'data-panel': 'text' });
   const controls = el('div', { 'data-role': 'text-controls' });
@@ -219,7 +209,6 @@ function buildTextPanel(allTexts, quiz) {
   };
   const groups = Object.fromEntries(Object.keys(AXIS_LABELS).map((axis) => [axis, group(axis, AXIS_LABELS[axis])]));
 
-  // The accessible name holds both labels, so it contains whichever one is visible
   const buttons = SWITCHES.map((sw) => {
     const button = el('button', {
       type: 'button', 'data-role': 'text-switch', 'data-switch': sw.id, 'data-axis': sw.axis,
@@ -227,7 +216,6 @@ function buildTextPanel(allTexts, quiz) {
     }, twoLabels(sw.label, sw.short));
     button.addEventListener('click', () => {
       if (!button.target) return;
-      // Only this axis of the preference changes, so it carries over to the next location
       setState({ textPref: { ...getState().textPref, [sw.axis]: button.target[KEYS[sw.axis]] } });
       show(button.target);
       revealText();
@@ -254,7 +242,7 @@ function buildTextPanel(allTexts, quiz) {
     : [];
 
   function show(text) {
-    body.innerHTML = text.text; // trusted HTML from our own data files
+    body.innerHTML = text.text; 
     body.lang = text.inLanguage ?? 'en';
     body.dataset.textSource = text.source ?? 'location';
     body.dataset.textLength = text[KEYS.length];
@@ -263,7 +251,6 @@ function buildTextPanel(allTexts, quiz) {
     body.scrollTop = 0;
     cell.textContent = cellLabel(text);
 
-    // innerHTML above has already removed the quiz from the previous text
     if (quiz) {
       quiz.open = false;
       if (text[KEYS.tone] === 'young') body.append(quiz);
@@ -279,7 +266,6 @@ function buildTextPanel(allTexts, quiz) {
     }
   }
 
-  // On narrow viewports the text scrolls inside the content wrapper, so that is what scrolls
   function revealText() {
     const content = panel.closest('[data-role="location-content"]');
     if (content && content.scrollHeight > content.clientHeight) {
@@ -298,7 +284,6 @@ function buildQuiz(quiz) {
       el('span', { 'data-role': 'quiz-label' }, 'Spot the shot'), ' ', quiz.name),
     el('p', { 'data-role': 'quiz-answer' }, quiz.acceptedAnswer.text),
   );
-  // The answer may open below the visible part of the scrolling box
   details.addEventListener('toggle', () => {
     if (details.open) details.scrollIntoView({ block: 'nearest' });
   });

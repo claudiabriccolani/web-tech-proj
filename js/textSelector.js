@@ -16,7 +16,6 @@ export const KEYS = Object.freeze({
 
 export const DEFAULT_PREF = Object.freeze({ length: 'medium', level: 'average', tone: 'adult' });
 
-// dir +1 moves towards the end of the scale: "Too simple" asks for a higher level
 export const SWITCHES = Object.freeze([
   { id: 'more', label: 'Tell me more', short: 'More', axis: 'length', dir: +1 },
   { id: 'less', label: 'Tell me less', short: 'Less', axis: 'length', dir: -1 },
@@ -26,7 +25,6 @@ export const SWITCHES = Object.freeze([
   { id: 'details', label: 'Additional details and references', short: 'Details', axis: 'tone', dir: +1 },
 ]);
 
-// "short" is the label on phones and says what the button does, so "Too simple" reads "Harder"
 export const AXIS_LABELS = Object.freeze({ length: 'Length', level: 'Level', tone: 'Tone' });
 
 const AXIS_NAMES = Object.keys(AXES);
@@ -48,7 +46,6 @@ function centrality(text) {
   return AXIS_NAMES.reduce((sum, axis) => sum + Math.abs(rank(text, axis) - 1), 0);
 }
 
-// Lowest score wins. Scores are arrays compared in order: [2, 0] < [2, 1] < [3, 0]
 function best(items, scoreOf) {
   let bestItem = null;
   let bestScore = null;
@@ -69,7 +66,6 @@ function compareScores(a, b) {
   return 0;
 }
 
-// Falls back to every text when none exists in that language
 export function usableTexts(texts, lang = 'en') {
   const valid = (texts ?? []).filter((t) => AXIS_NAMES.every((axis) => rank(t, axis) !== -1));
   const inLang = valid.filter((t) => (t.inLanguage ?? 'en') === lang);
@@ -80,9 +76,7 @@ export function pickInitial(texts, pref) {
   return best(texts, (t) => [distance(t, pref, AXIS_NAMES), centrality(t)]);
 }
 
-// Candidates are the texts strictly beyond the current one on that axis. Among them:
-// smallest step first, then closest to the preference on the other two axes, then
-// the most central. null means the button is disabled.
+
 export function findNeighbour(texts, current, axis, dir, pref) {
   const from = rank(current, axis);
   const otherAxes = AXIS_NAMES.filter((a) => a !== axis);
@@ -104,7 +98,6 @@ export function cellKey(text) {
   return [...AXIS_NAMES.map((axis) => text[KEYS[axis]]), text.inLanguage ?? 'en'].join('|');
 }
 
-// A narrative text replaces the default text of the same cell and language
 export function mergeTexts(locationTexts, narrativeTexts) {
   const byCell = new Map();
   for (const t of locationTexts ?? []) byCell.set(cellKey(t), { ...t, source: 'location' });

@@ -40,7 +40,6 @@ export function getData() {
 export const getLocation = (id) => getData().locationsById.get(id) ?? null;
 export const getNarrative = (id) => getData().narrativesById.get(id) ?? null;
 
-// [lat, lng], the order Leaflet expects
 export function geoOf(loc) {
   const g = loc?.geo;
   return g && typeof g.latitude === 'number' ? [g.latitude, g.longitude] : null;
@@ -55,7 +54,6 @@ export function cameraOf(loc) {
 
 export const workOf = (loc) => loc?.['lmml:appearsIn'] ?? null;
 
-// "trailer" holds a trailer, "video" a clip
 export function videoOf(loc) {
   const work = workOf(loc);
   return work?.trailer ?? work?.video ?? null;
@@ -75,7 +73,6 @@ export function workLabel(work) {
   return year ? `${title} (${year})` : title;
 }
 
-// baseUrl keeps printed QR codes pointing at the public site, even from localhost
 export function locationUrl(id) {
   const base = getData().site.baseUrl || `${window.location.origin}${window.location.pathname}`;
   return `${base.replace(/#.*$/, '')}#/location/${encodeURIComponent(id)}`;

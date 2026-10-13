@@ -24,7 +24,6 @@ export function resumeHash() {
   return hashFor(sequence[index]);
 }
 
-// prev, next and returnTo are hashes, or null when the link is disabled
 export function computeNav(route) {
   const { narrativeId, lastPosition } = getState();
   const sequence = sequenceOf(narrativeId);
@@ -54,7 +53,6 @@ export function computeNav(route) {
     nav.prev = pageHash('cover');
     nav.next = afterPage('cover');
   }
-  // The cover has its own Start / Resume buttons
   if (route.page !== 'cover') nav.returnTo = narrativeId in lastPosition ? resumeHash() : null;
   return nav;
 }

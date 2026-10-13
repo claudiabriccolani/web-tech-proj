@@ -5,7 +5,6 @@ import { pageShell } from './page.js';
 export function collectSources(locations) {
   const byUrl = new Map();
 
-  // A page can be both a cited source and the source of an image: keep both descriptions
   const add = (url, description, loc, license) => {
     if (!url || !/^https?:\/\//.test(url)) return;
     if (!byUrl.has(url)) byUrl.set(url, { url, descriptions: [], license: null, locations: new Set() });
@@ -37,7 +36,6 @@ function hostnameOf(url) {
   }
 }
 
-// ['a','b','c'] -> "a, b and c"
 function formatList(items) {
   if (items.length <= 1) return items.join('');
   return `${items.slice(0, -1).join(', ')} and ${items.at(-1)}`;
@@ -45,12 +43,10 @@ function formatList(items) {
 
 export function renderDisclaimer(outlet) {
   const { site, locations } = getData();
-  // docsReferences has the same shape as a location
   const docs = site.docsReferences ? [{ name: 'Documentation', ...site.docsReferences }] : [];
   const sources = collectSources([...locations, ...docs]);
   const names = [...new Set(sources.map((s) => hostnameOf(s.url)))];
 
-  // An HTML string because it goes inside the template; every value is escaped
   const listHtml = sources.length
     ? `<ul data-role="source-list">${sources.map((s) => `
         <li data-role="source">

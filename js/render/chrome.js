@@ -24,7 +24,6 @@ export function initChrome({ onThemeChange, onNarrativeChange }) {
     toggle.setAttribute('aria-expanded', String(open));
   });
 
-  // Arrow keys follow prev/next, unless typing in a form field
   document.addEventListener('keydown', (event) => {
     if (event.target.closest('input, select, textarea')) return;
     const link = event.key === 'ArrowLeft' ? q('nav-prev') : event.key === 'ArrowRight' ? q('nav-next') : null;
@@ -44,8 +43,6 @@ export function updateChrome(route) {
   returnLink.hidden = !nav.returnTo;
   if (nav.returnTo) returnLink.href = nav.returnTo;
 
-  // The location header already has the return link here, so base.css hides the
-  // copy in this bar on narrow viewports
   q('site-footer').dataset.returnInHeader = String(route.name === 'location' && nav.outside && Boolean(nav.returnTo));
 
   q('nav-position').textContent = nav.position ? `${nav.position.current} / ${nav.position.total}` : '';
@@ -55,7 +52,6 @@ export function updateChrome(route) {
     else a.removeAttribute('aria-current');
   });
 
-  // The state can also change from the cover's Start buttons
   q('theme-switch').value = state.theme;
   q('narrative-switch').value = state.narrativeId;
 
@@ -66,7 +62,6 @@ export function updateChrome(route) {
   document.title = h1 && route.page !== 'cover' ? `${h1.textContent} – ${site.title}` : site.title;
 }
 
-// Without href the link is not clickable; aria-disabled is what the CSS styles
 function setLink(a, href) {
   if (href) {
     a.href = href;

@@ -6,7 +6,7 @@ import { navigate } from '../router.js';
 
 const LONDON = [51.5074, -0.1278];
 const CONE_LENGTH_M = 45;
-const CONE_HALF_ANGLE = 20;   // half of the cone's opening, in degrees
+const CONE_HALF_ANGLE = 20;   
 const ARROW_HEAD_M = 12;
 const EARTH_RADIUS_M = 6371000;
 
@@ -70,13 +70,11 @@ export function renderMap(outlet, params) {
     marker.on('click', () => navigate(`#/location/${encodeURIComponent(loc.identifier)}`));
   }
 
-  // The requested location, else everything, else London
   const focus = params.id ? geoOf(getLocation(params.id)) : null;
   if (focus) map.setView(focus, 18);
   else if (bounds.length) map.fitBounds(bounds, { padding: [30, 30], maxZoom: 17 });
   else map.setView(LONDON, 12);
 
-  // Leaflet measures its container once, so it is told when the size changes
   const observer = new ResizeObserver(() => map.invalidateSize());
   observer.observe(canvas);
 
@@ -94,7 +92,6 @@ function drawCamera(L, map, camera) {
     }
     L.polygon(points, { className: 'lmml-camera-cone', interactive: false }).addTo(map);
 
-    // Arrow head: two strokes back from the tip, at ±150° from the bearing
     const tip = destination(camera.latLng, camera.bearing, CONE_LENGTH_M);
     L.polyline([
       [camera.latLng, tip],
@@ -104,8 +101,6 @@ function drawCamera(L, map, camera) {
   L.circleMarker(camera.latLng, { radius: 4, className: 'lmml-camera', interactive: false }).addTo(map);
 }
 
-// Flat-Earth approximation, fine over a few metres. Longitude is divided by
-// cos(lat) because meridians get closer towards the poles.
 function destination([lat, lng], bearing, metres) {
   const toRad = Math.PI / 180;
   const b = bearing * toRad;

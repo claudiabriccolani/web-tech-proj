@@ -12,7 +12,6 @@ let state = {
   lang: 'en',
 };
 
-// localStorage can throw (private mode, blocked storage)
 function readStorage() {
   try {
     return JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? {};
@@ -29,7 +28,6 @@ function writeStorage() {
   }
 }
 
-// Saved values are checked against what exists now: a theme or a narrative may have been removed
 export function initState({ themeIds, defaultTheme, narrativeIds, defaultNarrative }) {
   const saved = readStorage();
 
