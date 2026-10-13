@@ -180,6 +180,19 @@
           "description": "OpenStreetMap: coordinates of Marylebone station building"
         }
       ],
+      "lmml:quiz": {
+        "@type": "Question",
+        "name": "The film says this station is in Liverpool. Which street beside it did the Beatles run down, towards the camera, with the fans behind them?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Boston Place, the street along the east side of the station. Stand at its south end, on the corner of Melcombe Place, and look north."
+        },
+        "inLanguage": "en",
+        "isBasedOn": [
+          "https://www.movie-locations.com/movies/h/Hard-Days-Night.php",
+          "https://www.beatlesbible.com/1964/04/05/filming-a-hard-days-night-24/"
+        ]
+      },
       "lmml:texts": [
         {
           "lmml:length": "short",
@@ -366,6 +379,18 @@
           "description": "OpenStreetMap: coordinates of southern end of Charlotte Mews"
         }
       ],
+      "lmml:quiz": {
+        "@type": "Question",
+        "name": "The four Beatles run out of this archway and into a theatre across the road. The theatre has gone: what stands in its place?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A block called Scala House. The Scala Theatre was the “TV studio” of the film."
+        },
+        "inLanguage": "en",
+        "isBasedOn": [
+          "https://www.movie-locations.com/movies/h/Hard-Days-Night.php"
+        ]
+      },
       "lmml:texts": [
         {
           "lmml:length": "short",
@@ -551,6 +576,18 @@
           "description": "OpenStreetMap: coordinates of 142 Portobello Road"
         }
       ],
+      "lmml:quiz": {
+        "@type": "Question",
+        "name": "The sign on no. 142 says “The Travel Book Shop”. What was really here when the film was shot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An antiques arcade, Nicholls Antique Arcade. Today it is a gift shop called “Notting Hill”, which copies the typeface and colours of the film title."
+        },
+        "inLanguage": "en",
+        "isBasedOn": [
+          "https://www.movie-locations.com/movies/n/Notting-Hill.php"
+        ]
+      },
       "lmml:texts": [
         {
           "lmml:length": "short",
@@ -710,6 +747,19 @@
           "description": "OpenStreetMap: coordinates of 280 Westbourne Park Road"
         }
       ],
+      "lmml:quiz": {
+        "@type": "Question",
+        "name": "Is Will and Spike’s scruffy flat behind the blue door?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The flat was a studio set. Behind the door there is a grand house, which was owned by the film’s screenwriter, Richard Curtis."
+        },
+        "inLanguage": "en",
+        "isBasedOn": [
+          "https://www.movie-locations.com/movies/n/Notting-Hill.php",
+          "https://en.wikipedia.org/wiki/Notting_Hill_(film)"
+        ]
+      },
       "lmml:texts": [
         {
           "lmml:length": "short",
@@ -909,6 +959,18 @@
           "description": "OpenStreetMap: coordinates of The Glass House optician, Bull's Head Passage"
         }
       ],
+      "lmml:quiz": {
+        "@type": "Question",
+        "name": "Which doorway in Bull’s Head Passage is the way into the Leaky Cauldron, and what kind of shop is it now?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The rounded doorway of The Glass House, an optician."
+        },
+        "inLanguage": "en",
+        "isBasedOn": [
+          "https://www.timeout.com/london/news/london-on-screen-the-leaky-cauldron-from-harry-potter-and-the-philosophers-stone-070318"
+        ]
+      },
       "lmml:texts": [
         {
           "lmml:length": "short",
@@ -1091,6 +1153,19 @@
           "description": "Coordinates of Somerset House as given by Wikipedia, shown on OpenStreetMap"
         }
       ],
+      "lmml:quiz": {
+        "@type": "Question",
+        "name": "In Love Actually this courtyard is an ice rink. What was it used for before it was refurbished?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It was a car park for the Civil Service. You can see it like that in GoldenEye and Tomorrow Never Dies."
+        },
+        "inLanguage": "en",
+        "isBasedOn": [
+          "https://www.movie-locations.com/movies/l/Love-Actually.php",
+          "https://en.wikipedia.org/wiki/Somerset_House"
+        ]
+      },
       "lmml:texts": [
         {
           "lmml:length": "short",
@@ -1293,6 +1368,18 @@
           "description": "Grosvenor Chapel: official site (opening times for visitors)"
         }
       ],
+      "lmml:quiz": {
+        "@type": "Question",
+        "name": "Which song surprises the bride and groom at the wedding filmed here?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "“All You Need Is Love”, at the wedding of Peter and Juliet."
+        },
+        "inLanguage": "en",
+        "isBasedOn": [
+          "https://www.movie-locations.com/movies/l/Love-Actually.php"
+        ]
+      },
       "lmml:texts": [
         {
           "lmml:length": "short",
@@ -1502,6 +1589,18 @@
           "description": "Selfridges: London store page (official opening hours)"
         }
       ],
+      "lmml:quiz": {
+        "@type": "Question",
+        "name": "The shop assistant who takes so long to wrap the necklace turns up again at the airport, with a knowing smile. Why?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "He was originally meant to be an angel who keeps coming back. He is played by Rowan Atkinson."
+        },
+        "inLanguage": "en",
+        "isBasedOn": [
+          "https://www.movie-locations.com/movies/l/Love-Actually.php"
+        ]
+      },
       "lmml:texts": [
         {
           "lmml:length": "short",
@@ -1682,6 +1781,18 @@
           "description": "OpenStreetMap: coordinates of 27 St Luke's Mews"
         }
       ],
+      "lmml:quiz": {
+        "@type": "Question",
+        "name": "On this doorstep Mark tells Juliet he loves her without saying a word, with cue cards. What did the original script have him do in the mews?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Carpet it with rose petals."
+        },
+        "inLanguage": "en",
+        "isBasedOn": [
+          "https://www.movie-locations.com/movies/l/Love-Actually.php"
+        ]
+      },
       "lmml:texts": [
         {
           "lmml:length": "short",
@@ -1980,6 +2091,18 @@
           "description": "Tate Modern: Restaurant and Bar page (location, views, opening times)"
         }
       ],
+      "lmml:quiz": {
+        "@type": "Question",
+        "name": "Death Eaters destroy this bridge in a story set in 1996. What is wrong with that?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The bridge did not exist yet: it opened on 10 June 2000."
+        },
+        "inLanguage": "en",
+        "isBasedOn": [
+          "https://en.wikipedia.org/wiki/Millennium_Bridge,_London"
+        ]
+      },
       "lmml:texts": [
         {
           "lmml:length": "short",
@@ -2180,6 +2303,18 @@
           "description": "OpenStreetMap: coordinates of Speedy's café, 187 North Gower Street"
         }
       ],
+      "lmml:quiz": {
+        "@type": "Question",
+        "name": "Beside the door of “221B” there is a blue plaque that you never see in the series. Whose is it, and how is it hidden?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Giuseppe Mazzini’s, the Italian patriot who lived in this house from 1837 to 1840. During filming it is covered by a fake lamp."
+        },
+        "inLanguage": "en",
+        "isBasedOn": [
+          "https://en.wikipedia.org/wiki/North_Gower_Street"
+        ]
+      },
       "lmml:texts": [
         {
           "lmml:length": "short",
@@ -2370,6 +2505,18 @@
           "description": "Coordinates of Russell Square as given by Wikipedia, shown on OpenStreetMap"
         }
       ],
+      "lmml:quiz": {
+        "@type": "Question",
+        "name": "Watson and Mike Stamford talk on a bench in this park. Which building is behind them?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Imperial Hotel: its façade is the backdrop of the scene. Look east to find it."
+        },
+        "inLanguage": "en",
+        "isBasedOn": [
+          "https://en.wikipedia.org/wiki/Russell_Square"
+        ]
+      },
       "lmml:texts": [
         {
           "lmml:length": "short",
@@ -2573,6 +2720,19 @@
           "description": "OpenStreetMap: coordinates of St Bartholomew's Hospital"
         }
       ],
+      "lmml:quiz": {
+        "@type": "Question",
+        "name": "Something on Giltspur Street, outside the hospital, has become a “shrine” to Sherlock. What is it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A phone box. In the episode Sherlock dives off the hospital roof while John looks on from the street."
+        },
+        "inLanguage": "en",
+        "isBasedOn": [
+          "https://en.wikipedia.org/wiki/The_Reichenbach_Fall",
+          "https://commons.wikimedia.org/wiki/File:Sherlock_Holmes_phone_box,_St_Bart%27s_Hospital,_City_of_London,_England.jpg"
+        ]
+      },
       "lmml:texts": [
         {
           "lmml:length": "short",
@@ -2762,6 +2922,18 @@
           "description": "US Naval Observatory, Astronomical Applications Department: sun rise and set times for one day (queried for London on 20 March, 21 June, 23 September and 21 December 2026; the link shows 21 December)"
         }
       ],
+      "lmml:quiz": {
+        "@type": "Question",
+        "name": "How much does Fleabag charge a customer for a cheese sandwich in her café?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "£12.55. When he cannot believe it, she answers: “London, eh?”"
+        },
+        "inLanguage": "en",
+        "isBasedOn": [
+          "https://www.timeout.com/london/news/london-on-screen-the-guinea-pig-themed-cafe-from-fleabag-031919"
+        ]
+      },
       "lmml:texts": [
         {
           "lmml:length": "short",
@@ -2979,6 +3151,19 @@
           "description": "Smith & Wollensky London: official site, Find us (opening times, booking)"
         }
       ],
+      "lmml:quiz": {
+        "@type": "Question",
+        "name": "The family dinner that opens series two was filmed in a restaurant in this building. What kind of restaurant is it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An American steakhouse, Smith & Wollensky, in the Adelphi building."
+        },
+        "inLanguage": "en",
+        "isBasedOn": [
+          "https://en.wikipedia.org/wiki/Fleabag",
+          "https://commons.wikimedia.org/wiki/File:London_-_The_Adelphi_(31931338322).jpg"
+        ]
+      },
       "lmml:texts": [
         {
           "lmml:length": "short",
