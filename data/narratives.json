@@ -137,7 +137,7 @@
                   "Central",
                   "Piccadilly"
                 ],
-                "text": "<p>Cross back over the Millennium Bridge and walk to St Paul's station (about 14 minutes from the bridge). Take the Central line westbound two stops to Holborn (about 3 minutes) and change to the Piccadilly line northbound for one stop to Russell Square (about 2 minutes). From the station walk to the square and go into the gardens; the planner allows 11 minutes to reach the middle of the square. The Imperial Hotel is on the east side.</p>"
+                "text": "<p>Cross back over the Millennium Bridge and walk to St Paul's station (about 14 minutes from the bridge). Take the Central line westbound two stops to Holborn (about 3 minutes) and change to the Piccadilly line northbound for one stop to Russell Square (about 2 minutes); the planner allows 6 minutes for the change at Holborn. From the station walk to the square and go into the gardens; the planner allows 11 minutes to reach the middle of the square. The Imperial Hotel is on the east side.</p>"
               }
             },
             {
@@ -168,7 +168,7 @@
                   "Elizabeth line",
                   "Northern"
                 ],
-                "text": "<p>Walk about 9 minutes back to Farringdon and take the Elizabeth line one stop west to Tottenham Court Road (about 3 minutes). Change to the Northern line southbound (Charing Cross branch) for two stops to Charing Cross (about 2 minutes). From Charing Cross walk about 9 minutes east along the Strand and turn right towards John Adam Street. Walking all the way takes about 35 minutes.</p>"
+                "text": "<p>Walk about 9 minutes back to Farringdon and take the Elizabeth line one stop west to Tottenham Court Road (about 3 minutes). Change to the Northern line southbound (Charing Cross branch) for two stops to Charing Cross (about 2 minutes); the planner allows 4 minutes for the change at Tottenham Court Road. From Charing Cross walk about 9 minutes east along the Strand and turn right towards John Adam Street. Walking all the way takes about 35 minutes.</p>"
               }
             }
           ]
