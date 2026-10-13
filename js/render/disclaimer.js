@@ -15,7 +15,7 @@ export function collectSources(locations) {
   };
 
   for (const loc of locations) {
-    for (const c of loc.citation ?? []) add(c.url, c.description, loc);
+    for (const c of loc.citation ?? []) add(c.url, c.description, loc, c.license);
     for (const img of loc.image ?? []) {
       add(img.url, ['Image', img.caption, img.creditText].filter(Boolean).join(' — '), loc, img.license);
     }
@@ -44,7 +44,8 @@ function formatList(items) {
 export function renderDisclaimer(outlet) {
   const { site, locations } = getData();
   const docs = site.docsReferences ? [{ name: 'Documentation', ...site.docsReferences }] : [];
-  const sources = collectSources([...locations, ...docs]);
+  const map = site.mapReferences ? [{ name: 'Map', ...site.mapReferences }] : [];
+  const sources = collectSources([...locations, ...docs, ...map]);
   const names = [...new Set(sources.map((s) => hostnameOf(s.url)))];
 
   const listHtml = sources.length
